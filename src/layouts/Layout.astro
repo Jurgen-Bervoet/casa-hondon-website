@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import type { Lang, PageGroup } from '../i18n/routes';
+import { ROUTES, LANGS, type Lang, type PageGroup } from '../i18n/routes';
 import '../styles/global.css';
 
 interface Props {
@@ -9,9 +9,47 @@ interface Props {
   active: PageGroup;
   title: string;
   description: string;
+  image?: string;
 }
 
-const { lang, active, title, description } = Astro.props;
+const { lang, active, title, description, image = '/hero.jpg' } = Astro.props;
+
+const site = Astro.site ?? new URL('https://casa-hondon.netlify.app');
+const canonicalURL = new URL(ROUTES[active][lang], site);
+const imageURL = new URL(image, site);
+
+const OG_LOCALES: Record<Lang, string> = {
+  nl: 'nl_BE',
+  es: 'es_ES',
+  en: 'en_US',
+  fr: 'fr_FR',
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  '@id': `${site}#business`,
+  name: 'Casa Helena',
+  description:
+    'Vakantiehuis met privézwembad in Hondón de las Nieves, Alicante — 3 slaapkamers, 2 badkamers, volledig alleenstaand.',
+  url: site.toString(),
+  image: imageURL.toString(),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Hondón de las Nieves',
+    addressRegion: 'Alicante',
+    addressCountry: 'ES',
+  },
+  amenityFeature: [
+    'Privézwembad',
+    'Wifi',
+    'Airconditioning',
+    'Pelletkachel',
+    'Garage',
+    '3 slaapkamers',
+    '2 badkamers',
+  ].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
+};
 ---
 
 <!doctype html>
@@ -22,6 +60,33 @@ const { lang, active, title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {
+      LANGS.map((l) => (
+        <link rel="alternate" hreflang={l} href={new URL(ROUTES[active][l], site)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(ROUTES[active].nl, site)} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Casa Helena" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content={OG_LOCALES[lang]} />
+    {
+      LANGS.filter((l) => l !== lang).map((l) => (
+        <meta property="og:locale:alternate" content={OG_LOCALES[l]} />
+      ))
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <Header lang={lang} active={active} />

@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="es"
+  active="home"
+  title="Casa Helena — Casa de vacaciones con piscina en Hondón de las Nieves"
+  description="Casa Helena es una pequeña casa de vacaciones con piscina propia en Hondón de las Nieves, Alicante. Calma, naturaleza y vida al aire libre."
+>
+  <Hero
+    title="Casa Helena"
+    subtitle="Sol, calma y piscina propia en el corazón de Hondón de las Nieves"
+    ctaLabel="Consultar disponibilidad"
+    ctaHref={ROUTES.availability.es}
+    imageLabel="Foto: piscina y terraza de Casa Helena"
+    image="/hero.jpg"
+  />
+
+  <section class="section section--white">
+    <div class="wrap intro-collage">
+      <div class="intro-collage__photos">
+        <PhotoCollage
+          mainLabel="Foto: piscina y terraza"
+          overlayLabel="Foto: interior / salón"
+          mainRatio="4 / 3"
+          overlayRatio="5 / 4"
+          corner="bottom-left"
+          mainImage="/zwembad%20en%20terras.jpg"
+          overlayImage="/woonruimte.jpg"
+        />
+      </div>
+      <div class="intro-collage__text">
+        <span class="eyebrow">Nuestra historia</span>
+        <p class="intro__text">
+          Casa Helena es un sueño hecho realidad. Después de años viajando por España, teníamos
+          claro una cosa: algún día queríamos un lugar propio aquí, entre Valencia y Alicante.
+          Tras una búsqueda larga y exigente, encontramos esta casa — amplia, con una piscina
+          preciosa, en una comarca tranquila que nunca queda lejos de todo.
+        </p>
+        <p class="intro__text">
+          Con mucho cariño elegimos este lugar, y con el mismo cariño lo compartimos con
+          familias que, como nosotros, buscan calma: nada de turismo de masas, nada de fiestas
+          ruidosas, sino silencio, espacio y tiempo para estar juntos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <FeatureGrid
+        features={[
+          { title: 'Piscina y terraza', text: 'Tu propia piscina, mantenida cada semana, en una parcela grande y completamente vallada.' },
+          { title: 'Calma y naturaleza', text: 'La casa está totalmente aislada, en un oasis de calma — solo los grillos podrían despertarte por la noche.' },
+          { title: 'Hondón de las Nieves', text: 'A apenas 10 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.' },
+          { title: 'Comodidad y privacidad', text: '3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Planifica tu estancia en Casa Helena"
+    text="Consulta la disponibilidad y envía tu solicitud — confirmamos rápido por correo."
+    ctaLabel="Ver disponibilidad y reservar"
+    ctaHref={ROUTES.availability.es}
+  />
+</Layout>
+
+<style>
+  .intro-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .intro__text {
+    font-size: 1.15rem;
+    color: #4a4638;
+  }
+
+  @media (max-width: 780px) {
+    .intro-collage {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .intro-collage__photos {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+</style>

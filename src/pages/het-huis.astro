@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhotoCollage from '../components/PhotoCollage.astro';
+import InfoList from '../components/InfoList.astro';
+import Gallery from '../components/Gallery.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { ROUTES } from '../i18n/routes';
+---
+
+<Layout
+  lang="nl"
+  active="house"
+  title="Het Huis — Casa Helena"
+  description="Ontdek Casa Helena: indeling, voorzieningen en zwembad van dit vakantiehuis in Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Het Huis</span>
+      <h1>Knus, compleet en helemaal van jullie</h1>
+      <p>
+        Casa Helena is knus en compleet: groot genoeg voor een gezellig gezelschap, klein
+        genoeg om overal de rust van thuis te voelen. Binnen vind je alle comfort, buiten
+        een terras en zwembad waar je de meeste tijd zal doorbrengen.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Foto: zwembad met zicht op de bergen"
+        overlayLabel="Foto: terras"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-right"
+        mainImage="/zwembad%20en%20terras.jpg"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Kenmerken</h2>
+        <InfoList
+          columns={1}
+          items={[
+            '3 ruime slaapkamers, 2 badkamers',
+            'Huis staat volledig alleenstaand, geen buren in de buurt',
+            'Eigen zwembad, wekelijks onderhouden',
+            'Groot, volledig omheind terrein',
+            'Volledig ingerichte keuken',
+            'Grote garage waar je wagen binnen kan',
+          ]}
+        />
+      </div>
+      <div>
+        <h2>Voorzieningen</h2>
+        <InfoList
+          columns={1}
+          items={[
+            'Wifi',
+            'Airconditioning',
+            'Pelletkachel',
+            'Bedlakens en handdoeken voorzien',
+            'Ligstoelen',
+            'Volledig ingerichte keuken met bestek, borden, glazen en tassen',
+            'Koffiezet, fruitpers, waterkoker, magnetron, oven, diepvries en koelkast',
+            'Stofzuiger en haardroger',
+            'BBQ',
+            'Gratis parkeren in de garage',
+          ]}
+        />
+        <p class="bring-your-own">Zelf mee te nemen: strandlakens.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Fotogalerij</h2>
+      <Gallery
+        labels={[
+          'Zwembad',
+          'Terras',
+          'Woonkamer',
+          'Keuken',
+          'Slaapkamer 1',
+          'Slaapkamer 2',
+          'Slaapkamer 3',
+          'Badkamer',
+          'Tuin',
+        ]}
+      />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Zin om hier te logeren?"
+    text="Bekijk de beschikbaarheid van Casa Helena en stuur je aanvraag door."
+    ctaLabel="Naar beschikbaarheid & boeken"
+    ctaHref={ROUTES.availability.nl}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .bring-your-own {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #57534a;
+  }
+
+  @media (max-width: 700px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

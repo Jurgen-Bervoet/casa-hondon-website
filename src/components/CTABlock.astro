@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const { title, text, ctaLabel, ctaHref } = Astro.props;
+---
+
+<section class="section section--sage cta-block">
+  <div class="wrap cta-block__inner">
+    <div>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a href={ctaHref} class="btn btn--outline">{ctaLabel}</a>
+  </div>
+</section>
+
+<style>
+  .cta-block__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-block__inner p {
+    max-width: 55ch;
+    opacity: 0.9;
+    margin: 0;
+  }
+</style>

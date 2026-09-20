@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import InfoList from '../../components/InfoList.astro';
+import Gallery from '../../components/Gallery.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="es"
+  active="house"
+  title="La Casa — Casa Helena"
+  description="Descubre Casa Helena: distribución, servicios y piscina de esta casa de vacaciones en Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">La Casa</span>
+      <h1>Acogedora, completa y solo para vosotros</h1>
+      <p>
+        Casa Helena es acogedora y completa: lo bastante grande para disfrutar en
+        compañía, lo bastante pequeña para sentir la calma de un hogar en cualquier
+        rincón. Dentro, todas las comodidades; fuera, una terraza y piscina donde pasaréis
+        la mayor parte del tiempo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Foto: piscina con vistas a la sierra"
+        overlayLabel="Foto: terraza"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-right"
+        mainImage="/zwembad%20en%20terras.jpg"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Características</h2>
+        <InfoList
+          columns={1}
+          items={[
+            '3 dormitorios amplios, 2 baños',
+            'Casa totalmente aislada, sin vecinos cerca',
+            'Piscina privada, mantenida cada semana',
+            'Parcela grande y completamente vallada',
+            'Cocina totalmente equipada',
+            'Amplio garaje donde cabe tu coche',
+          ]}
+        />
+      </div>
+      <div>
+        <h2>Servicios</h2>
+        <InfoList
+          columns={1}
+          items={[
+            'Wifi',
+            'Aire acondicionado',
+            'Estufa de pellets',
+            'Ropa de cama y toallas incluidas',
+            'Tumbonas',
+            'Cocina totalmente equipada con cubiertos, platos, vasos y tazas',
+            'Cafetera, exprimidor, hervidor, microondas, horno, congelador y frigorífico',
+            'Aspiradora y secador de pelo',
+            'Barbacoa',
+            'Aparcamiento gratuito en el garaje',
+          ]}
+        />
+        <p class="bring-your-own">Para traer tú mismo: toallas de playa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Galería</h2>
+      <Gallery
+        labels={[
+          'Piscina',
+          'Terraza',
+          'Salón',
+          'Cocina',
+          'Dormitorio 1',
+          'Dormitorio 2',
+          'Dormitorio 3',
+          'Baño',
+          'Jardín',
+        ]}
+      />
+    </div>
+  </section>
+
+  <CTABlock
+    title="¿Te apetece alojarte aquí?"
+    text="Consulta la disponibilidad de Casa Helena y envía tu solicitud."
+    ctaLabel="Ver disponibilidad y reservar"
+    ctaHref={ROUTES.availability.es}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .bring-your-own {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #57534a;
+  }
+
+  @media (max-width: 700px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

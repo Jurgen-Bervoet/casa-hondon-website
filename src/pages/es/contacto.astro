@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  lang="es"
+  active="contact"
+  title="Contacto — Casa Helena"
+  description="Ponte en contacto sobre Casa Helena, la casa de vacaciones en Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Contacto</span>
+      <h1>¿Preguntas sobre Casa Helena?</h1>
+      <p>
+        ¿Tienes alguna pregunta sobre Casa Helena que no esté relacionada con una
+        solicitud de reserva? No dudes en escribirnos.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Datos</h2>
+        <ul class="contact-details">
+          <li><strong>Correo</strong><span>info@casahelena.example</span></li>
+          <li><strong>Teléfono</strong><span>+34 XXX XXX XXX</span></li>
+          <li><strong>Ubicación</strong><span>Hondón de las Nieves, Alicante, España</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Formulario de contacto</h2>
+        <ContactForm
+          labels={{
+            name: 'Nombre',
+            email: 'Correo electrónico',
+            message: 'Mensaje',
+            submit: 'Enviar',
+          }}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .contact-details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .contact-details li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+
+  .contact-details li strong {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-clay-deep);
+  }
+</style>

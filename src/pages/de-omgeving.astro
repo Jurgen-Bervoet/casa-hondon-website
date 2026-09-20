@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhotoCollage from '../components/PhotoCollage.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { ROUTES } from '../i18n/routes';
+---
+
+<Layout
+  lang="nl"
+  active="area"
+  title="De Omgeving — Casa Helena"
+  description="Ontdek Hondón de las Nieves en omgeving: wandelen, de zoutmeren, het dorp en streekproducten."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">De Omgeving</span>
+      <h1>Het rustige binnenland van Alicante</h1>
+      <p>
+        Hondón de las Nieves ligt in het groene binnenland van de provincie Alicante, in de
+        vallei die het dorp deelt met zijn buurdorp Hondón de los Frailes. Bergen,
+        amandelbomen, wijngaarden en de bekende zoutmeren (Salinas) bepalen het landschap —
+        een heel ander Spanje dan de drukke kust.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Foto: zoutmeren (Salinas) en omliggende bergen"
+        overlayLabel="Foto: wandelpad in de sierra"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-left"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Wat te doen</h2>
+      <FeatureGrid
+        features={[
+          { title: 'Wandelen & natuur', text: 'De omliggende bergen bieden wandelroutes voor elk niveau, met uitzicht over de vallei.' },
+          { title: 'De zoutmeren (Salinas)', text: 'Een bijzonder natuurgebied tussen de twee Hondón-dorpen, geliefd bij vogelaars en fotografen.' },
+          { title: 'Het dorp', text: 'Op zo\'n 10 minuten rijden ligt Hondón de las Nieves zelf: een rustig, authentiek dorp met goede restaurants en een gezellig ontbijtcafé.' },
+          { title: 'Streekproducten', text: 'De regio staat bekend om amandelen, olijfolie en wijn — ideaal voor liefhebbers van lokale gastronomie.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Bereikbaarheid</h2>
+      <ul class="distances">
+        <li><strong>Hondón de las Nieves (dorp)</strong> — ongeveer 10 minuten rijden</li>
+        <li><strong>Vliegveld Alicante-Elche</strong> — reistijd nog te bevestigen</li>
+        <li><strong>Elche centrum</strong> — reistijd nog te bevestigen</li>
+        <li><strong>Dichtstbijzijnde kust</strong> — reistijd nog te bevestigen</li>
+      </ul>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Casa Helena als uitvalsbasis"
+    text="Bekijk de beschikbaarheid en boek je verblijf in het hart van deze rustige streek."
+    ctaLabel="Naar beschikbaarheid & boeken"
+    ctaHref={ROUTES.availability.nl}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .distances {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .distances li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+</style>

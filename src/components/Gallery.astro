@@ -1,0 +1,27 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  labels: string[];
+}
+
+const { labels } = Astro.props;
+---
+
+<div class="gallery">
+  {labels.map((label) => <PlaceholderImage label={label} ratio="1 / 1" />)}
+</div>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 780px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

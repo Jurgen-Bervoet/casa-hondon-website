@@ -1,0 +1,69 @@
+---
+interface Labels {
+  name: string;
+  email: string;
+  phone: string;
+  arrival: string;
+  departure: string;
+  guests: string;
+  message: string;
+  submit: string;
+}
+
+interface Props {
+  labels: Labels;
+}
+
+const { labels } = Astro.props;
+---
+
+<form class="booking-form">
+  <div class="field-row">
+    <div class="field">
+      <label for="name">{labels.name}</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div class="field">
+      <label for="email">{labels.email}</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for="phone">{labels.phone}</label>
+      <input type="tel" id="phone" name="phone" />
+    </div>
+    <div class="field">
+      <label for="guests">{labels.guests}</label>
+      <input type="number" id="guests" name="guests" min="1" />
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for="arrival">{labels.arrival}</label>
+      <input type="date" id="arrival" name="arrival" required />
+    </div>
+    <div class="field">
+      <label for="departure">{labels.departure}</label>
+      <input type="date" id="departure" name="departure" required />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="message">{labels.message}</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn--clay">{labels.submit}</button>
+</form>
+
+<style>
+  .booking-form {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+    padding: 1.75rem;
+  }
+</style>

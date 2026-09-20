@@ -1,0 +1,72 @@
+---
+type LabelPosition = 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
+interface Props {
+  label: string;
+  ratio?: string;
+  class?: string;
+  labelPosition?: LabelPosition;
+}
+
+const { label, ratio = '4 / 3', class: className = '', labelPosition = 'center' } = Astro.props;
+---
+
+<div
+  class:list={['placeholder-img', `placeholder-img--${labelPosition}`, className]}
+  style={{ aspectRatio: ratio }}
+>
+  <span>{label}</span>
+</div>
+
+<style>
+  .placeholder-img {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    background: repeating-linear-gradient(
+      135deg,
+      #bfe4ee,
+      #bfe4ee 12px,
+      #a9d8e5 12px,
+      #a9d8e5 24px
+    );
+    border-radius: 0;
+  }
+
+  .placeholder-img--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-img--top-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .placeholder-img--top-right {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .placeholder-img--bottom-left {
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .placeholder-img--bottom-right {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .placeholder-img span {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-green-deep);
+    background: rgba(246, 241, 226, 0.85);
+    padding: 0.3rem 0.7rem;
+    border-radius: 0;
+  }
+</style>

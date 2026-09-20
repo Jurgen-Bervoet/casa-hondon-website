@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AvailabilityCalendar from '../../components/AvailabilityCalendar.astro';
+import BookingForm from '../../components/BookingForm.astro';
+---
+
+<Layout
+  lang="fr"
+  active="availability"
+  title="Disponibilité & Réservation — Casa Helena"
+  description="Consultez la disponibilité de Casa Helena et envoyez une demande de réservation."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Disponibilité & Réservation</span>
+      <h1>Planifiez votre séjour</h1>
+      <p>
+        Consultez ci-dessous la disponibilité de Casa Helena et envoyez votre demande pour les
+        dates souhaitées. Nous confirmerons votre demande par e-mail dans les plus brefs délais.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Disponibilité</h2>
+        <AvailabilityCalendar
+          monthLabel="Mois d'exemple (démo)"
+          weekdayLabels={['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di']}
+          legendAvailable="Disponible"
+          legendBooked="Réservé"
+          note="Ce sont des données d'exemple. La disponibilité réelle sera ajoutée prochainement."
+        />
+      </div>
+      <div>
+        <h2>Formulaire de demande</h2>
+        <BookingForm
+          labels={{
+            name: 'Nom',
+            email: 'Adresse e-mail',
+            phone: 'Téléphone',
+            arrival: "Date d'arrivée",
+            departure: 'Date de départ',
+            guests: 'Nombre de personnes',
+            message: 'Message (facultatif)',
+            submit: 'Envoyer la demande',
+          }}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Informations pratiques</h2>
+      <ul class="practical">
+        <li><strong>Arrivée</strong> — entre 13h00 et 20h00</li>
+        <li><strong>Départ</strong> — avant 11h00</li>
+        <li><strong>Durée minimale de séjour</strong> — à confirmer</li>
+        <li><strong>Animaux</strong> — à confirmer</li>
+        <li><strong>Tabac</strong> — non autorisé à l'intérieur</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Tarifs & caution</h2>
+        <ul class="practical">
+          <li>Votre réservation est définitive après un premier acompte de 25% du montant total de la location.</li>
+          <li>Le solde du montant de la location est à régler 6 semaines avant l'arrivée.</li>
+          <li>Une caution de 1 000 € est à régler au plus tard 1 semaine avant le début de votre séjour.</li>
+          <li>Les frais d'énergie sont inclus jusqu'à une consommation standard (indicativement 8 €/jour d'électricité, 5 €/jour d'eau) ; toute consommation supérieure sera déduite de la caution.</li>
+          <li>Frais de ménage : 160 €, obligatoires par réservation.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Conditions d'annulation</h2>
+        <ul class="practical">
+          <li>Annulation à partir de 6 semaines avant le début du séjour : 25% du prix de la location</li>
+          <li>Annulation à partir de 4 semaines avant le début du séjour : 50% du prix de la location</li>
+          <li>Annulation à partir de 2 semaines avant le début du séjour : 100% du prix de la location</li>
+        </ul>
+        <p class="fine-print">Le loueur n'est pas responsable des accidents ou vols.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .practical {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .practical li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+
+  .fine-print {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #57534a;
+  }
+</style>

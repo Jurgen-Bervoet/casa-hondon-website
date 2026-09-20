@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="en"
+  active="area"
+  title="The Area — Casa Helena"
+  description="Discover Hondón de las Nieves and its surroundings: hiking, the salt lakes, the village and local produce."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">The Area</span>
+      <h1>The quiet inland of Alicante</h1>
+      <p>
+        Hondón de las Nieves lies in the green inland countryside of Alicante province,
+        in the valley it shares with its neighbouring village, Hondón de los Frailes.
+        Mountains, almond trees, vineyards and the well-known salt lakes shape the
+        landscape — a very different Spain from the busy coast.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Photo: salt lakes and surrounding mountains"
+        overlayLabel="Photo: hiking trail in the sierra"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-left"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Things to do</h2>
+      <FeatureGrid
+        features={[
+          { title: 'Hiking & nature', text: 'The surrounding mountains offer hiking routes for every level, with views over the valley.' },
+          { title: 'The salt lakes', text: 'A striking natural area between the two Hondón villages, popular with birdwatchers and photographers.' },
+          { title: 'The village', text: "About a 10-minute drive away is Hondón de las Nieves itself: a quiet, authentic village with good restaurants and a cosy breakfast café." },
+          { title: 'Local produce', text: 'The region is known for its almonds, olive oil and wine — ideal for lovers of local gastronomy.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Getting there</h2>
+      <ul class="distances">
+        <li><strong>Hondón de las Nieves (village)</strong> — about a 10-minute drive</li>
+        <li><strong>Alicante-Elche airport</strong> — travel time to be confirmed</li>
+        <li><strong>Elche town centre</strong> — travel time to be confirmed</li>
+        <li><strong>Nearest coast</strong> — travel time to be confirmed</li>
+      </ul>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Casa Helena as your base"
+    text="Check availability and book your stay in the heart of this peaceful region."
+    ctaLabel="Go to availability & booking"
+    ctaHref={ROUTES.availability.en}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .distances {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .distances li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+</style>

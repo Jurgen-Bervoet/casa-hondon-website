@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="es"
+  active="area"
+  title="La Zona — Casa Helena"
+  description="Descubre Hondón de las Nieves y sus alrededores: senderismo, las salinas, el pueblo y productos locales."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">La Zona</span>
+      <h1>El tranquilo interior de Alicante</h1>
+      <p>
+        Hondón de las Nieves se encuentra en el verde interior de la provincia de
+        Alicante, en el valle que comparte con su pueblo vecino, Hondón de los Frailes.
+        Montañas, almendros, viñedos y las conocidas salinas definen el paisaje — una
+        España muy distinta a la de la costa.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Foto: las salinas y las montañas de alrededor"
+        overlayLabel="Foto: sendero en la sierra"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-left"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Qué hacer</h2>
+      <FeatureGrid
+        features={[
+          { title: 'Senderismo y naturaleza', text: 'Las montañas de los alrededores ofrecen rutas para todos los niveles, con vistas sobre el valle.' },
+          { title: 'Las Salinas', text: 'Un espacio natural singular entre los dos pueblos de Hondón, muy apreciado por observadores de aves y fotógrafos.' },
+          { title: 'El pueblo', text: 'A unos 10 minutos en coche está Hondón de las Nieves: un pueblo tranquilo y auténtico, con buenos restaurantes y una acogedora cafetería para desayunar.' },
+          { title: 'Productos locales', text: 'La comarca es conocida por sus almendras, aceite de oliva y vino — ideal para amantes de la gastronomía local.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Cómo llegar</h2>
+      <ul class="distances">
+        <li><strong>Hondón de las Nieves (pueblo)</strong> — unos 10 minutos en coche</li>
+        <li><strong>Aeropuerto de Alicante-Elche</strong> — tiempo de viaje por confirmar</li>
+        <li><strong>Centro de Elche</strong> — tiempo de viaje por confirmar</li>
+        <li><strong>Costa más cercana</strong> — tiempo de viaje por confirmar</li>
+      </ul>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Casa Helena como punto de partida"
+    text="Consulta la disponibilidad y reserva tu estancia en el corazón de esta tranquila comarca."
+    ctaLabel="Ver disponibilidad y reservar"
+    ctaHref={ROUTES.availability.es}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .distances {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .distances li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+</style>

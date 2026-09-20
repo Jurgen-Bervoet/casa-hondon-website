@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import InfoList from '../../components/InfoList.astro';
+import Gallery from '../../components/Gallery.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="en"
+  active="house"
+  title="The House — Casa Helena"
+  description="Discover Casa Helena: layout, amenities and pool of this holiday home in Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">The House</span>
+      <h1>Cosy, complete, all to yourselves</h1>
+      <p>
+        Casa Helena is cosy and complete: large enough to enjoy with company, small
+        enough to feel the calm of home in every corner. Inside, every comfort; outside,
+        a terrace and pool where you'll spend most of your time.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Photo: pool with mountain views"
+        overlayLabel="Photo: terrace"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-right"
+        mainImage="/zwembad%20en%20terras.jpg"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Features</h2>
+        <InfoList
+          columns={1}
+          items={[
+            '3 spacious bedrooms, 2 bathrooms',
+            'Fully standalone house, no neighbours nearby',
+            'Private pool, maintained weekly',
+            'Large, fully fenced plot',
+            'Fully equipped kitchen',
+            'Large garage that fits your car',
+          ]}
+        />
+      </div>
+      <div>
+        <h2>Amenities</h2>
+        <InfoList
+          columns={1}
+          items={[
+            'Wifi',
+            'Air conditioning',
+            'Pellet stove',
+            'Bed linen and towels provided',
+            'Sun loungers',
+            'Fully equipped kitchen with cutlery, plates, glasses and cups',
+            'Coffee maker, juicer, kettle, microwave, oven, freezer and fridge',
+            'Vacuum cleaner and hair dryer',
+            'BBQ',
+            'Free parking in the garage',
+          ]}
+        />
+        <p class="bring-your-own">To bring yourself: beach towels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Gallery</h2>
+      <Gallery
+        labels={[
+          'Pool',
+          'Terrace',
+          'Living room',
+          'Kitchen',
+          'Bedroom 1',
+          'Bedroom 2',
+          'Bedroom 3',
+          'Bathroom',
+          'Garden',
+        ]}
+      />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Fancy staying here?"
+    text="Check Casa Helena's availability and send your request."
+    ctaLabel="Go to availability & booking"
+    ctaHref={ROUTES.availability.en}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .bring-your-own {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #57534a;
+  }
+
+  @media (max-width: 700px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

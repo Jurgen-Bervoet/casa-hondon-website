@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AvailabilityCalendar from '../components/AvailabilityCalendar.astro';
+import BookingForm from '../components/BookingForm.astro';
+---
+
+<Layout
+  lang="nl"
+  active="availability"
+  title="Beschikbaarheid & Boeken — Casa Helena"
+  description="Bekijk de beschikbaarheid van Casa Helena en stuur een boekingsaanvraag."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Beschikbaarheid & Boeken</span>
+      <h1>Plan je verblijf</h1>
+      <p>
+        Bekijk hieronder de beschikbaarheid van Casa Helena en stuur een aanvraag voor je
+        gewenste data. We bevestigen je aanvraag zo snel mogelijk per e-mail.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Beschikbaarheid</h2>
+        <AvailabilityCalendar
+          monthLabel="Voorbeeldmaand (demo)"
+          weekdayLabels={['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo']}
+          legendAvailable="Beschikbaar"
+          legendBooked="Bezet"
+          note="Dit zijn voorbeelddata. De echte beschikbaarheid wordt hier binnenkort aangevuld."
+        />
+      </div>
+      <div>
+        <h2>Aanvraagformulier</h2>
+        <BookingForm
+          labels={{
+            name: 'Naam',
+            email: 'E-mailadres',
+            phone: 'Telefoonnummer',
+            arrival: 'Aankomstdatum',
+            departure: 'Vertrekdatum',
+            guests: 'Aantal gasten',
+            message: 'Bericht (optioneel)',
+            submit: 'Aanvraag versturen',
+          }}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Praktische info</h2>
+      <ul class="practical">
+        <li><strong>Check-in</strong> — tussen 13:00 en 20:00</li>
+        <li><strong>Check-out</strong> — voor 11:00</li>
+        <li><strong>Minimum verblijfsduur</strong> — nog te bevestigen</li>
+        <li><strong>Huisdieren</strong> — nog te bevestigen</li>
+        <li><strong>Roken</strong> — niet toegestaan binnenshuis</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Prijzen & borg</h2>
+        <ul class="practical">
+          <li>Je boeking is definitief na een eerste aanbetaling van 25% van de totale huursom.</li>
+          <li>Het restant van de huursom betaal je 6 weken voor aankomst.</li>
+          <li>Een borgsom van € 1.000 betaal je uiterlijk 1 week voor aanvang van je verblijf.</li>
+          <li>Energiekosten zijn inbegrepen tot een standaardverbruik (richtprijs € 8/dag elektriciteit, € 5/dag water); verbruik daarboven wordt verrekend met de borg.</li>
+          <li>Schoonmaakkosten: € 160, verplicht per boeking.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Annuleringsvoorwaarden</h2>
+        <ul class="practical">
+          <li>Annulering vanaf 6 weken voor aanvang: 25% van de huurprijs</li>
+          <li>Annulering vanaf 4 weken voor aanvang: 50% van de huurprijs</li>
+          <li>Annulering vanaf 2 weken voor aanvang: 100% van de huurprijs</li>
+        </ul>
+        <p class="fine-print">
+          De verhuurder is niet verantwoordelijk voor ongevallen of diefstal.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .practical {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .practical li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+
+  .fine-print {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #57534a;
+  }
+</style>

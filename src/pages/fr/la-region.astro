@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="fr"
+  active="area"
+  title="La Région — Casa Helena"
+  description="Découvrez Hondón de las Nieves et ses environs : randonnée, les salines, le village et les produits locaux."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">La Région</span>
+      <h1>L'arrière-pays tranquille d'Alicante</h1>
+      <p>
+        Hondón de las Nieves se situe dans l'arrière-pays verdoyant de la province d'Alicante,
+        dans la vallée qu'il partage avec son village voisin, Hondón de los Frailes. Montagnes,
+        amandiers, vignobles et les célèbres salines façonnent le paysage — une Espagne bien
+        différente de celle de la côte animée.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <PhotoCollage
+        mainLabel="Photo : les salines et les montagnes environnantes"
+        overlayLabel="Photo : sentier de randonnée dans la sierra"
+        mainRatio="21 / 9"
+        overlayRatio="4 / 3"
+        corner="bottom-left"
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Que faire</h2>
+      <FeatureGrid
+        features={[
+          { title: 'Randonnée & nature', text: 'Les montagnes environnantes offrent des sentiers de randonnée pour tous les niveaux, avec vue sur la vallée.' },
+          { title: 'Les Salines', text: 'Un espace naturel remarquable entre les deux villages de Hondón, apprécié des ornithologues et photographes.' },
+          { title: 'Le village', text: "À environ 10 minutes en voiture se trouve Hondón de las Nieves : un village tranquille et authentique, avec de bons restaurants et un café petit-déjeuner sympathique." },
+          { title: 'Produits locaux', text: 'La région est réputée pour ses amandes, son huile d’olive et son vin — idéal pour les amateurs de gastronomie locale.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Comment s'y rendre</h2>
+      <ul class="distances">
+        <li><strong>Hondón de las Nieves (village)</strong> — environ 10 minutes en voiture</li>
+        <li><strong>Aéroport d'Alicante-Elche</strong> — temps de trajet à confirmer</li>
+        <li><strong>Centre d'Elche</strong> — temps de trajet à confirmer</li>
+        <li><strong>Côte la plus proche</strong> — temps de trajet à confirmer</li>
+      </ul>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Casa Helena comme point de départ"
+    text="Consultez les disponibilités et réservez votre séjour au cœur de cette région paisible."
+    ctaLabel="Voir les disponibilités et réserver"
+    ctaHref={ROUTES.availability.fr}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .distances {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 60ch;
+  }
+
+  .distances li {
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+</style>

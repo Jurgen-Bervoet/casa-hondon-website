@@ -1,0 +1,144 @@
+---
+interface Props {
+  monthLabel: string;
+  weekdayLabels: string[];
+  legendAvailable: string;
+  legendBooked: string;
+  note: string;
+}
+
+const { monthLabel, weekdayLabels, legendAvailable, legendBooked, note } = Astro.props;
+
+// Demo month layout: 2 leading empty cells, 30 days, a few marked as "booked" for illustration.
+const leadingEmpty = 2;
+const daysInMonth = 30;
+const bookedDays = new Set([5, 6, 7, 18, 19, 20, 21, 22]);
+const cells = [
+  ...Array.from({ length: leadingEmpty }, () => null),
+  ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
+];
+---
+
+<div class="calendar">
+  <div class="calendar__header">
+    <span class="calendar__month">{monthLabel}</span>
+    <div class="calendar__legend">
+      <span class="calendar__legend-item"><i class="dot dot--free"></i>{legendAvailable}</span>
+      <span class="calendar__legend-item"><i class="dot dot--booked"></i>{legendBooked}</span>
+    </div>
+  </div>
+
+  <div class="calendar__grid calendar__grid--labels">
+    {weekdayLabels.map((d) => <span>{d}</span>)}
+  </div>
+
+  <div class="calendar__grid">
+    {
+      cells.map((day) =>
+        day === null ? (
+          <span class="calendar__cell calendar__cell--empty" />
+        ) : (
+          <span
+            class:list={['calendar__cell', { 'is-booked': bookedDays.has(day) }]}
+          >
+            {day}
+          </span>
+        )
+      )
+    }
+  </div>
+
+  <p class="calendar__note">{note}</p>
+</div>
+
+<style>
+  .calendar {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+    padding: 1.75rem;
+  }
+
+  .calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .calendar__month {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--color-green-deep);
+  }
+
+  .calendar__legend {
+    display: flex;
+    gap: 1.1rem;
+    font-size: 0.82rem;
+    color: #57534a;
+  }
+
+  .calendar__legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot--free {
+    background: var(--color-sage);
+  }
+
+  .dot--booked {
+    background: var(--color-clay);
+  }
+
+  .calendar__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.4rem;
+  }
+
+  .calendar__grid--labels {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #8a8577;
+    text-align: center;
+  }
+
+  .calendar__cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    background: var(--color-cream-deep);
+    font-size: 0.85rem;
+    color: var(--color-ink);
+  }
+
+  .calendar__cell--empty {
+    background: transparent;
+  }
+
+  .calendar__cell.is-booked {
+    background: var(--color-clay);
+    color: #fff;
+  }
+
+  .calendar__note {
+    margin: 1.1rem 0 0;
+    font-size: 0.8rem;
+    color: #8a8577;
+  }
+</style>

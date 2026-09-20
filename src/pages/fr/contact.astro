@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  lang="fr"
+  active="contact"
+  title="Contact — Casa Helena"
+  description="Contactez-nous à propos de Casa Helena, la maison de vacances à Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Contact</span>
+      <h1>Des questions sur Casa Helena ?</h1>
+      <p>
+        Vous avez une question sur Casa Helena qui n'est pas liée à une demande de réservation ?
+        N'hésitez pas à nous contacter.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap two-col">
+      <div>
+        <h2>Coordonnées</h2>
+        <ul class="contact-details">
+          <li><strong>E-mail</strong><span>info@casahelena.example</span></li>
+          <li><strong>Téléphone</strong><span>+34 XXX XXX XXX</span></li>
+          <li><strong>Localisation</strong><span>Hondón de las Nieves, Alicante, Espagne</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Formulaire de contact</h2>
+        <ContactForm
+          labels={{
+            name: 'Nom',
+            email: 'Adresse e-mail',
+            message: 'Message',
+            submit: 'Envoyer',
+          }}
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .contact-details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .contact-details li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.9rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0;
+  }
+
+  .contact-details li strong {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-clay-deep);
+  }
+</style>

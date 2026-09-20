@@ -1,0 +1,83 @@
+---
+import { ROUTES, type Lang } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div>
+      <p class="site-footer__brand">Casa Helena</p>
+      <p class="site-footer__tagline">{t.footer.tagline}</p>
+    </div>
+
+    <nav class="site-footer__nav">
+      <a href={ROUTES.home[lang]}>{t.nav.home}</a>
+      <a href={ROUTES.house[lang]}>{t.nav.house}</a>
+      <a href={ROUTES.area[lang]}>{t.nav.area}</a>
+      <a href={ROUTES.availability[lang]}>{t.nav.availability}</a>
+      <a href={ROUTES.contact[lang]}>{t.nav.contact}</a>
+    </nav>
+
+    <p class="site-footer__copy">© {year} Casa Helena — {t.footer.rights}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-green-deep);
+    color: var(--color-cream);
+    padding: 3rem 0 2rem;
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .site-footer__brand {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin: 0 0 0.4rem;
+  }
+
+  .site-footer__tagline {
+    max-width: 32ch;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .site-footer__nav a {
+    text-decoration: none;
+    color: var(--color-cream);
+    opacity: 0.85;
+  }
+
+  .site-footer__nav a:hover {
+    opacity: 1;
+  }
+
+  .site-footer__copy {
+    font-size: 0.8rem;
+    opacity: 0.65;
+    align-self: flex-end;
+    margin: 0;
+  }
+</style>

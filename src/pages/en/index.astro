@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="en"
+  active="home"
+  title="Casa Helena — Holiday home with pool in Hondón de las Nieves"
+  description="Casa Helena is a small holiday home with a private pool in Hondón de las Nieves, Alicante. Peace, nature and outdoor living."
+>
+  <Hero
+    title="Casa Helena"
+    subtitle="Sun, calm and your own pool in the heart of Hondón de las Nieves"
+    ctaLabel="Check availability"
+    ctaHref={ROUTES.availability.en}
+    imageLabel="Photo: pool and terrace at Casa Helena"
+    image="/hero.jpg"
+  />
+
+  <section class="section section--white">
+    <div class="wrap intro-collage">
+      <div class="intro-collage__photos">
+        <PhotoCollage
+          mainLabel="Photo: pool and terrace"
+          overlayLabel="Photo: interior / living space"
+          mainRatio="4 / 3"
+          overlayRatio="5 / 4"
+          corner="bottom-left"
+          mainImage="/zwembad%20en%20terras.jpg"
+          overlayImage="/woonruimte.jpg"
+        />
+      </div>
+      <div class="intro-collage__text">
+        <span class="eyebrow">Our story</span>
+        <p class="intro__text">
+          Casa Helena is a dream come true. After years of travelling through Spain, we knew
+          one thing for certain: one day we wanted a place of our own here, somewhere between
+          Valencia and Alicante. After a long, picky search, we found this house — spacious,
+          with a beautiful pool, in a quiet area that's still never far from anything.
+        </p>
+        <p class="intro__text">
+          We chose this place with a lot of love, and with just as much love we share it with
+          families who, like us, are looking for calm: no mass tourism, no wild parties, just
+          quiet, space and time together.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <FeatureGrid
+        features={[
+          { title: 'Pool & terrace', text: 'Your own pool, maintained weekly, on a large, fully fenced plot.' },
+          { title: 'Peace & nature', text: 'The house stands completely on its own, in an oasis of calm — only the crickets might wake you at night.' },
+          { title: 'Hondón de las Nieves', text: "A mere 10-minute drive to the village, with good restaurants and a cosy breakfast café." },
+          { title: 'Comfort & privacy', text: '3 spacious bedrooms, 2 bathrooms and a large garage that fits your car.' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Plan your stay at Casa Helena"
+    text="Check availability and send a request — we confirm quickly by email."
+    ctaLabel="Go to availability & booking"
+    ctaHref={ROUTES.availability.en}
+  />
+</Layout>
+
+<style>
+  .intro-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .intro__text {
+    font-size: 1.15rem;
+    color: #4a4638;
+  }
+
+  @media (max-width: 780px) {
+    .intro-collage {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .intro-collage__photos {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+</style>

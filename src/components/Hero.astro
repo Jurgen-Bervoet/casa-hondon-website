@@ -1,0 +1,89 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaLabel: string;
+  ctaHref: string;
+  imageLabel: string;
+  image?: string;
+}
+
+const { title, subtitle, ctaLabel, ctaHref, imageLabel, image } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    {
+      image ? (
+        <img src={image} alt={imageLabel} class="hero__img" />
+      ) : (
+        <PlaceholderImage
+          label={imageLabel}
+          ratio="16 / 10"
+          class="hero__img"
+          labelPosition="bottom-left"
+        />
+      )
+    }
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="wrap hero__content">
+    <h1>{title}</h1>
+    <p class="hero__subtitle">{subtitle}</p>
+    <a href={ctaHref} class="btn btn--clay">{ctaLabel}</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 52vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero__bg :global(.hero__img) {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(20, 36, 42, 0.78) 0%,
+      rgba(20, 36, 42, 0.28) 55%,
+      rgba(20, 36, 42, 0.1) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    color: #fff;
+    padding-bottom: 3.5rem;
+    padding-top: 5rem;
+  }
+
+  .hero__content h1 {
+    color: #fff;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+    max-width: 42ch;
+    margin-bottom: 1.75rem;
+    opacity: 0.95;
+  }
+</style>

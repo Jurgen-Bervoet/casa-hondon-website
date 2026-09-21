@@ -5,7 +5,7 @@ interface Bedroom {
   name: string;
   photoLabel: string;
   bed: string;
-  ensuiteLabel?: string;
+  badges?: string[];
 }
 
 interface Props {
@@ -23,7 +23,13 @@ const { items } = Astro.props;
         <div class="bedroom__body">
           <h3>{b.name}</h3>
           <p>{b.bed}</p>
-          {b.ensuiteLabel && <span class="bedroom__badge">{b.ensuiteLabel}</span>}
+          {b.badges && b.badges.length > 0 && (
+            <div class="bedroom__badges">
+              {b.badges.map((badge) => (
+                <span class="bedroom__badge">{badge}</span>
+              ))}
+            </div>
+          )}
         </div>
       </article>
     ))
@@ -56,9 +62,15 @@ const { items } = Astro.props;
     color: #4a4638;
   }
 
+  .bedroom__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
   .bedroom__badge {
     display: inline-block;
-    margin-top: 0.6rem;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.03em;

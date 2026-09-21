@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import InfoList from '../../components/InfoList.astro';
+import BedroomCards from '../../components/BedroomCards.astro';
 import Gallery from '../../components/Gallery.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -66,25 +67,44 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Dormir</h2>
-        <p>
-          Casa Lana cuenta con tres amplios dormitorios para dos personas cada uno. Cada
-          habitación tiene una cama de matrimonio de 160 cm de ancho.
-        </p>
-        <p>
-          A vuestra llegada, las camas ya están hechas. Vuestras vacaciones pueden empezar de
-          inmediato. En la web mostramos cada dormitorio por separado, para que sepáis de
-          antemano exactamente dónde os alojaréis.
-        </p>
-      </div>
+    <div class="wrap">
+      <h2>Dormir</h2>
+      <p class="section-intro">
+        Casa Lana cuenta con tres amplios dormitorios para dos personas cada uno. Cada
+        habitación tiene una cama de matrimonio de 160 cm de ancho. A vuestra llegada, las
+        camas ya están hechas: vuestras vacaciones pueden empezar de inmediato.
+      </p>
+      <BedroomCards
+        items={[
+          {
+            name: 'Dormitorio 1 — principal',
+            photoLabel: 'Foto: dormitorio 1 (principal)',
+            bed: 'Cama de matrimonio de 160 cm de ancho',
+            ensuiteLabel: 'Baño propio (en suite)',
+          },
+          {
+            name: 'Dormitorio 2',
+            photoLabel: 'Foto: dormitorio 2',
+            bed: 'Cama de matrimonio de 160 cm de ancho',
+          },
+          {
+            name: 'Dormitorio 3',
+            photoLabel: 'Foto: dormitorio 3',
+            bed: 'Cama de matrimonio de 160 cm de ancho',
+          },
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>Dos baños</h2>
         <p>
-          La casa tiene dos baños totalmente equipados. Uno cuenta con ducha. El otro tiene
-          tanto bañera como ducha.
+          La casa tiene dos baños totalmente equipados. El dormitorio principal tiene su
+          propio baño en suite. El segundo baño, con bañera y ducha, lo comparten los
+          dormitorios 2 y 3.
         </p>
         <p>
           Por persona proporcionamos una toalla de baño grande y una toalla pequeña. También
@@ -197,6 +217,11 @@ import { ROUTES } from '../../i18n/routes';
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .details {

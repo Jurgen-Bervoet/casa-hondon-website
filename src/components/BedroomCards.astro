@@ -1,0 +1,75 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Bedroom {
+  name: string;
+  photoLabel: string;
+  bed: string;
+  ensuiteLabel?: string;
+}
+
+interface Props {
+  items: Bedroom[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="bedrooms">
+  {
+    items.map((b) => (
+      <article class="bedroom">
+        <PlaceholderImage label={b.photoLabel} ratio="4 / 3" />
+        <div class="bedroom__body">
+          <h3>{b.name}</h3>
+          <p>{b.bed}</p>
+          {b.ensuiteLabel && <span class="bedroom__badge">{b.ensuiteLabel}</span>}
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .bedrooms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .bedroom {
+    background: #fff;
+    border: 1px solid var(--color-line);
+  }
+
+  .bedroom__body {
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+
+  .bedroom__body h3 {
+    margin-bottom: 0.3rem;
+  }
+
+  .bedroom__body p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #4a4638;
+  }
+
+  .bedroom__badge {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-clay-deep);
+    background: var(--color-cream-deep);
+    padding: 0.25rem 0.6rem;
+  }
+
+  @media (max-width: 780px) {
+    .bedrooms {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

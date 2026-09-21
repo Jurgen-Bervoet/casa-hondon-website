@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import InfoList from '../../components/InfoList.astro';
+import BedroomCards from '../../components/BedroomCards.astro';
 import Gallery from '../../components/Gallery.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -67,25 +68,44 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Dormir</h2>
-        <p>
-          Casa Lana dispose de trois chambres spacieuses pour deux personnes chacune. Chaque
-          chambre est équipée d'un lit double de 160 cm de large.
-        </p>
-        <p>
-          À votre arrivée, les lits sont déjà faits. Vos vacances peuvent donc commencer tout
-          de suite. Sur le site, nous montrons chaque chambre séparément, afin que vous
-          sachiez précisément à l'avance où vous séjournerez.
-        </p>
-      </div>
+    <div class="wrap">
+      <h2>Dormir</h2>
+      <p class="section-intro">
+        Casa Lana dispose de trois chambres spacieuses pour deux personnes chacune. Chaque
+        chambre est équipée d'un lit double de 160 cm de large. À votre arrivée, les lits sont
+        déjà faits : vos vacances peuvent commencer tout de suite.
+      </p>
+      <BedroomCards
+        items={[
+          {
+            name: 'Chambre 1 — principale',
+            photoLabel: 'Photo : chambre 1 (principale)',
+            bed: 'Lit double de 160 cm de large',
+            ensuiteLabel: 'Salle de bain privée (attenante)',
+          },
+          {
+            name: 'Chambre 2',
+            photoLabel: 'Photo : chambre 2',
+            bed: 'Lit double de 160 cm de large',
+          },
+          {
+            name: 'Chambre 3',
+            photoLabel: 'Photo : chambre 3',
+            bed: 'Lit double de 160 cm de large',
+          },
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>Deux salles de bain</h2>
         <p>
-          La maison dispose de deux salles de bain entièrement aménagées. L'une possède une
-          douche. L'autre dispose à la fois d'une baignoire et d'une douche.
+          La maison dispose de deux salles de bain entièrement aménagées. La chambre
+          principale dispose de sa propre salle de bain attenante. La deuxième salle de bain,
+          avec baignoire et douche, est partagée par les chambres 2 et 3.
         </p>
         <p>
           Par personne, nous fournissons une grande serviette de bain et une petite serviette.
@@ -200,6 +220,11 @@ import { ROUTES } from '../../i18n/routes';
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .details {

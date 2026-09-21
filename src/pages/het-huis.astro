@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PhotoCollage from '../components/PhotoCollage.astro';
 import InfoList from '../components/InfoList.astro';
+import BedroomCards from '../components/BedroomCards.astro';
 import Gallery from '../components/Gallery.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
@@ -66,25 +67,44 @@ import { ROUTES } from '../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Slapen</h2>
-        <p>
-          Casa Lana beschikt over drie ruime slaapkamers voor telkens twee personen. Iedere
-          slaapkamer heeft een tweepersoonsbed van 160 cm breed.
-        </p>
-        <p>
-          Bij aankomst zijn de bedden voor jullie opgemaakt. Je vakantie kan dus meteen
-          beginnen. Op de website tonen we iedere slaapkamer afzonderlijk, zodat je vooraf
-          precies weet waar je verblijft.
-        </p>
-      </div>
+    <div class="wrap">
+      <h2>Slapen</h2>
+      <p class="section-intro">
+        Casa Lana beschikt over drie ruime slaapkamers voor telkens twee personen. Iedere
+        slaapkamer heeft een tweepersoonsbed van 160 cm breed. Bij aankomst zijn de bedden
+        voor jullie opgemaakt, je vakantie kan dus meteen beginnen.
+      </p>
+      <BedroomCards
+        items={[
+          {
+            name: 'Slaapkamer 1 — master',
+            photoLabel: 'Foto: slaapkamer 1 (master)',
+            bed: 'Tweepersoonsbed van 160 cm breed',
+            ensuiteLabel: 'Eigen badkamer (en-suite)',
+          },
+          {
+            name: 'Slaapkamer 2',
+            photoLabel: 'Foto: slaapkamer 2',
+            bed: 'Tweepersoonsbed van 160 cm breed',
+          },
+          {
+            name: 'Slaapkamer 3',
+            photoLabel: 'Foto: slaapkamer 3',
+            bed: 'Tweepersoonsbed van 160 cm breed',
+          },
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>Twee badkamers</h2>
         <p>
-          Het huis heeft twee volledig ingerichte badkamers. Eén badkamer beschikt over een
-          douche. De andere heeft zowel een bad als een douche.
+          Het huis heeft twee volledig ingerichte badkamers. De master slaapkamer heeft een
+          eigen en-suite badkamer. De tweede badkamer, met zowel bad als douche, wordt gedeeld
+          door slaapkamer 2 en 3.
         </p>
         <p>
           Per persoon voorzien we één grote badhanddoek en één kleine handdoek. Ook een
@@ -196,6 +216,11 @@ import { ROUTES } from '../i18n/routes';
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .details {

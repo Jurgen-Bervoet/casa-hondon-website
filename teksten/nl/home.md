@@ -5,14 +5,14 @@ taal: nl
 
 ## Hero
 
-**Casa Helena**
+**Casa Lana**
 Rust, zon en een eigen zwembad in het hart van Hondón de las Nieves
 
 CTA: Bekijk beschikbaarheid
 
 ## Ons verhaal
 
-Casa Helena is een droom die werkelijkheid werd. Na jaren reizen door Spanje wisten we één
+Casa Lana is een droom die werkelijkheid werd. Na jaren reizen door Spanje wisten we één
 ding zeker: ooit wilden we hier een eigen plek, ergens tussen Valencia en Alicante. Na een
 lange, kieskeurige zoektocht vonden we dit huis — ruim, met een prachtig zwembad, in een
 rustige streek die toch nooit ver van alles ligt.
@@ -44,7 +44,7 @@ ontbijtcafé.
 
 ## CTA-blok
 
-**Plan je verblijf in Casa Helena**
+**Plan je verblijf in Casa Lana**
 Bekijk de beschikbaarheid en stuur een aanvraag — we bevestigen snel per e-mail.
 
 CTA: Naar beschikbaarheid & boeken

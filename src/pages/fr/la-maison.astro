@@ -10,18 +10,20 @@ import { ROUTES } from '../../i18n/routes';
 <Layout
   lang="fr"
   active="house"
-  title="La Maison — Casa Helena"
-  description="Découvrez Casa Helena : agencement, équipements et piscine de cette maison de vacances à Hondón de las Nieves."
+  title="La Maison — Casa Lana"
+  description="Découvrez Casa Lana : agencement, chambres, salles de bain, cuisine et la piscine privée de cette maison de vacances à Hondón de las Nieves."
 >
   <section class="section">
     <div class="wrap page-intro">
       <span class="eyebrow">La Maison</span>
-      <h1>Chaleureuse, complète, entièrement à vous</h1>
+      <h1>Espace, confort et calme</h1>
       <p>
-        Casa Helena est chaleureuse et complète : assez grande pour profiter à plusieurs, assez
-        petite pour ressentir le calme d'un chez-soi dans chaque recoin. À l'intérieur, tout le
-        confort ; à l'extérieur, une terrasse et une piscine où vous passerez le plus clair de
-        votre temps.
+        Casa Lana est une habitation spacieuse, entièrement de plain-pied, pour six personnes
+        maximum. La maison se trouve sur un terrain entièrement clôturé de 10 000 m² et offre
+        beaucoup d'intimité et d'espace. À l'intérieur, vous trouverez trois chambres
+        spacieuses, deux salles de bain, un séjour, une cuisine entièrement équipée et un
+        cellier. La climatisation et le chauffage centralisés assurent une température
+        agréable toute l'année.
       </p>
     </div>
   </section>
@@ -40,40 +42,131 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap two-col">
-      <div>
-        <h2>Caractéristiques</h2>
-        <InfoList
-          columns={1}
-          items={[
-            '3 chambres spacieuses, 2 salles de bain',
-            'Maison entièrement isolée, sans voisins à proximité',
-            'Piscine privée, entretenue chaque semaine',
-            'Grand terrain entièrement clôturé',
-            'Cuisine entièrement équipée',
-            'Grand garage pour votre voiture',
-          ]}
-        />
+    <div class="wrap">
+      <h2>Tout pour un séjour reposant</h2>
+      <InfoList
+        columns={2}
+        items={[
+          '6 personnes',
+          '3 chambres spacieuses',
+          '2 salles de bain',
+          'Piscine privée de 3 x 11 mètres',
+          '10 000 m² de terrain propre',
+          'Entièrement clôturé',
+          'Climatisation et chauffage centralisés',
+          'Poêle à granulés',
+          'Wifi',
+          'TV',
+          'Barbecue',
+          'Parking privé et garage',
+          'Entièrement de plain-pied',
+          'Emplacement calme, loin du tourisme de masse',
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap details">
+      <div class="detail">
+        <h2>Dormir</h2>
+        <p>
+          Casa Lana dispose de trois chambres spacieuses pour deux personnes chacune. Chaque
+          chambre est équipée d'un lit double de 160 cm de large.
+        </p>
+        <p>
+          À votre arrivée, les lits sont déjà faits. Vos vacances peuvent donc commencer tout
+          de suite. Sur le site, nous montrons chaque chambre séparément, afin que vous
+          sachiez précisément à l'avance où vous séjournerez.
+        </p>
       </div>
-      <div>
-        <h2>Équipements</h2>
-        <InfoList
-          columns={1}
-          items={[
-            'Wifi',
-            'Climatisation',
-            'Poêle à granulés',
-            'Draps de lit et serviettes fournis',
-            'Transats',
-            'Cuisine entièrement équipée avec couverts, assiettes, verres et tasses',
-            'Cafetière, presse-agrumes, bouilloire, micro-ondes, four, congélateur et réfrigérateur',
-            'Aspirateur et sèche-cheveux',
-            'Barbecue',
-            'Parking gratuit dans le garage',
-          ]}
-        />
-        <p class="bring-your-own">À apporter vous-même : serviettes de plage.</p>
+
+      <div class="detail">
+        <h2>Deux salles de bain</h2>
+        <p>
+          La maison dispose de deux salles de bain entièrement aménagées. L'une possède une
+          douche. L'autre dispose à la fois d'une baignoire et d'une douche.
+        </p>
+        <p>
+          Par personne, nous fournissons une grande serviette de bain et une petite serviette.
+          Un sèche-cheveux est également disponible. Les salles de bain sont équipées de
+          moustiquaires.
+        </p>
       </div>
+
+      <div class="detail">
+        <h2>Une cuisine où l'on peut vraiment cuisiner</h2>
+        <p>
+          Envie de cuisiner un repas élaboré, de préparer rapidement quelque chose pour les
+          enfants, ou de prendre tranquillement un café sur la terrasse le matin ? La cuisine
+          est entièrement équipée pour un séjour confortable.
+        </p>
+        <p>
+          Vous y trouverez un réfrigérateur, un petit congélateur, un lave-vaisselle, un four,
+          un micro-ondes, une friteuse à air, une bouilloire, un presse-agrumes et une
+          machine à café Dolce Gusto Neo. Assiettes, verres, tasses, couverts, ustensiles de
+          cuisine et autres équipements sont également fournis en abondance.
+        </p>
+      </div>
+
+      <div class="detail">
+        <h2>Confort dans toute la maison</h2>
+        <p>
+          Casa Lana dispose d'une climatisation et d'un chauffage centralisés, complétés par
+          un poêle à granulés. Le wifi est disponible dans toute la maison, et il y a une
+          télévision.
+        </p>
+        <p>
+          Un lave-linge, un aspirateur et un fer à repasser sont également à disposition. Pour
+          les familles avec un bébé, nous fournissons sur demande un lit bébé et une chaise
+          haute. Toute la maison est de plain-pied, sans escalier à l'intérieur.
+        </p>
+      </div>
+
+      <div class="detail">
+        <h2>Vivre dehors</h2>
+        <p>
+          Quand on vient en Espagne, on a surtout envie de vivre dehors. C'est pourquoi
+          l'espace extérieur compte tout autant pour nous que la maison elle-même.
+        </p>
+        <p>
+          Casa Lana se trouve sur un terrain de 10 000 m² et dispose d'une grande piscine
+          privée de 3 sur 11 mètres. La piscine est réservée exclusivement à votre groupe et
+          est entretenue chaque semaine, le jeudi.
+        </p>
+        <p>
+          Autour de la piscine se trouvent six transats. Il n'y a pas d'ombre naturelle autour
+          de la piscine ou de la terrasse ; nous fournissons des parasols afin que vous
+          puissiez créer votre propre coin d'ombre.
+        </p>
+        <p>
+          Il y a un coin salon pour prendre tranquillement un verre, et une grande table
+          extérieure avec huit chaises pour petit-déjeuner, déjeuner ou dîner ensemble
+          longuement. Le barbecue est prêt pour les soirées où vous avez envie de manger à la
+          maison. Un éclairage extérieur est également présent, afin que la terrasse continue
+          de faire partie de votre soirée après le coucher du soleil.
+        </p>
+      </div>
+
+      <div class="detail">
+        <h2>Tout l'espace pour vous</h2>
+        <p>
+          L'ensemble du terrain est clôturé. Vous garez votre voiture sur la propriété même,
+          et il y a également un grand garage.
+        </p>
+        <p>
+          Casa Lana est isolée et offre beaucoup d'espace autour de la maison. En même temps,
+          des personnes vivent dans les environs, avec qui nous entretenons de bonnes
+          relations. Calme et intimité, sans pour autant se sentir totalement coupé du monde.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>À apporter vous-même</h2>
+      <InfoList columns={1} items={['Serviettes de plage', 'Éventuellement des jouets de piscine']} />
     </div>
   </section>
 
@@ -98,8 +191,8 @@ import { ROUTES } from '../../i18n/routes';
 
   <CTABlock
     title="Envie de séjourner ici ?"
-    text="Consultez la disponibilité de Casa Helena et envoyez votre demande."
-    ctaLabel="Voir les disponibilités et réserver"
+    text="Consultez la disponibilité de Casa Lana et envoyez votre demande."
+    ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
   />
 </Layout>
@@ -109,22 +202,17 @@ import { ROUTES } from '../../i18n/routes';
     max-width: 68ch;
   }
 
-  .two-col {
+  .details {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    max-width: 74ch;
   }
 
-  .bring-your-own {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #57534a;
+  .detail h2 {
+    margin-bottom: 0.6rem;
   }
 
-  @media (max-width: 700px) {
-    .two-col {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+  .detail p {
+    color: #3a362c;
   }
 </style>

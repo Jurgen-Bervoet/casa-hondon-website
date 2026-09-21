@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQList from '../../components/FAQList.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+
+const items = [
+  {
+    question: '¿Para cuántas personas es adecuada la casa?',
+    answer:
+      'La casa tiene capacidad para un máximo de seis personas. Hay tres amplios dormitorios, cada uno con una cama de matrimonio de 160 cm de ancho. Se puede añadir una cuna bajo petición.',
+  },
+  {
+    question: '¿Es necesario un coche?',
+    answer:
+      'Sí. La casa está deliberadamente ubicada en una zona tranquila, alejada del turismo de masas. Con coche tienes toda la libertad para hacer la compra, salir a comer, visitar la costa y descubrir la zona.',
+  },
+  {
+    question: '¿A qué distancia está el aeropuerto de Alicante?',
+    answer: 'El aeropuerto de Alicante está a unos 30 minutos en coche de la casa.',
+  },
+  {
+    question: '¿A qué distancia está la playa?',
+    answer:
+      'Alicante y la Playa del Postiguet están a unos 40 minutos. Otras playas de la Costa Blanca también son de fácil acceso.',
+  },
+  {
+    question: '¿La piscina es privada?',
+    answer: 'Sí. La piscina de 3 por 11 metros es totalmente privada y exclusiva para vuestro grupo.',
+  },
+  {
+    question: '¿La piscina está climatizada?',
+    answer: 'No. La piscina no está climatizada.',
+  },
+  {
+    question: '¿Hay sombra junto a la piscina?',
+    answer:
+      'No hay sombra natural alrededor de la piscina. Proporcionamos sombrillas para que puedas crear tu propio rincón de sombra.',
+  },
+  {
+    question: '¿El jardín está completamente vallado?',
+    answer: 'Sí. Toda la parcela está vallada.',
+  },
+  {
+    question: '¿Se admiten mascotas?',
+    answer:
+      'Preferimos no recibir mascotas. Si tienes una pregunta concreta al respecto, no dudes en contactarnos; entonces veremos qué es posible.',
+  },
+  {
+    question: '¿Son bienvenidos los niños?',
+    answer: 'Por supuesto. Los niños son más que bienvenidos.',
+  },
+  {
+    question: '¿Hay cuna y trona?',
+    answer: 'Sí. Tanto una cuna como una trona están disponibles.',
+  },
+  {
+    question: '¿La casa tiene escaleras?',
+    answer: 'No. La casa está totalmente en una planta.',
+  },
+  {
+    question: '¿Hay aire acondicionado?',
+    answer:
+      'Sí. Toda la casa dispone de aire acondicionado central que también puede calentar, y además hay una estufa de pellets.',
+  },
+  {
+    question: '¿Hay wifi?',
+    answer:
+      'Sí. Hay wifi disponible y está incluido. Una buena conexión a internet es especialmente útil aquí, ya que la cobertura móvil en la zona no siempre es igual de fuerte.',
+  },
+  {
+    question: '¿Están incluidas la ropa de cama y las toallas?',
+    answer:
+      'Sí. Las camas están hechas a vuestra llegada. Por persona proporcionamos una toalla de baño grande y una toalla pequeña. Las toallas de playa debéis traerlas vosotros.',
+  },
+  {
+    question: '¿Dónde podemos hacer la compra?',
+    answer:
+      'En Hondón de las Nieves encontrarás supermercados, panadería, carnicería, farmacia y varios comercios locales. El pueblo está a unos 8 minutos en coche.',
+  },
+  {
+    question: '¿Podemos aparcar junto a la casa?',
+    answer: 'Sí. Hay amplio parking privado en la propia finca y también hay garaje.',
+  },
+  {
+    question: '¿Cuándo podemos hacer el check-in y el check-out?',
+    answer: 'El check-in es entre las 16:00 y las 21:00. El check-out es como máximo a las 11:00.',
+  },
+  {
+    question: '¿A cuánto asciende la fianza?',
+    answer: 'La fianza es de 800 €.',
+  },
+  {
+    question: '¿Hay lavadora?',
+    answer: 'Sí. Hay lavadora disponible y también proporcionamos pastillas de detergente.',
+  },
+  {
+    question: '¿Se puede fumar?',
+    answer: 'No. No está permitido fumar dentro de la casa.',
+  },
+  {
+    question: '¿Se permiten fiestas?',
+    answer:
+      'No. La casa está en una zona tranquila y mantenemos una buena relación con las personas que viven allí. La casa no es apta para fiestas o grupos ruidosos.',
+  },
+];
+---
+
+<Layout
+  lang="es"
+  active="faq"
+  title="Preguntas Frecuentes — Casa Lana"
+  description="Respuestas a las preguntas más frecuentes sobre Casa Lana: capacidad, piscina, check-in, mascotas, wifi y más."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">FAQ</span>
+      <h1>Preguntas frecuentes</h1>
+      <p>¿No encuentras tu pregunta? No dudes en contactarnos.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap faq-wrap">
+      <FAQList items={items} />
+    </div>
+  </section>
+
+  <CTABlock
+    title="¿Alguna otra pregunta?"
+    text="Respondemos tu pregunta con gusto y de forma personal."
+    ctaLabel="Contáctanos"
+    ctaHref={ROUTES.contact.es}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .faq-wrap {
+    max-width: 74ch;
+  }
+</style>

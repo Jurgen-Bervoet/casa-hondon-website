@@ -1,0 +1,78 @@
+---
+interface Row {
+  place: string;
+  time: string;
+  focus: string;
+}
+
+interface Props {
+  headers: { place: string; time: string; focus: string };
+  rows: Row[];
+}
+
+const { headers, rows } = Astro.props;
+---
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>{headers.place}</th>
+        <th>{headers.time}</th>
+        <th>{headers.focus}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((r) => (
+          <tr>
+            <td>{r.place}</td>
+            <td>{r.time}</td>
+            <td>{r.focus}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .table-wrap {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--color-line);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--color-line);
+    white-space: nowrap;
+  }
+
+  td:last-child,
+  th:last-child {
+    white-space: normal;
+  }
+
+  th {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-green-deep);
+    background: var(--color-cream-deep);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+</style>

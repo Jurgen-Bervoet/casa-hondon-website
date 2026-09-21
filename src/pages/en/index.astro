@@ -10,15 +10,15 @@ import { ROUTES } from '../../i18n/routes';
 <Layout
   lang="en"
   active="home"
-  title="Casa Helena — Holiday home with pool in Hondón de las Nieves"
-  description="Casa Helena is a small holiday home with a private pool in Hondón de las Nieves, Alicante. Peace, nature and outdoor living."
+  title="Casa Lana — Holiday home with private pool in Hondón de las Nieves"
+  description="Casa Lana is our holiday home in Hondón de las Nieves: peace, space and a private pool inland from the Costa Blanca, sleeps 6."
 >
   <Hero
-    title="Casa Helena"
-    subtitle="Sun, calm and your own pool in the heart of Hondón de las Nieves"
+    title="Casa Lana"
+    subtitle="A beautiful house surrounded by Spanish mountains, peace and space"
     ctaLabel="Check availability"
     ctaHref={ROUTES.availability.en}
-    imageLabel="Photo: pool and terrace at Casa Helena"
+    imageLabel="Photo: pool and terrace at Casa Lana"
     image="/hero.jpg"
   />
 
@@ -36,17 +36,29 @@ import { ROUTES } from '../../i18n/routes';
         />
       </div>
       <div class="intro-collage__text">
-        <span class="eyebrow">Our story</span>
+        <span class="eyebrow">Welcome to our little corner of Spain</span>
         <p class="intro__text">
-          Casa Helena is a dream come true. After years of travelling through Spain, we knew
-          one thing for certain: one day we wanted a place of our own here, somewhere between
-          Valencia and Alicante. After a long, picky search, we found this house — spacious,
-          with a beautiful pool, in a quiet area that's still never far from anything.
+          Away from it all, for a while. Time for each other, for long mornings by the pool,
+          leisurely meals on the terrace and enjoying the quiet around you.
         </p>
         <p class="intro__text">
-          We chose this place with a lot of love, and with just as much love we share it with
-          families who, like us, are looking for calm: no mass tourism, no wild parties, just
-          quiet, space and time together.
+          Casa Lana is our holiday home in Hondón de las Nieves, in the quiet inland of the
+          Costa Blanca. The house sleeps up to six people and has three spacious bedrooms, two
+          bathrooms, a fully fenced 10,000 m² plot and a private pool of 3 by 11 metres.
+        </p>
+        <p class="intro__text">
+          Here you stay away from mass tourism while surprisingly much is still within reach.
+          The centre of Hondón de las Nieves is about an 8-minute drive away, Alicante Airport
+          about 30 minutes, and Alicante and the Mediterranean about 40 minutes.
+        </p>
+        <p class="intro__text">
+          Staying by the pool all day today? Heading out for tapas in Alicante? Visiting
+          Elche, a local market or one of the small villages nearby? Nothing has to happen.
+          Anything can.
+        </p>
+        <p class="intro__text intro__text--last">
+          This is the place we ourselves were looking for in Spain. And we're happy to share
+          it with you. <a href={ROUTES.story.en}>Read our story →</a>
         </p>
       </div>
     </div>
@@ -54,21 +66,39 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
+      <h2>Everything for a relaxed stay</h2>
       <FeatureGrid
         features={[
-          { title: 'Pool & terrace', text: 'Your own pool, maintained weekly, on a large, fully fenced plot.' },
+          { title: 'Pool & terrace', text: 'A 3 x 11 metre private pool, maintained weekly, on a 10,000 m² plot.' },
           { title: 'Peace & nature', text: 'The house stands completely on its own, in an oasis of calm — only the crickets might wake you at night.' },
-          { title: 'Hondón de las Nieves', text: "A mere 10-minute drive to the village, with good restaurants and a cosy breakfast café." },
-          { title: 'Comfort & privacy', text: '3 spacious bedrooms, 2 bathrooms and a large garage that fits your car.' },
+          { title: 'Hondón de las Nieves', text: 'About an 8-minute drive to the village, with good restaurants and a cosy breakfast café.' },
+          { title: 'Comfort & privacy', text: 'Sleeps 6, with 3 spacious bedrooms, 2 bathrooms and a large garage that fits your car.' },
         ]}
       />
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="wrap wide-section">
+      <h2>Away from it all. Yet never far from anything.</h2>
+      <p>
+        Casa Lana sits right in the Spanish inland, surrounded by mountains and nature. Here
+        you wake up to quiet around you, and at night you'll mostly hear the crickets.
+      </p>
+      <p>
+        Fancy a bit more life? Hondón de las Nieves, Aspe, Novelda and Elche are all nearby.
+        For a day of city life, culture, tapas or the beach, you head towards Alicante. Santa
+        Pola, Tabarca, Murcia, Villajoyosa and Altea are also lovely day-trip destinations.
+      </p>
+      <p>That way you combine the calm of the inland with everything the Costa Blanca has to offer.</p>
+      <a href={ROUTES.area.en} class="btn btn--outline-dark">Explore the area</a>
+    </div>
+  </section>
+
   <CTABlock
-    title="Plan your stay at Casa Helena"
+    title="Plan your stay at Casa Lana"
     text="Check availability and send a request — we confirm quickly by email."
-    ctaLabel="Go to availability & booking"
+    ctaLabel="Check availability"
     ctaHref={ROUTES.availability.en}
   />
 </Layout>
@@ -82,8 +112,17 @@ import { ROUTES } from '../../i18n/routes';
   }
 
   .intro__text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__text--last a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
+  }
+
+  .wide-section {
+    max-width: 68ch;
   }
 
   @media (max-width: 780px) {

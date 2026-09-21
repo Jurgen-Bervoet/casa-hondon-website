@@ -1,26 +1,159 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
-import FeatureGrid from '../../components/FeatureGrid.astro';
+import DestinationList from '../../components/DestinationList.astro';
+import SummaryTable from '../../components/SummaryTable.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
+
+const tipsLabel = 'À ne pas manquer :';
+
+const destinations = [
+  {
+    name: 'Hondón de las Nieves',
+    distance: '± 8 minutes en voiture',
+    description:
+      "C'est notre propre village, l'endroit où faire les courses du quotidien. Hondón de las Nieves est petit et authentique, avec une agréable place de village et tout ce dont vous avez besoin en vacances. Vous y trouverez des supermarchés, une boulangerie, une boucherie, des commerces locaux, une pharmacie, des cafés et plusieurs restaurants. La région autour de Hondón est également réputée pour ses raisins et son vin.",
+    tipsLabel,
+    tips: 'Se promener dans le village, boire un verre sur la place, manger local et visiter les Bodegas Cerdá.',
+  },
+  {
+    name: 'Aspe',
+    distance: '± 15 minutes en voiture | environ 13 km',
+    description:
+      "Aspe est plus grande que Hondón et pratique pour les courses. Il est aussi agréable de s'y promener ou d'y manger. La ville est située sur la rivière Tarafa et porte encore des traces claires de son passé arabe et médiéval. Le long du Tarafa, on trouve notamment d'anciens aqueducs, des ouvrages hydrauliques, des moulins et des ponts historiques.",
+    tipsLabel,
+    tips: 'Le centre et la Plaza Mayor, une terrasse, le marché local et une promenade le long du Tarafa.',
+  },
+  {
+    name: 'Novelda',
+    distance: '± 20 minutes en voiture | environ 20 km',
+    description:
+      "Novelda mérite le détour pour son architecture moderniste et le remarquable Santuario de Santa María Magdalena. À côté du sanctuaire se trouve le château médiéval de La Mola. Le centre de Novelda compte aussi plusieurs bâtiments modernistes.",
+    tipsLabel,
+    tips: "Le Santuario de Santa María Magdalena, le Castillo de La Mola, puis un verre ou un repas à Novelda. Vérifiez au préalable l'accessibilité actuelle du sanctuaire.",
+  },
+  {
+    name: 'Elche',
+    distance: '± 30 minutes en voiture | environ 30 km',
+    description:
+      "Elche est mondialement connue pour son immense palmeraie. Le Palmeral de Elche est classé au patrimoine de l'UNESCO et confère à certains quartiers de la ville une ambiance presque nord-africaine. Elche combine palmiers et lieux historiques avec des boutiques, des restaurants et de charmantes places.",
+    tipsLabel,
+    tips: "Se promener dans le Palmeral, visiter le Huerto del Cura, découvrir le centre historique et déjeuner ou tapear quelque part.",
+  },
+  {
+    name: 'Crevillente et le Parque Natural El Hondo',
+    distance: '± 30 minutes en voiture',
+    description:
+      "Pour ceux qui aiment combiner nature et promenade tranquille, voici une belle alternative. La Sierra de Crevillente est intéressante pour les randonneurs. Le parc naturel voisin d'El Hondo, composé de zones humides et de réservoirs, est un site important pour de nombreuses espèces d'oiseaux. Avec un peu de chance, vous y verrez des flamants roses et d'autres oiseaux aquatiques.",
+    tipsLabel,
+    tips: "Se rendre tôt le matin à El Hondo pour une balade nature et l'observation des oiseaux.",
+  },
+  {
+    name: 'Alicante',
+    distance: '± 40 minutes en voiture | environ 40 km',
+    description:
+      "Envie d'un peu plus d'animation, de boutiques, de restaurants et de mer ? Alicante est idéale pour une journée complète, tout en étant assez compacte pour être explorée en grande partie à pied. Au-dessus de la ville se dresse le Castillo de Santa Bárbara, offrant une vue magnifique sur Alicante et la Méditerranée. En contrebas, on se promène dans le vieux centre en direction du port et de l'Explanada de España. La Playa del Postiguet se trouve en plein cœur d'Alicante, au pied du château.",
+    tipsLabel,
+    tips: "Le Castillo de Santa Bárbara, le Barrio de Santa Cruz, l'Explanada de España, le port de plaisance, le vieux centre et la Playa del Postiguet.",
+  },
+  {
+    name: 'Santa Pola',
+    distance: '± 40 minutes en voiture',
+    description:
+      "Santa Pola est une destination idéale pour qui recherche la côte et une ambiance de village de pêcheurs. On y trouve des plages, un port, une promenade et de nombreux restaurants proposant poissons et plats de riz. Tout près se trouvent les salines et zones humides de Santa Pola, où l'on aperçoit régulièrement des flamants roses.",
+    tipsLabel,
+    tips: "Manger du poisson au port, aller à la plage, visiter les salines et prendre le bateau pour Tabarca depuis là.",
+  },
+  {
+    name: 'Tabarca',
+    distance: '± 40 minutes en voiture jusqu\'à Santa Pola + bateau',
+    description:
+      "Tabarca est une petite île au large d'Alicante. Des bateaux partent de Santa Pola vers l'île. C'est idéal pour une journée où l'on laisse la voiture, où l'on prend le bateau, où l'on se promène dans le petit village, où l'on mange au bord de mer et où l'on se baigne ou fait du snorkeling.",
+    tipsLabel,
+    tips: "Partir le matin depuis Santa Pola, explorer l'île, déjeuner et prévoir du matériel de baignade.",
+  },
+  {
+    name: 'Guardamar del Segura',
+    distance: '± 45 à 50 minutes en voiture',
+    description:
+      "Pour une vraie journée à la plage, Guardamar est une destination intéressante. Elle est réputée pour ses longues plages de sable, ses dunes et ses pinèdes. C'est un bel endroit pour emporter serviettes, parasol et matériel de baignade et en faire une journée plage complète.",
+    tipsLabel,
+    tips: 'La plage, les dunes et le Parque Reina Sofía.',
+  },
+  {
+    name: 'Torrevieja et les lagunes roses',
+    distance: '± 50 à 60 minutes en voiture',
+    description:
+      "Torrevieja est une ville côtière animée. La région se distingue surtout par le parc naturel des Lagunas de La Mata y Torrevieja. L'une des lagunes est connue pour sa couleur rose saisissante. Près de la Laguna de La Mata se trouvent des sentiers de randonnée et des points d'observation où l'on aperçoit notamment des flamants roses. La lagune rose elle-même est protégée et non librement accessible.",
+    tipsLabel,
+    tips: 'Combiner le parc naturel et les salines avec une visite de Torrevieja ou de la plage.',
+  },
+  {
+    name: 'Murcie',
+    distance: '± 50 à 60 minutes en voiture',
+    description:
+      "Murcie se trouve dans une autre communauté autonome et possède de ce fait une ambiance qui lui est propre. Un beau choix pour qui souhaite combiner culture, boutiques, places et gastronomie. Le centre historique s'articule autour de la cathédrale et de la Plaza del Cardenal Belluga.",
+    tipsLabel,
+    tips: "La cathédrale, le vieux centre, la Plaza de las Flores et un long déjeuner. Vérifiez au préalable les horaires d'ouverture actuels de la cathédrale.",
+  },
+  {
+    name: 'Villajoyosa',
+    distance: '± 55 à 65 minutes en voiture',
+    description:
+      "L'ancien village de pêcheurs de Villajoyosa est réputé pour ses maisons aux couleurs vives le long de la côte et sa longue tradition chocolatière. Vous pouvez y combiner facilement plage, promenade dans le vieux centre et chocolat.",
+    tipsLabel,
+    tips: 'Les maisons colorées, la promenade, la plage, le vieux centre et un musée du chocolat.',
+  },
+  {
+    name: 'Altea',
+    distance: '± 60 à 75 minutes en voiture',
+    description:
+      "Altea est parfaite pour une excursion d'une journée. Le vieux centre, adossé à une colline, se compose de maisons blanches, de ruelles étroites, de petites boutiques, de restaurants et de points de vue sur la Méditerranée. C'est surtout un endroit où flâner tranquillement en profitant de l'ambiance.",
+    tipsLabel,
+    tips: "Le vieux centre, la place de l'église, le Mirador de los Cronistas de España, manger avec vue et, si vous le souhaitez, combiner avec une journée plage.",
+  },
+];
+
+const summaryRows = [
+  { place: 'Hondón de las Nieves', time: '8 min', focus: 'Restaurants, courses, vin' },
+  { place: 'Aspe', time: '15 min', focus: 'Marché, restaurants, Espagne locale' },
+  { place: 'Novelda', time: '20 min', focus: 'Architecture, château, culture' },
+  { place: 'Elche', time: '30 min', focus: 'Palmiers, ville, shopping' },
+  { place: 'El Hondo', time: '30 min', focus: 'Nature, randonnée, oiseaux' },
+  { place: "Aéroport d'Alicante", time: '± 30 min', focus: 'Aéroport' },
+  { place: 'Alicante', time: '40 min', focus: 'Ville, shopping, culture, plage' },
+  { place: 'Santa Pola', time: '40 min', focus: 'Plage, port, poisson, Tabarca' },
+  { place: 'Guardamar', time: '45 à 50 min', focus: 'Plage, dunes' },
+  { place: 'Murcie', time: '50 à 60 min', focus: 'Ville, culture, gastronomie' },
+  { place: 'Torrevieja', time: '50 à 60 min', focus: 'Mer, salines, flamants roses' },
+  { place: 'Villajoyosa', time: '55 à 65 min', focus: 'Plage, chocolat, maisons colorées' },
+  { place: 'Altea', time: '60 à 75 min', focus: 'Village blanc, ambiance, restaurants' },
+];
 ---
 
 <Layout
   lang="fr"
   active="area"
-  title="La Région — Casa Helena"
-  description="Découvrez Hondón de las Nieves et ses environs : randonnée, les salines, le village et les produits locaux."
+  title="La Région — Casa Lana"
+  description="Découvrez la région de Hondón de las Nieves : villages, nature, villes et plages de la Costa Blanca, tous à portée de Casa Lana."
 >
   <section class="section">
     <div class="wrap page-intro">
       <span class="eyebrow">La Région</span>
-      <h1>L'arrière-pays tranquille d'Alicante</h1>
+      <h1>Découvrez la région de Hondón de las Nieves</h1>
       <p>
-        Hondón de las Nieves se situe dans l'arrière-pays verdoyant de la province d'Alicante,
-        dans la vallée qu'il partage avec son village voisin, Hondón de los Frailes. Montagnes,
-        amandiers, vignobles et les célèbres salines façonnent le paysage — une Espagne bien
-        différente de celle de la côte animée.
+        Le calme, ici, ne signifie certainement pas rester au bord de la piscine pendant
+        toutes les vacances. Depuis Casa Lana, vous atteignez des villages espagnols
+        authentiques, des vignobles, des villes historiques, des espaces naturels et les
+        plages de la Costa Blanca. Alicante, Elche, Santa Pola, Murcie, Tabarca et bien
+        d'autres destinations sont facilement accessibles en voiture.
+      </p>
+      <p>
+        Un jour, vous restez tranquillement à la maison. Le lendemain matin, vous vous
+        promenez sur un marché local, déjeunez dans un village espagnol, visitez Elche ou
+        Alicante et terminez la journée au bord de la Méditerranée. Chaque jour, vous
+        choisissez à nouveau ce dont vous avez envie.
       </p>
     </div>
   </section>
@@ -39,34 +172,45 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Que faire</h2>
-      <FeatureGrid
-        features={[
-          { title: 'Randonnée & nature', text: 'Les montagnes environnantes offrent des sentiers de randonnée pour tous les niveaux, avec vue sur la vallée.' },
-          { title: 'Les Salines', text: 'Un espace naturel remarquable entre les deux villages de Hondón, apprécié des ornithologues et photographes.' },
-          { title: 'Le village', text: "À environ 10 minutes en voiture se trouve Hondón de las Nieves : un village tranquille et authentique, avec de bons restaurants et un café petit-déjeuner sympathique." },
-          { title: 'Produits locaux', text: 'La région est réputée pour ses amandes, son huile d’olive et son vin — idéal pour les amateurs de gastronomie locale.' },
-        ]}
-      />
+      <DestinationList items={destinations} />
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Comment s'y rendre</h2>
-      <ul class="distances">
-        <li><strong>Hondón de las Nieves (village)</strong> — environ 10 minutes en voiture</li>
-        <li><strong>Aéroport d'Alicante-Elche</strong> — temps de trajet à confirmer</li>
-        <li><strong>Centre d'Elche</strong> — temps de trajet à confirmer</li>
-        <li><strong>Côte la plus proche</strong> — temps de trajet à confirmer</li>
-      </ul>
+      <h2>En un coup d'œil</h2>
+      <SummaryTable
+        headers={{ place: 'Lieu', time: 'Temps en voiture', focus: 'Idéal pour' }}
+        rows={summaryRows}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap guide-teaser">
+      <h2>Nos coins préférés ? Nous les partageons avec nos hôtes.</h2>
+      <p>
+        Nous découvrons nous-mêmes encore régulièrement de nouveaux coins dans la région : un
+        restaurant où nous aimons retourner, un bon endroit pour le petit-déjeuner, de
+        délicieuses tapas, un parking pratique à Alicante ou Elche, et des adresses pratiques
+        qui facilitent un peu votre séjour. Certains de ces coins, nous préférons les
+        réserver à nos hôtes.
+      </p>
+      <p>
+        C'est pourquoi, après votre réservation, vous recevrez notre guide personnel pour les
+        hôtes, avec des restaurants, des adresses pour le petit-déjeuner, des excursions, des
+        parkings et des conseils pratiques que nous avons nous-mêmes testés. Pas une
+        collection d'adresses trouvées sur internet, mais des endroits que nous connaissons
+        vraiment et recommandons avec plaisir. Et le guide continue de s'enrichir, car nous
+        aussi, nous sommes loin d'avoir tout découvert ici.
+      </p>
     </div>
   </section>
 
   <CTABlock
-    title="Casa Helena comme point de départ"
+    title="Casa Lana, votre point de départ"
     text="Consultez les disponibilités et réservez votre séjour au cœur de cette région paisible."
-    ctaLabel="Voir les disponibilités et réserver"
+    ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
   />
 </Layout>
@@ -76,19 +220,7 @@ import { ROUTES } from '../../i18n/routes';
     max-width: 68ch;
   }
 
-  .distances {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 60ch;
-  }
-
-  .distances li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+  .guide-teaser {
+    max-width: 68ch;
   }
 </style>

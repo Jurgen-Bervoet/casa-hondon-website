@@ -1,26 +1,157 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
-import FeatureGrid from '../../components/FeatureGrid.astro';
+import DestinationList from '../../components/DestinationList.astro';
+import SummaryTable from '../../components/SummaryTable.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
+
+const tipsLabel = 'Imprescindible:';
+
+const destinations = [
+  {
+    name: 'Hondón de las Nieves',
+    distance: '± 8 minutos en coche',
+    description:
+      'Este es nuestro propio pueblo, el sitio al que acudir para las compras diarias. Hondón de las Nieves es pequeño y auténtico, con una agradable plaza y todo lo que necesitas durante tus vacaciones. Encontrarás supermercados, panadería, carnicería, comercios locales, farmacia, cafeterías y varios restaurantes. Además, la comarca es conocida por sus uvas y su vino.',
+    tipsLabel,
+    tips: 'Pasear por el pueblo, tomar algo en la plaza, comer local y visitar Bodegas Cerdá.',
+  },
+  {
+    name: 'Aspe',
+    distance: '± 15 minutos en coche | unos 13 km',
+    description:
+      'Aspe es más grande que Hondón y práctico para las compras. También es agradable pasear un rato o ir a comer. La localidad está junto al río Tarafa y conserva huellas claras de su pasado árabe y medieval. A lo largo del Tarafa encontrarás antiguos acueductos, obras hidráulicas, molinos y puentes históricos.',
+    tipsLabel,
+    tips: 'El centro y la Plaza Mayor, una terraza, el mercado local y un paseo junto al Tarafa.',
+  },
+  {
+    name: 'Novelda',
+    distance: '± 20 minutos en coche | unos 20 km',
+    description:
+      'Novelda merece una visita por su arquitectura modernista y el singular Santuario de Santa María Magdalena. Junto al santuario se encuentra el castillo medieval de La Mola. También en el centro de Novelda hay varios edificios modernistas.',
+    tipsLabel,
+    tips: 'Santuario de Santa María Magdalena, Castillo de La Mola y después tomar algo o comer en Novelda. Comprueba de antemano la accesibilidad actual del santuario.',
+  },
+  {
+    name: 'Elche',
+    distance: '± 30 minutos en coche | unos 30 km',
+    description:
+      'Elche es mundialmente famosa por su enorme palmeral. El Palmeral de Elche tiene la declaración de la UNESCO y da a partes de la ciudad un ambiente casi norteafricano. Elche combina palmeras y lugares históricos con tiendas, restaurantes y plazas con encanto.',
+    tipsLabel,
+    tips: 'Pasear por el Palmeral, visitar el Huerto del Cura, descubrir el centro histórico y comer o tapear en algún sitio.',
+  },
+  {
+    name: 'Crevillente y el Parque Natural de El Hondo',
+    distance: '± 30 minutos en coche',
+    description:
+      'Para quienes combinan naturaleza con una caminata tranquila, esta es una bonita opción. La Sierra de Crevillente es interesante para excursionistas. El cercano parque natural de El Hondo está formado por humedales y embalses, y es un lugar importante para numerosas especies de aves. Con suerte, podrás ver flamencos y otras aves acuáticas.',
+    tipsLabel,
+    tips: 'Ir temprano por la mañana a El Hondo para una caminata natural y observación de aves.',
+  },
+  {
+    name: 'Alicante',
+    distance: '± 40 minutos en coche | unos 40 km',
+    description:
+      '¿Te apetece más ambiente, tiendas, restaurantes y mar? Alicante es ideal para un día completo, y a la vez lo bastante compacta para descubrirla en gran parte a pie. Sobre la ciudad se alza el Castillo de Santa Bárbara, con unas vistas magníficas sobre Alicante y el Mediterráneo. Abajo, paseas por el casco antiguo hacia el puerto y la Explanada de España. La Playa del Postiguet está en pleno Alicante, al pie del castillo.',
+    tipsLabel,
+    tips: 'Castillo de Santa Bárbara, Barrio de Santa Cruz, Explanada de España, el puerto deportivo, el casco antiguo y la Playa del Postiguet.',
+  },
+  {
+    name: 'Santa Pola',
+    distance: '± 40 minutos en coche',
+    description:
+      'Santa Pola es un buen destino para quien busca costa y ambiente de pueblo pesquero. Encontrarás playas, un puerto, un paseo marítimo y muchos restaurantes de pescado y arroces. Cerca están las salinas y humedales de Santa Pola, donde a menudo se pueden ver flamencos.',
+    tipsLabel,
+    tips: 'Comer pescado en el puerto, ir a la playa, visitar las salinas y desde aquí tomar el barco a Tabarca.',
+  },
+  {
+    name: 'Tabarca',
+    distance: '± 40 minutos en coche hasta Santa Pola + barco',
+    description:
+      'Tabarca es una pequeña isla frente a la costa de Alicante. Desde Santa Pola salen barcos hacia la isla. Es ideal para un día en el que dejas el coche, tomas el barco, paseas por el pequeño pueblo, comes junto al mar y te bañas o haces snorkel.',
+    tipsLabel,
+    tips: 'Salir por la mañana desde Santa Pola, explorar la isla, comer y llevar equipo de baño.',
+  },
+  {
+    name: 'Guardamar del Segura',
+    distance: '± 45 a 50 minutos en coche',
+    description:
+      'Para un auténtico día de playa, Guardamar es un destino interesante. Es conocida por sus largas playas de arena, dunas y pinares. Es un buen sitio para llevar toallas, sombrilla y equipo de baño y dedicarle un día completo a la playa.',
+    tipsLabel,
+    tips: 'Playa, dunas y el Parque Reina Sofía.',
+  },
+  {
+    name: 'Torrevieja y las lagunas rosas',
+    distance: '± 50 a 60 minutos en coche',
+    description:
+      'Torrevieja es una animada ciudad costera. La zona destaca especialmente por el parque natural de las Lagunas de La Mata y Torrevieja. Una de las lagunas es conocida por su llamativo color rosa. Junto a la Laguna de La Mata hay rutas de senderismo y puntos de observación donde, entre otras aves, aparecen flamencos. La propia laguna rosa está protegida y no es de libre acceso.',
+    tipsLabel,
+    tips: 'Combinar el parque natural y las salinas con una visita a Torrevieja o a la playa.',
+  },
+  {
+    name: 'Murcia',
+    distance: '± 50 a 60 minutos en coche',
+    description:
+      'Murcia pertenece a otra comunidad autónoma y por ello tiene un ambiente propio. Es una buena opción para quien quiere combinar cultura, tiendas, plazas y gastronomía. El centro histórico se sitúa alrededor de la catedral y la Plaza del Cardenal Belluga.',
+    tipsLabel,
+    tips: 'La catedral, el casco antiguo, la Plaza de las Flores y una buena comida. Comprueba de antemano los horarios actuales de la catedral.',
+  },
+  {
+    name: 'Villajoyosa',
+    distance: '± 55 a 65 minutos en coche',
+    description:
+      'El antiguo pueblo pesquero de Villajoyosa es conocido por sus casas de colores vivos junto al mar y su larga tradición chocolatera. Aquí puedes combinar fácilmente playa, un paseo por el casco antiguo y chocolate.',
+    tipsLabel,
+    tips: 'Las casas de colores, el paseo marítimo, la playa, el casco antiguo y un museo del chocolate.',
+  },
+  {
+    name: 'Altea',
+    distance: '± 60 a 75 minutos en coche',
+    description:
+      'Altea es perfecta para una excursión de un día. El casco antiguo, sobre una colina, está formado por casas blancas, calles estrechas, pequeñas tiendas, restaurantes y miradores sobre el Mediterráneo. Es sobre todo un lugar para pasear con calma y disfrutar del ambiente.',
+    tipsLabel,
+    tips: 'El casco antiguo, la plaza de la iglesia, el Mirador de los Cronistas de España, comer con vistas y, si se quiere, combinar con un día de playa.',
+  },
+];
+
+const summaryRows = [
+  { place: 'Hondón de las Nieves', time: '8 min', focus: 'Restaurantes, compras, vino' },
+  { place: 'Aspe', time: '15 min', focus: 'Mercado, restaurantes, España local' },
+  { place: 'Novelda', time: '20 min', focus: 'Arquitectura, castillo, cultura' },
+  { place: 'Elche', time: '30 min', focus: 'Palmeras, ciudad, compras' },
+  { place: 'El Hondo', time: '30 min', focus: 'Naturaleza, senderismo, aves' },
+  { place: 'Aeropuerto de Alicante', time: '± 30 min', focus: 'Aeropuerto' },
+  { place: 'Alicante', time: '40 min', focus: 'Ciudad, compras, cultura, playa' },
+  { place: 'Santa Pola', time: '40 min', focus: 'Playa, puerto, pescado, Tabarca' },
+  { place: 'Guardamar', time: '45 a 50 min', focus: 'Playa, dunas' },
+  { place: 'Murcia', time: '50 a 60 min', focus: 'Ciudad, cultura, gastronomía' },
+  { place: 'Torrevieja', time: '50 a 60 min', focus: 'Mar, salinas, flamencos' },
+  { place: 'Villajoyosa', time: '55 a 65 min', focus: 'Playa, chocolate, casas de colores' },
+  { place: 'Altea', time: '60 a 75 min', focus: 'Pueblo blanco, ambiente, restaurantes' },
+];
 ---
 
 <Layout
   lang="es"
   active="area"
-  title="La Zona — Casa Helena"
-  description="Descubre Hondón de las Nieves y sus alrededores: senderismo, las salinas, el pueblo y productos locales."
+  title="La Zona — Casa Lana"
+  description="Descubre la zona de Hondón de las Nieves: pueblos, naturaleza, ciudades y las playas de la Costa Blanca, todo al alcance de Casa Lana."
 >
   <section class="section">
     <div class="wrap page-intro">
       <span class="eyebrow">La Zona</span>
-      <h1>El tranquilo interior de Alicante</h1>
+      <h1>Descubre la zona de Hondón de las Nieves</h1>
       <p>
-        Hondón de las Nieves se encuentra en el verde interior de la provincia de
-        Alicante, en el valle que comparte con su pueblo vecino, Hondón de los Frailes.
-        Montañas, almendros, viñedos y las conocidas salinas definen el paisaje — una
-        España muy distinta a la de la costa.
+        La calma aquí no significa que tengas que pasar todas las vacaciones junto a la
+        piscina. Desde Casa Lana alcanzas pueblos españoles auténticos, viñedos, ciudades
+        históricas, espacios naturales y las playas de la Costa Blanca. Alicante, Elche,
+        Santa Pola, Murcia, Tabarca y otros destinos son fácilmente accesibles en coche.
+      </p>
+      <p>
+        Un día te quedas tranquilamente en casa. Al día siguiente paseas por un mercado
+        local, comes en un pueblo español, visitas Elche o Alicante y terminas el día en el
+        Mediterráneo. Cada día eliges de nuevo qué te apetece hacer.
       </p>
     </div>
   </section>
@@ -39,34 +170,43 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Qué hacer</h2>
-      <FeatureGrid
-        features={[
-          { title: 'Senderismo y naturaleza', text: 'Las montañas de los alrededores ofrecen rutas para todos los niveles, con vistas sobre el valle.' },
-          { title: 'Las Salinas', text: 'Un espacio natural singular entre los dos pueblos de Hondón, muy apreciado por observadores de aves y fotógrafos.' },
-          { title: 'El pueblo', text: 'A unos 10 minutos en coche está Hondón de las Nieves: un pueblo tranquilo y auténtico, con buenos restaurantes y una acogedora cafetería para desayunar.' },
-          { title: 'Productos locales', text: 'La comarca es conocida por sus almendras, aceite de oliva y vino — ideal para amantes de la gastronomía local.' },
-        ]}
-      />
+      <DestinationList items={destinations} />
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Cómo llegar</h2>
-      <ul class="distances">
-        <li><strong>Hondón de las Nieves (pueblo)</strong> — unos 10 minutos en coche</li>
-        <li><strong>Aeropuerto de Alicante-Elche</strong> — tiempo de viaje por confirmar</li>
-        <li><strong>Centro de Elche</strong> — tiempo de viaje por confirmar</li>
-        <li><strong>Costa más cercana</strong> — tiempo de viaje por confirmar</li>
-      </ul>
+      <h2>De un vistazo</h2>
+      <SummaryTable
+        headers={{ place: 'Lugar', time: 'Tiempo en coche', focus: 'Ideal para' }}
+        rows={summaryRows}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap guide-teaser">
+      <h2>¿Nuestros rincones favoritos? Los compartimos con nuestros huéspedes.</h2>
+      <p>
+        Nosotros mismos seguimos descubriendo nuevos rincones en la zona: un restaurante al
+        que nos gusta volver, un buen sitio para desayunar, tapas deliciosas, un parking
+        práctico en Alicante o Elche y direcciones útiles que hacen tu estancia un poco más
+        fácil. Algunos de esos rincones nos gusta reservarlos para nuestros huéspedes.
+      </p>
+      <p>
+        Por eso, tras tu reserva recibirás nuestra guía personal para huéspedes, con
+        restaurantes, sitios para desayunar, excursiones, aparcamientos y consejos prácticos
+        que hemos probado nosotros mismos. No es una recopilación de direcciones de internet,
+        sino lugares que conocemos de primera mano y recomendamos con gusto. Y la guía sigue
+        creciendo, porque nosotros tampoco hemos terminado de descubrir esta zona.
+      </p>
     </div>
   </section>
 
   <CTABlock
-    title="Casa Helena como punto de partida"
+    title="Casa Lana como punto de partida"
     text="Consulta la disponibilidad y reserva tu estancia en el corazón de esta tranquila comarca."
-    ctaLabel="Ver disponibilidad y reservar"
+    ctaLabel="Consultar disponibilidad"
     ctaHref={ROUTES.availability.es}
   />
 </Layout>
@@ -76,19 +216,7 @@ import { ROUTES } from '../../i18n/routes';
     max-width: 68ch;
   }
 
-  .distances {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 60ch;
-  }
-
-  .distances li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+  .guide-teaser {
+    max-width: 68ch;
   }
 </style>

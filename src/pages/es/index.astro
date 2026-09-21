@@ -10,15 +10,15 @@ import { ROUTES } from '../../i18n/routes';
 <Layout
   lang="es"
   active="home"
-  title="Casa Helena — Casa de vacaciones con piscina en Hondón de las Nieves"
-  description="Casa Helena es una pequeña casa de vacaciones con piscina propia en Hondón de las Nieves, Alicante. Calma, naturaleza y vida al aire libre."
+  title="Casa Lana — Casa de vacaciones con piscina privada en Hondón de las Nieves"
+  description="Casa Lana es nuestra casa de vacaciones en Hondón de las Nieves: calma, espacio y una piscina privada en el interior de la Costa Blanca, capacidad para 6 personas."
 >
   <Hero
-    title="Casa Helena"
-    subtitle="Sol, calma y piscina propia en el corazón de Hondón de las Nieves"
+    title="Casa Lana"
+    subtitle="Una casa preciosa rodeada de montañas españolas, calma y espacio"
     ctaLabel="Consultar disponibilidad"
     ctaHref={ROUTES.availability.es}
-    imageLabel="Foto: piscina y terraza de Casa Helena"
+    imageLabel="Foto: piscina y terraza de Casa Lana"
     image="/hero.jpg"
   />
 
@@ -36,17 +36,32 @@ import { ROUTES } from '../../i18n/routes';
         />
       </div>
       <div class="intro-collage__text">
-        <span class="eyebrow">Nuestra historia</span>
+        <span class="eyebrow">Bienvenidos a nuestro rincón de España</span>
         <p class="intro__text">
-          Casa Helena es un sueño hecho realidad. Después de años viajando por España, teníamos
-          claro una cosa: algún día queríamos un lugar propio aquí, entre Valencia y Alicante.
-          Tras una búsqueda larga y exigente, encontramos esta casa — amplia, con una piscina
-          preciosa, en una comarca tranquila que nunca queda lejos de todo.
+          Lejos del ajetreo, por un tiempo. Tiempo el uno para el otro, para largas mañanas
+          junto a la piscina, comidas tranquilas en la terraza y disfrutar del silencio a tu
+          alrededor.
         </p>
         <p class="intro__text">
-          Con mucho cariño elegimos este lugar, y con el mismo cariño lo compartimos con
-          familias que, como nosotros, buscan calma: nada de turismo de masas, nada de fiestas
-          ruidosas, sino silencio, espacio y tiempo para estar juntos.
+          Casa Lana es nuestra casa de vacaciones en Hondón de las Nieves, en el tranquilo
+          interior de la Costa Blanca. La casa tiene capacidad para un máximo de seis
+          personas y cuenta con tres amplios dormitorios, dos baños, una parcela
+          completamente vallada de 10.000 m² y una piscina privada de 3 por 11 metros.
+        </p>
+        <p class="intro__text">
+          Aquí te alojas lejos del turismo de masas y, al mismo tiempo, tienes sorprendentemente
+          cerca de todo. El centro de Hondón de las Nieves está a unos 8 minutos en coche, el
+          aeropuerto de Alicante a unos 30 minutos, y Alicante y el Mediterráneo a unos 40
+          minutos.
+        </p>
+        <p class="intro__text">
+          ¿Te quedas hoy junto a la piscina? ¿Te vas de tapas a Alicante? ¿Visitas Elche, un
+          mercado local o uno de los pueblos de los alrededores? Nada es obligatorio. Todo es
+          posible.
+        </p>
+        <p class="intro__text intro__text--last">
+          Este es el lugar que nosotros mismos buscábamos en España. Y lo compartimos con
+          mucho gusto con vosotros. <a href={ROUTES.story.es}>Lee nuestra historia →</a>
         </p>
       </div>
     </div>
@@ -54,21 +69,40 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
+      <h2>Todo para una estancia relajada</h2>
       <FeatureGrid
         features={[
-          { title: 'Piscina y terraza', text: 'Tu propia piscina, mantenida cada semana, en una parcela grande y completamente vallada.' },
+          { title: 'Piscina y terraza', text: 'Piscina privada de 3 x 11 metros, mantenida cada semana, en una parcela de 10.000 m².' },
           { title: 'Calma y naturaleza', text: 'La casa está totalmente aislada, en un oasis de calma — solo los grillos podrían despertarte por la noche.' },
-          { title: 'Hondón de las Nieves', text: 'A apenas 10 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.' },
-          { title: 'Comodidad y privacidad', text: '3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.' },
+          { title: 'Hondón de las Nieves', text: 'A unos 8 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.' },
+          { title: 'Comodidad y privacidad', text: '6 personas, 3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.' },
         ]}
       />
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="wrap wide-section">
+      <h2>Lejos de todo. Y a la vez, nunca lejos de nada.</h2>
+      <p>
+        Casa Lana está en pleno interior español, rodeada de montañas y naturaleza. Aquí te
+        despiertas con silencio a tu alrededor y por la noche solo oyes los grillos.
+      </p>
+      <p>
+        ¿Te apetece algo más de vida? Hondón de las Nieves, Aspe, Novelda y Elche están cerca.
+        Para un día de ciudad, cultura, tapas o playa, conduces hacia Alicante. Santa Pola,
+        Tabarca, Murcia, Villajoyosa y Altea también son bonitos destinos para una excursión
+        de un día.
+      </p>
+      <p>Así combinas la calma del interior con todo lo que la Costa Blanca tiene para ofrecer.</p>
+      <a href={ROUTES.area.es} class="btn btn--outline-dark">Descubre la zona</a>
+    </div>
+  </section>
+
   <CTABlock
-    title="Planifica tu estancia en Casa Helena"
+    title="Planifica tu estancia en Casa Lana"
     text="Consulta la disponibilidad y envía tu solicitud — confirmamos rápido por correo."
-    ctaLabel="Ver disponibilidad y reservar"
+    ctaLabel="Consultar disponibilidad"
     ctaHref={ROUTES.availability.es}
   />
 </Layout>
@@ -82,8 +116,17 @@ import { ROUTES } from '../../i18n/routes';
   }
 
   .intro__text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__text--last a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
+  }
+
+  .wide-section {
+    max-width: 68ch;
   }
 
   @media (max-width: 780px) {

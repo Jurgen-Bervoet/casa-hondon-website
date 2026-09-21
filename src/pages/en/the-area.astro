@@ -1,26 +1,157 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
-import FeatureGrid from '../../components/FeatureGrid.astro';
+import DestinationList from '../../components/DestinationList.astro';
+import SummaryTable from '../../components/SummaryTable.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
+
+const tipsLabel = "Don't miss:";
+
+const destinations = [
+  {
+    name: 'Hondón de las Nieves',
+    distance: '± 8-minute drive',
+    description:
+      "This is our own village, and the place for everyday shopping. Hondón de las Nieves is small and authentic, with a lovely village square and everything you need on holiday. You'll find supermarkets, a bakery, a butcher, local shops, a pharmacy, cafés and several restaurants. The area around Hondón is also known for its grapes and wine.",
+    tipsLabel,
+    tips: 'A stroll through the village, a drink on the square, local food, and a visit to Bodegas Cerdá.',
+  },
+  {
+    name: 'Aspe',
+    distance: '± 15-minute drive | about 13 km',
+    description:
+      "Aspe is bigger than Hondón and handy for shopping. It's also nice for a stroll or a bite to eat. The town sits on the Tarafa river and still bears clear traces of its Arab and medieval past. Along the Tarafa you'll find old aqueducts, waterworks, mills and historic bridges.",
+    tipsLabel,
+    tips: 'The centre and Plaza Mayor, a terrace café, the local market, and a walk along the Tarafa.',
+  },
+  {
+    name: 'Novelda',
+    distance: '± 20-minute drive | about 20 km',
+    description:
+      'Novelda is worth a trip for its modernist architecture and the striking Santuario de Santa María Magdalena. Next to the sanctuary is the medieval Castillo de La Mola. The centre of Novelda also has several modernist buildings.',
+    tipsLabel,
+    tips: "Santuario de Santa María Magdalena, Castillo de La Mola, and then a drink or a meal in Novelda. Check the sanctuary's current opening times in advance.",
+  },
+  {
+    name: 'Elche',
+    distance: '± 30-minute drive | about 30 km',
+    description:
+      'Elche is world-famous for its enormous palm grove. The Palmeral de Elche has UNESCO status and gives parts of the city an almost North African feel. Elche combines palm trees and historic sites with shops, restaurants and lovely squares.',
+    tipsLabel,
+    tips: 'Walking through the Palmeral, visiting Huerto del Cura, discovering the historic centre, and lunch or tapas somewhere.',
+  },
+  {
+    name: 'Crevillent & Parque Natural El Hondo',
+    distance: '± 30-minute drive',
+    description:
+      "For those who like to combine nature with a quiet walk, this is a lovely change of pace. The Sierra de Crevillent is interesting for hikers. The nearby El Hondo nature park consists of wetlands and reservoirs and is an important spot for many bird species — with some luck, you'll spot flamingos and other waterbirds.",
+    tipsLabel,
+    tips: 'Head to El Hondo early in the morning for a nature walk and birdwatching.',
+  },
+  {
+    name: 'Alicante',
+    distance: '± 40-minute drive | about 40 km',
+    description:
+      "Fancy a bit more life, shops, restaurants and the sea? Alicante is ideal for a full day out, and compact enough to explore largely on foot. Above the city stands Castillo de Santa Bárbara, with beautiful views over Alicante and the Mediterranean. Below, you stroll through the old town towards the harbour and the Explanada de España. Playa del Postiguet sits right in Alicante, at the foot of the castle.",
+    tipsLabel,
+    tips: 'Castillo de Santa Bárbara, Barrio de Santa Cruz, Explanada de España, the marina, the old town and Playa del Postiguet.',
+  },
+  {
+    name: 'Santa Pola',
+    distance: '± 40-minute drive',
+    description:
+      "Santa Pola is a great destination if you fancy the coast and a fishing-village feel. You'll find beaches, a harbour, a promenade and plenty of restaurants serving fish and rice dishes. Nearby are the salt lakes and wetlands of Santa Pola, where flamingos are often spotted.",
+    tipsLabel,
+    tips: 'Eating fish at the harbour, the beach, visiting the salt lakes, and taking the boat to Tabarca from here.',
+  },
+  {
+    name: 'Tabarca',
+    distance: '± 40-minute drive to Santa Pola + boat',
+    description:
+      "Tabarca is a small island off the coast of Alicante. Boats to the island leave from Santa Pola. It's ideal for a day when you leave the car behind, take the boat, wander through the small village, eat by the sea, and go for a swim or snorkel.",
+    tipsLabel,
+    tips: 'Leave Santa Pola in the morning, explore the island, have lunch, and bring your swimming gear.',
+  },
+  {
+    name: 'Guardamar del Segura',
+    distance: '± 45–50-minute drive',
+    description:
+      'For a proper beach day, Guardamar is an interesting destination. It is known for its long sandy beaches, dunes and pine forests. Bring towels, a parasol and swimming gear and make a full day of it.',
+    tipsLabel,
+    tips: 'The beach, the dunes, and Parque Reina Sofía.',
+  },
+  {
+    name: 'Torrevieja & the pink salt lakes',
+    distance: '± 50–60-minute drive',
+    description:
+      "Torrevieja is a lively coastal town. The area is especially notable for the Lagunas de La Mata y Torrevieja nature park. One of the salt lakes is known for its striking pink colour. Near Laguna de La Mata there are walking routes and observation points where flamingos, among other birds, can be seen. The pink lagoon itself is protected and not freely accessible.",
+    tipsLabel,
+    tips: 'Combine the nature park and salt lakes with a visit to Torrevieja or the beach.',
+  },
+  {
+    name: 'Murcia',
+    distance: '± 50–60-minute drive',
+    description:
+      'Murcia lies in a different autonomous region and has its own distinct feel as a result. A great choice for combining culture, shops, squares and gastronomy. The historic centre lies around the cathedral and Plaza del Cardenal Belluga.',
+    tipsLabel,
+    tips: "The cathedral, the old town, Plaza de las Flores, and a leisurely lunch. Check the cathedral's current opening hours in advance.",
+  },
+  {
+    name: 'Villajoyosa',
+    distance: '± 55–65-minute drive',
+    description:
+      'The old fishing town of Villajoyosa is known for its brightly coloured houses along the coast and its long chocolate-making tradition. Here you can easily combine the beach, a walk through the old town, and chocolate.',
+    tipsLabel,
+    tips: 'The colourful houses, the promenade, the beach, the old town, and a chocolate museum.',
+  },
+  {
+    name: 'Altea',
+    distance: '± 60–75-minute drive',
+    description:
+      'Altea is perfect for a day trip. The old town, set against a hillside, consists of white houses, narrow streets, small shops, restaurants and viewpoints over the Mediterranean. This is mostly a place to wander around at a slow pace and soak up the atmosphere along the way.',
+    tipsLabel,
+    tips: 'The old town, the church square, Mirador de los Cronistas de España, eating with a view, and optionally combining it with a beach day.',
+  },
+];
+
+const summaryRows = [
+  { place: 'Hondón de las Nieves', time: '8 min', focus: 'Restaurants, shopping, wine' },
+  { place: 'Aspe', time: '15 min', focus: 'Market, restaurants, local Spain' },
+  { place: 'Novelda', time: '20 min', focus: 'Architecture, castle, culture' },
+  { place: 'Elche', time: '30 min', focus: 'Palm trees, city, shopping' },
+  { place: 'El Hondo', time: '30 min', focus: 'Nature, hiking, birds' },
+  { place: 'Alicante Airport', time: '± 30 min', focus: 'Airport' },
+  { place: 'Alicante', time: '40 min', focus: 'City, shopping, culture, beach' },
+  { place: 'Santa Pola', time: '40 min', focus: 'Beach, harbour, fish, Tabarca' },
+  { place: 'Guardamar', time: '45–50 min', focus: 'Beach, dunes' },
+  { place: 'Murcia', time: '50–60 min', focus: 'City, culture, gastronomy' },
+  { place: 'Torrevieja', time: '50–60 min', focus: 'Sea, salt lakes, flamingos' },
+  { place: 'Villajoyosa', time: '55–65 min', focus: 'Beach, chocolate, colourful houses' },
+  { place: 'Altea', time: '60–75 min', focus: 'White village, atmosphere, restaurants' },
+];
 ---
 
 <Layout
   lang="en"
   active="area"
-  title="The Area — Casa Helena"
-  description="Discover Hondón de las Nieves and its surroundings: hiking, the salt lakes, the village and local produce."
+  title="The Area — Casa Lana"
+  description="Discover the area around Hondón de las Nieves: villages, nature, cities and the beaches of the Costa Blanca, all within easy reach of Casa Lana."
 >
   <section class="section">
     <div class="wrap page-intro">
       <span class="eyebrow">The Area</span>
-      <h1>The quiet inland of Alicante</h1>
+      <h1>Discover the area around Hondón de las Nieves</h1>
       <p>
-        Hondón de las Nieves lies in the green inland countryside of Alicante province,
-        in the valley it shares with its neighbouring village, Hondón de los Frailes.
-        Mountains, almond trees, vineyards and the well-known salt lakes shape the
-        landscape — a very different Spain from the busy coast.
+        Peace and quiet here certainly doesn't mean spending the whole holiday by the pool.
+        From Casa Lana you can reach authentic Spanish villages, vineyards, historic cities,
+        nature reserves and the beaches of the Costa Blanca. Alicante, Elche, Santa Pola,
+        Murcia, Tabarca and various other destinations are all easily reachable by car.
+      </p>
+      <p>
+        One day you stay blissfully at home. The next morning you wander through a local
+        market, have lunch in a Spanish village, visit Elche or Alicante, and end the day at
+        the Mediterranean. You choose each day anew what you fancy.
       </p>
     </div>
   </section>
@@ -39,34 +170,43 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Things to do</h2>
-      <FeatureGrid
-        features={[
-          { title: 'Hiking & nature', text: 'The surrounding mountains offer hiking routes for every level, with views over the valley.' },
-          { title: 'The salt lakes', text: 'A striking natural area between the two Hondón villages, popular with birdwatchers and photographers.' },
-          { title: 'The village', text: "About a 10-minute drive away is Hondón de las Nieves itself: a quiet, authentic village with good restaurants and a cosy breakfast café." },
-          { title: 'Local produce', text: 'The region is known for its almonds, olive oil and wine — ideal for lovers of local gastronomy.' },
-        ]}
-      />
+      <DestinationList items={destinations} />
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Getting there</h2>
-      <ul class="distances">
-        <li><strong>Hondón de las Nieves (village)</strong> — about a 10-minute drive</li>
-        <li><strong>Alicante-Elche airport</strong> — travel time to be confirmed</li>
-        <li><strong>Elche town centre</strong> — travel time to be confirmed</li>
-        <li><strong>Nearest coast</strong> — travel time to be confirmed</li>
-      </ul>
+      <h2>At a glance</h2>
+      <SummaryTable
+        headers={{ place: 'Place', time: 'Drive time', focus: 'Best for' }}
+        rows={summaryRows}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap guide-teaser">
+      <h2>Our favourite spots? We share those with our guests.</h2>
+      <p>
+        We ourselves keep discovering new spots in the area — a restaurant we love coming
+        back to, a nice place for breakfast, delicious tapas, a handy parking spot in Alicante
+        or Elche, and practical addresses that make your stay just a little easier. We like to
+        keep some of those spots for our guests.
+      </p>
+      <p>
+        That's why, after booking, you'll receive our personal guest guide with restaurants,
+        breakfast spots, day trips, parking and practical tips we've tried ourselves. Not a
+        collection of addresses pulled from the internet — places we genuinely know and are
+        happy to recommend. And the guide keeps growing, because we're far from done
+        exploring here ourselves.
+      </p>
     </div>
   </section>
 
   <CTABlock
-    title="Casa Helena as your base"
+    title="Casa Lana as your base"
     text="Check availability and book your stay in the heart of this peaceful region."
-    ctaLabel="Go to availability & booking"
+    ctaLabel="Check availability"
     ctaHref={ROUTES.availability.en}
   />
 </Layout>
@@ -76,19 +216,7 @@ import { ROUTES } from '../../i18n/routes';
     max-width: 68ch;
   }
 
-  .distances {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 60ch;
-  }
-
-  .distances li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+  .guide-teaser {
+    max-width: 68ch;
   }
 </style>

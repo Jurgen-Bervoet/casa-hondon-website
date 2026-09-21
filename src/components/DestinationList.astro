@@ -1,0 +1,86 @@
+---
+interface Destination {
+  name: string;
+  distance: string;
+  description: string;
+  tipsLabel: string;
+  tips: string;
+}
+
+interface Props {
+  items: Destination[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="destinations">
+  {
+    items.map((d) => (
+      <article class="destination">
+        <div class="destination__head">
+          <h3>{d.name}</h3>
+          <span class="destination__distance">{d.distance}</span>
+        </div>
+        <p>{d.description}</p>
+        <p class="destination__tips">
+          <strong>{d.tipsLabel}</strong> {d.tips}
+        </p>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .destinations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .destination {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    padding: 1.5rem;
+  }
+
+  .destination__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .destination__head h3 {
+    margin: 0;
+  }
+
+  .destination__distance {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-clay-deep);
+    white-space: nowrap;
+  }
+
+  .destination p {
+    font-size: 0.94rem;
+    color: #4a4638;
+  }
+
+  .destination__tips {
+    margin-bottom: 0;
+  }
+
+  .destination__tips strong {
+    color: var(--color-green-deep);
+  }
+
+  @media (max-width: 700px) {
+    .destinations {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

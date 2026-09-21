@@ -25,11 +25,23 @@ export const ROUTES = {
     en: '/en/the-area/',
     fr: '/fr/la-region/',
   },
+  story: {
+    nl: '/ons-verhaal/',
+    es: '/es/nuestra-historia/',
+    en: '/en/our-story/',
+    fr: '/fr/notre-histoire/',
+  },
   availability: {
     nl: '/beschikbaarheid/',
     es: '/es/disponibilidad/',
     en: '/en/availability/',
     fr: '/fr/disponibilite/',
+  },
+  faq: {
+    nl: '/faq/',
+    es: '/es/faq/',
+    en: '/en/faq/',
+    fr: '/fr/faq/',
   },
   contact: {
     nl: '/contact/',

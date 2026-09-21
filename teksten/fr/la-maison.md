@@ -5,7 +5,7 @@ taal: fr
 
 ## Intro
 
-Casa Helena est chaleureuse et complète : assez grande pour profiter à plusieurs, assez
+Casa Lana est chaleureuse et complète : assez grande pour profiter à plusieurs, assez
 petite pour ressentir le calme d'un chez-soi dans chaque recoin. À l'intérieur, tout le
 confort ; à l'extérieur, une terrasse et une piscine où vous passerez le plus clair de votre
 temps.

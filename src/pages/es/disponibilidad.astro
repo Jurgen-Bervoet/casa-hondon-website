@@ -7,17 +7,16 @@ import BookingForm from '../../components/BookingForm.astro';
 <Layout
   lang="es"
   active="availability"
-  title="Disponibilidad y Reservas — Casa Helena"
-  description="Consulta la disponibilidad de Casa Helena y envía tu solicitud de reserva."
+  title="Precios y Disponibilidad — Casa Lana"
+  description="Consulta la disponibilidad de Casa Lana, los precios, las condiciones de pago y las condiciones de cancelación."
 >
   <section class="section">
     <div class="wrap page-intro">
-      <span class="eyebrow">Disponibilidad y Reservas</span>
+      <span class="eyebrow">Precios y Disponibilidad</span>
       <h1>Planifica tu estancia</h1>
       <p>
-        Consulta a continuación la disponibilidad de Casa Helena y envía tu solicitud
-        para las fechas deseadas. Confirmaremos tu solicitud por correo electrónico lo
-        antes posible.
+        Consulta en nuestro calendario cuándo está disponible la casa y elige el periodo que
+        mejor os convenga. No hay un día de llegada fijo.
       </p>
     </div>
   </section>
@@ -35,7 +34,7 @@ import BookingForm from '../../components/BookingForm.astro';
         />
       </div>
       <div>
-        <h2>Formulario de solicitud</h2>
+        <h2>Solicita tu estancia</h2>
         <BookingForm
           labels={{
             name: 'Nombre',
@@ -54,12 +53,13 @@ import BookingForm from '../../components/BookingForm.astro';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Información práctica</h2>
+      <h2>Llegada y salida</h2>
       <ul class="practical">
-        <li><strong>Entrada</strong> — entre las 13:00 y las 20:00</li>
-        <li><strong>Salida</strong> — antes de las 11:00</li>
+        <li>El check-in es entre las 16:00 y las 21:00. Para llegadas después de las 21:00 se cobran 25 €.</li>
+        <li>El día de salida pedimos dejar la casa libre como máximo a las 11:00.</li>
+        <li>Un keyholder os recibirá en persona a la llegada y os dará las explicaciones necesarias sobre la casa.</li>
         <li><strong>Estancia mínima</strong> — por confirmar</li>
-        <li><strong>Mascotas</strong> — por confirmar</li>
+        <li><strong>Mascotas</strong> — preferimos no recibir mascotas, contacta con nosotros para consultas concretas</li>
         <li><strong>Fumar</strong> — no permitido en el interior</li>
       </ul>
     </div>
@@ -68,22 +68,31 @@ import BookingForm from '../../components/BookingForm.astro';
   <section class="section section--tight">
     <div class="wrap two-col">
       <div>
-        <h2>Precios y fianza</h2>
+        <h2>Pago</h2>
         <ul class="practical">
-          <li>Tu reserva es definitiva tras un primer pago del 25% del importe total del alquiler.</li>
-          <li>El resto del importe se paga 6 semanas antes de la llegada.</li>
-          <li>Una fianza de 1.000 € se paga como máximo 1 semana antes del inicio de la estancia.</li>
-          <li>Los costes de energía están incluidos hasta un consumo estándar (orientativamente 8 €/día de electricidad y 5 €/día de agua); el consumo superior se descuenta de la fianza.</li>
-          <li>Gastos de limpieza: 160 €, obligatorios por reserva.</li>
+          <li>Tu reserva es definitiva tras el pago del 50% del importe total del alquiler.</li>
+          <li>El importe restante se paga como máximo un mes antes de la llegada.</li>
+          <li>La fianza es de 800 € y también se paga un mes antes de la llegada. Tras la salida se revisa la casa; si todo está en orden, la fianza se devuelve en un plazo de una semana.</li>
+          <li>La limpieza final obligatoria cuesta 150 € por estancia.</li>
         </ul>
+        <h2 class="mt">Energía</h2>
+        <ul class="practical">
+          <li>Los costes de energía están incluidos sobre la base de un consumo estándar de 8 € de electricidad al día y 5 € de agua al día. El consumo por encima de este estándar se descuenta de la fianza.</li>
+        </ul>
+        <p class="fine-print">
+          Nota: esta regulación se confirmará en cuanto se determine cómo se mide y se liquida el consumo.
+        </p>
       </div>
       <div>
         <h2>Condiciones de cancelación</h2>
         <ul class="practical">
-          <li>Cancelación a partir de 6 semanas antes del inicio: 25% del precio del alquiler</li>
-          <li>Cancelación a partir de 4 semanas antes del inicio: 50% del precio del alquiler</li>
-          <li>Cancelación a partir de 2 semanas antes del inicio: 100% del precio del alquiler</li>
+          <li>Cancelación 8 semanas antes del inicio del alquiler: 0% del precio del alquiler.</li>
+          <li>Cancelación 6 semanas antes del inicio del alquiler: 25% del precio del alquiler.</li>
+          <li>Cancelación 2 semanas antes del inicio del alquiler: 100% del precio del alquiler.</li>
         </ul>
+        <p class="fine-print">
+          Nota: aún debe definirse la regulación para las cancelaciones entre 6 y 2 semanas antes del inicio.
+        </p>
         <p class="fine-print">El arrendador no se hace responsable de accidentes o robos.</p>
       </div>
     </div>
@@ -123,6 +132,10 @@ import BookingForm from '../../components/BookingForm.astro';
     background: #fff;
     border: 1px solid var(--color-line);
     border-radius: 0;
+  }
+
+  .mt {
+    margin-top: 2rem;
   }
 
   .fine-print {

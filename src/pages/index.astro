@@ -10,15 +10,15 @@ import { ROUTES } from '../i18n/routes';
 <Layout
   lang="nl"
   active="home"
-  title="Casa Helena — Vakantiehuis met zwembad in Hondón de las Nieves"
-  description="Casa Helena is een klein vakantiehuis met eigen zwembad in Hondón de las Nieves, Alicante. Rust, natuur en buitenleven."
+  title="Casa Lana — Vakantiehuis met privézwembad in Hondón de las Nieves"
+  description="Casa Lana is ons vakantiehuis in Hondón de las Nieves: rust, ruimte en een privézwembad in het binnenland van de Costa Blanca, plaats voor 6 personen."
 >
   <Hero
-    title="Casa Helena"
-    subtitle="Rust, zon en een eigen zwembad in het hart van Hondón de las Nieves"
+    title="Casa Lana"
+    subtitle="Een prachtig huis omgeven door Spaanse bergen, rust en ruimte"
     ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
-    imageLabel="Foto: zwembad en terras van Casa Helena"
+    imageLabel="Foto: zwembad en terras van Casa Lana"
     image="/hero.jpg"
   />
 
@@ -36,17 +36,32 @@ import { ROUTES } from '../i18n/routes';
         />
       </div>
       <div class="intro-collage__text">
-        <span class="eyebrow">Ons verhaal</span>
+        <span class="eyebrow">Welkom in ons stukje Spanje</span>
         <p class="intro__text">
-          Casa Helena is een droom die werkelijkheid werd. Na jaren reizen door Spanje wisten we
-          één ding zeker: ooit wilden we hier een eigen plek, ergens tussen Valencia en Alicante.
-          Na een lange, kieskeurige zoektocht vonden we dit huis — ruim, met een prachtig
-          zwembad, in een rustige streek die toch nooit ver van alles ligt.
+          Even weg van de drukte. Tijd voor elkaar, voor lange ochtenden aan het zwembad,
+          uitgebreid tafelen op het terras en genieten van de stilte rondom je.
         </p>
         <p class="intro__text">
-          Met veel liefde kozen we voor deze plek, en met evenveel liefde delen we ze met
-          gezinnen die, net als wij, op zoek zijn naar rust: geen massatoerisme, geen wilde
-          feestjes, maar stilte, ruimte en tijd voor elkaar.
+          Casa Lana is ons vakantiehuis in Hondón de las Nieves, in het rustige binnenland van
+          de Costa Blanca. Het huis biedt plaats aan maximaal zes personen en beschikt over
+          drie ruime slaapkamers, twee badkamers, een volledig omheind terrein van 10.000 m²
+          en een privézwembad van 3 bij 11 meter.
+        </p>
+        <p class="intro__text">
+          Hier verblijf je weg van het massatoerisme en ligt er tegelijk verrassend veel binnen
+          bereik. Het centrum van Hondón de las Nieves ligt op ongeveer 8 minuten rijden,
+          Alicante Airport op ongeveer 30 minuten en Alicante en de Middellandse Zee bereik je
+          in ongeveer 40 minuten.
+        </p>
+        <p class="intro__text">
+          Blijf je vandaag gewoon aan het zwembad? Trek je eropuit voor tapas in Alicante?
+          Bezoek je Elche, een lokale markt of een van de kleine dorpjes in de omgeving?
+          Niets moet. Alles kan.
+        </p>
+        <p class="intro__text intro__text--last">
+          Dit is de plek die wij zelf zochten in Spanje. En die delen we graag met jullie. <a
+            href={ROUTES.story.nl}>Lees ons verhaal →</a
+          >
         </p>
       </div>
     </div>
@@ -54,21 +69,40 @@ import { ROUTES } from '../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
+      <h2>Alles voor een ontspannen verblijf</h2>
       <FeatureGrid
         features={[
-          { title: 'Zwembad & terras', text: 'Je eigen zwembad, wekelijks onderhouden, op een groot en volledig omheind terrein.' },
+          { title: 'Zwembad & terras', text: 'Privézwembad van 3 x 11 meter, wekelijks onderhouden, op een terrein van 10.000 m².' },
           { title: 'Rust & natuur', text: "Het huis staat helemaal alleen, in een oase van rust — enkel de krekels maken je 's nachts wakker." },
-          { title: 'Hondón de las Nieves', text: 'Op amper 10 minuten rijden vind je het dorp, met goede restaurants en een gezellig ontbijtcafé.' },
-          { title: 'Comfort & privacy', text: '3 ruime slaapkamers, 2 badkamers en een grote garage waar je wagen binnen kan.' },
+          { title: 'Hondón de las Nieves', text: 'Op ongeveer 8 minuten rijden vind je het dorp, met goede restaurants en een gezellig ontbijtcafé.' },
+          { title: 'Comfort & privacy', text: '6 personen, 3 ruime slaapkamers, 2 badkamers en een grote garage waar je wagen binnen kan.' },
         ]}
       />
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="wrap wide-section">
+      <h2>Even weg van alles. En toch nooit ver van iets.</h2>
+      <p>
+        Casa Lana ligt midden in het Spaanse binnenland, omgeven door bergen en natuur. Hier
+        word je wakker met stilte rondom je en hoor je 's avonds vooral de krekels.
+      </p>
+      <p>
+        Zin in wat meer leven? Hondón de las Nieves, Aspe, Novelda en Elche liggen dichtbij.
+        Voor een dagje stad, cultuur, tapas of strand rijd je richting Alicante. Ook Santa
+        Pola, Tabarca, Murcia, Villajoyosa en Altea zijn mooie bestemmingen voor een
+        daguitstap.
+      </p>
+      <p>Zo combineer je de rust van het binnenland met alles wat de Costa Blanca te bieden heeft.</p>
+      <a href={ROUTES.area.nl} class="btn btn--outline-dark">Bekijk de omgeving</a>
+    </div>
+  </section>
+
   <CTABlock
-    title="Plan je verblijf in Casa Helena"
+    title="Plan je verblijf in Casa Lana"
     text="Bekijk de beschikbaarheid en stuur een aanvraag — we bevestigen snel per e-mail."
-    ctaLabel="Naar beschikbaarheid & boeken"
+    ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
   />
 </Layout>
@@ -82,8 +116,17 @@ import { ROUTES } from '../i18n/routes';
   }
 
   .intro__text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__text--last a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
+  }
+
+  .wide-section {
+    max-width: 68ch;
   }
 
   @media (max-width: 780px) {

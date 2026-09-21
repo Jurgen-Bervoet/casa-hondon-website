@@ -14,14 +14,16 @@ const navItems: { group: PageGroup; label: string }[] = [
   { group: 'home', label: t.nav.home },
   { group: 'house', label: t.nav.house },
   { group: 'area', label: t.nav.area },
+  { group: 'story', label: t.nav.story },
   { group: 'availability', label: t.nav.availability },
+  { group: 'faq', label: t.nav.faq },
   { group: 'contact', label: t.nav.contact },
 ];
 ---
 
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a href={ROUTES.home[lang]} class="site-header__brand">Casa Helena</a>
+    <a href={ROUTES.home[lang]} class="site-header__brand">Casa Lana</a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
     <label for="nav-toggle" class="nav-toggle" aria-label="Menu">

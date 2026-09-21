@@ -5,14 +5,14 @@ taal: es
 
 ## Hero
 
-**Casa Helena**
+**Casa Lana**
 Sol, calma y piscina propia en el corazón de Hondón de las Nieves
 
 CTA: Consultar disponibilidad
 
 ## Nuestra historia
 
-Casa Helena es un sueño hecho realidad. Después de años viajando por España, teníamos claro
+Casa Lana es un sueño hecho realidad. Después de años viajando por España, teníamos claro
 una cosa: algún día queríamos un lugar propio aquí, entre Valencia y Alicante. Tras una
 búsqueda larga y exigente, encontramos esta casa — amplia, con una piscina preciosa, en una
 comarca tranquila que nunca queda lejos de todo.
@@ -44,7 +44,7 @@ cafetería para desayunar.
 
 ## Bloque CTA
 
-**Planifica tu estancia en Casa Helena**
+**Planifica tu estancia en Casa Lana**
 Consulta la disponibilidad y envía tu solicitud — confirmamos rápido por correo.
 
 CTA: Ver disponibilidad y reservar

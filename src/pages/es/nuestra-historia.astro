@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="es"
+  active="story"
+  title="Nuestra Historia — Casa Lana"
+  description="De vacaciones anuales a un lugar propio en España: la historia detrás de Casa Lana en Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Nuestra Historia</span>
+      <h1>De vacaciones anuales a un lugar propio en España</h1>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap story">
+      <p>
+        En 1996, Evelien se fue de Erasmus a España. Allí conoció el idioma y la cultura, y se
+        enamoró del país. Ese cariño no surgió realmente de la nada. Desde los tres años,
+        viajaba casi todos los años a España con sus padres. El "gusanillo" español ya estaba
+        ahí desde muy joven.
+      </p>
+      <p>
+        Y, por lo visto, ese gusanillo es contagioso. Primero se lo pegó a Jurgen, y más
+        adelante también a nuestros hijos, Lukas y Helena. Con los años, España se convirtió
+        en un lugar al que como familia siempre nos apetecía volver.
+      </p>
+      <p>
+        Tener casa propia en España era desde hacía mucho tiempo un sueño. A ser posible, en
+        algún punto entre Valencia y Alicante. Ni en la costa concurrida ni tampoco totalmente
+        aislados. Buscábamos un lugar donde encontrar calma y, al mismo tiempo, tener
+        suficiente por descubrir cuando nos apeteciera.
+      </p>
+      <p>Los sueños siguen siendo sueños si no haces nada con ellos.</p>
+      <p>
+        Así que empezamos a buscar. Teníamos una condición importante: todos en la familia
+        debían sentirse a gusto con la casa que compráramos.
+      </p>
+      <p>Eso no hizo la búsqueda precisamente sencilla. Digamos que éramos bastante exigentes.</p>
+      <p>Hasta que encontramos este lugar.</p>
+      <p>
+        Una casa amplia, una piscina preciosa, 10.000 m² de terreno, montañas a nuestro
+        alrededor y, sobre todo, mucha calma. Sin filas de hoteles, sin playas abarrotadas y
+        sin turismo de masas. Simplemente cerrar la puerta tras de ti y sentir cómo el ritmo
+        baja por sí solo.
+      </p>
+      <p>Eso es precisamente lo que a nosotros nos encanta aquí. Nuestro día a día ya va bastante acelerado. Aquí, por un rato, no hace falta nada.</p>
+      <p>
+        Si te apetece cocinar en casa por la noche y cenar juntos con calma, todo está
+        disponible. Si te apetece salir, buscar un restaurante, ir a un mercado, visitar una
+        ciudad o acercarte a la costa, te subes al coche y tienes sorprendentemente cerca.
+      </p>
+      <p>
+        Compramos Casa Lana, en primer lugar, para nosotros y nuestra familia. Y la
+        compartimos con gusto con personas que buscan lo mismo que nosotros: calma, espacio,
+        tiempo el uno para el otro y alejarse un poco del ajetreo.
+      </p>
+      <p>
+        Eso puede ser con tu familia, con amigos o con dos parejas juntas. También quien
+        quiera pasar unas semanas en un lugar tranquilo y trabajar entre medias encontrará
+        aquí todo el espacio que necesita.
+      </p>
+      <p>
+        Un fin de semana de fiesta desenfrenada no encaja con Casa Lana. Para eso hay muchos
+        otros lugares en España. Nosotros mantenemos una buena relación con las personas que
+        viven en la zona y respetamos la calma que aquí reina.
+      </p>
+      <p>
+        Hemos elegido y decorado este lugar con mucho cariño. Y con el mismo cariño lo abrimos
+        a quienes quieran disfrutarlo y cuidarlo.
+      </p>
+      <p>
+        Así, Casa Lana no se queda solo en nuestra historia, sino que se convierte también en
+        un lugar donde otras familias y amigos pueden crear bonitos recuerdos.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="¿Te apetece seguir escribiendo nuestra historia?"
+    text="Consulta la disponibilidad y reserva vuestro propio rincón de calma en España."
+    ctaLabel="Consultar disponibilidad"
+    ctaHref={ROUTES.availability.es}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .story {
+    max-width: 68ch;
+    font-size: 1.05rem;
+  }
+
+  .story p {
+    color: #3a362c;
+  }
+</style>

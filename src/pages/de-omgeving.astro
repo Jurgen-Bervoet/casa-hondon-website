@@ -1,26 +1,158 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PhotoCollage from '../components/PhotoCollage.astro';
-import FeatureGrid from '../components/FeatureGrid.astro';
+import DestinationList from '../components/DestinationList.astro';
+import SummaryTable from '../components/SummaryTable.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
+
+const tipsLabel = 'Zeker doen:';
+
+const destinations = [
+  {
+    name: 'Hondón de las Nieves',
+    distance: '± 8 minuten rijden',
+    description:
+      'Dit is ons eigen dorp en meteen de plek waar je terechtkunt voor de dagelijkse boodschappen. Hondón de las Nieves is klein en authentiek, met een gezellig dorpsplein en alles wat je tijdens je vakantie nodig hebt. Je vindt er supermarkten, een bakker, een slager, lokale winkels, een apotheek, cafés en verschillende restaurants. De streek rond Hondón staat bovendien bekend om haar druiven en wijn.',
+    tipsLabel,
+    tips: 'Even rondwandelen door het dorp, iets drinken op het plein, lokaal eten en een bezoek brengen aan Bodegas Cerdá.',
+  },
+  {
+    name: 'Aspe',
+    distance: '± 15 minuten rijden | ongeveer 13 km',
+    description:
+      'Aspe is groter dan Hondón en handig voor boodschappen. Het is ook leuk om even rond te wandelen of iets te gaan eten. De stad ligt aan de rivier Tarafa en draagt nog duidelijke sporen van haar Arabische en middeleeuwse verleden. Langs de Tarafa vind je onder meer oude aquaducten, waterwerken, molens en historische bruggen.',
+    tipsLabel,
+    tips: 'Het centrum en Plaza Mayor, een terrasje, de lokale markt en een wandeling langs de Tarafa.',
+  },
+  {
+    name: 'Novelda',
+    distance: '± 20 minuten rijden | ongeveer 20 km',
+    description:
+      'Novelda is een uitstap waard voor zijn modernistische architectuur en het bijzondere Santuario de Santa María Magdalena. Naast het heiligdom ligt het middeleeuwse Castillo de La Mola. Ook in het centrum van Novelda vind je verschillende modernistische gebouwen.',
+    tipsLabel,
+    tips: 'Santuario de Santa María Magdalena, Castillo de La Mola en daarna iets drinken of eten in Novelda. Controleer vooraf de actuele toegankelijkheid van het heiligdom.',
+  },
+  {
+    name: 'Elche',
+    distance: '± 30 minuten rijden | ongeveer 30 km',
+    description:
+      'Elche is wereldberoemd om zijn enorme palmenlandschap. Het Palmeral de Elche heeft UNESCO-status en geeft delen van de stad een bijna Noord-Afrikaanse sfeer. Elche combineert palmbomen en historische plekken met winkels, restaurants en gezellige pleinen.',
+    tipsLabel,
+    tips: 'Wandelen door het Palmeral, Huerto del Cura bezoeken, het historische centrum ontdekken en ergens lunchen of tapas eten.',
+  },
+  {
+    name: 'Crevillent & Parque Natural El Hondo',
+    distance: '± 30 minuten rijden',
+    description:
+      'Voor wie natuur graag combineert met een rustige wandeling is dit een mooie afwisseling. De Sierra de Crevillent is interessant voor wandelaars. Het nabijgelegen natuurpark El Hondo bestaat uit wetlands en waterreservoirs en is een belangrijke plek voor vele vogelsoorten. Met wat geluk zie je er flamingo\'s en andere watervogels.',
+    tipsLabel,
+    tips: 'Vroeg in de ochtend naar El Hondo voor een natuurwandeling en vogelobservatie.',
+  },
+  {
+    name: 'Alicante',
+    distance: '± 40 minuten rijden | ongeveer 40 km',
+    description:
+      'Zin in wat meer leven, winkels, restaurants en zee? Alicante is ideaal voor een volledige dag en tegelijk compact genoeg om veel te voet te ontdekken. Boven de stad ligt Castillo de Santa Bárbara met een prachtig uitzicht over Alicante en de Middellandse Zee. Beneden wandel je door het oude centrum richting de haven en de Explanada de España. Playa del Postiguet ligt midden in Alicante, aan de voet van het kasteel.',
+    tipsLabel,
+    tips: 'Castillo de Santa Bárbara, Barrio de Santa Cruz, Explanada de España, de jachthaven, het oude centrum en Playa del Postiguet.',
+  },
+  {
+    name: 'Santa Pola',
+    distance: '± 40 minuten rijden',
+    description:
+      'Santa Pola is een fijne bestemming voor wie naar de kust wil en de sfeer van een vissersplaats zoekt. Je vindt er stranden, een haven, een boulevard en veel restaurants met vis en rijstgerechten. Vlakbij liggen de zoutmeren en wetlands van Santa Pola, waar je regelmatig flamingo\'s kunt zien.',
+    tipsLabel,
+    tips: 'Vis eten aan de haven, naar het strand, de zoutmeren bezoeken en van hieruit de boot naar Tabarca nemen.',
+  },
+  {
+    name: 'Tabarca',
+    distance: '± 40 minuten rijden tot Santa Pola + boot',
+    description:
+      'Tabarca is een klein eiland voor de kust van Alicante. Vanuit Santa Pola vertrekken boten naar het eiland. Het is ideaal voor een dag waarop je de auto achterlaat, de boot neemt, door het kleine dorp wandelt, aan zee eet en gaat zwemmen of snorkelen.',
+    tipsLabel,
+    tips: "'s Morgens vanuit Santa Pola vertrekken, het eiland verkennen, lunchen en zwemgerief meenemen.",
+  },
+  {
+    name: 'Guardamar del Segura',
+    distance: '± 45 tot 50 minuten rijden',
+    description:
+      'Voor een echte stranddag is Guardamar een interessante bestemming. Het staat bekend om zijn lange zandstranden, duinen en pijnboombossen. Het is een fijne plek om handdoeken, parasol en zwemgerief mee te nemen en er een volledige stranddag van te maken.',
+    tipsLabel,
+    tips: 'Strand, duinen en Parque Reina Sofía.',
+  },
+  {
+    name: 'Torrevieja & de roze zoutmeren',
+    distance: '± 50 tot 60 minuten rijden',
+    description:
+      'Torrevieja is een levendige kuststad. De omgeving is vooral bijzonder door het natuurpark Lagunas de La Mata y Torrevieja. Een van de zoutmeren is bekend om zijn opvallende roze kleur. Bij Laguna de La Mata zijn wandelroutes en observatiepunten waar onder andere flamingo\'s voorkomen. De roze lagune zelf is beschermd en niet vrij toegankelijk.',
+    tipsLabel,
+    tips: 'Het natuurpark en de zoutmeren combineren met een bezoek aan Torrevieja of het strand.',
+  },
+  {
+    name: 'Murcia',
+    distance: '± 50 tot 60 minuten rijden',
+    description:
+      'Murcia ligt in een andere autonome regio en heeft daardoor opnieuw een eigen sfeer. Het is een mooie keuze voor wie cultuur, winkels, pleinen en gastronomie wil combineren. Het historische centrum ligt rond de kathedraal en Plaza del Cardenal Belluga.',
+    tipsLabel,
+    tips: 'De kathedraal, het oude centrum, Plaza de las Flores en uitgebreid lunchen. Controleer vooraf de actuele openingsuren van de kathedraal.',
+  },
+  {
+    name: 'Villajoyosa',
+    distance: '± 55 tot 65 minuten rijden',
+    description:
+      'Het oude vissersstadje Villajoyosa staat bekend om zijn felgekleurde huizen langs de kust en zijn lange chocoladetraditie. Je kunt hier gemakkelijk strand, een wandeling door het oude centrum en chocolade combineren.',
+    tipsLabel,
+    tips: 'De gekleurde huizen, boulevard, strand, oude centrum en een chocolademuseum.',
+  },
+  {
+    name: 'Altea',
+    distance: '± 60 tot 75 minuten rijden',
+    description:
+      'Altea is perfect voor een daguitstap. Het oude centrum ligt tegen een heuvel en bestaat uit witte huizen, smalle straatjes, kleine winkels, restaurants en uitzichtpunten over de Middellandse Zee. Dit is vooral een plek om rustig rond te kuieren en onderweg te genieten van de sfeer.',
+    tipsLabel,
+    tips: 'Het oude centrum, kerkplein, Mirador de los Cronistas de España, eten met uitzicht en eventueel combineren met een stranddag.',
+  },
+];
+
+const summaryRows = [
+  { place: 'Hondón de las Nieves', time: '8 min', focus: 'Restaurants, boodschappen, wijn' },
+  { place: 'Aspe', time: '15 min', focus: 'Markt, restaurants, lokaal Spanje' },
+  { place: 'Novelda', time: '20 min', focus: 'Architectuur, kasteel, cultuur' },
+  { place: 'Elche', time: '30 min', focus: 'Palmbomen, stad, shopping' },
+  { place: 'El Hondo', time: '30 min', focus: 'Natuur, wandelen, vogels' },
+  { place: 'Alicante Airport', time: '± 30 min', focus: 'Luchthaven' },
+  { place: 'Alicante', time: '40 min', focus: 'Stad, shopping, cultuur, strand' },
+  { place: 'Santa Pola', time: '40 min', focus: 'Strand, haven, vis, Tabarca' },
+  { place: 'Guardamar', time: '45 tot 50 min', focus: 'Strand, duinen' },
+  { place: 'Murcia', time: '50 tot 60 min', focus: 'Stad, cultuur, gastronomie' },
+  { place: 'Torrevieja', time: '50 tot 60 min', focus: "Zee, zoutmeren, flamingo's" },
+  { place: 'Villajoyosa', time: '55 tot 65 min', focus: 'Strand, chocolade, kleurrijke huizen' },
+  { place: 'Altea', time: '60 tot 75 min', focus: 'Wit dorp, sfeer, restaurants' },
+];
 ---
 
 <Layout
   lang="nl"
   active="area"
-  title="De Omgeving — Casa Helena"
-  description="Ontdek Hondón de las Nieves en omgeving: wandelen, de zoutmeren, het dorp en streekproducten."
+  title="Omgeving — Casa Lana"
+  description="Ontdek de omgeving van Hondón de las Nieves: dorpen, natuur, steden en de stranden van de Costa Blanca, allemaal binnen handbereik van Casa Lana."
 >
   <section class="section">
     <div class="wrap page-intro">
-      <span class="eyebrow">De Omgeving</span>
-      <h1>Het rustige binnenland van Alicante</h1>
+      <span class="eyebrow">Omgeving</span>
+      <h1>Ontdek de omgeving van Hondón de las Nieves</h1>
       <p>
-        Hondón de las Nieves ligt in het groene binnenland van de provincie Alicante, in de
-        vallei die het dorp deelt met zijn buurdorp Hondón de los Frailes. Bergen,
-        amandelbomen, wijngaarden en de bekende zoutmeren (Salinas) bepalen het landschap —
-        een heel ander Spanje dan de drukke kust.
+        Rust betekent hier zeker niet dat je de hele vakantie aan het zwembad hoeft te
+        blijven. Vanuit Casa Lana bereik je authentieke Spaanse dorpen, wijngaarden,
+        historische steden, natuurgebieden en de stranden van de Costa Blanca. Alicante,
+        Elche, Santa Pola, Murcia, Tabarca en verschillende andere bestemmingen zijn
+        gemakkelijk bereikbaar met de wagen.
+      </p>
+      <p>
+        De ene dag blijf je heerlijk thuis. De volgende ochtend wandel je over een lokale
+        markt, lunch je in een Spaans dorp, bezoek je Elche of Alicante en eindig je de dag
+        aan de Middellandse Zee. Je kiest elke dag opnieuw waar je zin in hebt.
       </p>
     </div>
   </section>
@@ -39,34 +171,43 @@ import { ROUTES } from '../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Wat te doen</h2>
-      <FeatureGrid
-        features={[
-          { title: 'Wandelen & natuur', text: 'De omliggende bergen bieden wandelroutes voor elk niveau, met uitzicht over de vallei.' },
-          { title: 'De zoutmeren (Salinas)', text: 'Een bijzonder natuurgebied tussen de twee Hondón-dorpen, geliefd bij vogelaars en fotografen.' },
-          { title: 'Het dorp', text: 'Op zo\'n 10 minuten rijden ligt Hondón de las Nieves zelf: een rustig, authentiek dorp met goede restaurants en een gezellig ontbijtcafé.' },
-          { title: 'Streekproducten', text: 'De regio staat bekend om amandelen, olijfolie en wijn — ideaal voor liefhebbers van lokale gastronomie.' },
-        ]}
-      />
+      <DestinationList items={destinations} />
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Bereikbaarheid</h2>
-      <ul class="distances">
-        <li><strong>Hondón de las Nieves (dorp)</strong> — ongeveer 10 minuten rijden</li>
-        <li><strong>Vliegveld Alicante-Elche</strong> — reistijd nog te bevestigen</li>
-        <li><strong>Elche centrum</strong> — reistijd nog te bevestigen</li>
-        <li><strong>Dichtstbijzijnde kust</strong> — reistijd nog te bevestigen</li>
-      </ul>
+      <h2>In één oogopslag</h2>
+      <SummaryTable
+        headers={{ place: 'Plaats', time: 'Rijtijd', focus: 'Vooral voor' }}
+        rows={summaryRows}
+      />
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap guide-teaser">
+      <h2>Onze favoriete plekjes? Die delen we met onze gasten.</h2>
+      <p>
+        We ontdekken zelf nog iedere keer nieuwe plekjes in de omgeving. Een restaurant waar
+        we graag terugkomen, een fijne plek om te ontbijten, heerlijke tapas, een handige
+        parking in Alicante of Elche en praktische adresjes die je verblijf net iets
+        makkelijker maken. Een aantal van die plekjes houden we graag voor onze gasten.
+      </p>
+      <p>
+        Na je boeking ontvang je daarom onze persoonlijke gastengids met restaurants,
+        ontbijtadresjes, uitstappen, parkings en praktische tips die we zelf hebben
+        uitgeprobeerd. Geen verzameling adressen van het internet. Wel plekken die we zelf
+        kennen en graag aanraden. En de gids blijft groeien, want ook wij zijn hier nog lang
+        niet uitgekeken.
+      </p>
     </div>
   </section>
 
   <CTABlock
-    title="Casa Helena als uitvalsbasis"
+    title="Casa Lana als uitvalsbasis"
     text="Bekijk de beschikbaarheid en boek je verblijf in het hart van deze rustige streek."
-    ctaLabel="Naar beschikbaarheid & boeken"
+    ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
   />
 </Layout>
@@ -76,19 +217,7 @@ import { ROUTES } from '../i18n/routes';
     max-width: 68ch;
   }
 
-  .distances {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 60ch;
-  }
-
-  .distances li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+  .guide-teaser {
+    max-width: 68ch;
   }
 </style>

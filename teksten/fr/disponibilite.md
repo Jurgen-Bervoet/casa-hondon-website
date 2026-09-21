@@ -5,7 +5,7 @@ taal: fr
 
 ## Intro
 
-Consultez ci-dessous la disponibilité de Casa Helena et envoyez votre demande pour les dates
+Consultez ci-dessous la disponibilité de Casa Lana et envoyez votre demande pour les dates
 souhaitées. Nous confirmerons votre demande par e-mail dans les plus brefs délais.
 
 ## Calendrier

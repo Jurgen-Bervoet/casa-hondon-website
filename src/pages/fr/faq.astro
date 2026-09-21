@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQList from '../../components/FAQList.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+
+const items = [
+  {
+    question: 'Pour combien de personnes la maison convient-elle ?',
+    answer:
+      "La maison accueille jusqu'à six personnes. Il y a trois chambres spacieuses, chacune avec un lit double de 160 cm de large. Un lit bébé peut être fourni en supplément.",
+  },
+  {
+    question: 'Une voiture est-elle nécessaire ?',
+    answer:
+      "Oui. La maison est volontairement située dans un environnement calme, loin du tourisme de masse. Avec une voiture, vous avez toute liberté pour faire les courses, sortir manger, visiter la côte et découvrir la région.",
+  },
+  {
+    question: "À quelle distance se trouve l'aéroport d'Alicante ?",
+    answer: "L'aéroport d'Alicante se trouve à environ 30 minutes en voiture de la maison.",
+  },
+  {
+    question: 'À quelle distance se trouve la plage ?',
+    answer:
+      "Alicante et la Playa del Postiguet sont à environ 40 minutes. D'autres plages de la Costa Blanca sont également facilement accessibles.",
+  },
+  {
+    question: 'La piscine est-elle privée ?',
+    answer: 'Oui. La piscine de 3 sur 11 mètres est entièrement privée et réservée exclusivement à votre groupe.',
+  },
+  {
+    question: 'La piscine est-elle chauffée ?',
+    answer: "Non. La piscine n'est pas chauffée.",
+  },
+  {
+    question: "Y a-t-il de l'ombre à la piscine ?",
+    answer:
+      "Il n'y a pas d'ombre naturelle autour de la piscine. Nous fournissons des parasols afin que vous puissiez créer votre propre coin d'ombre.",
+  },
+  {
+    question: 'Le jardin est-il entièrement clôturé ?',
+    answer: 'Oui. Le terrain est entièrement clôturé.',
+  },
+  {
+    question: 'Les animaux sont-ils admis ?',
+    answer:
+      "Nous préférons ne pas accueillir d'animaux. Si vous avez une question précise à ce sujet, n'hésitez pas à nous contacter ; nous verrons alors ce qui est possible.",
+  },
+  {
+    question: 'Les enfants sont-ils les bienvenus ?',
+    answer: 'Bien sûr. Les enfants sont plus que bienvenus.',
+  },
+  {
+    question: 'Y a-t-il un lit bébé et une chaise haute ?',
+    answer: 'Oui. Un lit bébé et une chaise haute sont tous deux disponibles.',
+  },
+  {
+    question: "La maison a-t-elle des escaliers ?",
+    answer: 'Non. La maison est entièrement de plain-pied.',
+  },
+  {
+    question: 'Y a-t-il la climatisation ?',
+    answer:
+      "Oui. Toute la maison dispose d'une climatisation centralisée qui peut également chauffer, et il y a en plus un poêle à granulés.",
+  },
+  {
+    question: 'Y a-t-il le wifi ?',
+    answer:
+      "Oui. Le wifi est disponible et inclus. Une bonne connexion internet est particulièrement pratique ici, car la couverture mobile dans la région n'est pas toujours aussi forte partout.",
+  },
+  {
+    question: 'Le linge de lit et les serviettes sont-ils inclus ?',
+    answer:
+      "Oui. Les lits sont faits à votre arrivée. Par personne, nous fournissons une grande serviette de bain et une petite serviette. Les serviettes de plage sont à apporter vous-même.",
+  },
+  {
+    question: 'Où pouvons-nous faire les courses ?',
+    answer:
+      'À Hondón de las Nieves, vous trouverez des supermarchés, une boulangerie, une boucherie, une pharmacie et plusieurs commerces locaux. Le village est à environ 8 minutes en voiture.',
+  },
+  {
+    question: 'Pouvons-nous nous garer près de la maison ?',
+    answer: 'Oui. Il y a largement assez de parking privé sur la propriété, et il y a aussi un garage.',
+  },
+  {
+    question: "Quand pouvons-nous faire l'arrivée et le départ ?",
+    answer: "L'arrivée se fait entre 16h00 et 21h00. Le départ se fait au plus tard à 11h00.",
+  },
+  {
+    question: "Quel est le montant de la caution ?",
+    answer: 'La caution est de 800 €.',
+  },
+  {
+    question: 'Y a-t-il un lave-linge ?',
+    answer: 'Oui. Un lave-linge est disponible, et nous fournissons également des pastilles de lessive.',
+  },
+  {
+    question: 'Peut-on fumer ?',
+    answer: "Non. Il est interdit de fumer à l'intérieur de la maison.",
+  },
+  {
+    question: 'Les fêtes sont-elles autorisées ?',
+    answer:
+      "Non. La maison se trouve dans un environnement calme et nous entretenons de bonnes relations avec les personnes qui y vivent. La maison ne convient pas aux fêtes ni aux groupes bruyants.",
+  },
+];
+---
+
+<Layout
+  lang="fr"
+  active="faq"
+  title="Foire Aux Questions — Casa Lana"
+  description="Réponses aux questions les plus fréquentes sur Casa Lana : capacité, piscine, arrivée, animaux, wifi et plus encore."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">FAQ</span>
+      <h1>Foire aux questions</h1>
+      <p>Vous ne trouvez pas votre question ? N'hésitez pas à nous contacter.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap faq-wrap">
+      <FAQList items={items} />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Encore une question ?"
+    text="Nous répondons volontiers à votre question, personnellement."
+    ctaLabel="Contactez-nous"
+    ctaHref={ROUTES.contact.fr}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .faq-wrap {
+    max-width: 74ch;
+  }
+</style>

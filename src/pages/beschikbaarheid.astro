@@ -7,16 +7,16 @@ import BookingForm from '../components/BookingForm.astro';
 <Layout
   lang="nl"
   active="availability"
-  title="Beschikbaarheid & Boeken — Casa Helena"
-  description="Bekijk de beschikbaarheid van Casa Helena en stuur een boekingsaanvraag."
+  title="Prijzen & Beschikbaarheid — Casa Lana"
+  description="Bekijk de beschikbaarheid van Casa Lana, de prijzen, betalingsvoorwaarden en annuleringsvoorwaarden."
 >
   <section class="section">
     <div class="wrap page-intro">
-      <span class="eyebrow">Beschikbaarheid & Boeken</span>
+      <span class="eyebrow">Prijzen & Beschikbaarheid</span>
       <h1>Plan je verblijf</h1>
       <p>
-        Bekijk hieronder de beschikbaarheid van Casa Helena en stuur een aanvraag voor je
-        gewenste data. We bevestigen je aanvraag zo snel mogelijk per e-mail.
+        Bekijk in onze kalender wanneer het huis beschikbaar is en kies de periode die voor
+        jullie past. Er is geen vaste aankomstdag.
       </p>
     </div>
   </section>
@@ -34,7 +34,7 @@ import BookingForm from '../components/BookingForm.astro';
         />
       </div>
       <div>
-        <h2>Aanvraagformulier</h2>
+        <h2>Vraag je verblijf aan</h2>
         <BookingForm
           labels={{
             name: 'Naam',
@@ -53,12 +53,13 @@ import BookingForm from '../components/BookingForm.astro';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Praktische info</h2>
+      <h2>Aankomst en vertrek</h2>
       <ul class="practical">
-        <li><strong>Check-in</strong> — tussen 13:00 en 20:00</li>
-        <li><strong>Check-out</strong> — voor 11:00</li>
+        <li>Inchecken kan tussen 16:00 en 21:00 uur. Voor aankomst na 21:00 uur wordt € 25 aangerekend.</li>
+        <li>Op de dag van vertrek vragen we om het huis uiterlijk om 11:00 uur vrij te maken.</li>
+        <li>Een keyholder ontvangt jullie persoonlijk bij aankomst en geeft de nodige uitleg over het huis.</li>
         <li><strong>Minimum verblijfsduur</strong> — nog te bevestigen</li>
-        <li><strong>Huisdieren</strong> — nog te bevestigen</li>
+        <li><strong>Huisdieren</strong> — we ontvangen liever geen huisdieren, neem gerust contact op met specifieke vragen</li>
         <li><strong>Roken</strong> — niet toegestaan binnenshuis</li>
       </ul>
     </div>
@@ -67,25 +68,33 @@ import BookingForm from '../components/BookingForm.astro';
   <section class="section section--tight">
     <div class="wrap two-col">
       <div>
-        <h2>Prijzen & borg</h2>
+        <h2>Betaling</h2>
         <ul class="practical">
-          <li>Je boeking is definitief na een eerste aanbetaling van 25% van de totale huursom.</li>
-          <li>Het restant van de huursom betaal je 6 weken voor aankomst.</li>
-          <li>Een borgsom van € 1.000 betaal je uiterlijk 1 week voor aanvang van je verblijf.</li>
-          <li>Energiekosten zijn inbegrepen tot een standaardverbruik (richtprijs € 8/dag elektriciteit, € 5/dag water); verbruik daarboven wordt verrekend met de borg.</li>
-          <li>Schoonmaakkosten: € 160, verplicht per boeking.</li>
+          <li>Je reservatie is definitief na betaling van 50% van de totale huursom.</li>
+          <li>Het resterende bedrag betaal je uiterlijk één maand voor aankomst.</li>
+          <li>De waarborg bedraagt € 800 en wordt eveneens één maand voor aankomst betaald. Na vertrek wordt het huis gecontroleerd; wanneer alles in orde is, wordt de waarborg binnen één week teruggestort.</li>
+          <li>De verplichte eindschoonmaak bedraagt € 150 per verblijf.</li>
         </ul>
+        <h2 class="mt">Energie</h2>
+        <ul class="practical">
+          <li>Energiekosten zijn inbegrepen op basis van een standaardverbruik van € 8 elektriciteit per dag en € 5 water per dag. Verbruik boven dit standaardverbruik wordt verrekend met de waarborg.</li>
+        </ul>
+        <p class="fine-print">
+          Opmerking: deze regeling wordt nog bevestigd zodra vastligt hoe het verbruik gemeten en afgerekend wordt.
+        </p>
       </div>
       <div>
         <h2>Annuleringsvoorwaarden</h2>
         <ul class="practical">
-          <li>Annulering vanaf 6 weken voor aanvang: 25% van de huurprijs</li>
-          <li>Annulering vanaf 4 weken voor aanvang: 50% van de huurprijs</li>
-          <li>Annulering vanaf 2 weken voor aanvang: 100% van de huurprijs</li>
+          <li>Annulering 8 weken voor de aanvang van de huurperiode: 0% van de huurprijs.</li>
+          <li>Annulering 6 weken voor de aanvang van de huurperiode: 25% van de huurprijs.</li>
+          <li>Annulering 2 weken voor de aanvang van de huurperiode: 100% van de huurprijs.</li>
         </ul>
         <p class="fine-print">
-          De verhuurder is niet verantwoordelijk voor ongevallen of diefstal.
+          Opmerking: de regeling voor annuleringen tussen 6 en 2 weken voor aanvang moet nog
+          worden vastgelegd.
         </p>
+        <p class="fine-print">De verhuurder is niet verantwoordelijk voor ongevallen of diefstal.</p>
       </div>
     </div>
   </section>
@@ -124,6 +133,10 @@ import BookingForm from '../components/BookingForm.astro';
     background: #fff;
     border: 1px solid var(--color-line);
     border-radius: 0;
+  }
+
+  .mt {
+    margin-top: 2rem;
   }
 
   .fine-print {

@@ -5,7 +5,7 @@ taal: es
 
 ## Intro
 
-Casa Helena es acogedora y completa: lo bastante grande para disfrutar en compañía, lo
+Casa Lana es acogedora y completa: lo bastante grande para disfrutar en compañía, lo
 bastante pequeña para sentir la calma de un hogar en cualquier rincón. Dentro, todas las
 comodidades; fuera, una terraza y piscina donde pasaréis la mayor parte del tiempo.
 

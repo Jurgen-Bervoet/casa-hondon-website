@@ -1,8 +1,11 @@
-# Sitemap — Casa Helena
+# Sitemap — Casa Lana
 
-Vakantiehuis in Hondón de las Nieves (Alicante). Klein huis (3 slaapkamers, 2 badkamers)
-met zwembad, volledig alleenstaand, gericht op rust, natuur en buitenleven. Site in
+Vakantiehuis in Hondón de las Nieves (Alicante). 3 slaapkamers, 2 badkamers, plaats voor
+6 personen, privézwembad (3 x 11 m), 10.000 m² volledig omheind terrein. Site in
 NL (hoofdtaal) / ES / EN / FR.
+
+> "Casa Lana" is een werknaam (zie brainstorm-document), momenteel overal doorgevoerd op
+> verzoek van de eigenaars. Kan later nog wijzigen — zie memory-bestand van dit project.
 
 ## Paginastructuur
 
@@ -12,58 +15,53 @@ Elke pagina bestaat in 4 taalversies. NL is de standaardtaal zonder prefix.
 |---|---|---|---|---|
 | Home | `/` | `/es/` | `/en/` | `/fr/` |
 | Het Huis | `/het-huis/` | `/es/la-casa/` | `/en/the-house/` | `/fr/la-maison/` |
-| De Omgeving | `/de-omgeving/` | `/es/la-zona/` | `/en/the-area/` | `/fr/la-region/` |
-| Beschikbaarheid & Boeken | `/beschikbaarheid/` | `/es/disponibilidad/` | `/en/availability/` | `/fr/disponibilite/` |
+| Omgeving | `/de-omgeving/` | `/es/la-zona/` | `/en/the-area/` | `/fr/la-region/` |
+| Ons Verhaal | `/ons-verhaal/` | `/es/nuestra-historia/` | `/en/our-story/` | `/fr/notre-histoire/` |
+| Prijzen & Beschikbaarheid | `/beschikbaarheid/` | `/es/disponibilidad/` | `/en/availability/` | `/fr/disponibilite/` |
+| FAQ | `/faq/` | `/es/faq/` | `/en/faq/` | `/fr/faq/` |
 | Contact | `/contact/` | `/es/contacto/` | `/en/contact/` | `/fr/contact/` |
 
-1. **Home**
-   - Hero: foto zwembad/terras (`hero.jpg`), huisnaam "Casa Helena", tagline, CTA → Beschikbaarheid
-   - "Ons verhaal": fotocollage (zwembad/terras + woonruimte) naast een korte versie van het
-     ontstaansverhaal van het huis
-   - 4 USP-tegels met echte feiten: zwembad (wekelijks onderhouden) / rust & krekels (volledig
-     alleenstaand) / dorp op 10 min rijden / 3 slaapkamers, 2 badkamers, grote garage
-   - CTA-blok → Beschikbaarheid & Boeken
+1. **Home** — hero (`hero.jpg`), welkomstintro met kernfeiten (6 pers., 3 slaapkamers,
+   2 badkamers, zwembad 3x11m, 10.000 m², afstanden dorp/vliegveld/kust), 4 USP-tegels,
+   link naar Ons Verhaal, teaser naar Omgeving, CTA → Prijzen & Beschikbaarheid
+2. **Het Huis** — feitenlijst + 6 uitgeschreven subsecties (Slapen, Twee badkamers, Keuken,
+   Comfort, Buiten leven, Alle ruimte voor jezelf), "zelf mee te nemen", fotogalerij (9 foto's)
+3. **Omgeving** — 13 bestemmingen als kaarten (naam, afstand, beschrijving, "zeker doen"),
+   samenvattingstabel "in één oogopslag", teaser voor de exclusieve gastengids na boeking
+4. **Ons Verhaal** — het volledige verhaal van het gezin (Evelien, Jurgen, Lukas, Helena),
+   waarom en hoe ze Casa Lana kochten
+5. **Prijzen & Beschikbaarheid** — kalender + aanvraagformulier, aankomst/vertrek
+   (16:00–21:00 incheck, +€25 na 21u, keyholder), betaling (50% aanbetaling, restant 1 maand
+   voor aankomst, borg €800, schoonmaak €150), energie (nog te bevestigen hoe afgerekend),
+   annulering (8w=0%, 6w=25%, 2w=100%, 6–2w nog te bepalen)
+6. **FAQ** — 22 vraag/antwoord-items, met FAQPage schema.org structured data
+   (`FAQList.astro`)
+7. **Contact** — contactgegevens + contactformulier
 
-2. **Het Huis**
-   - Intro, fotocollage (zwembad + terras)
-   - Kenmerken: 3 slaapkamers, 2 badkamers, alleenstaand, zwembad wekelijks onderhouden,
-     groot omheind terrein, grote garage
-   - Voorzieningen: bedlakens/handdoeken, ligstoelen, volledig ingerichte keuken (met
-     apparatuur), stofzuiger, haardroger, BBQ, parkeren in garage — "zelf mee te nemen:
-     strandlakens"
-   - Fotogalerij (zwembad, terras, woonkamer, keuken, 3 slaapkamers, badkamer, tuin)
+## Herbruikbare componenten (nieuw t.o.v. eerdere versie)
 
-3. **De Omgeving**
-   - Intro Hondón de las Nieves / Hondón de los Frailes, zoutmeren, landschap
-   - Wat te doen: wandelen, zoutmeren, het dorp (10 min rijden, restaurants + ontbijtcafé),
-     streekproducten
-   - Bereikbaarheid: dorp (10 min rijden, bevestigd) + vliegveld/Elche/kust (nog te bevestigen)
-
-4. **Beschikbaarheid & Boeken**
-   - Beschikbaarheidskalender (placeholder-data tot echte data beschikbaar zijn)
-   - Aanvraagformulier
-   - Praktische info: check-in 13:00–20:00, check-out 11:00, min. verblijf/huisdieren nog te
-     bevestigen, roken niet toegestaan binnenshuis
-   - Prijzen & borg: 25% aanbetaling, restant 6 weken voor aankomst, borg €1.000 (1 week voor
-     aanvang), energiekosten inbegrepen tot standaardverbruik, schoonmaakkosten €160
-   - Annuleringsvoorwaarden: 6 weken=25%, 4 weken=50%, 2 weken=100% van de huurprijs
-
-5. **Contact**
-   - Contactgegevens (placeholder e-mail/telefoon), contactformulier, locatie-indicatie
+- `FAQList.astro` — Q&A-lijst + automatische FAQPage JSON-LD
+- `DestinationList.astro` — kaarten voor de Omgeving-bestemmingen
+- `SummaryTable.astro` — de "in één oogopslag"-tabel
 
 ## Vaste elementen (alle pagina's)
 
-- **Header**: logo/naam "Casa Helena", navigatie, taalwissel (NL/ES/EN/FR)
+- **Header**: logo/naam "Casa Lana", navigatie (7 items), taalwissel (NL/ES/EN/FR)
 - **Footer**: huisnaam + tagline, navigatie herhaald, copyright
 
 ## Nog te beslissen / later aan te vullen
 
-- Echte foto's: `hero.jpg`, `zwembad en terras.jpg` en `woonruimte.jpg` zijn verwerkt; overige
-  foto's (slaapkamers, keuken, badkamer, tuin, omgeving) nog te plaatsen
+- Definitieve huisnaam (Casa Lana is een werknaam)
 - E-mailadres en telefoonnummer
-- Bevestiging wifi en airconditioning/verwarming aanwezig (niet vermeld in brainstorm-doc,
-  dus nog niet als voorziening op de site gezet)
-- Minimumverblijfsduur, huisdierenbeleid
-- Reistijden naar vliegveld/kust/Elche (dorp zelf = bevestigd op ~10 min rijden)
-- Franse vertaling laten nalezen door native speaker (machinaal/AI-vertaald, nog niet
-  gecontroleerd door de eigenaars)
+- Minimumverblijfsduur
+- Hoe energieverbruik precies gemeten/afgerekend wordt
+- Annuleringsregeling tussen 6 en 2 weken voor aanvang (expliciet nog open in het
+  brainstorm-document zelf)
+- Exacte ligging/adres en Google-pin: **bewust niet openbaar publiceren** — dit gaat pas
+  na boeking naar gasten (instructie uit het brainstorm-document)
+- De persoonlijke gastengids (restaurants, parkings, tips) is exclusief voor geboekte
+  gasten en hoort dus niet publiek op de site
+- Meeste foto's staan nog als placeholder; enkel `hero.jpg`, `zwembad en terras.jpg` en
+  `woonruimte.jpg` zijn echt
+- Beschrijvende bestandsnamen/alt-teksten voor foto's zodra de echte foto's er zijn
+  (bv. `privezwembad-hondon-de-las-nieves.jpg`), per instructie uit het brainstorm-document

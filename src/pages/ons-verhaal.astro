@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { ROUTES } from '../i18n/routes';
+---
+
+<Layout
+  lang="nl"
+  active="story"
+  title="Ons Verhaal — Casa Lana"
+  description="Van jaarlijkse vakanties naar een eigen plek in Spanje: het verhaal achter Casa Lana in Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Ons Verhaal</span>
+      <h1>Van jaarlijkse vakanties naar een eigen plek in Spanje</h1>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap story">
+      <p>
+        In 1996 ging Evelien op Erasmus naar Spanje. Ze leerde er de taal en cultuur kennen
+        en werd verliefd op het land. Die liefde kwam eigenlijk niet helemaal uit het niets.
+        Sinds haar derde reisde ze bijna ieder jaar met haar ouders naar Spanje. De Spaanse
+        microbe zat er dus al vroeg in.
+      </p>
+      <p>
+        En blijkbaar is zo'n microbe besmettelijk. Eerst kreeg ze Jurgen mee en later volgden
+        ook onze kinderen Lukas en Helena. Spanje werd door de jaren heen een plek waar we als
+        gezin altijd graag naar terugkeerden.
+      </p>
+      <p>
+        Een eigen huis in Spanje was al heel lang een droom. Liefst ergens tussen Valencia en
+        Alicante. Niet aan de drukke kust en ook niet volledig afgelegen. We zochten een plek
+        waar we rust konden vinden en waar tegelijk genoeg te beleven viel wanneer we daar zin
+        in hadden.
+      </p>
+      <p>Dromen blijven dromen als je er niets mee doet.</p>
+      <p>
+        Dus begonnen we te zoeken. We hadden daarbij één belangrijke voorwaarde: iedereen in
+        ons gezin moest zich goed voelen bij het huis dat we zouden kopen.
+      </p>
+      <p>
+        Dat maakte de zoektocht niet bepaald eenvoudiger. We waren, laat ons zeggen, nogal
+        kieskeurig.
+      </p>
+      <p>Tot we deze plek vonden.</p>
+      <p>
+        Een ruim huis, een prachtig zwembad, 10.000 m² grond, bergen rondom ons en vooral heel
+        veel rust. Geen rijen hotels, geen overvolle stranden en geen massatoerisme. Gewoon de
+        poort achter je dichttrekken en voelen dat het tempo vanzelf wat zakt.
+      </p>
+      <p>
+        Dat is precies wat wij hier zelf zo fijn vinden. Ons dagelijkse leven is al druk
+        genoeg. Hier hoeft even niets.
+      </p>
+      <p>
+        Wil je 's avonds thuis koken en gezellig samen eten, dan is alles aanwezig. Wil je
+        eropuit, een restaurant zoeken, naar een markt gaan, een stad bezoeken of richting kust
+        rijden, dan stap je in de auto en ligt er verrassend veel binnen bereik.
+      </p>
+      <p>
+        We kochten Casa Lana in de eerste plaats voor onszelf en ons gezin. We delen deze plek
+        graag met mensen die hetzelfde zoeken als wij: rust, ruimte, tijd voor elkaar en even
+        weg van de drukte.
+      </p>
+      <p>
+        Dat kan met je gezin, met vrienden of met twee koppels samen. Ook wie enkele weken op
+        een rustige plek wil verblijven en tussendoor wil werken, vindt hier alle ruimte.
+      </p>
+      <p>
+        Een wild feestweekend past niet bij Casa Lana. Daarvoor zijn er genoeg andere plekken
+        in Spanje. Wij hebben een goed contact met de mensen die in de omgeving wonen en
+        respecteren de rust die hier heerst.
+      </p>
+      <p>
+        We hebben deze plek met veel liefde gekozen en ingericht. Met evenveel plezier stellen
+        we ze open voor mensen die ervan willen genieten en er zorg voor dragen.
+      </p>
+      <p>
+        Zo blijft Casa Lana niet alleen ons verhaal en wordt het ook een plek waar andere
+        gezinnen en vrienden mooie herinneringen kunnen maken.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Zin om ons verhaal verder te schrijven?"
+    text="Bekijk de beschikbaarheid en boek jullie eigen stukje rust in Spanje."
+    ctaLabel="Bekijk beschikbaarheid"
+    ctaHref={ROUTES.availability.nl}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .story {
+    max-width: 68ch;
+    font-size: 1.05rem;
+  }
+
+  .story p {
+    color: #3a362c;
+  }
+</style>

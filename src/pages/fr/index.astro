@@ -10,15 +10,15 @@ import { ROUTES } from '../../i18n/routes';
 <Layout
   lang="fr"
   active="home"
-  title="Casa Helena — Maison de vacances avec piscine à Hondón de las Nieves"
-  description="Casa Helena est une petite maison de vacances avec piscine privée à Hondón de las Nieves, Alicante. Calme, nature et vie en plein air."
+  title="Casa Lana — Maison de vacances avec piscine privée à Hondón de las Nieves"
+  description="Casa Lana est notre maison de vacances à Hondón de las Nieves : calme, espace et une piscine privée dans l'arrière-pays de la Costa Blanca, pour 6 personnes."
 >
   <Hero
-    title="Casa Helena"
-    subtitle="Soleil, calme et votre propre piscine au cœur de Hondón de las Nieves"
+    title="Casa Lana"
+    subtitle="Une magnifique maison entourée de montagnes espagnoles, de calme et d'espace"
     ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
-    imageLabel="Photo : piscine et terrasse de Casa Helena"
+    imageLabel="Photo : piscine et terrasse de Casa Lana"
     image="/hero.jpg"
   />
 
@@ -36,19 +36,32 @@ import { ROUTES } from '../../i18n/routes';
         />
       </div>
       <div class="intro-collage__text">
-        <span class="eyebrow">Notre histoire</span>
+        <span class="eyebrow">Bienvenue dans notre coin d'Espagne</span>
         <p class="intro__text">
-          Casa Helena est un rêve devenu réalité. Après des années à parcourir l'Espagne, nous
-          savions une chose : nous voulions un jour notre propre endroit ici, quelque part entre
-          Valence et Alicante. Après une longue recherche, exigeante, nous avons trouvé cette
-          maison — spacieuse, avec une magnifique piscine, dans une région tranquille qui reste
-          pourtant proche de tout.
+          Loin de l'agitation, le temps d'un séjour. Du temps l'un pour l'autre, de longues
+          matinées au bord de la piscine, des repas tranquilles sur la terrasse et le plaisir
+          du silence tout autour de vous.
         </p>
         <p class="intro__text">
-          C'est avec beaucoup d'amour que nous avons choisi cet endroit, et c'est avec le même
-          amour que nous le partageons avec des familles qui, comme nous, recherchent le calme :
-          pas de tourisme de masse, pas de fêtes bruyantes, mais du silence, de l'espace et du
-          temps les uns pour les autres.
+          Casa Lana est notre maison de vacances à Hondón de las Nieves, dans l'arrière-pays
+          tranquille de la Costa Blanca. La maison accueille jusqu'à six personnes et dispose
+          de trois chambres spacieuses, deux salles de bain, un terrain entièrement clôturé de
+          10 000 m² et une piscine privée de 3 sur 11 mètres.
+        </p>
+        <p class="intro__text">
+          Ici, vous séjournez loin du tourisme de masse tout en ayant, étonnamment, beaucoup à
+          portée de main. Le centre de Hondón de las Nieves se trouve à environ 8 minutes en
+          voiture, l'aéroport d'Alicante à environ 30 minutes, et Alicante ainsi que la
+          Méditerranée à environ 40 minutes.
+        </p>
+        <p class="intro__text">
+          Vous restez aujourd'hui à la piscine ? Vous partez déguster des tapas à Alicante ?
+          Vous visitez Elche, un marché local ou l'un des petits villages des environs ? Rien
+          n'est obligatoire. Tout est possible.
+        </p>
+        <p class="intro__text intro__text--last">
+          C'est l'endroit que nous cherchions nous-mêmes en Espagne. Et nous le partageons
+          avec plaisir avec vous. <a href={ROUTES.story.fr}>Lisez notre histoire →</a>
         </p>
       </div>
     </div>
@@ -56,21 +69,41 @@ import { ROUTES } from '../../i18n/routes';
 
   <section class="section section--tight">
     <div class="wrap">
+      <h2>Tout pour un séjour reposant</h2>
       <FeatureGrid
         features={[
-          { title: 'Piscine & terrasse', text: 'Votre propre piscine, entretenue chaque semaine, sur un grand terrain entièrement clôturé.' },
+          { title: 'Piscine & terrasse', text: 'Piscine privée de 3 x 11 mètres, entretenue chaque semaine, sur un terrain de 10 000 m².' },
           { title: 'Calme & nature', text: 'La maison est totalement isolée, dans une oasis de calme — seuls les grillons peuvent vous réveiller la nuit.' },
-          { title: 'Hondón de las Nieves', text: 'À peine 10 minutes en voiture pour rejoindre le village, avec de bons restaurants et un café petit-déjeuner sympathique.' },
-          { title: 'Confort & intimité', text: '3 chambres spacieuses, 2 salles de bain et un grand garage pour votre voiture.' },
+          { title: 'Hondón de las Nieves', text: "À environ 8 minutes en voiture se trouve le village, avec de bons restaurants et un café petit-déjeuner sympathique." },
+          { title: 'Confort & intimité', text: '6 personnes, 3 chambres spacieuses, 2 salles de bain et un grand garage pour votre voiture.' },
         ]}
       />
     </div>
   </section>
 
+  <section class="section section--tight">
+    <div class="wrap wide-section">
+      <h2>Loin de tout. Et pourtant jamais loin de rien.</h2>
+      <p>
+        Casa Lana se trouve en plein cœur de l'arrière-pays espagnol, entourée de montagnes et
+        de nature. Ici, vous vous réveillez dans le silence, et le soir, vous entendez surtout
+        les grillons.
+      </p>
+      <p>
+        Envie d'un peu plus d'animation ? Hondón de las Nieves, Aspe, Novelda et Elche sont
+        tout proches. Pour une journée en ville, culture, tapas ou plage, direction Alicante.
+        Santa Pola, Tabarca, Murcie, Villajoyosa et Altea sont aussi de belles destinations
+        pour une excursion d'une journée.
+      </p>
+      <p>Vous combinez ainsi le calme de l'arrière-pays avec tout ce que la Costa Blanca a à offrir.</p>
+      <a href={ROUTES.area.fr} class="btn btn--outline-dark">Découvrez la région</a>
+    </div>
+  </section>
+
   <CTABlock
-    title="Planifiez votre séjour à Casa Helena"
+    title="Planifiez votre séjour à Casa Lana"
     text="Consultez les disponibilités et envoyez votre demande — nous confirmons rapidement par e-mail."
-    ctaLabel="Voir les disponibilités et réserver"
+    ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
   />
 </Layout>
@@ -84,8 +117,17 @@ import { ROUTES } from '../../i18n/routes';
   }
 
   .intro__text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__text--last a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
+  }
+
+  .wide-section {
+    max-width: 68ch;
   }
 
   @media (max-width: 780px) {

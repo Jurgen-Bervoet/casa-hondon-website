@@ -7,16 +7,16 @@ import BookingForm from '../../components/BookingForm.astro';
 <Layout
   lang="fr"
   active="availability"
-  title="Disponibilité & Réservation — Casa Helena"
-  description="Consultez la disponibilité de Casa Helena et envoyez une demande de réservation."
+  title="Tarifs & Disponibilité — Casa Lana"
+  description="Consultez la disponibilité de Casa Lana, les tarifs, les conditions de paiement et les conditions d'annulation."
 >
   <section class="section">
     <div class="wrap page-intro">
-      <span class="eyebrow">Disponibilité & Réservation</span>
+      <span class="eyebrow">Tarifs & Disponibilité</span>
       <h1>Planifiez votre séjour</h1>
       <p>
-        Consultez ci-dessous la disponibilité de Casa Helena et envoyez votre demande pour les
-        dates souhaitées. Nous confirmerons votre demande par e-mail dans les plus brefs délais.
+        Consultez notre calendrier pour voir quand la maison est disponible et choisissez la
+        période qui vous convient. Il n'y a pas de jour d'arrivée fixe.
       </p>
     </div>
   </section>
@@ -34,7 +34,7 @@ import BookingForm from '../../components/BookingForm.astro';
         />
       </div>
       <div>
-        <h2>Formulaire de demande</h2>
+        <h2>Demandez votre séjour</h2>
         <BookingForm
           labels={{
             name: 'Nom',
@@ -53,12 +53,13 @@ import BookingForm from '../../components/BookingForm.astro';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Informations pratiques</h2>
+      <h2>Arrivée et départ</h2>
       <ul class="practical">
-        <li><strong>Arrivée</strong> — entre 13h00 et 20h00</li>
-        <li><strong>Départ</strong> — avant 11h00</li>
+        <li>L'arrivée se fait entre 16h00 et 21h00. Pour une arrivée après 21h00, 25 € sont facturés.</li>
+        <li>Le jour du départ, nous demandons de libérer la maison au plus tard à 11h00.</li>
+        <li>Un keyholder vous accueillera en personne à votre arrivée et vous donnera les explications nécessaires sur la maison.</li>
         <li><strong>Durée minimale de séjour</strong> — à confirmer</li>
-        <li><strong>Animaux</strong> — à confirmer</li>
+        <li><strong>Animaux</strong> — nous préférons ne pas en accueillir, n'hésitez pas à nous contacter pour toute question précise</li>
         <li><strong>Tabac</strong> — non autorisé à l'intérieur</li>
       </ul>
     </div>
@@ -67,22 +68,31 @@ import BookingForm from '../../components/BookingForm.astro';
   <section class="section section--tight">
     <div class="wrap two-col">
       <div>
-        <h2>Tarifs & caution</h2>
+        <h2>Paiement</h2>
         <ul class="practical">
-          <li>Votre réservation est définitive après un premier acompte de 25% du montant total de la location.</li>
-          <li>Le solde du montant de la location est à régler 6 semaines avant l'arrivée.</li>
-          <li>Une caution de 1 000 € est à régler au plus tard 1 semaine avant le début de votre séjour.</li>
-          <li>Les frais d'énergie sont inclus jusqu'à une consommation standard (indicativement 8 €/jour d'électricité, 5 €/jour d'eau) ; toute consommation supérieure sera déduite de la caution.</li>
-          <li>Frais de ménage : 160 €, obligatoires par réservation.</li>
+          <li>Votre réservation est définitive après le paiement de 50% du montant total de la location.</li>
+          <li>Le montant restant est à régler au plus tard un mois avant l'arrivée.</li>
+          <li>La caution s'élève à 800 € et est également réglée un mois avant l'arrivée. Après le départ, la maison est contrôlée ; si tout est en ordre, la caution est restituée dans un délai d'une semaine.</li>
+          <li>Le nettoyage final obligatoire s'élève à 150 € par séjour.</li>
         </ul>
+        <h2 class="mt">Énergie</h2>
+        <ul class="practical">
+          <li>Les frais d'énergie sont inclus sur la base d'une consommation standard de 8 € d'électricité par jour et 5 € d'eau par jour. Toute consommation supérieure à ce standard sera déduite de la caution.</li>
+        </ul>
+        <p class="fine-print">
+          Remarque : ce dispositif sera confirmé dès qu'il sera établi comment la consommation est mesurée et facturée.
+        </p>
       </div>
       <div>
         <h2>Conditions d'annulation</h2>
         <ul class="practical">
-          <li>Annulation à partir de 6 semaines avant le début du séjour : 25% du prix de la location</li>
-          <li>Annulation à partir de 4 semaines avant le début du séjour : 50% du prix de la location</li>
-          <li>Annulation à partir de 2 semaines avant le début du séjour : 100% du prix de la location</li>
+          <li>Annulation 8 semaines avant le début de la location : 0% du prix de la location.</li>
+          <li>Annulation 6 semaines avant le début de la location : 25% du prix de la location.</li>
+          <li>Annulation 2 semaines avant le début de la location : 100% du prix de la location.</li>
         </ul>
+        <p class="fine-print">
+          Remarque : les modalités pour les annulations entre 6 et 2 semaines avant le début doivent encore être définies.
+        </p>
         <p class="fine-print">Le loueur n'est pas responsable des accidents ou vols.</p>
       </div>
     </div>
@@ -122,6 +132,10 @@ import BookingForm from '../../components/BookingForm.astro';
     background: #fff;
     border: 1px solid var(--color-line);
     border-radius: 0;
+  }
+
+  .mt {
+    margin-top: 2rem;
   }
 
   .fine-print {

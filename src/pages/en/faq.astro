@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQList from '../../components/FAQList.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+
+const items = [
+  {
+    question: 'How many people does the house sleep?',
+    answer:
+      'The house sleeps up to six people. There are three spacious bedrooms, each with a 160 cm-wide double bed. A cot can be provided on request.',
+  },
+  {
+    question: 'Is a car necessary?',
+    answer:
+      "Yes. The house is deliberately located in a quiet area away from mass tourism. With a car you have complete freedom to shop, eat out, visit the coast and explore the area.",
+  },
+  {
+    question: 'How far is Alicante Airport?',
+    answer: "Alicante Airport is about a 30-minute drive from the house.",
+  },
+  {
+    question: 'How far is the beach?',
+    answer:
+      'Alicante and Playa del Postiguet are about 40 minutes away. Other Costa Blanca beaches are also easily reachable.',
+  },
+  {
+    question: 'Is the pool private?',
+    answer: 'Yes. The 3 by 11 metre pool is fully private and exclusively for your group.',
+  },
+  {
+    question: 'Is the pool heated?',
+    answer: 'No. The pool is not heated.',
+  },
+  {
+    question: 'Is there shade at the pool?',
+    answer:
+      "There's no natural shade around the pool. We provide parasols so you can create your own shady spot.",
+  },
+  {
+    question: 'Is the garden fully fenced?',
+    answer: 'Yes. The entire plot is fenced.',
+  },
+  {
+    question: 'Are pets allowed?',
+    answer:
+      "We'd rather not host pets. If you have a specific question about this, feel free to contact us — we'll look at what's possible.",
+  },
+  {
+    question: 'Are children welcome?',
+    answer: 'Absolutely. Children are more than welcome.',
+  },
+  {
+    question: 'Is there a cot and highchair?',
+    answer: 'Yes. Both a cot and a highchair are available.',
+  },
+  {
+    question: 'Does the house have stairs?',
+    answer: 'No. The house is fully single-level.',
+  },
+  {
+    question: 'Is there air conditioning?',
+    answer:
+      'Yes. The entire house has central air conditioning that can also heat, plus there is a pellet stove.',
+  },
+  {
+    question: 'Is there wifi?',
+    answer:
+      "Yes. Wifi is available and included. A good internet connection is especially handy here, as mobile coverage in the area isn't always equally strong.",
+  },
+  {
+    question: 'Are bed linen and towels included?',
+    answer:
+      'Yes. The beds are made up on arrival. Per person we provide one large bath towel and one small towel. Bring your own beach towels.',
+  },
+  {
+    question: 'Where can we do our shopping?',
+    answer:
+      "In Hondón de las Nieves you'll find supermarkets, a bakery, a butcher, a pharmacy and several local shops. The village is about an 8-minute drive away.",
+  },
+  {
+    question: 'Can we park at the house?',
+    answer: "Yes. There's ample private parking on the property, and there's also a garage.",
+  },
+  {
+    question: 'When can we check in and check out?',
+    answer: 'Check-in is between 16:00 and 21:00. Check-out is by 11:00 at the latest.',
+  },
+  {
+    question: 'How much is the security deposit?',
+    answer: 'The security deposit is €800.',
+  },
+  {
+    question: 'Is there a washing machine?',
+    answer: "Yes. There's a washing machine available, and we also provide detergent tablets.",
+  },
+  {
+    question: 'Is smoking allowed?',
+    answer: 'No. Smoking inside the house is not allowed.',
+  },
+  {
+    question: 'Are parties allowed?',
+    answer:
+      'No. The house is in a quiet area and we have a good relationship with the people who live there. The house is not suitable for parties or noisy groups.',
+  },
+];
+---
+
+<Layout
+  lang="en"
+  active="faq"
+  title="Frequently Asked Questions — Casa Lana"
+  description="Answers to the most common questions about Casa Lana: capacity, pool, check-in, pets, wifi and more."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">FAQ</span>
+      <h1>Frequently asked questions</h1>
+      <p>Can't find your question? Feel free to get in touch.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap faq-wrap">
+      <FAQList items={items} />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Still have a question?"
+    text="We're happy to answer it personally."
+    ctaLabel="Contact us"
+    ctaHref={ROUTES.contact.en}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .faq-wrap {
+    max-width: 74ch;
+  }
+</style>

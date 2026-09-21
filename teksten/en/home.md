@@ -5,14 +5,14 @@ taal: en
 
 ## Hero
 
-**Casa Helena**
+**Casa Lana**
 Sun, calm and your own pool in the heart of Hondón de las Nieves
 
 CTA: Check availability
 
 ## Our story
 
-Casa Helena is a dream come true. After years of travelling through Spain, we knew one thing
+Casa Lana is a dream come true. After years of travelling through Spain, we knew one thing
 for certain: one day we wanted a place of our own here, somewhere between Valencia and
 Alicante. After a long, picky search, we found this house — spacious, with a beautiful pool,
 in a quiet area that's still never far from anything.
@@ -43,7 +43,7 @@ A mere 10-minute drive to the village, with good restaurants and a cosy breakfas
 
 ## CTA block
 
-**Plan your stay at Casa Helena**
+**Plan your stay at Casa Lana**
 Check availability and send a request — we confirm quickly by email.
 
 CTA: Go to availability & booking

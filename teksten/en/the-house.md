@@ -5,7 +5,7 @@ taal: en
 
 ## Intro
 
-Casa Helena is cosy and complete: large enough to enjoy with company, small enough to feel
+Casa Lana is cosy and complete: large enough to enjoy with company, small enough to feel
 the calm of home in every corner. Inside, every comfort; outside, a terrace and pool where
 you'll spend most of your time.
 

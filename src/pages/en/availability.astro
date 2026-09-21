@@ -7,16 +7,16 @@ import BookingForm from '../../components/BookingForm.astro';
 <Layout
   lang="en"
   active="availability"
-  title="Availability & Booking — Casa Helena"
-  description="Check the availability of Casa Helena and send a booking request."
+  title="Pricing & Availability — Casa Lana"
+  description="Check the availability of Casa Lana, pricing, payment terms and cancellation policy."
 >
   <section class="section">
     <div class="wrap page-intro">
-      <span class="eyebrow">Availability & Booking</span>
+      <span class="eyebrow">Pricing & Availability</span>
       <h1>Plan your stay</h1>
       <p>
-        Check Casa Helena's availability below and send a request for your preferred
-        dates. We'll confirm your request by email as soon as possible.
+        Check our calendar to see when the house is available and choose the period that
+        suits you. There is no fixed arrival day.
       </p>
     </div>
   </section>
@@ -34,7 +34,7 @@ import BookingForm from '../../components/BookingForm.astro';
         />
       </div>
       <div>
-        <h2>Request form</h2>
+        <h2>Request your stay</h2>
         <BookingForm
           labels={{
             name: 'Name',
@@ -53,12 +53,13 @@ import BookingForm from '../../components/BookingForm.astro';
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Practical info</h2>
+      <h2>Arrival and departure</h2>
       <ul class="practical">
-        <li><strong>Check-in</strong> — between 13:00 and 20:00</li>
-        <li><strong>Check-out</strong> — before 11:00</li>
+        <li>Check-in is between 16:00 and 21:00. A €25 fee applies for arrivals after 21:00.</li>
+        <li>On the day of departure, we ask you to vacate the house by 11:00 at the latest.</li>
+        <li>A keyholder will greet you in person on arrival and give you the necessary information about the house.</li>
         <li><strong>Minimum stay</strong> — to be confirmed</li>
-        <li><strong>Pets</strong> — to be confirmed</li>
+        <li><strong>Pets</strong> — we'd rather not host pets, feel free to contact us with specific questions</li>
         <li><strong>Smoking</strong> — not allowed indoors</li>
       </ul>
     </div>
@@ -67,22 +68,31 @@ import BookingForm from '../../components/BookingForm.astro';
   <section class="section section--tight">
     <div class="wrap two-col">
       <div>
-        <h2>Pricing & deposit</h2>
+        <h2>Payment</h2>
         <ul class="practical">
-          <li>Your booking is confirmed after an initial deposit of 25% of the total rental sum.</li>
-          <li>The remaining balance is due 6 weeks before arrival.</li>
-          <li>A security deposit of €1,000 is due no later than 1 week before your stay begins.</li>
-          <li>Energy costs are included up to a standard usage (indicatively €8/day electricity, €5/day water); usage above this is deducted from the security deposit.</li>
-          <li>Cleaning fee: €160, mandatory per booking.</li>
+          <li>Your booking is confirmed after payment of 50% of the total rental sum.</li>
+          <li>The remaining amount is due no later than one month before arrival.</li>
+          <li>The security deposit is €800, also due one month before arrival. After departure the house is checked; if everything is in order, the deposit is refunded within one week.</li>
+          <li>The mandatory final cleaning fee is €150 per stay.</li>
         </ul>
+        <h2 class="mt">Energy</h2>
+        <ul class="practical">
+          <li>Energy costs are included based on a standard usage of €8 electricity per day and €5 water per day. Usage above this standard is deducted from the security deposit.</li>
+        </ul>
+        <p class="fine-print">
+          Note: this arrangement will be confirmed once it's settled how usage is measured and billed.
+        </p>
       </div>
       <div>
         <h2>Cancellation policy</h2>
         <ul class="practical">
-          <li>Cancelling 6 weeks or more before arrival: 25% of the rental price</li>
-          <li>Cancelling 4 weeks or more before arrival: 50% of the rental price</li>
-          <li>Cancelling 2 weeks or more before arrival: 100% of the rental price</li>
+          <li>Cancelling 8 weeks before the start of the rental period: 0% of the rental price.</li>
+          <li>Cancelling 6 weeks before the start of the rental period: 25% of the rental price.</li>
+          <li>Cancelling 2 weeks before the start of the rental period: 100% of the rental price.</li>
         </ul>
+        <p class="fine-print">
+          Note: the policy for cancellations between 6 and 2 weeks before the start still needs to be defined.
+        </p>
         <p class="fine-print">The owner is not responsible for accidents or theft.</p>
       </div>
     </div>
@@ -122,6 +132,10 @@ import BookingForm from '../../components/BookingForm.astro';
     background: #fff;
     border: 1px solid var(--color-line);
     border-radius: 0;
+  }
+
+  .mt {
+    margin-top: 2rem;
   }
 
   .fine-print {

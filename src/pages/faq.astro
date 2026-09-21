@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQList from '../components/FAQList.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { ROUTES } from '../i18n/routes';
+
+const items = [
+  {
+    question: 'Voor hoeveel personen is het huis geschikt?',
+    answer:
+      'Het huis biedt plaats aan maximaal zes personen. Er zijn drie ruime slaapkamers met telkens een tweepersoonsbed van 160 cm breed. Een babybedje kan extra worden voorzien.',
+  },
+  {
+    question: 'Is een auto noodzakelijk?',
+    answer:
+      'Ja. Het huis ligt bewust in een rustige omgeving buiten het massatoerisme. Met een wagen heb je alle vrijheid om boodschappen te doen, uit eten te gaan, de kust te bezoeken en de omgeving te ontdekken.',
+  },
+  {
+    question: 'Hoe ver is Alicante Airport?',
+    answer: 'Alicante Airport ligt op ongeveer 30 minuten rijden van het huis.',
+  },
+  {
+    question: 'Hoe ver is het strand?',
+    answer:
+      'Alicante en Playa del Postiguet bereik je in ongeveer 40 minuten. Ook andere stranden aan de Costa Blanca zijn gemakkelijk bereikbaar.',
+  },
+  {
+    question: 'Is het zwembad privé?',
+    answer: 'Ja. Het zwembad van 3 bij 11 meter is volledig privé en uitsluitend voor jullie gezelschap.',
+  },
+  {
+    question: 'Is het zwembad verwarmd?',
+    answer: 'Nee. Het zwembad wordt niet verwarmd.',
+  },
+  {
+    question: 'Is er schaduw aan het zwembad?',
+    answer:
+      'Er is geen natuurlijke schaduw rond het zwembad. We voorzien parasols zodat je zelf een schaduwrijke plek kunt creëren.',
+  },
+  {
+    question: 'Is de tuin volledig omheind?',
+    answer: 'Ja. Het volledige terrein is omheind.',
+  },
+  {
+    question: 'Zijn huisdieren toegelaten?',
+    answer:
+      'We ontvangen liever geen huisdieren. Heb je hierover een specifieke vraag, neem gerust contact met ons op. Dan bekijken we wat mogelijk is.',
+  },
+  {
+    question: 'Zijn kinderen welkom?',
+    answer: 'Uiteraard. Kinderen zijn meer dan welkom.',
+  },
+  {
+    question: 'Is er een kinderbedje en kinderstoel?',
+    answer: 'Ja. Zowel een kinderbedje als een kinderstoel zijn beschikbaar.',
+  },
+  {
+    question: 'Heeft het huis trappen?',
+    answer: 'Nee. Het huis is volledig gelijkvloers.',
+  },
+  {
+    question: 'Is er airconditioning?',
+    answer:
+      'Ja. Het volledige huis beschikt over centrale airconditioning die ook kan verwarmen, en er is daarnaast een pelletkachel.',
+  },
+  {
+    question: 'Is er wifi?',
+    answer:
+      'Ja. Wifi is aanwezig en inbegrepen. Een goede internetverbinding is hier extra handig omdat het mobiele bereik in de omgeving niet overal even sterk is.',
+  },
+  {
+    question: 'Zijn bedlinnen en handdoeken inbegrepen?',
+    answer:
+      "Ja. De bedden zijn bij aankomst opgemaakt. Per persoon voorzien we één grote badhanddoek en één kleine handdoek. Strandlakens neem je zelf mee.",
+  },
+  {
+    question: 'Waar kunnen we boodschappen doen?',
+    answer:
+      'In Hondón de las Nieves vind je supermarkten, een bakker, slager, apotheek en verschillende lokale winkels. Het dorp ligt op ongeveer 8 minuten rijden.',
+  },
+  {
+    question: 'Kunnen we bij het huis parkeren?',
+    answer: 'Ja. Er is ruim voldoende privéparking op het eigen terrein en er is ook een garage.',
+  },
+  {
+    question: 'Wanneer kunnen we inchecken en uitchecken?',
+    answer: 'Inchecken kan tussen 16:00 en 21:00 uur. Uitchecken gebeurt uiterlijk om 11:00 uur.',
+  },
+  {
+    question: 'Hoeveel bedraagt de waarborg?',
+    answer: 'De waarborg bedraagt € 800.',
+  },
+  {
+    question: 'Is er een wasmachine?',
+    answer: 'Ja. Er is een wasmachine aanwezig en we voorzien ook wastabletten.',
+  },
+  {
+    question: 'Mag er gerookt worden?',
+    answer: 'Nee. Roken in het huis is niet toegestaan.',
+  },
+  {
+    question: 'Zijn feesten toegestaan?',
+    answer:
+      'Nee. Het huis ligt in een rustige omgeving en we hebben een goed contact met de mensen die er wonen. Het huis is niet geschikt voor feesten of luidruchtige groepen.',
+  },
+];
+---
+
+<Layout
+  lang="nl"
+  active="faq"
+  title="Veelgestelde Vragen — Casa Lana"
+  description="Antwoorden op de meest gestelde vragen over Casa Lana: capaciteit, zwembad, check-in, huisdieren, wifi en meer."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">FAQ</span>
+      <h1>Veelgestelde vragen</h1>
+      <p>Staat je vraag er niet bij? Neem gerust contact met ons op.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap faq-wrap">
+      <FAQList items={items} />
+    </div>
+  </section>
+
+  <CTABlock
+    title="Nog een vraag?"
+    text="We beantwoorden je vraag graag persoonlijk."
+    ctaLabel="Contacteer ons"
+    ctaHref={ROUTES.contact.nl}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .faq-wrap {
+    max-width: 74ch;
+  }
+</style>

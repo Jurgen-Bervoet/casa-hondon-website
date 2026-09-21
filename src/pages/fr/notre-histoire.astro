@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="fr"
+  active="story"
+  title="Notre Histoire — Casa Lana"
+  description="Des vacances annuelles à un lieu bien à nous en Espagne : l'histoire derrière Casa Lana à Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Notre Histoire</span>
+      <h1>Des vacances annuelles à un lieu bien à nous en Espagne</h1>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap story">
+      <p>
+        En 1996, Evelien est partie en Erasmus en Espagne. Elle y a découvert la langue et la
+        culture, et est tombée amoureuse du pays. Cet amour n'est pas vraiment né de rien :
+        depuis ses trois ans, elle voyageait presque chaque année en Espagne avec ses parents.
+        Le virus espagnol s'était donc installé très tôt.
+      </p>
+      <p>
+        Et apparemment, ce virus est contagieux. Jurgen l'a d'abord attrapé, puis, plus tard,
+        nos enfants Lukas et Helena également. Au fil des années, l'Espagne est devenue un
+        endroit où, en famille, nous aimions toujours revenir.
+      </p>
+      <p>
+        Avoir une maison bien à nous en Espagne était depuis longtemps un rêve. De préférence
+        quelque part entre Valence et Alicante. Ni sur la côte animée, ni totalement isolé.
+        Nous cherchions un endroit où trouver le calme, tout en ayant suffisamment à découvrir
+        quand l'envie nous en prenait.
+      </p>
+      <p>Les rêves restent des rêves tant qu'on n'en fait rien.</p>
+      <p>
+        Nous nous sommes donc mis à chercher. Avec une condition importante : chaque membre de
+        la famille devait se sentir bien dans la maison que nous achèterions.
+      </p>
+      <p>Cela n'a pas vraiment simplifié la recherche. Disons que nous étions plutôt exigeants.</p>
+      <p>Jusqu'à ce que nous trouvions cet endroit.</p>
+      <p>
+        Une maison spacieuse, une piscine magnifique, 10 000 m² de terrain, des montagnes tout
+        autour de nous et, surtout, énormément de calme. Pas de files d'hôtels, pas de plages
+        bondées, pas de tourisme de masse. Juste refermer le portail derrière soi et sentir le
+        rythme ralentir naturellement.
+      </p>
+      <p>
+        C'est exactement ce que nous apprécions tant ici. Notre quotidien est déjà bien assez
+        chargé. Ici, pendant un temps, rien n'est obligatoire.
+      </p>
+      <p>
+        Envie de cuisiner le soir et de dîner tranquillement ensemble ? Tout est disponible.
+        Envie de sortir, de chercher un restaurant, d'aller sur un marché, de visiter une
+        ville ou de rejoindre la côte ? Vous montez en voiture, et vous avez étonnamment
+        beaucoup à portée de main.
+      </p>
+      <p>
+        Nous avons acheté Casa Lana avant tout pour nous-mêmes et notre famille. Nous
+        partageons avec plaisir cet endroit avec des personnes qui recherchent la même chose
+        que nous : le calme, l'espace, du temps l'un pour l'autre, et une pause loin de
+        l'agitation.
+      </p>
+      <p>
+        Cela peut être en famille, entre amis, ou avec deux couples ensemble. Ceux qui
+        souhaitent passer quelques semaines dans un endroit tranquille tout en travaillant de
+        temps en temps y trouvent aussi tout l'espace nécessaire.
+      </p>
+      <p>
+        Un week-end de fête effréné ne correspond pas à Casa Lana — il existe bien d'autres
+        endroits en Espagne pour cela. Nous entretenons de bonnes relations avec les personnes
+        qui vivent dans les environs et respectons le calme qui règne ici.
+      </p>
+      <p>
+        Nous avons choisi et aménagé cet endroit avec beaucoup d'amour. Et c'est avec le même
+        plaisir que nous l'ouvrons à celles et ceux qui souhaitent en profiter et en prendre
+        soin.
+      </p>
+      <p>
+        Ainsi, Casa Lana ne reste pas seulement notre histoire : elle devient aussi un lieu où
+        d'autres familles et amis peuvent créer de beaux souvenirs.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Envie d'écrire la suite de notre histoire ?"
+    text="Consultez les disponibilités et réservez votre propre coin de calme en Espagne."
+    ctaLabel="Voir les disponibilités"
+    ctaHref={ROUTES.availability.fr}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .story {
+    max-width: 68ch;
+    font-size: 1.05rem;
+  }
+
+  .story p {
+    color: #3a362c;
+  }
+</style>

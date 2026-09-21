@@ -5,7 +5,7 @@ taal: nl
 
 ## Intro
 
-Bekijk hieronder de beschikbaarheid van Casa Helena en stuur een aanvraag voor je gewenste
+Bekijk hieronder de beschikbaarheid van Casa Lana en stuur een aanvraag voor je gewenste
 data. We bevestigen je aanvraag zo snel mogelijk per e-mail.
 
 ## Kalender

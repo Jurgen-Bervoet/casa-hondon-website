@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="en"
+  active="story"
+  title="Our Story — Casa Lana"
+  description="From yearly holidays to a place of our own in Spain: the story behind Casa Lana in Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Our Story</span>
+      <h1>From yearly holidays to a place of our own in Spain</h1>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap story">
+      <p>
+        In 1996, Evelien went to Spain on an Erasmus exchange. She got to know the language
+        and the culture there, and fell in love with the country. That love didn't really come
+        out of nowhere — since she was three, she had travelled to Spain with her parents
+        almost every year. The Spanish bug had bitten early.
+      </p>
+      <p>
+        And apparently that bug is contagious. First Jurgen caught it, and later so did our
+        children, Lukas and Helena. Over the years, Spain became a place our family always
+        loved returning to.
+      </p>
+      <p>
+        Having a place of our own in Spain had long been a dream. Ideally somewhere between
+        Valencia and Alicante. Not on the busy coast, but not completely remote either. We
+        were looking for a place where we could find peace, while still having plenty to
+        discover whenever we felt like it.
+      </p>
+      <p>Dreams stay dreams if you do nothing with them.</p>
+      <p>
+        So we started looking. We had one important condition: everyone in our family had to
+        feel good about the house we'd buy.
+      </p>
+      <p>That didn't exactly make the search easy. Let's just say we were rather picky.</p>
+      <p>Until we found this place.</p>
+      <p>
+        A spacious house, a beautiful pool, 10,000 m² of land, mountains all around us, and
+        above all, a lot of peace and quiet. No rows of hotels, no crowded beaches, no mass
+        tourism. Just pulling the gate shut behind you and feeling the pace slow down on its
+        own.
+      </p>
+      <p>
+        That's exactly what we love here ourselves. Our everyday life is busy enough as it is.
+        Here, for a while, nothing has to happen.
+      </p>
+      <p>
+        Want to cook at home in the evening and enjoy a meal together? Everything's here. Want
+        to go out, find a restaurant, visit a market, explore a city, or head to the coast?
+        You just get in the car — there's surprisingly much within reach.
+      </p>
+      <p>
+        We bought Casa Lana first and foremost for ourselves and our family. And we're happy
+        to share it with people looking for the same thing we were: peace, space, time for
+        each other, and a break from the daily rush.
+      </p>
+      <p>
+        That can be with your family, with friends, or with two couples together. Anyone
+        looking to spend a few weeks somewhere quiet, working in between, will find all the
+        space they need here too.
+      </p>
+      <p>
+        A wild party weekend doesn't fit with Casa Lana — there are plenty of other places in
+        Spain for that. We have a good relationship with the people who live in the area, and
+        we respect the peace that exists here.
+      </p>
+      <p>
+        We chose and furnished this place with a great deal of love. And with just as much
+        pleasure, we open it up to people who want to enjoy it and take good care of it.
+      </p>
+      <p>
+        That way, Casa Lana doesn't stay just our story — it also becomes a place where other
+        families and friends can make beautiful memories of their own.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Fancy adding to our story?"
+    text="Check availability and book your own little corner of calm in Spain."
+    ctaLabel="Check availability"
+    ctaHref={ROUTES.availability.en}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .story {
+    max-width: 68ch;
+    font-size: 1.05rem;
+  }
+
+  .story p {
+    color: #3a362c;
+  }
+</style>

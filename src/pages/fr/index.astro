@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import FeatureSlider from '../../components/FeatureSlider.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -102,22 +103,36 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="wrap wide-section">
-      <h2>Loin de tout. Et pourtant jamais loin de rien.</h2>
-      <p>
-        Casa Lana se trouve en plein cœur de l'arrière-pays espagnol, entourée de montagnes et
-        de nature. Ici, vous vous réveillez dans le silence, et le soir, vous entendez surtout
-        les grillons.
-      </p>
-      <p>
-        Envie d'un peu plus d'animation ? Hondón de las Nieves, Aspe, Novelda et Elche sont
-        tout proches. Pour une journée en ville, culture, tapas ou plage, direction Alicante.
-        Santa Pola, Tabarca, Murcie, Villajoyosa et Altea sont aussi de belles destinations
-        pour une excursion d'une journée.
-      </p>
-      <p>Vous combinez ainsi le calme de l'arrière-pays avec tout ce que la Costa Blanca a à offrir.</p>
-      <a href={ROUTES.area.fr} class="btn btn--outline-dark">Découvrez la région</a>
+  <section class="section section--white">
+    <div class="wrap escape-section">
+      <div class="escape-section__photos">
+        <PhotoCollage
+          mainLabel="Photo : paysage autour de Hondón de las Nieves"
+          overlayLabel="Photo : piscine et terrasse"
+          mainRatio="4 / 5"
+          overlayRatio="1 / 1"
+          corner="bottom-right"
+          mainImage="/IMG_6059.jpg"
+          overlayImage="/zwembad%20en%20terras.jpg"
+        />
+      </div>
+      <div class="escape-section__text">
+        <span class="eyebrow">La région</span>
+        <h2>Loin de tout. Et pourtant jamais loin.</h2>
+        <p>
+          Casa Lana se trouve en plein cœur de l'arrière-pays espagnol, entourée de montagnes
+          et de nature. Ici, vous vous réveillez dans le silence, et le soir, vous entendez
+          surtout les grillons.
+        </p>
+        <p>
+          Envie d'un peu plus d'animation ? Hondón de las Nieves, Aspe, Novelda et Elche sont
+          tout proches. Pour une journée en ville, culture, tapas ou plage, direction Alicante.
+          Santa Pola, Tabarca, Murcie, Villajoyosa et Altea sont aussi de belles destinations
+          pour une excursion d'une journée. Vous combinez ainsi le calme de l'arrière-pays avec
+          tout ce que la Costa Blanca a à offrir.
+        </p>
+        <a href={ROUTES.area.fr} class="btn btn--clay">Découvrez la région</a>
+      </div>
     </div>
   </section>
 
@@ -155,8 +170,20 @@ import { ROUTES } from '../../i18n/routes';
     font-weight: 600;
   }
 
-  .wide-section {
-    max-width: 68ch;
+  .escape-section {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .escape-section__text p {
+    color: #4a4638;
+    font-size: 1.05rem;
+  }
+
+  .escape-section__text .btn {
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 780px) {
@@ -166,6 +193,16 @@ import { ROUTES } from '../../i18n/routes';
     }
 
     .intro-collage__photos {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .escape-section {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .escape-section__photos {
       max-width: 420px;
       margin: 0 auto;
     }

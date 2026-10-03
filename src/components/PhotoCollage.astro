@@ -1,0 +1,109 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  mainLabel: string;
+  overlayLabel: string;
+  mainRatio?: string;
+  overlayRatio?: string;
+  corner?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+  mainImage?: string;
+  overlayImage?: string;
+}
+
+const {
+  mainLabel,
+  overlayLabel,
+  mainRatio = '4 / 3',
+  overlayRatio = '5 / 4',
+  corner = 'bottom-left',
+  mainImage,
+  overlayImage,
+} = Astro.props;
+
+// Keep the main placeholder's caption clear of the overlay by anchoring it
+// to the opposite corner instead of dead-centering it.
+const oppositeCorner = {
+  'bottom-left': 'top-right',
+  'bottom-right': 'top-left',
+  'top-left': 'bottom-right',
+  'top-right': 'bottom-left',
+} as const;
+---
+
+<div class:list={['collage', `collage--${corner}`]}>
+  {
+    mainImage ? (
+      <img src={mainImage} alt={mainLabel} class="collage__main" style={{ aspectRatio: mainRatio }} />
+    ) : (
+      <PlaceholderImage
+        label={mainLabel}
+        ratio={mainRatio}
+        class="collage__main"
+        labelPosition={oppositeCorner[corner]}
+      />
+    )
+  }
+  {
+    overlayImage ? (
+      <img
+        src={overlayImage}
+        alt={overlayLabel}
+        class="collage__overlay"
+        style={{ aspectRatio: overlayRatio }}
+      />
+    ) : (
+      <PlaceholderImage label={overlayLabel} ratio={overlayRatio} class="collage__overlay" />
+    )
+  }
+</div>
+
+<style>
+  .collage {
+    position: relative;
+    padding-bottom: 3rem;
+  }
+
+  .collage :global(.collage__main) {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .collage :global(.collage__overlay) {
+    position: absolute;
+    width: 42%;
+    min-width: 160px;
+    object-fit: cover;
+    box-shadow: 0 18px 34px rgba(30, 27, 18, 0.22);
+    border-radius: 0;
+  }
+
+  .collage--bottom-left :global(.collage__overlay) {
+    left: -5%;
+    bottom: 0;
+  }
+
+  .collage--bottom-right :global(.collage__overlay) {
+    right: -5%;
+    bottom: 0;
+  }
+
+  .collage--top-left :global(.collage__overlay) {
+    left: -5%;
+    top: -2rem;
+  }
+
+  .collage--top-right :global(.collage__overlay) {
+    right: -5%;
+    top: -2rem;
+  }
+
+  @media (max-width: 640px) {
+    .collage :global(.collage__overlay) {
+      width: 56%;
+      left: auto;
+      right: 4%;
+    }
+  }
+</style>

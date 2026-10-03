@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import FeatureSlider from '../../components/FeatureSlider.astro';
+import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -102,21 +103,35 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="wrap wide-section">
-      <h2>Lejos de todo. Y a la vez, nunca lejos de nada.</h2>
-      <p>
-        Casa Lana está en pleno interior español, rodeada de montañas y naturaleza. Aquí te
-        despiertas con silencio a tu alrededor y por la noche solo oyes los grillos.
-      </p>
-      <p>
-        ¿Te apetece algo más de vida? Hondón de las Nieves, Aspe, Novelda y Elche están cerca.
-        Para un día de ciudad, cultura, tapas o playa, conduces hacia Alicante. Santa Pola,
-        Tabarca, Murcia, Villajoyosa y Altea también son bonitos destinos para una excursión
-        de un día.
-      </p>
-      <p>Así combinas la calma del interior con todo lo que la Costa Blanca tiene para ofrecer.</p>
-      <a href={ROUTES.area.es} class="btn btn--outline-dark">Descubre la zona</a>
+  <section class="section section--white">
+    <div class="wrap escape-section">
+      <div class="escape-section__photos">
+        <PhotoCollage
+          mainLabel="Foto: paisaje alrededor de Hondón de las Nieves"
+          overlayLabel="Foto: piscina y terraza"
+          mainRatio="4 / 5"
+          overlayRatio="1 / 1"
+          corner="bottom-right"
+          mainImage="/IMG_6059.jpg"
+          overlayImage="/zwembad%20en%20terras.jpg"
+        />
+      </div>
+      <div class="escape-section__text">
+        <span class="eyebrow">La zona</span>
+        <h2>Lejos de todo. Y a la vez, nunca lejos.</h2>
+        <p>
+          Casa Lana está en pleno interior español, rodeada de montañas y naturaleza. Aquí te
+          despiertas con silencio a tu alrededor y por la noche solo oyes los grillos.
+        </p>
+        <p>
+          ¿Te apetece algo más de vida? Hondón de las Nieves, Aspe, Novelda y Elche están
+          cerca. Para un día de ciudad, cultura, tapas o playa, conduces hacia Alicante. Santa
+          Pola, Tabarca, Murcia, Villajoyosa y Altea también son bonitos destinos para una
+          excursión de un día. Así combinas la calma del interior con todo lo que la Costa
+          Blanca tiene para ofrecer.
+        </p>
+        <a href={ROUTES.area.es} class="btn btn--clay">Descubre la zona</a>
+      </div>
     </div>
   </section>
 
@@ -154,8 +169,20 @@ import { ROUTES } from '../../i18n/routes';
     font-weight: 600;
   }
 
-  .wide-section {
-    max-width: 68ch;
+  .escape-section {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .escape-section__text p {
+    color: #4a4638;
+    font-size: 1.05rem;
+  }
+
+  .escape-section__text .btn {
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 780px) {
@@ -165,6 +192,16 @@ import { ROUTES } from '../../i18n/routes';
     }
 
     .intro-collage__photos {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .escape-section {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .escape-section__photos {
       max-width: 420px;
       margin: 0 auto;
     }

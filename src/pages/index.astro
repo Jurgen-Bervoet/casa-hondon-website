@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureSlider from '../components/FeatureSlider.astro';
+import PhotoCollage from '../components/PhotoCollage.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
@@ -103,21 +104,35 @@ import { ROUTES } from '../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="wrap wide-section">
-      <h2>Even weg van alles. En toch nooit ver van iets.</h2>
-      <p>
-        Casa Lana ligt midden in het Spaanse binnenland, omgeven door bergen en natuur. Hier
-        word je wakker met stilte rondom je en hoor je 's avonds vooral de krekels.
-      </p>
-      <p>
-        Zin in wat meer leven? Hondón de las Nieves, Aspe, Novelda en Elche liggen dichtbij.
-        Voor een dagje stad, cultuur, tapas of strand rijd je richting Alicante. Ook Santa
-        Pola, Tabarca, Murcia, Villajoyosa en Altea zijn mooie bestemmingen voor een
-        daguitstap.
-      </p>
-      <p>Zo combineer je de rust van het binnenland met alles wat de Costa Blanca te bieden heeft.</p>
-      <a href={ROUTES.area.nl} class="btn btn--outline-dark">Bekijk de omgeving</a>
+  <section class="section section--white">
+    <div class="wrap escape-section">
+      <div class="escape-section__photos">
+        <PhotoCollage
+          mainLabel="Foto: landschap rond Hondón de las Nieves"
+          overlayLabel="Foto: zwembad en terras"
+          mainRatio="4 / 5"
+          overlayRatio="1 / 1"
+          corner="bottom-right"
+          mainImage="/IMG_6059.jpg"
+          overlayImage="/zwembad%20en%20terras.jpg"
+        />
+      </div>
+      <div class="escape-section__text">
+        <span class="eyebrow">De omgeving</span>
+        <h2>Even weg van alles. En toch nooit ver weg.</h2>
+        <p>
+          Casa Lana ligt midden in het Spaanse binnenland, omgeven door bergen en natuur. Hier
+          word je wakker met stilte rondom je en hoor je 's avonds vooral de krekels.
+        </p>
+        <p>
+          Zin in wat meer leven? Hondón de las Nieves, Aspe, Novelda en Elche liggen dichtbij.
+          Voor een dagje stad, cultuur, tapas of strand rijd je richting Alicante. Ook Santa
+          Pola, Tabarca, Murcia, Villajoyosa en Altea zijn mooie bestemmingen voor een
+          daguitstap. Zo combineer je de rust van het binnenland met alles wat de Costa Blanca
+          te bieden heeft.
+        </p>
+        <a href={ROUTES.area.nl} class="btn btn--clay">Bekijk de omgeving</a>
+      </div>
     </div>
   </section>
 
@@ -155,8 +170,20 @@ import { ROUTES } from '../i18n/routes';
     font-weight: 600;
   }
 
-  .wide-section {
-    max-width: 68ch;
+  .escape-section {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .escape-section__text p {
+    color: #4a4638;
+    font-size: 1.05rem;
+  }
+
+  .escape-section__text .btn {
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 780px) {
@@ -166,6 +193,16 @@ import { ROUTES } from '../i18n/routes';
     }
 
     .intro-collage__photos {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .escape-section {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .escape-section__photos {
       max-width: 420px;
       margin: 0 auto;
     }

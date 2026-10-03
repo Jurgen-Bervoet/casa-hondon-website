@@ -15,7 +15,6 @@
   --color-clay: #ed871c;
   --color-clay-deep: #c96b12;
   --color-line: #ddd2b3;
-  --color-palm: #9fb98a;
 
   --font-serif: 'Playfair Display', 'Georgia', serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -113,37 +112,6 @@ p {
 .section--sage h2,
 .section--sage h3 {
   color: var(--color-cream);
-}
-
-.decor-host {
-  position: relative;
-}
-
-.decor {
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.decor--top-right {
-  top: -2rem;
-  right: -1rem;
-}
-
-.decor--bottom-left {
-  bottom: -2rem;
-  left: -1rem;
-}
-
-.decor--top-left {
-  top: -2rem;
-  left: -1rem;
-}
-
-@media (max-width: 900px) {
-  .decor {
-    display: none !important;
-  }
 }
 
 .btn {

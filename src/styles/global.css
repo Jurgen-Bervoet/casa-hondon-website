@@ -114,6 +114,29 @@ p {
   color: var(--color-cream);
 }
 
+.decor-host {
+  position: relative;
+  isolation: isolate;
+}
+
+.decor-img {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  width: 280px;
+  max-width: 34vw;
+  height: auto;
+  z-index: -1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .decor-img {
+    display: none;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

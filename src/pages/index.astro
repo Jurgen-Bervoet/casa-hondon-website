@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import FeatureGrid from '../components/FeatureGrid.astro';
+import FeatureSlider from '../components/FeatureSlider.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
@@ -70,12 +70,34 @@ import { ROUTES } from '../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Alles voor een ontspannen verblijf</h2>
-      <FeatureGrid
+      <FeatureSlider
+        prevLabel="Vorige"
+        nextLabel="Volgende"
         features={[
-          { title: 'Zwembad & terras', text: 'Privézwembad van 3 x 11 meter, wekelijks onderhouden, op een terrein van 10.000 m².' },
-          { title: 'Rust & natuur', text: "Het huis staat helemaal alleen, in een oase van rust — enkel de krekels maken je 's nachts wakker." },
-          { title: 'Hondón de las Nieves', text: 'Op ongeveer 8 minuten rijden vind je het dorp, met goede restaurants en een gezellig ontbijtcafé.' },
-          { title: 'Comfort & privacy', text: '6 personen, 3 ruime slaapkamers, 2 badkamers en een grote garage waar je wagen binnen kan.' },
+          {
+            title: 'Zwembad & terras',
+            text: 'Privézwembad van 3 x 11 meter, wekelijks onderhouden, op een terrein van 10.000 m².',
+            image: '/zwembad%20en%20terras.jpg',
+            imageLabel: 'Foto: zwembad en terras',
+          },
+          {
+            title: 'Rust & natuur',
+            text: "Het huis staat helemaal alleen, in een oase van rust — enkel de krekels maken je 's nachts wakker.",
+            image: '/IMG_6059.jpg',
+            imageLabel: 'Foto: landschap rond Hondón de las Nieves',
+          },
+          {
+            title: 'Hondón de las Nieves',
+            text: 'Op ongeveer 8 minuten rijden vind je het dorp, met goede restaurants en een gezellig ontbijtcafé.',
+            image: '/IMG_6065.jpg',
+            imageLabel: 'Foto: avondsfeer bij Casa Lana',
+          },
+          {
+            title: 'Comfort & privacy',
+            text: '6 personen, 3 ruime slaapkamers, 2 badkamers en een grote garage waar je wagen binnen kan.',
+            image: '/woonkamer1-1.jpg',
+            imageLabel: 'Foto: woonkamer',
+          },
         ]}
       />
     </div>

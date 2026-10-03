@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
-import FeatureGrid from '../../components/FeatureGrid.astro';
+import FeatureSlider from '../../components/FeatureSlider.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -67,12 +67,34 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Everything for a relaxed stay</h2>
-      <FeatureGrid
+      <FeatureSlider
+        prevLabel="Previous"
+        nextLabel="Next"
         features={[
-          { title: 'Pool & terrace', text: 'A 3 x 11 metre private pool, maintained weekly, on a 10,000 m² plot.' },
-          { title: 'Peace & nature', text: 'The house stands completely on its own, in an oasis of calm — only the crickets might wake you at night.' },
-          { title: 'Hondón de las Nieves', text: 'About an 8-minute drive to the village, with good restaurants and a cosy breakfast café.' },
-          { title: 'Comfort & privacy', text: 'Sleeps 6, with 3 spacious bedrooms, 2 bathrooms and a large garage that fits your car.' },
+          {
+            title: 'Pool & terrace',
+            text: 'A 3 x 11 metre private pool, maintained weekly, on a 10,000 m² plot.',
+            image: '/zwembad%20en%20terras.jpg',
+            imageLabel: 'Photo: pool and terrace',
+          },
+          {
+            title: 'Peace & nature',
+            text: 'The house stands completely on its own, in an oasis of calm — only the crickets might wake you at night.',
+            image: '/IMG_6059.jpg',
+            imageLabel: 'Photo: landscape around Hondón de las Nieves',
+          },
+          {
+            title: 'Hondón de las Nieves',
+            text: 'About an 8-minute drive to the village, with good restaurants and a cosy breakfast café.',
+            image: '/IMG_6065.jpg',
+            imageLabel: 'Photo: evening atmosphere at Casa Lana',
+          },
+          {
+            title: 'Comfort & privacy',
+            text: 'Sleeps 6, with 3 spacious bedrooms, 2 bathrooms and a large garage that fits your car.',
+            image: '/woonkamer1-1.jpg',
+            imageLabel: 'Photo: living room',
+          },
         ]}
       />
     </div>

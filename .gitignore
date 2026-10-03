@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # design inspiration reference material (other businesses' content, not part of the site)
 inspiratie/
+
+# Local Netlify folder
+.netlify

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
-import FeatureGrid from '../../components/FeatureGrid.astro';
+import FeatureSlider from '../../components/FeatureSlider.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
@@ -69,12 +69,34 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Todo para una estancia relajada</h2>
-      <FeatureGrid
+      <FeatureSlider
+        prevLabel="Anterior"
+        nextLabel="Siguiente"
         features={[
-          { title: 'Piscina y terraza', text: 'Piscina privada de 3 x 11 metros, mantenida cada semana, en una parcela de 10.000 m².' },
-          { title: 'Calma y naturaleza', text: 'La casa está totalmente aislada, en un oasis de calma — solo los grillos podrían despertarte por la noche.' },
-          { title: 'Hondón de las Nieves', text: 'A unos 8 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.' },
-          { title: 'Comodidad y privacidad', text: '6 personas, 3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.' },
+          {
+            title: 'Piscina y terraza',
+            text: 'Piscina privada de 3 x 11 metros, mantenida cada semana, en una parcela de 10.000 m².',
+            image: '/zwembad%20en%20terras.jpg',
+            imageLabel: 'Foto: piscina y terraza',
+          },
+          {
+            title: 'Calma y naturaleza',
+            text: 'La casa está totalmente aislada, en un oasis de calma — solo los grillos podrían despertarte por la noche.',
+            image: '/IMG_6059.jpg',
+            imageLabel: 'Foto: paisaje alrededor de Hondón de las Nieves',
+          },
+          {
+            title: 'Hondón de las Nieves',
+            text: 'A unos 8 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.',
+            image: '/IMG_6065.jpg',
+            imageLabel: 'Foto: ambiente nocturno en Casa Lana',
+          },
+          {
+            title: 'Comodidad y privacidad',
+            text: '6 personas, 3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.',
+            image: '/woonkamer1-1.jpg',
+            imageLabel: 'Foto: salón',
+          },
         ]}
       />
     </div>

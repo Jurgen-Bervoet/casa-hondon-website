@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
+import PalmDecoration from '../../components/PalmDecoration.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 
@@ -60,7 +61,8 @@ const chapters = [
   description="Des vacances annuelles à un lieu bien à nous en Espagne : l'histoire derrière Casa Lana à Hondón de las Nieves."
 >
   <section class="section">
-    <div class="wrap page-intro">
+    <div class="wrap page-intro decor-host">
+      <PalmDecoration class="decor decor--top-right" size="280px" />
       <span class="eyebrow">Notre Histoire</span>
       <h1>Des vacances annuelles à un lieu bien à nous en Espagne</h1>
     </div>

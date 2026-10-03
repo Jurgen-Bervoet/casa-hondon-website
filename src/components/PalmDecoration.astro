@@ -1,0 +1,64 @@
+---
+interface Props {
+  size?: string;
+  color?: string;
+  opacity?: number;
+  flip?: boolean;
+  rotate?: number;
+  class?: string;
+}
+
+const {
+  size = '380px',
+  color = 'var(--color-palm)',
+  opacity = 0.45,
+  flip = false,
+  rotate = 0,
+  class: className = '',
+} = Astro.props;
+
+// A stylised fan palm frond: a set of tapered blades radiating from one base point.
+const bladeCount = 11;
+const spread = 150;
+const startAngle = -spread / 2;
+
+const blades = Array.from({ length: bladeCount }, (_, i) => {
+  const t = i / (bladeCount - 1);
+  const angle = startAngle + t * spread;
+  const centerDist = Math.abs(t - 0.5) * 2;
+  const length = 185 - centerDist * 70;
+  const width = 30 - centerDist * 10;
+  const droop = 10 + centerDist * 18;
+  const tipX = angle >= 0 ? droop : -droop;
+  const bladeOpacity = 1 - centerDist * 0.35;
+  const d = `M0,0 C${-width * 0.5},${-length * 0.25} ${-width * 0.35 + tipX * 0.5},${-length * 0.7} ${tipX},${-length} C${width * 0.35 + tipX * 0.5},${-length * 0.7} ${width * 0.5},${-length * 0.25} 0,0 Z`;
+  return { angle, d, bladeOpacity };
+});
+
+const transform = `${flip ? 'scaleX(-1) ' : ''}rotate(${rotate}deg)`;
+---
+
+<svg
+  class:list={['palm-decoration', className]}
+  width={size}
+  height={size}
+  viewBox="0 0 400 420"
+  style={{ transform, opacity }}
+  aria-hidden="true"
+  focusable="false"
+>
+  <g transform="translate(200,400)">
+    {
+      blades.map((b) => (
+        <path d={b.d} fill={color} opacity={b.bladeOpacity} transform={`rotate(${b.angle})`} />
+      ))
+    }
+  </g>
+</svg>
+
+<style>
+  .palm-decoration {
+    display: block;
+    pointer-events: none;
+  }
+</style>

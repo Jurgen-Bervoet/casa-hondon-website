@@ -4,6 +4,7 @@ import PlaceholderImage from './PlaceholderImage.astro';
 interface Bedroom {
   name: string;
   photoLabel: string;
+  image?: string;
   bed: string;
   badges?: string[];
 }
@@ -19,7 +20,11 @@ const { items } = Astro.props;
   {
     items.map((b) => (
       <article class="bedroom">
-        <PlaceholderImage label={b.photoLabel} ratio="4 / 3" />
+        {b.image ? (
+          <img src={b.image} alt={b.photoLabel} class="bedroom__img" />
+        ) : (
+          <PlaceholderImage label={b.photoLabel} ratio="4 / 3" />
+        )}
         <div class="bedroom__body">
           <h3>{b.name}</h3>
           <p>{b.bed}</p>
@@ -46,6 +51,13 @@ const { items } = Astro.props;
   .bedroom {
     background: #fff;
     border: 1px solid var(--color-line);
+  }
+
+  .bedroom__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
   }
 
   .bedroom__body {

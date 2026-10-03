@@ -70,17 +70,20 @@ import { ROUTES } from '../i18n/routes';
           {
             name: 'Slaapkamer 1 — master',
             photoLabel: 'Foto: slaapkamer 1 (master)',
+            image: '/master-bedroom.jpg',
             bed: 'Tweepersoonsbed van 160 cm breed',
             badges: ['Eigen badkamer (en-suite)', 'Zicht op en toegang tot het zwembad'],
           },
           {
             name: 'Slaapkamer 2',
             photoLabel: 'Foto: slaapkamer 2',
+            image: '/slaapkamer2-1.jpg',
             bed: 'Tweepersoonsbed van 160 cm breed',
           },
           {
             name: 'Slaapkamer 3',
             photoLabel: 'Foto: slaapkamer 3',
+            image: '/slaapkamer3-1.jpg',
             bed: 'Tweepersoonsbed van 160 cm breed',
           },
         ]}
@@ -182,15 +185,15 @@ import { ROUTES } from '../i18n/routes';
       <h2>Fotogalerij</h2>
       <PhotoGrid
         items={[
-          { label: 'Zwembad' },
-          { label: 'Terras' },
-          { label: 'Woonkamer' },
-          { label: 'Keuken' },
-          { label: 'Slaapkamer 1' },
-          { label: 'Slaapkamer 2' },
-          { label: 'Slaapkamer 3' },
-          { label: 'Badkamer' },
-          { label: 'Tuin' },
+          { label: 'Zwembad', image: '/IMG_6053.jpg' },
+          { label: 'Terras', image: '/IMG_6065.jpg' },
+          { label: 'Woonkamer', image: '/woonkamer1-1.jpg' },
+          { label: 'Keuken', image: '/keuken1-1.jpg' },
+          { label: 'Slaapkamer 1', image: '/master-bedroom.jpg' },
+          { label: 'Slaapkamer 2', image: '/slaapkamer2-1.jpg' },
+          { label: 'Slaapkamer 3', image: '/slaapkamer3-1.jpg' },
+          { label: 'Badkamer', image: '/badkamer2-1.jpg' },
+          { label: 'Tuin', image: '/IMG_6059.jpg' },
         ]}
       />
     </div>

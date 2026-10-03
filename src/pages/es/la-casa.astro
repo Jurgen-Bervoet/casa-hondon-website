@@ -70,17 +70,20 @@ import { ROUTES } from '../../i18n/routes';
           {
             name: 'Dormitorio 1 — principal',
             photoLabel: 'Foto: dormitorio 1 (principal)',
+            image: '/master-bedroom.jpg',
             bed: 'Cama de matrimonio de 160 cm de ancho',
             badges: ['Baño propio (en suite)', 'Vistas y acceso directo a la piscina'],
           },
           {
             name: 'Dormitorio 2',
             photoLabel: 'Foto: dormitorio 2',
+            image: '/slaapkamer2-1.jpg',
             bed: 'Cama de matrimonio de 160 cm de ancho',
           },
           {
             name: 'Dormitorio 3',
             photoLabel: 'Foto: dormitorio 3',
+            image: '/slaapkamer3-1.jpg',
             bed: 'Cama de matrimonio de 160 cm de ancho',
           },
         ]}
@@ -183,15 +186,15 @@ import { ROUTES } from '../../i18n/routes';
       <h2>Galería</h2>
       <PhotoGrid
         items={[
-          { label: 'Piscina' },
-          { label: 'Terraza' },
-          { label: 'Salón' },
-          { label: 'Cocina' },
-          { label: 'Dormitorio 1' },
-          { label: 'Dormitorio 2' },
-          { label: 'Dormitorio 3' },
-          { label: 'Baño' },
-          { label: 'Jardín' },
+          { label: 'Piscina', image: '/IMG_6053.jpg' },
+          { label: 'Terraza', image: '/IMG_6065.jpg' },
+          { label: 'Salón', image: '/woonkamer1-1.jpg' },
+          { label: 'Cocina', image: '/keuken1-1.jpg' },
+          { label: 'Dormitorio 1', image: '/master-bedroom.jpg' },
+          { label: 'Dormitorio 2', image: '/slaapkamer2-1.jpg' },
+          { label: 'Dormitorio 3', image: '/slaapkamer3-1.jpg' },
+          { label: 'Baño', image: '/badkamer2-1.jpg' },
+          { label: 'Jardín', image: '/IMG_6059.jpg' },
         ]}
       />
     </div>

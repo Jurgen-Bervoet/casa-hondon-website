@@ -71,17 +71,20 @@ import { ROUTES } from '../../i18n/routes';
           {
             name: 'Chambre 1 — principale',
             photoLabel: 'Photo : chambre 1 (principale)',
+            image: '/master-bedroom.jpg',
             bed: 'Lit double de 160 cm de large',
             badges: ['Salle de bain privée (attenante)', 'Vue sur la piscine et accès direct'],
           },
           {
             name: 'Chambre 2',
             photoLabel: 'Photo : chambre 2',
+            image: '/slaapkamer2-1.jpg',
             bed: 'Lit double de 160 cm de large',
           },
           {
             name: 'Chambre 3',
             photoLabel: 'Photo : chambre 3',
+            image: '/slaapkamer3-1.jpg',
             bed: 'Lit double de 160 cm de large',
           },
         ]}
@@ -186,15 +189,15 @@ import { ROUTES } from '../../i18n/routes';
       <h2>Galerie photo</h2>
       <PhotoGrid
         items={[
-          { label: 'Piscine' },
-          { label: 'Terrasse' },
-          { label: 'Séjour' },
-          { label: 'Cuisine' },
-          { label: 'Chambre 1' },
-          { label: 'Chambre 2' },
-          { label: 'Chambre 3' },
-          { label: 'Salle de bain' },
-          { label: 'Jardin' },
+          { label: 'Piscine', image: '/IMG_6053.jpg' },
+          { label: 'Terrasse', image: '/IMG_6065.jpg' },
+          { label: 'Séjour', image: '/woonkamer1-1.jpg' },
+          { label: 'Cuisine', image: '/keuken1-1.jpg' },
+          { label: 'Chambre 1', image: '/master-bedroom.jpg' },
+          { label: 'Chambre 2', image: '/slaapkamer2-1.jpg' },
+          { label: 'Chambre 3', image: '/slaapkamer3-1.jpg' },
+          { label: 'Salle de bain', image: '/badkamer2-1.jpg' },
+          { label: 'Jardin', image: '/IMG_6059.jpg' },
         ]}
       />
     </div>

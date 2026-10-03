@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PhotoCollage from '../../components/PhotoCollage.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
+import PhotoGrid from '../../components/PhotoGrid.astro';
 import InfoList from '../../components/InfoList.astro';
 import BedroomCards from '../../components/BedroomCards.astro';
-import Gallery from '../../components/Gallery.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -28,17 +28,8 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="wrap">
-      <PhotoCollage
-        mainLabel="Foto: piscina con vistas a la sierra"
-        overlayLabel="Foto: terraza"
-        mainRatio="21 / 9"
-        overlayRatio="4 / 3"
-        corner="bottom-right"
-        mainImage="/zwembad%20en%20terras.jpg"
-      />
-    </div>
+  <section class="section--tight">
+    <PhotoBand label="Foto: piscina con vistas a la sierra" image="/zwembad%20en%20terras.jpg" />
   </section>
 
   <section class="section section--tight">
@@ -190,17 +181,17 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Galería</h2>
-      <Gallery
-        labels={[
-          'Piscina',
-          'Terraza',
-          'Salón',
-          'Cocina',
-          'Dormitorio 1',
-          'Dormitorio 2',
-          'Dormitorio 3',
-          'Baño',
-          'Jardín',
+      <PhotoGrid
+        items={[
+          { label: 'Piscina' },
+          { label: 'Terraza' },
+          { label: 'Salón' },
+          { label: 'Cocina' },
+          { label: 'Dormitorio 1' },
+          { label: 'Dormitorio 2' },
+          { label: 'Dormitorio 3' },
+          { label: 'Baño' },
+          { label: 'Jardín' },
         ]}
       />
     </div>

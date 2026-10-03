@@ -1,0 +1,72 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface GridItem {
+  label: string;
+  image?: string;
+}
+
+interface Props {
+  items: GridItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="photo-grid">
+  {
+    items.map((item, i) => (
+      <div class:list={['photo-grid__cell', { 'photo-grid__cell--big': i === 0 }]}>
+        {item.image ? (
+          <img src={item.image} alt={item.label} class="photo-grid__img" />
+        ) : (
+          <PlaceholderImage label={item.label} fill class="photo-grid__img" />
+        )}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+    gap: 1rem;
+  }
+
+  .photo-grid__cell {
+    overflow: hidden;
+  }
+
+  .photo-grid__cell--big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .photo-grid :global(.photo-grid__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .photo-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 180px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .photo-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 240px;
+    }
+
+    .photo-grid__cell--big {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+</style>

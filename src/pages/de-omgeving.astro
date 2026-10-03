@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PhotoCollage from '../components/PhotoCollage.astro';
+import PhotoBand from '../components/PhotoBand.astro';
 import DestinationList from '../components/DestinationList.astro';
 import SummaryTable from '../components/SummaryTable.astro';
 import CTABlock from '../components/CTABlock.astro';
@@ -157,16 +157,8 @@ const summaryRows = [
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="wrap">
-      <PhotoCollage
-        mainLabel="Foto: zoutmeren (Salinas) en omliggende bergen"
-        overlayLabel="Foto: wandelpad in de sierra"
-        mainRatio="21 / 9"
-        overlayRatio="4 / 3"
-        corner="bottom-left"
-      />
-    </div>
+  <section class="section--tight">
+    <PhotoBand label="Foto: zoutmeren (Salinas) en omliggende bergen" />
   </section>
 
   <section class="section section--tight">

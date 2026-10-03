@@ -6,14 +6,21 @@ interface Props {
   ratio?: string;
   class?: string;
   labelPosition?: LabelPosition;
+  fill?: boolean;
 }
 
-const { label, ratio = '4 / 3', class: className = '', labelPosition = 'center' } = Astro.props;
+const {
+  label,
+  ratio = '4 / 3',
+  class: className = '',
+  labelPosition = 'center',
+  fill = false,
+} = Astro.props;
 ---
 
 <div
-  class:list={['placeholder-img', `placeholder-img--${labelPosition}`, className]}
-  style={{ aspectRatio: ratio }}
+  class:list={['placeholder-img', `placeholder-img--${labelPosition}`, { 'placeholder-img--fill': fill }, className]}
+  style={fill ? {} : { aspectRatio: ratio }}
 >
   <span>{label}</span>
 </div>
@@ -32,6 +39,10 @@ const { label, ratio = '4 / 3', class: className = '', labelPosition = 'center' 
       #a9d8e5 24px
     );
     border-radius: 0;
+  }
+
+  .placeholder-img--fill {
+    height: 100%;
   }
 
   .placeholder-img--center {

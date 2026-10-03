@@ -1,0 +1,98 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface StoryItem {
+  heading?: string;
+  paragraphs: string[];
+  image?: string;
+  imageLabel: string;
+}
+
+interface Props {
+  items: StoryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="story-blocks">
+  {
+    items.map((item, i) => (
+      <article class:list={['story-block', { 'story-block--reverse': i % 2 === 1 }]}>
+        <div class="story-block__photo">
+          {item.image ? (
+            <img src={item.image} alt={item.imageLabel} class="story-block__img" />
+          ) : (
+            <PlaceholderImage label={item.imageLabel} fill class="story-block__img" />
+          )}
+        </div>
+        <div class="story-block__text">
+          {item.heading && <h2>{item.heading}</h2>}
+          {item.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .story-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .story-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .story-block--reverse .story-block__photo {
+    order: 2;
+  }
+
+  .story-block--reverse .story-block__text {
+    order: 1;
+  }
+
+  .story-block__photo {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .story-block__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .story-block__text h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  .story-block__text p {
+    color: #3a362c;
+    margin-bottom: 1rem;
+  }
+
+  .story-block__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 780px) {
+    .story-block {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .story-block--reverse .story-block__photo,
+    .story-block--reverse .story-block__text {
+      order: initial;
+    }
+  }
+</style>

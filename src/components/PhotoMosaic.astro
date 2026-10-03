@@ -1,0 +1,108 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  topLeftLabel: string;
+  topLeftImage?: string;
+  bottomLeftLabel: string;
+  bottomLeftImage?: string;
+  rightLabel: string;
+  rightImage?: string;
+}
+
+const {
+  topLeftLabel,
+  topLeftImage,
+  bottomLeftLabel,
+  bottomLeftImage,
+  rightLabel,
+  rightImage,
+} = Astro.props;
+---
+
+<div class="photo-mosaic">
+  <div class="photo-mosaic__cell photo-mosaic__cell--top-left">
+    {
+      topLeftImage ? (
+        <img src={topLeftImage} alt={topLeftLabel} class="photo-mosaic__img" />
+      ) : (
+        <PlaceholderImage label={topLeftLabel} fill class="photo-mosaic__img" />
+      )
+    }
+  </div>
+  <div class="photo-mosaic__cell photo-mosaic__cell--bottom-left">
+    {
+      bottomLeftImage ? (
+        <img src={bottomLeftImage} alt={bottomLeftLabel} class="photo-mosaic__img" />
+      ) : (
+        <PlaceholderImage label={bottomLeftLabel} fill class="photo-mosaic__img" />
+      )
+    }
+  </div>
+  <div class="photo-mosaic__cell photo-mosaic__cell--right">
+    {
+      rightImage ? (
+        <img src={rightImage} alt={rightLabel} class="photo-mosaic__img" />
+      ) : (
+        <PlaceholderImage label={rightLabel} fill class="photo-mosaic__img" />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .photo-mosaic {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .photo-mosaic__cell {
+    overflow: hidden;
+  }
+
+  .photo-mosaic__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-mosaic__cell--top-left {
+    grid-column: 1;
+    grid-row: 1;
+    aspect-ratio: 16 / 10;
+  }
+
+  .photo-mosaic__cell--bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 5 / 4;
+    width: 80%;
+    justify-self: end;
+  }
+
+  .photo-mosaic__cell--right {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    aspect-ratio: 3 / 4;
+    align-self: center;
+  }
+
+  @media (max-width: 560px) {
+    .photo-mosaic {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .photo-mosaic__cell--top-left,
+    .photo-mosaic__cell--bottom-left,
+    .photo-mosaic__cell--right {
+      grid-column: 1;
+      grid-row: auto;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

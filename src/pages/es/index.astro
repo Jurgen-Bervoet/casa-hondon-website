@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
-import PhotoCollage from '../../components/PhotoCollage.astro';
+import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -25,28 +25,26 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--white">
     <div class="wrap intro-collage">
       <div class="intro-collage__photos">
-        <PhotoCollage
-          mainLabel="Foto: piscina y terraza"
-          overlayLabel="Foto: interior / salón"
-          mainRatio="4 / 3"
-          overlayRatio="5 / 4"
-          corner="bottom-left"
-          mainImage="/zwembad%20en%20terras.jpg"
-          overlayImage="/woonkamer1-2.jpg"
+        <PhotoMosaic
+          topLeftLabel="Foto: piscina y terraza"
+          topLeftImage="/zwembad%20en%20terras.jpg"
+          bottomLeftLabel="Foto: cocina"
+          bottomLeftImage="/keuken1-1.jpg"
+          rightLabel="Foto: baño"
+          rightImage="/badkamer2-1.jpg"
         />
       </div>
       <div class="intro-collage__text">
         <span class="eyebrow">Bienvenidos a nuestro rincón de España</span>
+        <h2>Casa para 6 personas</h2>
         <p class="intro__text">
           Lejos del ajetreo, por un tiempo. Tiempo el uno para el otro, para largas mañanas
           junto a la piscina, comidas tranquilas en la terraza y disfrutar del silencio a tu
-          alrededor.
+          alrededor. Casa Lana es nuestra casa de vacaciones en Hondón de las Nieves, en el
+          tranquilo interior de la Costa Blanca.
         </p>
-        <p class="intro__text">
-          Casa Lana es nuestra casa de vacaciones en Hondón de las Nieves, en el tranquilo
-          interior de la Costa Blanca. La casa tiene capacidad para un máximo de seis
-          personas y cuenta con tres amplios dormitorios, dos baños, una parcela
-          completamente vallada de 10.000 m² y una piscina privada de 3 por 11 metros.
+        <p class="intro__specs">
+          3 dormitorios, 2 baños · parcela de 10.000 m² · piscina privada de 3 x 11 m
         </p>
         <p class="intro__text">
           Aquí te alojas lejos del turismo de masas y, al mismo tiempo, tienes sorprendentemente
@@ -110,7 +108,7 @@ import { ROUTES } from '../../i18n/routes';
 <style>
   .intro-collage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 3.5rem;
     align-items: center;
   }
@@ -118,6 +116,14 @@ import { ROUTES } from '../../i18n/routes';
   .intro__text {
     font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__specs {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-green-deep);
+    margin-bottom: 1.4rem;
   }
 
   .intro__text--last a {

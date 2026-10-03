@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
-import PhotoCollage from '../../components/PhotoCollage.astro';
+import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -25,26 +25,25 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--white">
     <div class="wrap intro-collage">
       <div class="intro-collage__photos">
-        <PhotoCollage
-          mainLabel="Photo: pool and terrace"
-          overlayLabel="Photo: interior / living space"
-          mainRatio="4 / 3"
-          overlayRatio="5 / 4"
-          corner="bottom-left"
-          mainImage="/zwembad%20en%20terras.jpg"
-          overlayImage="/woonkamer1-2.jpg"
+        <PhotoMosaic
+          topLeftLabel="Photo: pool and terrace"
+          topLeftImage="/zwembad%20en%20terras.jpg"
+          bottomLeftLabel="Photo: kitchen"
+          bottomLeftImage="/keuken1-1.jpg"
+          rightLabel="Photo: bathroom"
+          rightImage="/badkamer2-1.jpg"
         />
       </div>
       <div class="intro-collage__text">
         <span class="eyebrow">Welcome to our little corner of Spain</span>
+        <h2>House for 6 guests</h2>
         <p class="intro__text">
           Away from it all, for a while. Time for each other, for long mornings by the pool,
-          leisurely meals on the terrace and enjoying the quiet around you.
+          leisurely meals on the terrace and enjoying the quiet around you. Casa Lana is our
+          holiday home in Hondón de las Nieves, in the quiet inland of the Costa Blanca.
         </p>
-        <p class="intro__text">
-          Casa Lana is our holiday home in Hondón de las Nieves, in the quiet inland of the
-          Costa Blanca. The house sleeps up to six people and has three spacious bedrooms, two
-          bathrooms, a fully fenced 10,000 m² plot and a private pool of 3 by 11 metres.
+        <p class="intro__specs">
+          3 bedrooms, 2 bathrooms · 10,000 m² plot · 3 x 11 m private pool
         </p>
         <p class="intro__text">
           Here you stay away from mass tourism while surprisingly much is still within reach.
@@ -106,7 +105,7 @@ import { ROUTES } from '../../i18n/routes';
 <style>
   .intro-collage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 3.5rem;
     align-items: center;
   }
@@ -114,6 +113,14 @@ import { ROUTES } from '../../i18n/routes';
   .intro__text {
     font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__specs {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-green-deep);
+    margin-bottom: 1.4rem;
   }
 
   .intro__text--last a {

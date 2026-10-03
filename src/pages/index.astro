@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureGrid from '../components/FeatureGrid.astro';
-import PhotoCollage from '../components/PhotoCollage.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
 ---
@@ -25,27 +25,26 @@ import { ROUTES } from '../i18n/routes';
   <section class="section section--white">
     <div class="wrap intro-collage">
       <div class="intro-collage__photos">
-        <PhotoCollage
-          mainLabel="Foto: zwembad en terras"
-          overlayLabel="Foto: interieur / woonruimte"
-          mainRatio="4 / 3"
-          overlayRatio="5 / 4"
-          corner="bottom-left"
-          mainImage="/zwembad%20en%20terras.jpg"
-          overlayImage="/woonkamer1-2.jpg"
+        <PhotoMosaic
+          topLeftLabel="Foto: zwembad en terras"
+          topLeftImage="/zwembad%20en%20terras.jpg"
+          bottomLeftLabel="Foto: keuken"
+          bottomLeftImage="/keuken1-1.jpg"
+          rightLabel="Foto: badkamer"
+          rightImage="/badkamer2-1.jpg"
         />
       </div>
       <div class="intro-collage__text">
         <span class="eyebrow">Welkom in ons stukje Spanje</span>
+        <h2>Huis voor 6 personen</h2>
         <p class="intro__text">
           Even weg van de drukte. Tijd voor elkaar, voor lange ochtenden aan het zwembad,
-          uitgebreid tafelen op het terras en genieten van de stilte rondom je.
+          uitgebreid tafelen op het terras en genieten van de stilte rondom je. Casa Lana is
+          ons vakantiehuis in Hondón de las Nieves, in het rustige binnenland van de Costa
+          Blanca.
         </p>
-        <p class="intro__text">
-          Casa Lana is ons vakantiehuis in Hondón de las Nieves, in het rustige binnenland van
-          de Costa Blanca. Het huis biedt plaats aan maximaal zes personen en beschikt over
-          drie ruime slaapkamers, twee badkamers, een volledig omheind terrein van 10.000 m²
-          en een privézwembad van 3 bij 11 meter.
+        <p class="intro__specs">
+          3 slaapkamers, 2 badkamers · 10.000 m² terrein · privézwembad 3 x 11 m
         </p>
         <p class="intro__text">
           Hier verblijf je weg van het massatoerisme en ligt er tegelijk verrassend veel binnen
@@ -110,7 +109,7 @@ import { ROUTES } from '../i18n/routes';
 <style>
   .intro-collage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 3.5rem;
     align-items: center;
   }
@@ -118,6 +117,14 @@ import { ROUTES } from '../i18n/routes';
   .intro__text {
     font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__specs {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-green-deep);
+    margin-bottom: 1.4rem;
   }
 
   .intro__text--last a {

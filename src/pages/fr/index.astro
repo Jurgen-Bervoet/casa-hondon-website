@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import FeatureGrid from '../../components/FeatureGrid.astro';
-import PhotoCollage from '../../components/PhotoCollage.astro';
+import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -25,28 +25,26 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--white">
     <div class="wrap intro-collage">
       <div class="intro-collage__photos">
-        <PhotoCollage
-          mainLabel="Photo : piscine et terrasse"
-          overlayLabel="Photo : intérieur / séjour"
-          mainRatio="4 / 3"
-          overlayRatio="5 / 4"
-          corner="bottom-left"
-          mainImage="/zwembad%20en%20terras.jpg"
-          overlayImage="/woonkamer1-2.jpg"
+        <PhotoMosaic
+          topLeftLabel="Photo : piscine et terrasse"
+          topLeftImage="/zwembad%20en%20terras.jpg"
+          bottomLeftLabel="Photo : cuisine"
+          bottomLeftImage="/keuken1-1.jpg"
+          rightLabel="Photo : salle de bain"
+          rightImage="/badkamer2-1.jpg"
         />
       </div>
       <div class="intro-collage__text">
         <span class="eyebrow">Bienvenue dans notre coin d'Espagne</span>
+        <h2>Maison pour 6 personnes</h2>
         <p class="intro__text">
           Loin de l'agitation, le temps d'un séjour. Du temps l'un pour l'autre, de longues
           matinées au bord de la piscine, des repas tranquilles sur la terrasse et le plaisir
-          du silence tout autour de vous.
+          du silence tout autour de vous. Casa Lana est notre maison de vacances à Hondón de
+          las Nieves, dans l'arrière-pays tranquille de la Costa Blanca.
         </p>
-        <p class="intro__text">
-          Casa Lana est notre maison de vacances à Hondón de las Nieves, dans l'arrière-pays
-          tranquille de la Costa Blanca. La maison accueille jusqu'à six personnes et dispose
-          de trois chambres spacieuses, deux salles de bain, un terrain entièrement clôturé de
-          10 000 m² et une piscine privée de 3 sur 11 mètres.
+        <p class="intro__specs">
+          3 chambres, 2 salles de bain · terrain de 10 000 m² · piscine privée de 3 x 11 m
         </p>
         <p class="intro__text">
           Ici, vous séjournez loin du tourisme de masse tout en ayant, étonnamment, beaucoup à
@@ -111,7 +109,7 @@ import { ROUTES } from '../../i18n/routes';
 <style>
   .intro-collage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 3.5rem;
     align-items: center;
   }
@@ -119,6 +117,14 @@ import { ROUTES } from '../../i18n/routes';
   .intro__text {
     font-size: 1.05rem;
     color: #4a4638;
+  }
+
+  .intro__specs {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-green-deep);
+    margin-bottom: 1.4rem;
   }
 
   .intro__text--last a {

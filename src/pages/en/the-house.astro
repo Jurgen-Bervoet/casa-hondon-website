@@ -4,6 +4,7 @@ import PhotoBand from '../../components/PhotoBand.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
 import InfoList from '../../components/InfoList.astro';
 import BedroomCards from '../../components/BedroomCards.astro';
+import BathroomFeature from '../../components/BathroomFeature.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -92,20 +93,22 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Two bathrooms</h2>
-        <p>
-          The house has two fully fitted bathrooms. The master bedroom has its own en-suite
-          bathroom. The second bathroom, with both a bath and a shower, is shared by bedrooms
-          2 and 3.
-        </p>
-        <p>
-          Per person we provide one large bath towel and one small towel. A hair dryer is
-          also available. Both bathrooms have fly screens.
-        </p>
-      </div>
+    <div class="wrap">
+      <BathroomFeature
+        title="Bathrooms"
+        leftImage="/badkamer2-1.jpg"
+        leftLabel="Photo: bathroom 2 (shared)"
+        rightLabel="Photo: en-suite bathroom (master)"
+        paragraphs={[
+          "The house has two fully fitted bathrooms. The master bedroom has its own en-suite bathroom. The second bathroom, with both a bath and a shower, is shared by bedrooms 2 and 3.",
+          'Per person we provide one large bath towel and one small towel. A hair dryer is also available. Both bathrooms have fly screens.',
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>A kitchen you can really cook in</h2>
         <p>

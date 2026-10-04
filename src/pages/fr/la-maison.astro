@@ -4,6 +4,7 @@ import PhotoBand from '../../components/PhotoBand.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
 import InfoList from '../../components/InfoList.astro';
 import BedroomCards from '../../components/BedroomCards.astro';
+import BathroomFeature from '../../components/BathroomFeature.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -93,21 +94,22 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Deux salles de bain</h2>
-        <p>
-          La maison dispose de deux salles de bain entièrement aménagées. La chambre
-          principale dispose de sa propre salle de bain attenante. La deuxième salle de bain,
-          avec baignoire et douche, est partagée par les chambres 2 et 3.
-        </p>
-        <p>
-          Par personne, nous fournissons une grande serviette de bain et une petite serviette.
-          Un sèche-cheveux est également disponible. Les salles de bain sont équipées de
-          moustiquaires.
-        </p>
-      </div>
+    <div class="wrap">
+      <BathroomFeature
+        title="Salles de bain"
+        leftImage="/badkamer2-1.jpg"
+        leftLabel="Photo : salle de bain 2 (partagée)"
+        rightLabel="Photo : salle de bain attenante (principale)"
+        paragraphs={[
+          'La maison dispose de deux salles de bain entièrement aménagées. La chambre principale dispose de sa propre salle de bain attenante. La deuxième salle de bain, avec baignoire et douche, est partagée par les chambres 2 et 3.',
+          'Par personne, nous fournissons une grande serviette de bain et une petite serviette. Un sèche-cheveux est également disponible. Les salles de bain sont équipées de moustiquaires.',
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>Une cuisine où l'on peut vraiment cuisiner</h2>
         <p>

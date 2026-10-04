@@ -1,0 +1,92 @@
+---
+import PlaceholderImage from './PlaceholderImage.astro';
+
+interface Props {
+  title: string;
+  paragraphs: string[];
+  leftImage?: string;
+  leftLabel: string;
+  rightImage?: string;
+  rightLabel: string;
+}
+
+const { title, paragraphs, leftImage, leftLabel, rightImage, rightLabel } = Astro.props;
+---
+
+<div class="bathroom-feature">
+  <div class="bathroom-feature__photo">
+    {
+      leftImage ? (
+        <img src={leftImage} alt={leftLabel} />
+      ) : (
+        <PlaceholderImage label={leftLabel} fill />
+      )
+    }
+  </div>
+  <div class="bathroom-feature__text">
+    <h2>{title}</h2>
+    {paragraphs.map((p) => <p>{p}</p>)}
+  </div>
+  <div class="bathroom-feature__photo">
+    {
+      rightImage ? (
+        <img src={rightImage} alt={rightLabel} />
+      ) : (
+        <PlaceholderImage label={rightLabel} fill />
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .bathroom-feature {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    align-items: stretch;
+  }
+
+  .bathroom-feature__photo {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .bathroom-feature__photo img,
+  .bathroom-feature__photo :global(.placeholder-img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bathroom-feature__text {
+    background: var(--color-green-deep);
+    color: var(--color-cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.75rem 2.5rem;
+  }
+
+  .bathroom-feature__text h2 {
+    color: var(--color-cream);
+  }
+
+  .bathroom-feature__text p {
+    color: var(--color-cream);
+    opacity: 0.9;
+  }
+
+  .bathroom-feature__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 780px) {
+    .bathroom-feature {
+      grid-template-columns: 1fr;
+    }
+
+    .bathroom-feature__photo {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>

@@ -4,6 +4,7 @@ import PhotoBand from '../components/PhotoBand.astro';
 import PhotoGrid from '../components/PhotoGrid.astro';
 import InfoList from '../components/InfoList.astro';
 import BedroomCards from '../components/BedroomCards.astro';
+import BathroomFeature from '../components/BathroomFeature.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
 ---
@@ -92,20 +93,22 @@ import { ROUTES } from '../i18n/routes';
   </section>
 
   <section class="section section--tight">
-    <div class="wrap details">
-      <div class="detail">
-        <h2>Twee badkamers</h2>
-        <p>
-          Het huis heeft twee volledig ingerichte badkamers. De master slaapkamer heeft een
-          eigen en-suite badkamer. De tweede badkamer, met zowel bad als douche, wordt gedeeld
-          door slaapkamer 2 en 3.
-        </p>
-        <p>
-          Per persoon voorzien we één grote badhanddoek en één kleine handdoek. Ook een
-          haardroger is aanwezig. In de badkamers zijn vliegramen voorzien.
-        </p>
-      </div>
+    <div class="wrap">
+      <BathroomFeature
+        title="Badkamers"
+        leftImage="/badkamer2-1.jpg"
+        leftLabel="Foto: badkamer 2 (gedeeld)"
+        rightLabel="Foto: en-suite badkamer (master)"
+        paragraphs={[
+          'Het huis heeft twee volledig ingerichte badkamers. De master slaapkamer heeft een eigen en-suite badkamer. De tweede badkamer, met zowel bad als douche, wordt gedeeld door slaapkamer 2 en 3.',
+          'Per persoon voorzien we één grote badhanddoek en één kleine handdoek. Ook een haardroger is aanwezig. In de badkamers zijn vliegramen voorzien.',
+        ]}
+      />
+    </div>
+  </section>
 
+  <section class="section section--tight">
+    <div class="wrap details">
       <div class="detail">
         <h2>Een keuken waarin je echt kunt koken</h2>
         <p>

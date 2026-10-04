@@ -1,12 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Props {
   title: string;
   paragraphs: string[];
-  leftImage?: string;
+  leftImage?: ImageMetadata;
   leftLabel: string;
-  rightImage?: string;
+  rightImage?: ImageMetadata;
   rightLabel: string;
 }
 
@@ -17,7 +18,7 @@ const { title, paragraphs, leftImage, leftLabel, rightImage, rightLabel } = Astr
   <div class="bathroom-feature__photo">
     {
       leftImage ? (
-        <img src={leftImage} alt={leftLabel} />
+        <Image src={leftImage} alt={leftLabel} width={800} />
       ) : (
         <PlaceholderImage label={leftLabel} fill />
       )
@@ -30,7 +31,7 @@ const { title, paragraphs, leftImage, leftLabel, rightImage, rightLabel } = Astr
   <div class="bathroom-feature__photo">
     {
       rightImage ? (
-        <img src={rightImage} alt={rightLabel} />
+        <Image src={rightImage} alt={rightLabel} width={800} />
       ) : (
         <PlaceholderImage label={rightLabel} fill />
       )

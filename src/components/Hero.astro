@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   ctaLabel: string;
   ctaHref: string;
   imageLabel: string;
-  image?: string;
+  image?: ImageMetadata;
 }
 
 const { title, subtitle, ctaLabel, ctaHref, imageLabel, image } = Astro.props;
@@ -17,7 +18,7 @@ const { title, subtitle, ctaLabel, ctaHref, imageLabel, image } = Astro.props;
   <div class="hero__bg">
     {
       image ? (
-        <img src={image} alt={imageLabel} class="hero__img" />
+        <Image src={image} alt={imageLabel} class="hero__img" width={1600} />
       ) : (
         <PlaceholderImage
           label={imageLabel}

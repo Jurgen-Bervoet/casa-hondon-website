@@ -1,7 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ROUTES, LANGS, type Lang, type PageGroup } from '../i18n/routes';
+import { photo } from '../lib/images';
 import '../styles/global.css';
 
 interface Props {
@@ -9,14 +11,14 @@ interface Props {
   active: PageGroup;
   title: string;
   description: string;
-  image?: string;
 }
 
-const { lang, active, title, description, image = '/hero.jpg' } = Astro.props;
+const { lang, active, title, description } = Astro.props;
 
 const site = Astro.site ?? new URL('https://casa-hondon.netlify.app');
 const canonicalURL = new URL(ROUTES[active][lang], site);
-const imageURL = new URL(image, site);
+const ogImage = await getImage({ src: photo('hero.jpg'), width: 1200 });
+const imageURL = new URL(ogImage.src, site);
 
 const OG_LOCALES: Record<Lang, string> = {
   nl: 'nl_BE',

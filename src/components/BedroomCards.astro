@@ -1,10 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Bedroom {
   name: string;
   photoLabel: string;
-  image?: string;
+  image?: ImageMetadata;
   bed: string;
   badges?: string[];
 }
@@ -21,7 +22,7 @@ const { items } = Astro.props;
     items.map((b) => (
       <article class="bedroom">
         {b.image ? (
-          <img src={b.image} alt={b.photoLabel} class="bedroom__img" />
+          <Image src={b.image} alt={b.photoLabel} class="bedroom__img" width={700} height={525} />
         ) : (
           <PlaceholderImage label={b.photoLabel} ratio="4 / 3" />
         )}

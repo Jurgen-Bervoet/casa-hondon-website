@@ -1,9 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Props {
   label: string;
-  image?: string;
+  image?: ImageMetadata;
   ratio?: string;
 }
 
@@ -13,7 +14,7 @@ const { label, image, ratio = '2.6 / 1' } = Astro.props;
 <div class="photo-band" style={{ '--band-ratio': ratio }}>
   {
     image ? (
-      <img src={image} alt={label} class="photo-band__img" />
+      <Image src={image} alt={label} class="photo-band__img" width={1600} />
     ) : (
       <PlaceholderImage label={label} fill labelPosition="bottom-right" class="photo-band__img" />
     )

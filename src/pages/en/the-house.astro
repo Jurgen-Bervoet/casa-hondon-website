@@ -7,6 +7,7 @@ import BedroomCards from '../../components/BedroomCards.astro';
 import BathroomFeature from '../../components/BathroomFeature.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 ---
 
@@ -31,7 +32,7 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Photo: pool with mountain views" image="/zwembad%20en%20terras.jpg" />
+    <PhotoBand label="Photo: pool with mountain views" image={photo('zwembad en terras.jpg')} />
   </section>
 
   <section class="section section--tight">
@@ -72,20 +73,20 @@ import { ROUTES } from '../../i18n/routes';
           {
             name: 'Bedroom 1 — master',
             photoLabel: 'Photo: bedroom 1 (master)',
-            image: '/master-bedroom.jpg',
+            image: photo('master-bedroom.jpg'),
             bed: '160 cm-wide double bed',
             badges: ['Own en-suite bathroom', 'Pool views and direct access'],
           },
           {
             name: 'Bedroom 2',
             photoLabel: 'Photo: bedroom 2',
-            image: '/slaapkamer2-1.jpg',
+            image: photo('slaapkamer2-1.jpg'),
             bed: '160 cm-wide double bed',
           },
           {
             name: 'Bedroom 3',
             photoLabel: 'Photo: bedroom 3',
-            image: '/slaapkamer3-1.jpg',
+            image: photo('slaapkamer3-1.jpg'),
             bed: '160 cm-wide double bed',
           },
         ]}
@@ -97,7 +98,7 @@ import { ROUTES } from '../../i18n/routes';
     <div class="wrap">
       <BathroomFeature
         title="Bathrooms"
-        leftImage="/badkamer2-1.jpg"
+        leftImage={photo('badkamer2-1.jpg')}
         leftLabel="Photo: bathroom 2 (shared)"
         rightLabel="Photo: en-suite bathroom (master)"
         paragraphs={[
@@ -115,7 +116,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'A kitchen you can really cook in',
             imageLabel: 'Photo: kitchen',
-            image: '/keuken1-2.jpg',
+            image: photo('keuken1-2.jpg'),
             paragraphs: [
               'Fancy cooking an elaborate meal, quickly making something for the kids, or a leisurely coffee on the terrace in the morning? The kitchen is fully equipped for a comfortable stay.',
               "You'll find a fridge, small freezer, dishwasher, oven, microwave, air fryer, kettle, juicer and a Dolce Gusto Neo coffee machine. Plates, glasses, cups, cutlery, cookware and other kitchen essentials are all plentifully provided.",
@@ -124,7 +125,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'Comfort throughout the house',
             imageLabel: 'Photo: living room',
-            image: '/woonkamer1-3.jpg',
+            image: photo('woonkamer1-3.jpg'),
             paragraphs: [
               "Casa Lana has central air conditioning and heating, complemented by a pellet stove. Wifi is available throughout the house, and there's a TV.",
               'A washing machine, vacuum cleaner and iron are also available. For families with a baby, we provide a cot and highchair on request. The entire house is single-level, with no stairs inside.',
@@ -133,7 +134,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'Outdoor living',
             imageLabel: 'Photo: pool at night',
-            image: '/IMG_6058.jpg',
+            image: photo('IMG_6058.jpg'),
             paragraphs: [
               "When you come to Spain, you mostly want to live outdoors. That's why the outdoor space matters to us just as much as the house itself.",
               'Casa Lana sits on a 10,000 m² plot and has a large private pool of 3 by 11 metres. The pool is exclusively for your group and is maintained weekly, on Thursdays.',
@@ -144,7 +145,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'All the space to yourselves',
             imageLabel: 'Photo: Casa Lana at sunset',
-            image: '/hero.jpg',
+            image: photo('hero.jpg'),
             paragraphs: [
               "The entire plot is fenced. You park your car on the property itself, and there's also a spacious garage.",
               'Casa Lana stands freely and offers plenty of space around the house. At the same time, people live in the wider area with whom we have a good relationship. Peace and privacy, without feeling completely cut off from the world.',
@@ -162,15 +163,15 @@ import { ROUTES } from '../../i18n/routes';
       <h2>Gallery</h2>
       <PhotoGrid
         items={[
-          { label: 'Pool', image: '/IMG_6053.jpg' },
-          { label: 'Terrace', image: '/IMG_6065.jpg' },
-          { label: 'Living room', image: '/woonkamer1-1.jpg' },
-          { label: 'Kitchen', image: '/keuken1-1.jpg' },
-          { label: 'Bedroom 1', image: '/master-bedroom.jpg' },
-          { label: 'Bedroom 2', image: '/slaapkamer2-1.jpg' },
-          { label: 'Bedroom 3', image: '/slaapkamer3-1.jpg' },
-          { label: 'Bathroom', image: '/badkamer2-1.jpg' },
-          { label: 'Garden', image: '/IMG_6059.jpg' },
+          { label: 'Pool', image: photo('IMG_6053.jpg') },
+          { label: 'Terrace', image: photo('IMG_6065.jpg') },
+          { label: 'Living room', image: photo('woonkamer1-1.jpg') },
+          { label: 'Kitchen', image: photo('keuken1-1.jpg') },
+          { label: 'Bedroom 1', image: photo('master-bedroom.jpg') },
+          { label: 'Bedroom 2', image: photo('slaapkamer2-1.jpg') },
+          { label: 'Bedroom 3', image: photo('slaapkamer3-1.jpg') },
+          { label: 'Bathroom', image: photo('badkamer2-1.jpg') },
+          { label: 'Garden', image: photo('IMG_6059.jpg') },
         ]}
       />
     </div>

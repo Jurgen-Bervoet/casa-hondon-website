@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Props {
@@ -7,8 +8,8 @@ interface Props {
   mainRatio?: string;
   overlayRatio?: string;
   corner?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
-  mainImage?: string;
-  overlayImage?: string;
+  mainImage?: ImageMetadata;
+  overlayImage?: ImageMetadata;
 }
 
 const {
@@ -29,12 +30,29 @@ const oppositeCorner = {
   'top-left': 'bottom-right',
   'top-right': 'bottom-left',
 } as const;
+
+// Astro's <Image> needs explicit width+height to crop server-side to the
+// intended ratio — relying on CSS aspect-ratio alone on the <img> itself
+// doesn't reliably override a portrait source photo's intrinsic size.
+function heightFor(width: number, ratio: string): number {
+  const [w, h] = ratio.split('/').map((n) => parseFloat(n.trim()));
+  return Math.round(width * (h / w));
+}
+
+const mainWidth = 900;
+const overlayWidth = 600;
 ---
 
 <div class:list={['collage', `collage--${corner}`]}>
   {
     mainImage ? (
-      <img src={mainImage} alt={mainLabel} class="collage__main" style={{ aspectRatio: mainRatio }} />
+      <Image
+        src={mainImage}
+        alt={mainLabel}
+        class="collage__main"
+        width={mainWidth}
+        height={heightFor(mainWidth, mainRatio)}
+      />
     ) : (
       <PlaceholderImage
         label={mainLabel}
@@ -46,11 +64,12 @@ const oppositeCorner = {
   }
   {
     overlayImage ? (
-      <img
+      <Image
         src={overlayImage}
         alt={overlayLabel}
         class="collage__overlay"
-        style={{ aspectRatio: overlayRatio }}
+        width={overlayWidth}
+        height={heightFor(overlayWidth, overlayRatio)}
       />
     ) : (
       <PlaceholderImage label={overlayLabel} ratio={overlayRatio} class="collage__overlay" />
@@ -66,6 +85,7 @@ const oppositeCorner = {
 
   .collage :global(.collage__main) {
     width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 0;
   }
@@ -74,6 +94,7 @@ const oppositeCorner = {
     position: absolute;
     width: 42%;
     min-width: 160px;
+    height: auto;
     object-fit: cover;
     box-shadow: 0 18px 34px rgba(30, 27, 18, 0.22);
     border-radius: 0;

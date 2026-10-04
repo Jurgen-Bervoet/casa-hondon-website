@@ -7,6 +7,7 @@ import BedroomCards from '../../components/BedroomCards.astro';
 import BathroomFeature from '../../components/BathroomFeature.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 ---
 
@@ -32,7 +33,7 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Photo : piscine avec vue sur la sierra" image="/zwembad%20en%20terras.jpg" />
+    <PhotoBand label="Photo : piscine avec vue sur la sierra" image={photo('zwembad en terras.jpg')} />
   </section>
 
   <section class="section section--tight">
@@ -73,20 +74,20 @@ import { ROUTES } from '../../i18n/routes';
           {
             name: 'Chambre 1 — principale',
             photoLabel: 'Photo : chambre 1 (principale)',
-            image: '/master-bedroom.jpg',
+            image: photo('master-bedroom.jpg'),
             bed: 'Lit double de 160 cm de large',
             badges: ['Salle de bain privée (attenante)', 'Vue sur la piscine et accès direct'],
           },
           {
             name: 'Chambre 2',
             photoLabel: 'Photo : chambre 2',
-            image: '/slaapkamer2-1.jpg',
+            image: photo('slaapkamer2-1.jpg'),
             bed: 'Lit double de 160 cm de large',
           },
           {
             name: 'Chambre 3',
             photoLabel: 'Photo : chambre 3',
-            image: '/slaapkamer3-1.jpg',
+            image: photo('slaapkamer3-1.jpg'),
             bed: 'Lit double de 160 cm de large',
           },
         ]}
@@ -98,7 +99,7 @@ import { ROUTES } from '../../i18n/routes';
     <div class="wrap">
       <BathroomFeature
         title="Salles de bain"
-        leftImage="/badkamer2-1.jpg"
+        leftImage={photo('badkamer2-1.jpg')}
         leftLabel="Photo : salle de bain 2 (partagée)"
         rightLabel="Photo : salle de bain attenante (principale)"
         paragraphs={[
@@ -116,7 +117,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: "Une cuisine où l'on peut vraiment cuisiner",
             imageLabel: 'Photo : cuisine',
-            image: '/keuken1-2.jpg',
+            image: photo('keuken1-2.jpg'),
             paragraphs: [
               "Envie de cuisiner un repas élaboré, de préparer rapidement quelque chose pour les enfants, ou de prendre tranquillement un café sur la terrasse le matin ? La cuisine est entièrement équipée pour un séjour confortable.",
               'Vous y trouverez un réfrigérateur, un petit congélateur, un lave-vaisselle, un four, un micro-ondes, une friteuse à air, une bouilloire, un presse-agrumes et une machine à café Dolce Gusto Neo. Assiettes, verres, tasses, couverts, ustensiles de cuisine et autres équipements sont également fournis en abondance.',
@@ -125,7 +126,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'Confort dans toute la maison',
             imageLabel: 'Photo : séjour',
-            image: '/woonkamer1-3.jpg',
+            image: photo('woonkamer1-3.jpg'),
             paragraphs: [
               "Casa Lana dispose d'une climatisation et d'un chauffage centralisés, complétés par un poêle à granulés. Le wifi est disponible dans toute la maison, et il y a une télévision.",
               "Un lave-linge, un aspirateur et un fer à repasser sont également à disposition. Pour les familles avec un bébé, nous fournissons sur demande un lit bébé et une chaise haute. Toute la maison est de plain-pied, sans escalier à l'intérieur.",
@@ -134,7 +135,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: 'Vivre dehors',
             imageLabel: 'Photo : piscine de nuit',
-            image: '/IMG_6058.jpg',
+            image: photo('IMG_6058.jpg'),
             paragraphs: [
               "Quand on vient en Espagne, on a surtout envie de vivre dehors. C'est pourquoi l'espace extérieur compte tout autant pour nous que la maison elle-même.",
               "Casa Lana se trouve sur un terrain de 10 000 m² et dispose d'une grande piscine privée de 3 sur 11 mètres. La piscine est réservée exclusivement à votre groupe et est entretenue chaque semaine, le jeudi.",
@@ -145,7 +146,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             heading: "Tout l'espace pour vous",
             imageLabel: 'Photo : Casa Lana au coucher du soleil',
-            image: '/hero.jpg',
+            image: photo('hero.jpg'),
             paragraphs: [
               "L'ensemble du terrain est clôturé. Vous garez votre voiture sur la propriété même, et il y a également un grand garage.",
               "Casa Lana est isolée et offre beaucoup d'espace autour de la maison. En même temps, des personnes vivent dans les environs, avec qui nous entretenons de bonnes relations. Calme et intimité, sans pour autant se sentir totalement coupé du monde.",
@@ -163,15 +164,15 @@ import { ROUTES } from '../../i18n/routes';
       <h2>Galerie photo</h2>
       <PhotoGrid
         items={[
-          { label: 'Piscine', image: '/IMG_6053.jpg' },
-          { label: 'Terrasse', image: '/IMG_6065.jpg' },
-          { label: 'Séjour', image: '/woonkamer1-1.jpg' },
-          { label: 'Cuisine', image: '/keuken1-1.jpg' },
-          { label: 'Chambre 1', image: '/master-bedroom.jpg' },
-          { label: 'Chambre 2', image: '/slaapkamer2-1.jpg' },
-          { label: 'Chambre 3', image: '/slaapkamer3-1.jpg' },
-          { label: 'Salle de bain', image: '/badkamer2-1.jpg' },
-          { label: 'Jardin', image: '/IMG_6059.jpg' },
+          { label: 'Piscine', image: photo('IMG_6053.jpg') },
+          { label: 'Terrasse', image: photo('IMG_6065.jpg') },
+          { label: 'Séjour', image: photo('woonkamer1-1.jpg') },
+          { label: 'Cuisine', image: photo('keuken1-1.jpg') },
+          { label: 'Chambre 1', image: photo('master-bedroom.jpg') },
+          { label: 'Chambre 2', image: photo('slaapkamer2-1.jpg') },
+          { label: 'Chambre 3', image: photo('slaapkamer3-1.jpg') },
+          { label: 'Salle de bain', image: photo('badkamer2-1.jpg') },
+          { label: 'Jardin', image: photo('IMG_6059.jpg') },
         ]}
       />
     </div>

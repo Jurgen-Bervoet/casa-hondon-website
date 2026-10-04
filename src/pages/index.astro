@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureSlider from '../components/FeatureSlider.astro';
@@ -6,6 +7,7 @@ import PhotoCollage from '../components/PhotoCollage.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
 import CTABlock from '../components/CTABlock.astro';
 import { ROUTES } from '../i18n/routes';
+import { photo } from '../lib/images';
 ---
 
 <Layout
@@ -20,20 +22,20 @@ import { ROUTES } from '../i18n/routes';
     ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
     imageLabel="Foto: zwembad en terras van Casa Lana"
-    image="/hero.jpg"
+    image={photo('hero.jpg')}
   />
 
   <section class="section section--white">
     <div class="wrap intro-collage decor-host">
-      <img src="/palmbladeren-watercolor.webp" alt="" class="decor-img" />
+      <Image src={photo('palmbladeren-watercolor.webp')} alt="" class="decor-img" width={400} />
       <div class="intro-collage__photos">
         <PhotoMosaic
           topLeftLabel="Foto: zwembad en terras"
-          topLeftImage="/zwembad%20en%20terras.jpg"
+          topLeftImage={photo('zwembad en terras.jpg')}
           bottomLeftLabel="Foto: keuken"
-          bottomLeftImage="/keuken1-1.jpg"
+          bottomLeftImage={photo('keuken1-1.jpg')}
           rightLabel="Foto: badkamer"
-          rightImage="/badkamer2-1.jpg"
+          rightImage={photo('badkamer2-1.jpg')}
         />
       </div>
       <div class="intro-collage__text">
@@ -78,25 +80,25 @@ import { ROUTES } from '../i18n/routes';
           {
             title: 'Zwembad & terras',
             text: 'Privézwembad van 3 x 11 meter, wekelijks onderhouden, op een terrein van 10.000 m².',
-            image: '/zwembad%20en%20terras.jpg',
+            image: photo('zwembad en terras.jpg'),
             imageLabel: 'Foto: zwembad en terras',
           },
           {
             title: 'Rust & natuur',
             text: "Het huis staat helemaal alleen, in een oase van rust — enkel de krekels maken je 's nachts wakker.",
-            image: '/IMG_6059.jpg',
+            image: photo('IMG_6059.jpg'),
             imageLabel: 'Foto: landschap rond Hondón de las Nieves',
           },
           {
             title: 'Hondón de las Nieves',
             text: 'Op ongeveer 8 minuten rijden vind je het dorp, met goede restaurants en een gezellig ontbijtcafé.',
-            image: '/IMG_6065.jpg',
+            image: photo('IMG_6065.jpg'),
             imageLabel: 'Foto: avondsfeer bij Casa Lana',
           },
           {
             title: 'Comfort & privacy',
             text: '6 personen, 3 ruime slaapkamers, 2 badkamers en een grote garage waar je wagen binnen kan.',
-            image: '/woonkamer1-1.jpg',
+            image: photo('woonkamer1-1.jpg'),
             imageLabel: 'Foto: woonkamer',
           },
         ]}
@@ -113,8 +115,8 @@ import { ROUTES } from '../i18n/routes';
           mainRatio="4 / 5"
           overlayRatio="1 / 1"
           corner="bottom-right"
-          mainImage="/IMG_6059.jpg"
-          overlayImage="/zwembad%20en%20terras.jpg"
+          mainImage={photo('IMG_6059.jpg')}
+          overlayImage={photo('zwembad en terras.jpg')}
         />
       </div>
       <div class="escape-section__text">

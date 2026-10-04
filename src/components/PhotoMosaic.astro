@@ -1,13 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface Props {
   topLeftLabel: string;
-  topLeftImage?: string;
+  topLeftImage?: ImageMetadata;
   bottomLeftLabel: string;
-  bottomLeftImage?: string;
+  bottomLeftImage?: ImageMetadata;
   rightLabel: string;
-  rightImage?: string;
+  rightImage?: ImageMetadata;
 }
 
 const {
@@ -24,7 +25,7 @@ const {
   <div class="photo-mosaic__cell photo-mosaic__cell--top-left">
     {
       topLeftImage ? (
-        <img src={topLeftImage} alt={topLeftLabel} class="photo-mosaic__img" />
+        <Image src={topLeftImage} alt={topLeftLabel} class="photo-mosaic__img" width={900} />
       ) : (
         <PlaceholderImage label={topLeftLabel} fill class="photo-mosaic__img" />
       )
@@ -33,7 +34,7 @@ const {
   <div class="photo-mosaic__cell photo-mosaic__cell--bottom-left">
     {
       bottomLeftImage ? (
-        <img src={bottomLeftImage} alt={bottomLeftLabel} class="photo-mosaic__img" />
+        <Image src={bottomLeftImage} alt={bottomLeftLabel} class="photo-mosaic__img" width={600} />
       ) : (
         <PlaceholderImage label={bottomLeftLabel} fill class="photo-mosaic__img" />
       )
@@ -42,7 +43,7 @@ const {
   <div class="photo-mosaic__cell photo-mosaic__cell--right">
     {
       rightImage ? (
-        <img src={rightImage} alt={rightLabel} class="photo-mosaic__img" />
+        <Image src={rightImage} alt={rightLabel} class="photo-mosaic__img" width={700} />
       ) : (
         <PlaceholderImage label={rightLabel} fill class="photo-mosaic__img" />
       )

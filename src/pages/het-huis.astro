@@ -7,6 +7,7 @@ import BedroomCards from '../components/BedroomCards.astro';
 import BathroomFeature from '../components/BathroomFeature.astro';
 import AlternatingStory from '../components/AlternatingStory.astro';
 import CTABlock from '../components/CTABlock.astro';
+import { photo } from '../lib/images';
 import { ROUTES } from '../i18n/routes';
 ---
 
@@ -31,7 +32,7 @@ import { ROUTES } from '../i18n/routes';
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Foto: zwembad met zicht op de bergen" image="/zwembad%20en%20terras.jpg" />
+    <PhotoBand label="Foto: zwembad met zicht op de bergen" image={photo('zwembad en terras.jpg')} />
   </section>
 
   <section class="section section--tight">
@@ -72,20 +73,20 @@ import { ROUTES } from '../i18n/routes';
           {
             name: 'Slaapkamer 1 — master',
             photoLabel: 'Foto: slaapkamer 1 (master)',
-            image: '/master-bedroom.jpg',
+            image: photo('master-bedroom.jpg'),
             bed: 'Tweepersoonsbed van 160 cm breed',
             badges: ['Eigen badkamer (en-suite)', 'Zicht op en toegang tot het zwembad'],
           },
           {
             name: 'Slaapkamer 2',
             photoLabel: 'Foto: slaapkamer 2',
-            image: '/slaapkamer2-1.jpg',
+            image: photo('slaapkamer2-1.jpg'),
             bed: 'Tweepersoonsbed van 160 cm breed',
           },
           {
             name: 'Slaapkamer 3',
             photoLabel: 'Foto: slaapkamer 3',
-            image: '/slaapkamer3-1.jpg',
+            image: photo('slaapkamer3-1.jpg'),
             bed: 'Tweepersoonsbed van 160 cm breed',
           },
         ]}
@@ -97,7 +98,7 @@ import { ROUTES } from '../i18n/routes';
     <div class="wrap">
       <BathroomFeature
         title="Badkamers"
-        leftImage="/badkamer2-1.jpg"
+        leftImage={photo('badkamer2-1.jpg')}
         leftLabel="Foto: badkamer 2 (gedeeld)"
         rightLabel="Foto: en-suite badkamer (master)"
         paragraphs={[
@@ -115,7 +116,7 @@ import { ROUTES } from '../i18n/routes';
           {
             heading: 'Een keuken waarin je echt kunt koken',
             imageLabel: 'Foto: keuken',
-            image: '/keuken1-2.jpg',
+            image: photo('keuken1-2.jpg'),
             paragraphs: [
               `Zelf uitgebreid koken, snel iets klaarmaken voor de kinderen of 's morgens rustig koffie drinken op het terras? De keuken is volledig ingericht voor een comfortabel verblijf.`,
               `Je vindt er een koelkast, kleine diepvries, vaatwasser, oven, microgolfoven, airfryer, waterkoker, fruitpers en een Dolce Gusto Neo koffiemachine. Ook borden, glazen, tassen, bestek, kookgerei en andere keukenbenodigdheden zijn ruim voorzien.`,
@@ -124,7 +125,7 @@ import { ROUTES } from '../i18n/routes';
           {
             heading: 'Comfort in het hele huis',
             imageLabel: 'Foto: woonkamer',
-            image: '/woonkamer1-3.jpg',
+            image: photo('woonkamer1-3.jpg'),
             paragraphs: [
               `Casa Lana beschikt over centrale airconditioning en verwarming, aangevuld met een pelletkachel. Wifi is aanwezig in het huis en er is een televisie.`,
               `Ook een wasmachine, stofzuiger en strijkijzer staan ter beschikking. Voor gezinnen met een baby voorzien we op aanvraag een kinderbedje en kinderstoel. Het volledige huis is gelijkvloers en er zijn binnen geen trappen.`,
@@ -133,7 +134,7 @@ import { ROUTES } from '../i18n/routes';
           {
             heading: 'Buiten leven',
             imageLabel: 'Foto: zwembad in de avond',
-            image: '/IMG_6058.jpg',
+            image: photo('IMG_6058.jpg'),
             paragraphs: [
               `Als je naar Spanje komt, wil je vooral buiten leven. Daarom is de buitenruimte voor ons minstens even belangrijk als het huis zelf.`,
               `Casa Lana ligt op een terrein van 10.000 m² en beschikt over een groot privézwembad van 3 bij 11 meter. Het zwembad is uitsluitend voor jullie gezelschap en wordt wekelijks op donderdag onderhouden.`,
@@ -144,7 +145,7 @@ import { ROUTES } from '../i18n/routes';
           {
             heading: 'Alle ruimte voor jezelf',
             imageLabel: 'Foto: Casa Lana bij zonsondergang',
-            image: '/hero.jpg',
+            image: photo('hero.jpg'),
             paragraphs: [
               `Het volledige terrein is omheind. Je wagen parkeer je op het eigen terrein en er is ook een ruime garage.`,
               `Casa Lana staat vrij en biedt veel ruimte rondom het huis. Tegelijk wonen er mensen in de ruimere omgeving met wie we zelf een goed contact hebben. Rust en privacy, zonder het gevoel volledig van de wereld afgesloten te zijn.`,
@@ -162,15 +163,15 @@ import { ROUTES } from '../i18n/routes';
       <h2>Fotogalerij</h2>
       <PhotoGrid
         items={[
-          { label: 'Zwembad', image: '/IMG_6053.jpg' },
-          { label: 'Terras', image: '/IMG_6065.jpg' },
-          { label: 'Woonkamer', image: '/woonkamer1-1.jpg' },
-          { label: 'Keuken', image: '/keuken1-1.jpg' },
-          { label: 'Slaapkamer 1', image: '/master-bedroom.jpg' },
-          { label: 'Slaapkamer 2', image: '/slaapkamer2-1.jpg' },
-          { label: 'Slaapkamer 3', image: '/slaapkamer3-1.jpg' },
-          { label: 'Badkamer', image: '/badkamer2-1.jpg' },
-          { label: 'Tuin', image: '/IMG_6059.jpg' },
+          { label: 'Zwembad', image: photo('IMG_6053.jpg') },
+          { label: 'Terras', image: photo('IMG_6065.jpg') },
+          { label: 'Woonkamer', image: photo('woonkamer1-1.jpg') },
+          { label: 'Keuken', image: photo('keuken1-1.jpg') },
+          { label: 'Slaapkamer 1', image: photo('master-bedroom.jpg') },
+          { label: 'Slaapkamer 2', image: photo('slaapkamer2-1.jpg') },
+          { label: 'Slaapkamer 3', image: photo('slaapkamer3-1.jpg') },
+          { label: 'Badkamer', image: photo('badkamer2-1.jpg') },
+          { label: 'Tuin', image: photo('IMG_6059.jpg') },
         ]}
       />
     </div>

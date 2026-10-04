@@ -1,10 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import Hero from '../../components/Hero.astro';
 import FeatureSlider from '../../components/FeatureSlider.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 ---
 
@@ -20,20 +22,20 @@ import { ROUTES } from '../../i18n/routes';
     ctaLabel="Consultar disponibilidad"
     ctaHref={ROUTES.availability.es}
     imageLabel="Foto: piscina y terraza de Casa Lana"
-    image="/hero.jpg"
+    image={photo('hero.jpg')}
   />
 
   <section class="section section--white">
     <div class="wrap intro-collage decor-host">
-      <img src="/palmbladeren-watercolor.webp" alt="" class="decor-img" />
+      <Image src={photo('palmbladeren-watercolor.webp')} alt="" class="decor-img" width={400} />
       <div class="intro-collage__photos">
         <PhotoMosaic
           topLeftLabel="Foto: piscina y terraza"
-          topLeftImage="/zwembad%20en%20terras.jpg"
+          topLeftImage={photo('zwembad en terras.jpg')}
           bottomLeftLabel="Foto: cocina"
-          bottomLeftImage="/keuken1-1.jpg"
+          bottomLeftImage={photo('keuken1-1.jpg')}
           rightLabel="Foto: baño"
-          rightImage="/badkamer2-1.jpg"
+          rightImage={photo('badkamer2-1.jpg')}
         />
       </div>
       <div class="intro-collage__text">
@@ -77,25 +79,25 @@ import { ROUTES } from '../../i18n/routes';
           {
             title: 'Piscina y terraza',
             text: 'Piscina privada de 3 x 11 metros, mantenida cada semana, en una parcela de 10.000 m².',
-            image: '/zwembad%20en%20terras.jpg',
+            image: photo('zwembad en terras.jpg'),
             imageLabel: 'Foto: piscina y terraza',
           },
           {
             title: 'Calma y naturaleza',
             text: 'La casa está totalmente aislada, en un oasis de calma — solo los grillos podrían despertarte por la noche.',
-            image: '/IMG_6059.jpg',
+            image: photo('IMG_6059.jpg'),
             imageLabel: 'Foto: paisaje alrededor de Hondón de las Nieves',
           },
           {
             title: 'Hondón de las Nieves',
             text: 'A unos 8 minutos en coche encontrarás el pueblo, con buenos restaurantes y una acogedora cafetería para desayunar.',
-            image: '/IMG_6065.jpg',
+            image: photo('IMG_6065.jpg'),
             imageLabel: 'Foto: ambiente nocturno en Casa Lana',
           },
           {
             title: 'Comodidad y privacidad',
             text: '6 personas, 3 dormitorios amplios, 2 baños y un gran garaje donde cabe tu coche.',
-            image: '/woonkamer1-1.jpg',
+            image: photo('woonkamer1-1.jpg'),
             imageLabel: 'Foto: salón',
           },
         ]}
@@ -112,8 +114,8 @@ import { ROUTES } from '../../i18n/routes';
           mainRatio="4 / 5"
           overlayRatio="1 / 1"
           corner="bottom-right"
-          mainImage="/IMG_6059.jpg"
-          overlayImage="/zwembad%20en%20terras.jpg"
+          mainImage={photo('IMG_6059.jpg')}
+          overlayImage={photo('zwembad en terras.jpg')}
         />
       </div>
       <div class="escape-section__text">

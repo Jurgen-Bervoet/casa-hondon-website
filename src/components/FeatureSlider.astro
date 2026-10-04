@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Feature {
   title: string;
   text: string;
-  image: string;
+  image: ImageMetadata;
   imageLabel: string;
 }
 
@@ -20,7 +22,7 @@ const { features, prevLabel = 'Vorige', nextLabel = 'Volgende' } = Astro.props;
     {
       features.map((f) => (
         <article class="feature-slide">
-          <img src={f.image} alt={f.imageLabel} class="feature-slide__img" />
+          <Image src={f.image} alt={f.imageLabel} class="feature-slide__img" width={900} height={600} />
           <div class="feature-slide__body">
             <h3>{f.title}</h3>
             <p>{f.text}</p>

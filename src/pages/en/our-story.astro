@@ -2,13 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 
 const chapters = [
   {
     heading: 'A Spanish bug',
     imageLabel: 'Photo: landscape around Hondón de las Nieves',
-    image: '/IMG_6059.jpg',
+    image: photo('IMG_6059.jpg'),
     paragraphs: [
       `In 1996, Evelien went to Spain on an Erasmus exchange. She got to know the language and the culture there, and fell in love with the country. That love didn't really come out of nowhere — since she was three, she had travelled to Spain with her parents almost every year. The Spanish bug had bitten early.`,
       `And apparently that bug is contagious. First Jurgen caught it, and later so did our children, Lukas and Helena. Over the years, Spain became a place our family always loved returning to.`,
@@ -17,7 +18,7 @@ const chapters = [
   {
     heading: 'A dream of a place of our own',
     imageLabel: 'Photo: pool at sunset',
-    image: '/IMG_6053.jpg',
+    image: photo('IMG_6053.jpg'),
     paragraphs: [
       `Having a place of our own in Spain had long been a dream. Ideally somewhere between Valencia and Alicante. Not on the busy coast, but not completely remote either. We were looking for a place where we could find peace, while still having plenty to discover whenever we felt like it.`,
       `Dreams stay dreams if you do nothing with them. So we started looking. We had one important condition: everyone in our family had to feel good about the house we'd buy. That didn't exactly make the search easy. Let's just say we were rather picky.`,
@@ -26,7 +27,7 @@ const chapters = [
   {
     heading: 'Until we found this place',
     imageLabel: 'Photo: Casa Lana at sunset',
-    image: '/IMG_6065.jpg',
+    image: photo('IMG_6065.jpg'),
     paragraphs: [
       `A spacious house, a beautiful pool, 10,000 m² of land, mountains all around us, and above all, a lot of peace and quiet. No rows of hotels, no crowded beaches, no mass tourism. Just pulling the gate shut behind you and feeling the pace slow down on its own.`,
       `That's exactly what we love here ourselves. Our everyday life is busy enough as it is. Here, for a while, nothing has to happen.`,
@@ -35,7 +36,7 @@ const chapters = [
   {
     heading: 'At home in Spain',
     imageLabel: 'Photo: Casa Lana kitchen',
-    image: '/keuken1-1.jpg',
+    image: photo('keuken1-1.jpg'),
     paragraphs: [
       `Want to cook at home in the evening and enjoy a meal together? Everything's here. Want to go out, find a restaurant, visit a market, explore a city, or head to the coast? You just get in the car — there's surprisingly much within reach.`,
     ],
@@ -43,7 +44,7 @@ const chapters = [
   {
     heading: 'A place to share',
     imageLabel: 'Photo: guest bedroom',
-    image: '/slaapkamer2-1.jpg',
+    image: photo('slaapkamer2-1.jpg'),
     paragraphs: [
       `We bought Casa Lana first and foremost for ourselves and our family. And we're happy to share it with people looking for the same thing we were: peace, space, time for each other, and a break from the daily rush. That can be with your family, with friends, or with two couples together. Anyone looking to spend a few weeks somewhere quiet, working in between, will find all the space they need here too.`,
       `A wild party weekend doesn't fit with Casa Lana — there are plenty of other places in Spain for that. We have a good relationship with the people who live in the area, and we respect the peace that exists here.`,

@@ -1,9 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
 
 interface GridItem {
   label: string;
-  image?: string;
+  image?: ImageMetadata;
 }
 
 interface Props {
@@ -18,7 +19,7 @@ const { items } = Astro.props;
     items.map((item, i) => (
       <div class:list={['photo-grid__cell', { 'photo-grid__cell--big': i === 0 }]}>
         {item.image ? (
-          <img src={item.image} alt={item.label} class="photo-grid__img" />
+          <Image src={item.image} alt={item.label} class="photo-grid__img" width={i === 0 ? 900 : 500} />
         ) : (
           <PlaceholderImage label={item.label} fill class="photo-grid__img" />
         )}

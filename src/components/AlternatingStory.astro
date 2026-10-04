@@ -6,6 +6,8 @@ interface StoryItem {
   paragraphs: string[];
   image?: string;
   imageLabel: string;
+  listHeading?: string;
+  list?: string[];
 }
 
 interface Props {
@@ -31,6 +33,21 @@ const { items } = Astro.props;
           {item.paragraphs.map((p) => (
             <p>{p}</p>
           ))}
+          {item.list && item.list.length > 0 && (
+            <div class="story-block__list">
+              {item.listHeading && <h3>{item.listHeading}</h3>}
+              <ul>
+                {item.list.map((li) => (
+                  <li>
+                    <span class="story-block__mark" aria-hidden="true">
+                      ✓
+                    </span>
+                    {li}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </article>
     ))
@@ -82,6 +99,36 @@ const { items } = Astro.props;
 
   .story-block__text p:last-child {
     margin-bottom: 0;
+  }
+
+  .story-block__list {
+    margin-top: 1.5rem;
+  }
+
+  .story-block__list h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .story-block__list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .story-block__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.96rem;
+    color: #3a362c;
+  }
+
+  .story-block__mark {
+    color: var(--color-clay-deep);
+    font-weight: 700;
+    flex-shrink: 0;
   }
 
   @media (max-width: 780px) {

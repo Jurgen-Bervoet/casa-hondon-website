@@ -12,7 +12,9 @@ import heroJpg from '../images/hero.jpg';
 import zwembadEnTerrasJpg from '../images/zwembad en terras.jpg';
 import keuken11Jpg from '../images/keuken1-1.jpg';
 import keuken12Jpg from '../images/keuken1-2.jpg';
+import badkamer11Jpg from '../images/badkamer1-1.jpg';
 import badkamer21Jpg from '../images/badkamer2-1.jpg';
+import badkamer22Jpg from '../images/badkamer2-2.jpg';
 import masterBedroomJpg from '../images/master-bedroom.jpg';
 import slaapkamer21Jpg from '../images/slaapkamer2-1.jpg';
 import slaapkamer31Jpg from '../images/slaapkamer3-1.jpg';
@@ -29,7 +31,9 @@ const byFilename: Record<string, ImageMetadata> = {
   'zwembad en terras.jpg': zwembadEnTerrasJpg,
   'keuken1-1.jpg': keuken11Jpg,
   'keuken1-2.jpg': keuken12Jpg,
+  'badkamer1-1.jpg': badkamer11Jpg,
   'badkamer2-1.jpg': badkamer21Jpg,
+  'badkamer2-2.jpg': badkamer22Jpg,
   'master-bedroom.jpg': masterBedroomJpg,
   'slaapkamer2-1.jpg': slaapkamer21Jpg,
   'slaapkamer3-1.jpg': slaapkamer31Jpg,

@@ -28,7 +28,14 @@ const year = new Date().getFullYear();
       <a href={ROUTES.contact[lang]}>{t.nav.contact}</a>
     </nav>
 
-    <p class="site-footer__copy">© {year} Casa Lana — {t.footer.rights}</p>
+    <div class="site-footer__bottom">
+      <p class="site-footer__copy">© {year} Casa Lana — {t.footer.rights}</p>
+      <nav class="site-footer__legal">
+        <a href={ROUTES.terms[lang]}>{t.footer.terms}</a>
+        <a href={ROUTES.privacy[lang]}>{t.footer.privacy}</a>
+        <a href="#" data-open-cookie-settings>{t.cookies.customize}</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
@@ -76,10 +83,39 @@ const year = new Date().getFullYear();
     opacity: 1;
   }
 
+  .site-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    align-self: flex-end;
+  }
+
   .site-footer__copy {
     font-size: 0.8rem;
     opacity: 0.65;
-    align-self: flex-end;
     margin: 0;
+  }
+
+  .site-footer__legal {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.78rem;
+  }
+
+  .site-footer__legal a {
+    text-decoration: none;
+    color: var(--color-cream);
+    opacity: 0.65;
+  }
+
+  .site-footer__legal a:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 560px) {
+    .site-footer__bottom {
+      align-items: flex-start;
+    }
   }
 </style>

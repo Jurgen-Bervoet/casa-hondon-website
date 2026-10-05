@@ -49,6 +49,18 @@ export const ROUTES = {
     en: '/en/contact/',
     fr: '/fr/contact/',
   },
+  terms: {
+    nl: '/algemene-voorwaarden/',
+    es: '/es/condiciones-generales/',
+    en: '/en/terms-and-conditions/',
+    fr: '/fr/conditions-generales/',
+  },
+  privacy: {
+    nl: '/privacyverklaring/',
+    es: '/es/politica-de-privacidad/',
+    en: '/en/privacy-policy/',
+    fr: '/fr/politique-de-confidentialite/',
+  },
 } as const;
 
 export type PageGroup = keyof typeof ROUTES;

@@ -4,6 +4,8 @@ interface Labels {
   email: string;
   message: string;
   submit: string;
+  success: string;
+  error: string;
 }
 
 interface Props {
@@ -13,7 +15,19 @@ interface Props {
 const { labels } = Astro.props;
 ---
 
-<form class="contact-form">
+<form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="contact-form"
+  data-form
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="hp-field">
+    <label>Don't fill this out: <input name="bot-field" /></label>
+  </p>
+
   <div class="field">
     <label for="c-name">{labels.name}</label>
     <input type="text" id="c-name" name="name" required />
@@ -26,7 +40,10 @@ const { labels } = Astro.props;
     <label for="c-message">{labels.message}</label>
     <textarea id="c-message" name="message" rows="5" required></textarea>
   </div>
-  <button type="submit" class="btn btn--clay">{labels.submit}</button>
+  <button type="submit" class="btn btn--clay" data-submit-btn>{labels.submit}</button>
+
+  <p class="form-message form-message--success" data-success hidden>{labels.success}</p>
+  <p class="form-message form-message--error" data-error hidden>{labels.error}</p>
 </form>
 
 <style>
@@ -36,4 +53,62 @@ const { labels } = Astro.props;
     border-radius: 0;
     padding: 1.75rem;
   }
+
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .form-message {
+    margin: 1rem 0 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .form-message--success {
+    background: #e7f0e0;
+    color: var(--color-green-deep);
+  }
+
+  .form-message--error {
+    background: #fbe6e0;
+    color: #a33b1e;
+  }
 </style>
+
+<script>
+  function encode(data: Record<string, string>) {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  }
+
+  document.querySelectorAll<HTMLFormElement>('form[data-form]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries()) as Record<string, string>;
+      const submitBtn = form.querySelector<HTMLButtonElement>('[data-submit-btn]');
+      const successEl = form.querySelector<HTMLElement>('[data-success]');
+      const errorEl = form.querySelector<HTMLElement>('[data-error]');
+
+      if (submitBtn) submitBtn.disabled = true;
+      errorEl?.setAttribute('hidden', '');
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data),
+      })
+        .then(() => {
+          form.reset();
+          successEl?.removeAttribute('hidden');
+          if (submitBtn) submitBtn.style.display = 'none';
+        })
+        .catch(() => {
+          errorEl?.removeAttribute('hidden');
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  });
+</script>

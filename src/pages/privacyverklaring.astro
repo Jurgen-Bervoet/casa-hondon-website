@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { ROUTES } from '../i18n/routes';
+---
+
+<Layout
+  lang="nl"
+  active="privacy"
+  title="Privacyverklaring — Casa Lana"
+  description="Hoe Casa Lana omgaat met je persoonsgegevens bij een boekings- of contactaanvraag."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Privacyverklaring</span>
+      <h1>Privacyverklaring</h1>
+      <p class="draft-note">
+        <strong>Concept.</strong> Deze tekst is een eerste opzet op basis van hoe de site op dit
+        moment gegevens verwerkt en nog niet juridisch nagelezen. Gegevens tussen [haakjes]
+        moeten nog worden aangevuld voor publicatie.
+      </p>
+      <p>Laatst bijgewerkt: [datum].</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap legal">
+      <h2>1. Wie zijn wij</h2>
+      <p>
+        Casa Lana wordt verhuurd door [naam verhuurder / rechtspersoon], [adres], [land]. Voor
+        vragen over deze privacyverklaring of je gegevens kun je terecht op
+        [e-mailadres].
+      </p>
+
+      <h2>2. Welke gegevens verzamelen we</h2>
+      <p>Via het boekings- en contactformulier op deze website verzamelen we:</p>
+      <ul class="legal-list">
+        <li>Naam</li>
+        <li>E-mailadres</li>
+        <li>Telefoonnummer (bij een boekingsaanvraag, optioneel)</li>
+        <li>Gewenste aankomst- en vertrekdatum en aantal gasten (bij een boekingsaanvraag)</li>
+        <li>De inhoud van je bericht</li>
+      </ul>
+      <p>
+        We verzamelen geen gegevens via cookies of tracking-technologie — zie "Cookies" hieronder.
+      </p>
+
+      <h2>3. Waarom verzamelen we deze gegevens</h2>
+      <p>
+        We gebruiken deze gegevens uitsluitend om je aanvraag te beantwoorden, een boeking te
+        verwerken en te communiceren over je verblijf. We gebruiken je gegevens niet voor
+        marketingdoeleinden en delen ze niet met derden voor commerciële doeleinden.
+      </p>
+
+      <h2>4. Rechtsgrond</h2>
+      <p>
+        De verwerking is gebaseerd op de uitvoering van (de voorbereiding van) een overeenkomst
+        met jou, of op ons gerechtvaardigd belang om vragen over Casa Lana te beantwoorden.
+      </p>
+
+      <h2>5. Hoe lang bewaren we je gegevens</h2>
+      <p>
+        Aanvragen die niet tot een boeking leiden bewaren we maximaal [X maanden]. Gegevens van
+        bevestigde boekingen bewaren we zo lang als wettelijk vereist voor onze boekhouding
+        (doorgaans enkele jaren). [Exacte bewaartermijnen nog te bevestigen.]
+      </p>
+
+      <h2>6. Delen met derden</h2>
+      <p>
+        Het boekings- en contactformulier worden verwerkt via <strong>Netlify Forms</strong>,
+        de hostingpartner van deze website (Netlify, Inc., VS/EU). Netlify verwerkt de
+        ingevulde gegevens namens ons, uitsluitend om ze aan ons door te geven. We delen je
+        gegevens verder niet met andere derde partijen, behalve wanneer dat wettelijk verplicht
+        is.
+      </p>
+      <p>
+        Voor het tonen van de beschikbaarheidskalender kan de site gebruikmaken van een gedeelde
+        Google-agenda. Hierbij worden geen persoonsgegevens van gasten verwerkt — enkel welke
+        periodes bezet zijn.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        Deze website gebruikt op dit moment geen cookies voor analyse, tracking of marketing.
+        Mocht dat in de toekomst veranderen, dan vraagt een cookiebanner eerst je toestemming
+        voordat niet-strikt-noodzakelijke cookies geplaatst worden. Je kan je voorkeuren op elk
+        moment aanpassen via de cookie-instellingen onderaan de site.
+      </p>
+
+      <h2>8. Jouw rechten</h2>
+      <p>Volgens de AVG/GDPR heb je het recht om:</p>
+      <ul class="legal-list">
+        <li>je gegevens in te kijken;</li>
+        <li>onjuiste gegevens te laten verbeteren;</li>
+        <li>je gegevens te laten verwijderen;</li>
+        <li>de verwerking van je gegevens te laten beperken;</li>
+        <li>bezwaar te maken tegen de verwerking;</li>
+        <li>je gegevens in een overdraagbaar formaat te ontvangen.</li>
+      </ul>
+      <p>
+        Om een van deze rechten uit te oefenen, neem je contact op via [e-mailadres]. Je hebt
+        ook het recht om een klacht in te dienen bij de bevoegde gegevensbeschermingsautoriteit
+        [land / autoriteit nog te bevestigen].
+      </p>
+
+      <h2>9. Beveiliging</h2>
+      <p>
+        We nemen redelijke technische en organisatorische maatregelen om je gegevens te
+        beschermen tegen verlies of onrechtmatig gebruik.
+      </p>
+
+      <h2>10. Wijzigingen</h2>
+      <p>
+        We kunnen deze privacyverklaring aanpassen. De datum bovenaan deze pagina geeft aan
+        wanneer ze voor het laatst is bijgewerkt.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Vragen over je gegevens?"
+    text="Neem gerust contact met ons op, we helpen je graag verder."
+    ctaLabel="Contacteer ons"
+    ctaHref={ROUTES.contact.nl}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .draft-note {
+    background: var(--color-cream-deep);
+    border: 1px solid var(--color-line);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    font-size: 1.3rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal p {
+    color: #3a362c;
+  }
+
+  .legal-list {
+    list-style: disc;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.5rem;
+    color: #3a362c;
+    margin: 0 0 1em;
+  }
+</style>

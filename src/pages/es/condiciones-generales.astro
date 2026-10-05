@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="es"
+  active="terms"
+  title="Condiciones Generales — Casa Lana"
+  description="Condiciones generales para reservar y alojarse en Casa Lana, Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Condiciones Generales</span>
+      <h1>Condiciones generales</h1>
+      <p class="draft-note">
+        <strong>Borrador.</strong> Este texto es una primera versión basada en nuestra práctica
+        de reservas actual y aún no ha sido revisado jurídicamente. Los datos entre [corchetes]
+        deben completarse antes de publicar.
+      </p>
+      <p>Última actualización: [fecha].</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap legal">
+      <h2>1. Ámbito de aplicación</h2>
+      <p>
+        Estas condiciones generales se aplican a toda reserva de Casa Lana, situada en Hondón
+        de las Nieves (Alicante, España), acordada directamente entre el huésped y el
+        arrendador. Al enviar una solicitud o confirmar una reserva, aceptas estas condiciones.
+      </p>
+
+      <h2>2. El arrendador</h2>
+      <p>
+        Casa Lana es alquilada por [nombre del arrendador / persona jurídica], [dirección],
+        [país], [número de empresa / NIE si corresponde]. Contacto: [correo electrónico],
+        [teléfono].
+      </p>
+
+      <h2>3. Reserva</h2>
+      <p>
+        Una solicitud a través del formulario de reserva o por correo electrónico no es
+        vinculante. La reserva es definitiva solo tras la confirmación del arrendador y la
+        recepción del anticipo tal como se describe en "Pago".
+      </p>
+
+      <h2>4. Pago</h2>
+      <ul class="legal-list">
+        <li>Tu reserva es definitiva tras el pago del 50% del importe total del alquiler.</li>
+        <li>El importe restante se paga a más tardar un mes antes de la llegada.</li>
+        <li>
+          La fianza es de 800 € y también se paga un mes antes de la llegada. Tras la salida se
+          inspecciona la casa; si todo está en orden, la fianza se devuelve en un plazo de una
+          semana.
+        </li>
+        <li>La limpieza final obligatoria cuesta 150 € por estancia.</li>
+        <li>
+          Los gastos de energía están incluidos según un consumo estándar de 8 € de electricidad
+          y 5 € de agua por día. El consumo por encima de este estándar se descuenta de la
+          fianza.
+          <span class="fine-print">
+            (Nota: esta regulación se confirmará en cuanto se determine cómo se mide y liquida
+            el consumo.)
+          </span>
+        </li>
+      </ul>
+
+      <h2>5. Cancelación</h2>
+      <ul class="legal-list">
+        <li>Cancelación 8 semanas antes del inicio del periodo de alquiler: 0% del precio.</li>
+        <li>Cancelación 6 semanas antes del inicio del periodo de alquiler: 25% del precio.</li>
+        <li>Cancelación 2 semanas antes del inicio del periodo de alquiler: 100% del precio.</li>
+      </ul>
+      <p class="fine-print">
+        Nota: la regulación para cancelaciones entre 6 y 2 semanas antes del inicio aún debe
+        establecerse.
+      </p>
+
+      <h2>6. Llegada y salida</h2>
+      <ul class="legal-list">
+        <li>
+          El check-in es posible entre las 16:00 y las 21:00 h. Para llegadas después de las
+          21:00 h se cobran 25 €.
+        </li>
+        <li>El día de salida pedimos desocupar la casa como máximo a las 11:00 h.</li>
+        <li>
+          Un responsable de llaves os recibirá personalmente a la llegada y os dará las
+          explicaciones necesarias sobre la casa.
+        </li>
+        <li><strong>Estancia mínima</strong> — [por confirmar]</li>
+      </ul>
+
+      <h2>7. Normas de la casa</h2>
+      <ul class="legal-list">
+        <li>Casa Lana tiene capacidad para un máximo de 6 personas. No se permite la sobreocupación.</li>
+        <li>
+          Preferimos no recibir mascotas. Para preguntas específicas, contacta con nosotros de
+          antemano.
+        </li>
+        <li>No está permitido fumar dentro de la vivienda.</li>
+        <li>
+          Casa Lana está pensada para una estancia tranquila en familia o con amigos. No se
+          permiten fiestas ni eventos, por respeto al entorno y a los vecinos.
+        </li>
+      </ul>
+
+      <h2>8. Responsabilidad</h2>
+      <p>
+        El huésped es responsable de los daños a la casa, el mobiliario o el terreno causados
+        durante la estancia por el huésped o su grupo. Dichos daños pueden descontarse de la
+        fianza. El arrendador no se responsabiliza de accidentes, lesiones o robos durante la
+        estancia.
+      </p>
+
+      <h2>9. Fuerza mayor</h2>
+      <p>
+        En caso de fuerza mayor (como catástrofes naturales, medidas gubernamentales u otras
+        circunstancias ajenas a la voluntad de las partes) que impidan la estancia, huésped y
+        arrendador buscarán de mutuo acuerdo una solución razonable, como el aplazamiento del
+        periodo de alquiler.
+      </p>
+
+      <h2>10. Quejas</h2>
+      <p>
+        Cualquier problema durante la estancia debe comunicarse de inmediato al responsable de
+        llaves o directamente al arrendador, para poder buscar rápidamente una solución.
+      </p>
+
+      <h2>11. Ley aplicable</h2>
+      <p>
+        A este acuerdo se aplica [la legislación española, dada la ubicación de la vivienda /
+        por confirmar]. Los conflictos se resolverán preferentemente de mutuo acuerdo.
+      </p>
+
+      <h2>12. Modificaciones</h2>
+      <p>
+        Podemos modificar estas condiciones. La versión vigente en el momento de tu reserva
+        sigue aplicándose a esa reserva.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="¿Más preguntas sobre las condiciones?"
+    text="No dudes en contactarnos, estaremos encantados de ayudarte."
+    ctaLabel="Contáctanos"
+    ctaHref={ROUTES.contact.es}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .draft-note {
+    background: var(--color-cream-deep);
+    border: 1px solid var(--color-line);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    font-size: 1.3rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal p {
+    color: #3a362c;
+  }
+
+  .legal-list {
+    list-style: disc;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.5rem;
+    color: #3a362c;
+    margin: 0 0 1em;
+  }
+
+  .fine-print {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #8a8577;
+  }
+</style>

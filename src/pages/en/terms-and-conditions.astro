@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="en"
+  active="terms"
+  title="Terms & Conditions — Casa Lana"
+  description="Terms and conditions for booking and staying at Casa Lana, Hondón de las Nieves."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Terms & Conditions</span>
+      <h1>Terms & conditions</h1>
+      <p class="draft-note">
+        <strong>Draft.</strong> This text is a first draft based on our current booking
+        practice and has not yet been legally reviewed. Details in [brackets] still need to be
+        filled in before publishing.
+      </p>
+      <p>Last updated: [date].</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap legal">
+      <h2>1. Scope</h2>
+      <p>
+        These terms and conditions apply to every booking of Casa Lana, located in Hondón de
+        las Nieves (Alicante, Spain), agreed directly between the guest and the owner. By
+        sending a request or confirming a booking, you agree to these terms.
+      </p>
+
+      <h2>2. The owner</h2>
+      <p>
+        Casa Lana is rented out by [owner name / legal entity], [address], [country],
+        [company/NIE number if applicable]. Contact: [email address], [phone number].
+      </p>
+
+      <h2>3. Booking</h2>
+      <p>
+        A request via the booking form or by email is non-binding. The booking is only final
+        once confirmed by the owner and the deposit described under "Payment" has been
+        received.
+      </p>
+
+      <h2>4. Payment</h2>
+      <ul class="legal-list">
+        <li>Your booking is final once 50% of the total rental amount has been paid.</li>
+        <li>The remaining amount is due at the latest one month before arrival.</li>
+        <li>
+          The security deposit is €800 and is also paid one month before arrival. After
+          departure the house is checked; if everything is in order, the deposit is refunded
+          within one week.
+        </li>
+        <li>The mandatory final cleaning fee is €150 per stay.</li>
+        <li>
+          Energy costs are included based on a standard usage of €8 electricity and €5 water
+          per day. Usage above this standard is deducted from the deposit.
+          <span class="fine-print">
+            (Note: this arrangement will be confirmed once it's settled how usage is measured
+            and billed.)
+          </span>
+        </li>
+      </ul>
+
+      <h2>5. Cancellation</h2>
+      <ul class="legal-list">
+        <li>Cancellation 8 weeks before the start of the rental period: 0% of the rental price.</li>
+        <li>Cancellation 6 weeks before the start of the rental period: 25% of the rental price.</li>
+        <li>Cancellation 2 weeks before the start of the rental period: 100% of the rental price.</li>
+      </ul>
+      <p class="fine-print">
+        Note: the arrangement for cancellations between 6 and 2 weeks before the start date
+        still needs to be established.
+      </p>
+
+      <h2>6. Arrival and departure</h2>
+      <ul class="legal-list">
+        <li>Check-in is possible between 16:00 and 21:00. A fee of €25 applies for arrivals after 21:00.</li>
+        <li>On the day of departure, we ask you to vacate the house by 11:00 at the latest.</li>
+        <li>A keyholder will welcome you personally on arrival and give you the necessary information about the house.</li>
+        <li><strong>Minimum stay</strong> — [to be confirmed]</li>
+      </ul>
+
+      <h2>7. House rules</h2>
+      <ul class="legal-list">
+        <li>Casa Lana sleeps a maximum of 6 people. Overcrowding is not allowed.</li>
+        <li>We prefer not to welcome pets. Please contact us in advance with any specific questions.</li>
+        <li>Smoking is not allowed indoors.</li>
+        <li>
+          Casa Lana is intended for a quiet stay with family or friends. Parties or events are
+          not allowed, out of respect for the surroundings and the neighbours.
+        </li>
+      </ul>
+
+      <h2>8. Liability</h2>
+      <p>
+        The guest is liable for damage to the house, its contents or the grounds caused during
+        the stay by the guest or their party. Such damage may be deducted from the deposit. The
+        owner is not responsible for accidents, injury or theft during the stay.
+      </p>
+
+      <h2>9. Force majeure</h2>
+      <p>
+        In the event of force majeure (such as natural disasters, government measures or other
+        circumstances beyond either party's control) that make the stay impossible, guest and
+        owner will seek a reasonable solution together, such as rescheduling the rental period.
+      </p>
+
+      <h2>10. Complaints</h2>
+      <p>
+        Any issues during your stay should be reported immediately to the keyholder or directly
+        to the owner, so a solution can be found quickly.
+      </p>
+
+      <h2>11. Governing law</h2>
+      <p>
+        This agreement is governed by [Spanish law, given the location of the property / to be
+        confirmed]. Disputes will preferably be resolved amicably.
+      </p>
+
+      <h2>12. Changes</h2>
+      <p>
+        We may update these terms. The version in force at the time of your booking continues
+        to apply to that booking.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="More questions about the terms?"
+    text="Feel free to get in touch, we're happy to help."
+    ctaLabel="Contact us"
+    ctaHref={ROUTES.contact.en}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .draft-note {
+    background: var(--color-cream-deep);
+    border: 1px solid var(--color-line);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    font-size: 1.3rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal p {
+    color: #3a362c;
+  }
+
+  .legal-list {
+    list-style: disc;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.5rem;
+    color: #3a362c;
+    margin: 0 0 1em;
+  }
+
+  .fine-print {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #8a8577;
+  }
+</style>

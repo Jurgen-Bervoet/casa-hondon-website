@@ -1,0 +1,315 @@
+---
+import { ROUTES, type Lang } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = UI[lang].cookies;
+---
+
+<div class="cookie-consent" data-cookie-consent hidden>
+  <div class="cookie-consent__banner" data-cookie-banner>
+    <p class="cookie-consent__text">
+      {t.message}
+      <a href={ROUTES.privacy[lang]}>{t.privacyLink}</a>
+    </p>
+    <div class="cookie-consent__actions">
+      <button type="button" class="btn btn--outline-dark" data-cookie-customize>{t.customize}</button>
+      <button type="button" class="btn btn--outline-dark" data-cookie-reject>{t.rejectAll}</button>
+      <button type="button" class="btn btn--clay" data-cookie-accept>{t.acceptAll}</button>
+    </div>
+  </div>
+
+  <div class="cookie-consent__panel" data-cookie-panel hidden>
+    <h2>{t.settingsTitle}</h2>
+    <p>{t.settingsIntro}</p>
+
+    <div class="cookie-category">
+      <div class="cookie-category__header">
+        <span class="cookie-category__title">{t.necessaryTitle}</span>
+        <span class="cookie-category__always">{t.alwaysOn}</span>
+      </div>
+      <p>{t.necessaryText}</p>
+    </div>
+
+    <div class="cookie-category">
+      <div class="cookie-category__header">
+        <span class="cookie-category__title">{t.analyticsTitle}</span>
+        <label class="cookie-switch">
+          <input type="checkbox" data-cookie-toggle="analytics" />
+          <span class="cookie-switch__track"></span>
+        </label>
+      </div>
+      <p>{t.analyticsText}</p>
+    </div>
+
+    <div class="cookie-category">
+      <div class="cookie-category__header">
+        <span class="cookie-category__title">{t.marketingTitle}</span>
+        <label class="cookie-switch">
+          <input type="checkbox" data-cookie-toggle="marketing" />
+          <span class="cookie-switch__track"></span>
+        </label>
+      </div>
+      <p>{t.marketingText}</p>
+    </div>
+
+    <button type="button" class="btn btn--clay" data-cookie-save>{t.save}</button>
+  </div>
+</div>
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .cookie-consent[hidden] {
+    display: none;
+  }
+
+  .cookie-consent__banner {
+    pointer-events: auto;
+    width: 100%;
+    background: var(--color-green-deep);
+    color: var(--color-cream);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .cookie-consent__text {
+    margin: 0;
+    font-size: 0.9rem;
+    max-width: 60ch;
+  }
+
+  .cookie-consent__text a {
+    color: var(--color-cream);
+    text-decoration: underline;
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .cookie-consent__actions .btn--outline-dark {
+    border-color: var(--color-cream);
+    color: var(--color-cream);
+  }
+
+  .cookie-consent__actions .btn--outline-dark:hover {
+    background: var(--color-cream);
+    color: var(--color-green-deep);
+  }
+
+  .cookie-consent__panel {
+    pointer-events: auto;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(480px, calc(100% - 2rem));
+    max-height: calc(100% - 2rem);
+    overflow-y: auto;
+    background: #fff;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(20, 30, 20, 0.25);
+  }
+
+  .cookie-consent__panel[hidden] {
+    display: none;
+  }
+
+  .cookie-consent__panel h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .cookie-consent__panel > p {
+    color: #4a4638;
+    margin-bottom: 1.5rem;
+  }
+
+  .cookie-category {
+    border-top: 1px solid var(--color-line);
+    padding: 1rem 0;
+  }
+
+  .cookie-category__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .cookie-category__title {
+    font-weight: 600;
+    color: var(--color-green-deep);
+  }
+
+  .cookie-category__always {
+    font-size: 0.78rem;
+    color: #8a8577;
+  }
+
+  .cookie-category p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #57534a;
+  }
+
+  .cookie-switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 22px;
+  }
+
+  .cookie-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .cookie-switch__track {
+    position: absolute;
+    inset: 0;
+    background: var(--color-line);
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+
+  .cookie-switch__track::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 3px;
+    top: 3px;
+    background: #fff;
+    transition: transform 0.15s ease;
+  }
+
+  .cookie-switch input:checked + .cookie-switch__track {
+    background: var(--color-green-deep);
+  }
+
+  .cookie-switch input:checked + .cookie-switch__track::before {
+    transform: translateX(16px);
+  }
+
+  .cookie-consent__panel .btn {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 560px) {
+    .cookie-consent__banner {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .cookie-consent__actions {
+      justify-content: stretch;
+    }
+
+    .cookie-consent__actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'casalana-cookie-consent';
+
+  type Consent = { necessary: true; analytics: boolean; marketing: boolean };
+
+  function readConsent(): Consent | null {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeConsent(consent: Consent) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    } catch {
+      // localStorage unavailable (private browsing etc.) — consent just won't persist.
+    }
+  }
+
+  const root = document.querySelector<HTMLElement>('[data-cookie-consent]');
+  if (root) {
+    const banner = root.querySelector<HTMLElement>('[data-cookie-banner]');
+    const panel = root.querySelector<HTMLElement>('[data-cookie-panel]');
+    const toggles = root.querySelectorAll<HTMLInputElement>('[data-cookie-toggle]');
+
+    const existing = readConsent();
+    if (!existing) {
+      root.hidden = false;
+    } else {
+      toggles.forEach((t) => {
+        const key = t.dataset.cookieToggle as 'analytics' | 'marketing';
+        t.checked = !!existing[key];
+      });
+    }
+
+    function closeAll() {
+      if (root) root.hidden = true;
+    }
+
+    root.querySelector('[data-cookie-accept]')?.addEventListener('click', () => {
+      writeConsent({ necessary: true, analytics: true, marketing: true });
+      closeAll();
+    });
+
+    root.querySelector('[data-cookie-reject]')?.addEventListener('click', () => {
+      writeConsent({ necessary: true, analytics: false, marketing: false });
+      closeAll();
+    });
+
+    root.querySelector('[data-cookie-customize]')?.addEventListener('click', () => {
+      if (banner) banner.hidden = true;
+      if (panel) panel.hidden = false;
+    });
+
+    root.querySelector('[data-cookie-save]')?.addEventListener('click', () => {
+      const consent: Consent = { necessary: true, analytics: false, marketing: false };
+      toggles.forEach((t) => {
+        const key = t.dataset.cookieToggle as 'analytics' | 'marketing';
+        consent[key] = t.checked;
+      });
+      writeConsent(consent);
+      closeAll();
+    });
+
+    // Reopen the settings panel from anywhere on the site (e.g. a footer link).
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement)?.closest('[data-open-cookie-settings]');
+      if (!target) return;
+      e.preventDefault();
+      const current = readConsent();
+      toggles.forEach((t) => {
+        const key = t.dataset.cookieToggle as 'analytics' | 'marketing';
+        t.checked = current ? !!current[key] : false;
+      });
+      root.hidden = false;
+      if (banner) banner.hidden = true;
+      if (panel) panel.hidden = false;
+    });
+  }
+</script>

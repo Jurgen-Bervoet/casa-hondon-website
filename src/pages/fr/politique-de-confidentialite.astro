@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { ROUTES } from '../../i18n/routes';
+---
+
+<Layout
+  lang="fr"
+  active="privacy"
+  title="Politique de Confidentialité — Casa Lana"
+  description="Comment Casa Lana traite vos données personnelles lors d'une demande de réservation ou de contact."
+>
+  <section class="section">
+    <div class="wrap page-intro">
+      <span class="eyebrow">Politique de Confidentialité</span>
+      <h1>Politique de confidentialité</h1>
+      <p class="draft-note">
+        <strong>Brouillon.</strong> Ce texte est une première version basée sur la manière dont
+        le site traite actuellement les données et n'a pas encore été relu juridiquement. Les
+        informations entre [crochets] doivent encore être complétées avant publication.
+      </p>
+      <p>Dernière mise à jour : [date].</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap legal">
+      <h2>1. Qui sommes-nous</h2>
+      <p>
+        Casa Lana est loué par [nom du propriétaire / personne morale], [adresse], [pays]. Pour
+        toute question concernant cette politique de confidentialité ou vos données, vous
+        pouvez nous écrire à [adresse e-mail].
+      </p>
+
+      <h2>2. Quelles données collectons-nous</h2>
+      <p>Via le formulaire de réservation et de contact de ce site, nous collectons :</p>
+      <ul class="legal-list">
+        <li>Nom</li>
+        <li>Adresse e-mail</li>
+        <li>Numéro de téléphone (lors d'une demande de réservation, facultatif)</li>
+        <li>Dates d'arrivée et de départ souhaitées et nombre de personnes (lors d'une demande de réservation)</li>
+        <li>Le contenu de votre message</li>
+      </ul>
+      <p>
+        Nous ne collectons pas de données via des cookies ou technologies de suivi — voir
+        « Cookies » ci-dessous.
+      </p>
+
+      <h2>3. Pourquoi collectons-nous ces données</h2>
+      <p>
+        Nous utilisons ces données uniquement pour répondre à votre demande, traiter une
+        réservation et communiquer au sujet de votre séjour. Nous n'utilisons pas vos données à
+        des fins marketing et ne les partageons pas avec des tiers à des fins commerciales.
+      </p>
+
+      <h2>4. Base légale</h2>
+      <p>
+        Le traitement repose sur l'exécution (ou la préparation) d'un contrat avec vous, ou sur
+        notre intérêt légitime à répondre aux questions concernant Casa Lana.
+      </p>
+
+      <h2>5. Combien de temps conservons-nous vos données</h2>
+      <p>
+        Les demandes qui n'aboutissent pas à une réservation sont conservées au maximum [X
+        mois]. Les données des réservations confirmées sont conservées aussi longtemps que
+        légalement requis pour notre comptabilité (généralement plusieurs années). [Durées
+        exactes à confirmer.]
+      </p>
+
+      <h2>6. Partage avec des tiers</h2>
+      <p>
+        Le formulaire de réservation et de contact est traité via <strong>Netlify Forms</strong>,
+        l'hébergeur de ce site (Netlify, Inc., États-Unis/UE). Netlify traite les données saisies
+        en notre nom, uniquement pour nous les transmettre. Nous ne partageons pas vos données
+        avec d'autres tiers, sauf obligation légale.
+      </p>
+      <p>
+        Pour afficher le calendrier de disponibilité, le site peut utiliser un agenda Google
+        partagé. Ce processus ne traite aucune donnée personnelle des invités — uniquement les
+        périodes occupées.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        Ce site n'utilise actuellement aucun cookie d'analyse, de suivi ou de marketing. Si cela
+        venait à changer, une bannière de cookies demanderait d'abord votre consentement avant
+        de placer des cookies non strictement nécessaires. Vous pouvez ajuster vos préférences à
+        tout moment via les paramètres de cookies en bas du site.
+      </p>
+
+      <h2>8. Vos droits</h2>
+      <p>Conformément au RGPD, vous avez le droit de :</p>
+      <ul class="legal-list">
+        <li>consulter vos données ;</li>
+        <li>faire corriger des données inexactes ;</li>
+        <li>faire supprimer vos données ;</li>
+        <li>limiter le traitement de vos données ;</li>
+        <li>vous opposer au traitement ;</li>
+        <li>recevoir vos données dans un format portable.</li>
+      </ul>
+      <p>
+        Pour exercer l'un de ces droits, contactez-nous à [adresse e-mail]. Vous avez également
+        le droit d'introduire une réclamation auprès de l'autorité de protection des données
+        compétente [pays / autorité à confirmer].
+      </p>
+
+      <h2>9. Sécurité</h2>
+      <p>
+        Nous prenons des mesures techniques et organisationnelles raisonnables pour protéger vos
+        données contre la perte ou l'utilisation illicite.
+      </p>
+
+      <h2>10. Modifications</h2>
+      <p>
+        Nous pouvons modifier cette politique de confidentialité. La date en haut de cette page
+        indique la dernière mise à jour.
+      </p>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Des questions sur vos données ?"
+    text="N'hésitez pas à nous contacter, nous serons heureux de vous aider."
+    ctaLabel="Contactez-nous"
+    ctaHref={ROUTES.contact.fr}
+  />
+</Layout>
+
+<style>
+  .page-intro {
+    max-width: 68ch;
+  }
+
+  .draft-note {
+    background: var(--color-cream-deep);
+    border: 1px solid var(--color-line);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .legal {
+    max-width: 70ch;
+  }
+
+  .legal h2 {
+    font-size: 1.3rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .legal h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal p {
+    color: #3a362c;
+  }
+
+  .legal-list {
+    list-style: disc;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.5rem;
+    color: #3a362c;
+    margin: 0 0 1em;
+  }
+</style>

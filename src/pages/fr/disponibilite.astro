@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import AvailabilityCalendar from '../../components/AvailabilityCalendar.astro';
 import BookingForm from '../../components/BookingForm.astro';
+import { fetchBusyRanges } from '../../lib/calendar';
+
+const bookedRanges = await fetchBusyRanges();
 ---
 
 <Layout
@@ -26,11 +29,12 @@ import BookingForm from '../../components/BookingForm.astro';
       <div>
         <h2>Disponibilité</h2>
         <AvailabilityCalendar
-          monthLabel="Mois d'exemple (démo)"
+          bookedRanges={bookedRanges}
+          locale="fr-FR"
           weekdayLabels={['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di']}
           legendAvailable="Disponible"
           legendBooked="Réservé"
-          note="Ce sont des données d'exemple. La disponibilité réelle sera ajoutée prochainement."
+          note="Vous ne voyez pas vos dates souhaitées marquées comme réservées ? Envoyez votre demande via le formulaire."
         />
       </div>
       <div>
@@ -45,6 +49,8 @@ import BookingForm from '../../components/BookingForm.astro';
             guests: 'Nombre de personnes',
             message: 'Message (facultatif)',
             submit: 'Envoyer la demande',
+            success: 'Merci ! Votre demande a été envoyée — nous vous recontactons rapidement.',
+            error: "Une erreur s'est produite lors de l'envoi. Réessayez ou écrivez-nous directement.",
           }}
         />
       </div>

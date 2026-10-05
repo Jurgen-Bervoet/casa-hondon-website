@@ -1,4 +1,5 @@
 ---
+// Icons from Lucide (lucide.dev) — ISC license, free for commercial use.
 type IconKey =
   | 'bed'
   | 'bath'
@@ -32,90 +33,89 @@ const { items } = Astro.props;
       <div class="facility-icons__item">
         <span class="facility-icons__icon">
           {f.icon === 'bed' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 38V20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
-              <path d="M6 38v-6h36v6" />
-              <path d="M42 38V26a3 3 0 0 0-3-3H20v3" />
-              <path d="M6 44v-6M42 44v-6" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4v16" />
+              <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+              <path d="M2 17h20" />
+              <path d="M6 8v9" />
             </svg>
           )}
           {f.icon === 'bath' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 24h36v4a10 10 0 0 1-10 10H16A10 10 0 0 1 6 28v-4Z" />
-              <path d="M10 24v-3a3 3 0 0 1 3-3" />
-              <path d="M6 38v4M42 38v4" />
-              <path d="M34 6c-2 2-2 4 0 6s2 4 0 6" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 4 8 6" />
+              <path d="M17 19v2" />
+              <path d="M2 12h20" />
+              <path d="M7 19v2" />
+              <path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
             </svg>
           )}
           {f.icon === 'pool' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="10" width="36" height="22" rx="2" />
-              <path d="M6 38c3-2 6-2 9 0s6 2 9 0 6-2 9 0 6 2 9 0" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12q2.5 2 5 0t5 0 5 0 5 0" />
+              <path d="M2 19q2.5 2 5 0t5 0 5 0 5 0" />
+              <path d="M2 5q2.5 2 5 0t5 0 5 0 5 0" />
             </svg>
           )}
           {f.icon === 'wifi' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 22a20 20 0 0 1 28 0" />
-              <path d="M16 28a12 12 0 0 1 16 0" />
-              <path d="M22 34a4 4 0 0 1 4 0" />
-              <circle cx="24" cy="39" r="1.5" fill="currentColor" stroke="none" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h.01" />
+              <path d="M2 8.82a15 15 0 0 1 20 0" />
+              <path d="M5 12.859a10 10 0 0 1 14 0" />
+              <path d="M8.5 16.429a5 5 0 0 1 7 0" />
             </svg>
           )}
           {f.icon === 'terrace' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 6v6" />
-              <path d="M8 16c2-6 8-10 16-10s14 4 16 10Z" />
-              <path d="M24 16v26" />
-              <path d="M14 42h20" />
-              <path d="M6 32l10-4M42 32l-10-4" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 13v7a2 2 0 0 0 4 0" />
+              <path d="M12 2v2" />
+              <path d="M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z" />
             </svg>
           )}
           {f.icon === 'kitchen' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 32a16 16 0 0 1 32 0" />
-              <path d="M6 32h36" />
-              <path d="M24 10v4" />
-              <circle cx="24" cy="8" r="2" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z" />
+              <path d="M6 17h12" />
             </svg>
           )}
           {f.icon === 'people' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="17" cy="15" r="5" />
-              <path d="M7 38v-3a8 8 0 0 1 8-8h4a8 8 0 0 1 8 8v3" />
-              <circle cx="33" cy="17" r="4" opacity="0.7" />
-              <path d="M27 38v-2a7 7 0 0 1 7-7h1a7 7 0 0 1 7 7v2" opacity="0.7" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <circle cx="9" cy="7" r="4" />
             </svg>
           )}
           {f.icon === 'fence' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 10v28M18 6v32M26 10v28M34 6v32M42 10v28" />
-              <path d="M6 18h38M6 30h38" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 8 6-3-6-3v10" />
+              <path d="m8 11.99-5.5 3.14a1 1 0 0 0 0 1.74l8.5 4.86a2 2 0 0 0 2 0l8.5-4.86a1 1 0 0 0 0-1.74L16 12" />
+              <path d="m6.49 12.85 11.02 6.3" />
+              <path d="M17.51 12.85 6.5 19.15" />
             </svg>
           )}
           {f.icon === 'tv' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="10" width="36" height="24" rx="2" />
-              <path d="M18 40h12M24 34v6" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m17 2-5 5-5-5" />
+              <rect width="20" height="15" x="2" y="7" rx="2" />
             </svg>
           )}
           {f.icon === 'heating' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 8a4 4 0 0 1 8 0v18a8 8 0 1 1-8 0Z" />
-              <path d="M26 16v10" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
             </svg>
           )}
           {f.icon === 'parking' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 28l3-10a3 3 0 0 1 3-2h20a3 3 0 0 1 3 2l3 10" />
-              <rect x="6" y="28" width="36" height="10" rx="2" />
-              <circle cx="14" cy="38" r="2" fill="currentColor" stroke="none" />
-              <circle cx="34" cy="38" r="2" fill="currentColor" stroke="none" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+              <circle cx="7" cy="17" r="2" />
+              <path d="M9 17h6" />
+              <circle cx="17" cy="17" r="2" />
             </svg>
           )}
           {f.icon === 'pin' && (
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 42s14-12.5 14-22a14 14 0 1 0-28 0c0 9.5 14 22 14 22Z" />
-              <circle cx="24" cy="20" r="5" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+              <circle cx="12" cy="10" r="3" />
             </svg>
           )}
         </span>
@@ -139,8 +139,8 @@ const { items } = Astro.props;
 
   .facility-icons__icon {
     display: inline-flex;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     color: var(--color-green-deep);
     margin-bottom: 0.9rem;
   }

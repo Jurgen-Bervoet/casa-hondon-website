@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import PhotoBand from '../../components/PhotoBand.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
-import InfoList from '../../components/InfoList.astro';
+import FacilityIcons from '../../components/FacilityIcons.astro';
 import BedroomCards from '../../components/BedroomCards.astro';
 import BathroomFeature from '../../components/BathroomFeature.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
@@ -39,23 +39,38 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Tout pour un séjour reposant</h2>
-      <InfoList
-        columns={2}
+      <FacilityIcons
         items={[
-          '6 personnes',
-          '3 chambres spacieuses',
-          '2 salles de bain',
-          'Piscine privée de 3 x 11 mètres',
-          '10 000 m² de terrain propre',
-          'Entièrement clôturé',
-          'Climatisation et chauffage centralisés',
-          'Poêle à granulés',
-          'Wifi',
-          'TV',
-          'Barbecue',
-          'Parking privé et garage',
-          'Entièrement de plain-pied',
-          'Emplacement calme, loin du tourisme de masse',
+          {
+            icon: 'bed',
+            title: 'Chambres',
+            text: '3 chambres spacieuses, chacune avec un lit double de 160 cm de large.',
+          },
+          {
+            icon: 'bath',
+            title: 'Salles de bain',
+            text: '2 salles de bain entièrement équipées, avec sèche-cheveux.',
+          },
+          {
+            icon: 'pool',
+            title: 'Jardin avec piscine privée',
+            text: 'Piscine privée de 3 x 11 mètres sur un terrain clôturé de 10 000 m².',
+          },
+          {
+            icon: 'wifi',
+            title: 'Wifi gratuit',
+            text: 'Wifi gratuit dans toute la maison.',
+          },
+          {
+            icon: 'terrace',
+            title: 'Terrasse ensoleillée',
+            text: 'Coin salon, table extérieure et barbecue, avec vue sur la sierra.',
+          },
+          {
+            icon: 'kitchen',
+            title: 'Cuisine bien équipée',
+            text: 'Four, lave-vaisselle, friteuse à air et machine à café Dolce Gusto Neo.',
+          },
         ]}
       />
     </div>

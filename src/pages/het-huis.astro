@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import PhotoGrid from '../components/PhotoGrid.astro';
-import InfoList from '../components/InfoList.astro';
+import FacilityIcons from '../components/FacilityIcons.astro';
 import BedroomCards from '../components/BedroomCards.astro';
 import BathroomFeature from '../components/BathroomFeature.astro';
 import AlternatingStory from '../components/AlternatingStory.astro';
@@ -38,23 +38,38 @@ import { ROUTES } from '../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Alles voor een ontspannen verblijf</h2>
-      <InfoList
-        columns={2}
+      <FacilityIcons
         items={[
-          '6 personen',
-          '3 ruime slaapkamers',
-          '2 badkamers',
-          'Privézwembad van 3 x 11 meter',
-          '10.000 m² eigen terrein',
-          'Volledig omheind',
-          'Centrale airconditioning en verwarming',
-          'Pelletkachel',
-          'Wifi',
-          'TV',
-          'BBQ',
-          'Privéparking en garage',
-          'Volledig gelijkvloers',
-          'Rustige ligging weg van het massatoerisme',
+          {
+            icon: 'bed',
+            title: 'Slaapkamers',
+            text: '3 ruime slaapkamers, elk met een tweepersoonsbed van 160 cm breed.',
+          },
+          {
+            icon: 'bath',
+            title: 'Badkamers',
+            text: '2 volledig ingerichte badkamers, met haardroger.',
+          },
+          {
+            icon: 'pool',
+            title: 'Tuin met privézwembad',
+            text: 'Privézwembad van 3 x 11 meter op een omheind terrein van 10.000 m².',
+          },
+          {
+            icon: 'wifi',
+            title: 'Gratis wifi',
+            text: 'Wifi is gratis beschikbaar in het hele huis.',
+          },
+          {
+            icon: 'terrace',
+            title: 'Zonneterras',
+            text: 'Zithoek, buitentafel en BBQ, met zicht op de bergen.',
+          },
+          {
+            icon: 'kitchen',
+            title: 'Goed uitgeruste keuken',
+            text: 'Oven, vaatwasser, airfryer en Dolce Gusto Neo koffiemachine.',
+          },
         ]}
       />
     </div>

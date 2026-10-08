@@ -12,21 +12,23 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="wrap site-footer__inner">
-    <div>
-      <p class="site-footer__brand">Casa Lana</p>
-      <p class="site-footer__tagline">{t.footer.tagline}</p>
-    </div>
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div>
+        <p class="site-footer__brand">Casa Lana</p>
+        <p class="site-footer__tagline">{t.footer.tagline}</p>
+      </div>
 
-    <nav class="site-footer__nav">
-      <a href={ROUTES.home[lang]}>{t.nav.home}</a>
-      <a href={ROUTES.house[lang]}>{t.nav.house}</a>
-      <a href={ROUTES.area[lang]}>{t.nav.area}</a>
-      <a href={ROUTES.story[lang]}>{t.nav.story}</a>
-      <a href={ROUTES.availability[lang]}>{t.nav.availability}</a>
-      <a href={ROUTES.faq[lang]}>{t.nav.faq}</a>
-      <a href={ROUTES.contact[lang]}>{t.nav.contact}</a>
-    </nav>
+      <nav class="site-footer__nav">
+        <a href={ROUTES.home[lang]}>{t.nav.home}</a>
+        <a href={ROUTES.house[lang]}>{t.nav.house}</a>
+        <a href={ROUTES.area[lang]}>{t.nav.area}</a>
+        <a href={ROUTES.story[lang]}>{t.nav.story}</a>
+        <a href={ROUTES.availability[lang]}>{t.nav.availability}</a>
+        <a href={ROUTES.faq[lang]}>{t.nav.faq}</a>
+        <a href={ROUTES.contact[lang]}>{t.nav.contact}</a>
+      </nav>
+    </div>
 
     <div class="site-footer__bottom">
       <p class="site-footer__copy">© {year} Casa Lana — {t.footer.rights}</p>
@@ -46,11 +48,11 @@ const year = new Date().getFullYear();
     padding: 3rem 0 2rem;
   }
 
-  .site-footer__inner {
+  .site-footer__top {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 5rem;
   }
 
   .site-footer__brand {
@@ -85,10 +87,13 @@ const year = new Date().getFullYear();
 
   .site-footer__bottom {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.4rem;
-    align-self: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .site-footer__copy {
@@ -114,7 +119,12 @@ const year = new Date().getFullYear();
   }
 
   @media (max-width: 560px) {
+    .site-footer__top {
+      gap: 2rem;
+    }
+
     .site-footer__bottom {
+      flex-direction: column;
       align-items: flex-start;
     }
   }

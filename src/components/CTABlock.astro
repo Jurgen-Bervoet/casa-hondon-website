@@ -20,6 +20,14 @@ const { title, text, ctaLabel, ctaHref } = Astro.props;
 </section>
 
 <style>
+  .cta-block {
+    /* The block right below (the footer) uses the same background color
+       with no visual seam between them, so the default .section padding
+       on both sides stacks into an oversized gap. Trim this block's own
+       bottom padding; the footer's top padding still gives it room. */
+    padding-bottom: 2.5rem;
+  }
+
   .cta-block__inner {
     display: flex;
     align-items: center;

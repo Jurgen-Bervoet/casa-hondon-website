@@ -24,7 +24,11 @@ import img6053Jpg from '../images/IMG_6053.jpg';
 import img6058Jpg from '../images/IMG_6058.jpg';
 import img6059Jpg from '../images/IMG_6059.jpg';
 import img6065Jpg from '../images/IMG_6065.jpg';
-import palmbladerenWatercolorWebp from '../images/palmbladeren-watercolor.webp';
+import terras113Jpg from '../images/terras1-13.jpg';
+import woonkamer14Jpg from '../images/woonkamer1-4.jpg';
+import buitentafel15Jpg from '../images/buitentafel1-5.jpg';
+import terras11PortraitJpg from '../images/terras1-1 portrait.jpg';
+import palmbladerenWatercolorPng from '../images/palmbladeren-watercolor.png';
 
 const byFilename: Record<string, ImageMetadata> = {
   'hero.jpg': heroJpg,
@@ -43,7 +47,11 @@ const byFilename: Record<string, ImageMetadata> = {
   'IMG_6058.jpg': img6058Jpg,
   'IMG_6059.jpg': img6059Jpg,
   'IMG_6065.jpg': img6065Jpg,
-  'palmbladeren-watercolor.webp': palmbladerenWatercolorWebp,
+  'terras1-13.jpg': terras113Jpg,
+  'woonkamer1-4.jpg': woonkamer14Jpg,
+  'buitentafel1-5.jpg': buitentafel15Jpg,
+  'terras1-1 portrait.jpg': terras11PortraitJpg,
+  'palmbladeren-watercolor.png': palmbladerenWatercolorPng,
 };
 
 export function photo(filename: string): ImageMetadata {

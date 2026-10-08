@@ -26,16 +26,15 @@ import { ROUTES } from '../../i18n/routes';
   />
 
   <section class="section section--white">
-    <div class="wrap intro-collage decor-host">
-      <Image src={photo('palmbladeren-watercolor.webp')} alt="" class="decor-img" width={400} />
+    <div class="wrap intro-collage">
       <div class="intro-collage__photos">
         <PhotoMosaic
-          topLeftLabel="Foto: piscina y terraza"
-          topLeftImage={photo('zwembad en terras.jpg')}
-          bottomLeftLabel="Foto: cocina"
-          bottomLeftImage={photo('keuken1-1.jpg')}
-          rightLabel="Foto: baño"
-          rightImage={photo('badkamer2-1.jpg')}
+          topLeftLabel="Foto: mesa exterior"
+          topLeftImage={photo('buitentafel1-5.jpg')}
+          bottomLeftLabel="Foto: salón"
+          bottomLeftImage={photo('woonkamer1-4.jpg')}
+          rightLabel="Foto: terraza"
+          rightImage={photo('terras1-13.jpg')}
         />
       </div>
       <div class="intro-collage__text">
@@ -63,8 +62,9 @@ import { ROUTES } from '../../i18n/routes';
         </p>
         <p class="intro__text intro__text--last">
           Este es el lugar que nosotros mismos buscábamos en España. Y lo compartimos con
-          mucho gusto con vosotros. <a href={ROUTES.story.es}>Lee nuestra historia →</a>
+          mucho gusto con vosotros.
         </p>
+        <a href={ROUTES.story.es} class="btn btn--clay">Lee nuestra historia</a>
       </div>
     </div>
   </section>
@@ -105,17 +105,18 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white decor-host">
+    <Image src={photo('palmbladeren-watercolor.png')} alt="" class="decor-img" width={400} />
     <div class="wrap escape-section">
       <div class="escape-section__photos">
         <PhotoCollage
-          mainLabel="Foto: paisaje alrededor de Hondón de las Nieves"
-          overlayLabel="Foto: piscina y terraza"
+          mainLabel="Foto: terraza"
+          overlayLabel="Foto: paisaje alrededor de Hondón de las Nieves"
           mainRatio="4 / 5"
           overlayRatio="1 / 1"
           corner="bottom-right"
-          mainImage={photo('IMG_6059.jpg')}
-          overlayImage={photo('zwembad en terras.jpg')}
+          mainImage={photo('terras1-1 portrait.jpg')}
+          overlayImage={photo('IMG_6059.jpg')}
         />
       </div>
       <div class="escape-section__text">
@@ -170,9 +171,8 @@ import { ROUTES } from '../../i18n/routes';
     margin-bottom: 1.4rem;
   }
 
-  .intro__text--last a {
-    color: var(--color-clay-deep);
-    font-weight: 600;
+  .intro-collage__text .btn {
+    margin-top: 0.5rem;
   }
 
   .escape-section {

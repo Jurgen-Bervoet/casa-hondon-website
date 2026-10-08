@@ -121,13 +121,13 @@ p {
 
 .decor-img {
   position: absolute;
-  top: -2rem;
-  right: -1rem;
+  top: 0;
+  right: 0;
   width: 280px;
   max-width: 34vw;
   height: auto;
   z-index: -1;
-  mix-blend-mode: multiply;
+  opacity: 0.6;
   pointer-events: none;
 }
 

@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+
+interface Feature {
+  title: string;
+  text: string;
+  image: ImageMetadata;
+  imageLabel: string;
+}
+
+interface Props {
+  features: Feature[];
+}
+
+const { features } = Astro.props;
+---
+
+<div class="feature-cards">
+  {
+    features.map((f) => (
+      <article class="feature-card">
+        <Image src={f.image} alt={f.imageLabel} class="feature-card__img" width={640} height={400} />
+        <div class="feature-card__body">
+          <h3>{f.title}</h3>
+          <p>{f.text}</p>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+  }
+
+  .feature-card {
+    background: #fff;
+  }
+
+  .feature-card__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .feature-card__body {
+    padding: 1.1rem 0.25rem 0;
+  }
+
+  .feature-card__body h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card__body p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #57534a;
+  }
+
+  @media (max-width: 900px) {
+    .feature-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .feature-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

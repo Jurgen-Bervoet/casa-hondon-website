@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import FeatureSlider from '../components/FeatureSlider.astro';
+import FeatureCards from '../components/FeatureCards.astro';
 import PhotoCollage from '../components/PhotoCollage.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
 import CTABlock from '../components/CTABlock.astro';
@@ -73,9 +73,9 @@ import { photo } from '../lib/images';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Alles voor een ontspannen verblijf</h2>
-      <FeatureSlider
-        prevLabel="Vorige"
-        nextLabel="Volgende"
+    </div>
+    <div class="feature-cards-spacing">
+      <FeatureCards
         features={[
           {
             title: 'Zwembad & terras',
@@ -147,6 +147,10 @@ import { photo } from '../lib/images';
 </Layout>
 
 <style>
+  .feature-cards-spacing {
+    margin-top: 2.5rem;
+  }
+
   .intro-collage {
     display: grid;
     grid-template-columns: 1.15fr 1fr;

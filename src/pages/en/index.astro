@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import Hero from '../../components/Hero.astro';
-import FeatureSlider from '../../components/FeatureSlider.astro';
+import FeatureCards from '../../components/FeatureCards.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
 import CTABlock from '../../components/CTABlock.astro';
@@ -70,9 +70,9 @@ import { ROUTES } from '../../i18n/routes';
   <section class="section section--tight">
     <div class="wrap">
       <h2>Everything for a relaxed stay</h2>
-      <FeatureSlider
-        prevLabel="Previous"
-        nextLabel="Next"
+    </div>
+    <div class="feature-cards-spacing">
+      <FeatureCards
         features={[
           {
             title: 'Pool & terrace',
@@ -144,6 +144,10 @@ import { ROUTES } from '../../i18n/routes';
 </Layout>
 
 <style>
+  .feature-cards-spacing {
+    margin-top: 2.5rem;
+  }
+
   .intro-collage {
     display: grid;
     grid-template-columns: 1.15fr 1fr;

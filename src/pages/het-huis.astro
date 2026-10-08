@@ -32,7 +32,7 @@ import { ROUTES } from '../i18n/routes';
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Foto: zwembad met zicht op de bergen" image={photo('zwembad en terras.jpg')} />
+    <PhotoBand label="Foto: woonkamer" image={photo('woonkamer1-4.jpg')} />
   </section>
 
   <section class="section section--tight">
@@ -58,7 +58,7 @@ import { ROUTES } from '../i18n/routes';
           {
             icon: 'pool',
             title: 'Privézwembad',
-            text: 'Zwembad van 3 x 11 meter, uitsluitend voor jullie gezelschap.',
+            text: 'Zwembad van 3 x 12 meter, uitsluitend voor jullie gezelschap.',
           },
           {
             icon: 'fence',
@@ -118,7 +118,7 @@ import { ROUTES } from '../i18n/routes';
           {
             name: 'Slaapkamer 1 — master',
             photoLabel: 'Foto: slaapkamer 1 (master)',
-            image: photo('master-bedroom.jpg'),
+            image: photo('master-bedroom2.jpg'),
             bed: 'Tweepersoonsbed van 160 cm breed',
             badges: ['Eigen badkamer (en-suite)', 'Zicht op en toegang tot het zwembad'],
           },
@@ -179,19 +179,19 @@ import { ROUTES } from '../i18n/routes';
           },
           {
             heading: 'Buiten leven',
-            imageLabel: 'Foto: zwembad in de avond',
-            image: photo('IMG_6058.jpg'),
+            imageLabel: 'Foto: terras',
+            image: photo('terras1-6b.jpg'),
             paragraphs: [
               `Als je naar Spanje komt, wil je vooral buiten leven. Daarom is de buitenruimte voor ons minstens even belangrijk als het huis zelf.`,
-              `Casa Lana ligt op een terrein van 10.000 m² en beschikt over een groot privézwembad van 3 bij 11 meter. Het zwembad is uitsluitend voor jullie gezelschap en wordt wekelijks op donderdag onderhouden.`,
-              `Rond het zwembad staan zes ligstoelen. Er is geen natuurlijke schaduw rond het zwembad of terras. We voorzien parasols zodat je zelf een schaduwrijke plek kunt creëren.`,
-              `Er is een zithoek om rustig iets te drinken en een grote buitentafel met acht stoelen om samen te ontbijten, lunchen of 's avonds lang te tafelen. De BBQ staat klaar voor avonden waarop je gezellig thuis wilt eten. Ook buitenverlichting is aanwezig, zodat het terras na zonsondergang gewoon deel blijft uitmaken van jullie avond.`,
+              `Casa Lana ligt op een terrein van 10.000 m² en beschikt over een groot privézwembad van 3 bij 12 meter. Het zwembad is uitsluitend voor jullie gezelschap en wordt wekelijks op donderdag onderhouden.`,
+              `Rond het zwembad staan zes ligstoelen. Er zijn parasols voorzien zodat je zelf een schaduwrijke plek kunt creëren.`,
+              `Er is een zithoek om rustig iets te drinken en een grote buitentafel met acht stoelen om samen te ontbijten, lunchen of 's avonds lang te tafelen. De BBQ staat klaar voor avonden waarop je gezellig thuis wilt eten.`,
             ],
           },
           {
             heading: 'Alle ruimte voor jezelf',
-            imageLabel: 'Foto: Casa Lana bij zonsondergang',
-            image: photo('hero.jpg'),
+            imageLabel: 'Foto: terrein rond Casa Lana',
+            image: photo('terrein1-1.jpg'),
             paragraphs: [
               `Het volledige terrein is omheind. Je wagen parkeer je op het eigen terrein en er is ook een ruime garage.`,
               `Casa Lana staat vrij en biedt veel ruimte rondom het huis. Tegelijk wonen er mensen in de ruimere omgeving met wie we zelf een goed contact hebben. Rust en privacy, zonder het gevoel volledig van de wereld afgesloten te zijn.`,
@@ -204,20 +204,30 @@ import { ROUTES } from '../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight" id="fotogalerij">
     <div class="wrap">
       <h2>Fotogalerij</h2>
       <PhotoGrid
+        closeLabel="Sluiten"
+        prevLabel="Vorige"
+        nextLabel="Volgende"
         items={[
-          { label: 'Zwembad', image: photo('IMG_6053.jpg') },
-          { label: 'Terras', image: photo('IMG_6065.jpg') },
+          { label: 'Zwembad en terras', image: photo('zwembad en terras.jpg') },
+          { label: 'Terras', image: photo('terras1-13.jpg') },
+          { label: 'Buitentafel', image: photo('buitentafel1-5.jpg') },
           { label: 'Woonkamer', image: photo('woonkamer1-1.jpg') },
           { label: 'Keuken', image: photo('keuken1-1.jpg') },
           { label: 'Slaapkamer 1', image: photo('master-bedroom.jpg') },
-          { label: 'Slaapkamer 2', image: photo('slaapkamer2-1.jpg') },
-          { label: 'Slaapkamer 3', image: photo('slaapkamer3-1.jpg') },
-          { label: 'Badkamer', image: photo('badkamer2-1.jpg') },
-          { label: 'Tuin', image: photo('IMG_6059.jpg') },
+          { label: 'Slaapkamer 2', image: photo('slaapkamer2-2.jpg') },
+          { label: 'Slaapkamer 3', image: photo('slaapkamer3-2.jpg') },
+          { label: 'Badkamer 1', image: photo('badkamer1-2.jpg') },
+          { label: 'Badkamer 2', image: photo('badkamer2-1.jpg') },
+          { label: 'Lounge', image: photo('lounge1-1.jpg') },
+          { label: 'Casa Lana buiten', image: photo('hero.jpg') },
+          { label: 'Avondsfeer', image: photo('IMG_6065.jpg') },
+          { label: 'Omgeving', image: photo('IMG_6059.jpg') },
+          { label: 'Zwembad bij avond', image: photo('IMG_6058.jpg') },
+          { label: 'Terras bij zonsondergang', image: photo('terras1-6b.jpg') },
         ]}
       />
     </div>

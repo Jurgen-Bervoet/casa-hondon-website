@@ -22,9 +22,9 @@ const { items } = Astro.props;
     items.map((b) => (
       <article class="bedroom">
         {b.image ? (
-          <Image src={b.image} alt={b.photoLabel} class="bedroom__img" width={700} height={525} />
+          <Image src={b.image} alt={b.photoLabel} class="bedroom__img" width={700} height={394} />
         ) : (
-          <PlaceholderImage label={b.photoLabel} ratio="4 / 3" />
+          <PlaceholderImage label={b.photoLabel} ratio="16 / 9" />
         )}
         <div class="bedroom__body">
           <h3>{b.name}</h3>
@@ -46,33 +46,32 @@ const { items } = Astro.props;
   .bedrooms {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .bedroom {
     background: #fff;
-    border: 1px solid var(--color-line);
   }
 
   .bedroom__img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
   }
 
   .bedroom__body {
-    padding: 1.1rem 1.25rem 1.25rem;
+    padding: 1.5rem 1.25rem 1.75rem;
   }
 
   .bedroom__body h3 {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .bedroom__body p {
     margin: 0;
     font-size: 0.92rem;
-    color: #4a4638;
+    color: #57534a;
   }
 
   .bedroom__badges {

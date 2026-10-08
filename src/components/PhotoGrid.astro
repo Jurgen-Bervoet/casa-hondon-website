@@ -9,23 +9,68 @@ interface GridItem {
 
 interface Props {
   items: GridItem[];
+  /** Labels for the lightbox UI (so the component stays translatable per page). */
+  closeLabel?: string;
+  prevLabel?: string;
+  nextLabel?: string;
 }
 
-const { items } = Astro.props;
+const { items, closeLabel = 'Sluiten', prevLabel = 'Vorige', nextLabel = 'Volgende' } = Astro.props;
 ---
 
-<div class="photo-grid">
-  {
-    items.map((item, i) => (
-      <div class:list={['photo-grid__cell', { 'photo-grid__cell--big': i === 0 }]}>
-        {item.image ? (
-          <Image src={item.image} alt={item.label} class="photo-grid__img" width={i === 0 ? 900 : 500} />
-        ) : (
-          <PlaceholderImage label={item.label} fill class="photo-grid__img" />
-        )}
-      </div>
-    ))
-  }
+<div class="photo-grid-wrap">
+  <div class="photo-grid">
+    {
+      items.map((item, i) => (
+        <button
+          type="button"
+          class:list={['photo-grid__cell', { 'photo-grid__cell--big': i === 0 }]}
+          data-index={i}
+          aria-label={item.label}
+        >
+          {item.image ? (
+            <Image src={item.image} alt={item.label} class="photo-grid__img" width={i === 0 ? 900 : 500} />
+          ) : (
+            <PlaceholderImage label={item.label} fill class="photo-grid__img" />
+          )}
+        </button>
+      ))
+    }
+  </div>
+
+  <dialog class="lightbox">
+    <div class="lightbox__bar">
+      <span class="lightbox__counter" data-counter />
+      <button type="button" class="lightbox__close" data-close aria-label={closeLabel}>
+        ✕
+      </button>
+    </div>
+    <div class="lightbox__stage">
+      <button type="button" class="lightbox__nav lightbox__nav--prev" data-prev aria-label={prevLabel}>
+        ‹
+      </button>
+      {
+        items.map((item, i) =>
+          item.image ? (
+            <Image
+              src={item.image}
+              alt={item.label}
+              class="lightbox__slide"
+              data-slide={i}
+              width={1400}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ) : (
+            <PlaceholderImage label={item.label} fill class="lightbox__slide" data-slide={i} />
+          )
+        )
+      }
+      <button type="button" class="lightbox__nav lightbox__nav--next" data-next aria-label={nextLabel}>
+        ›
+      </button>
+    </div>
+    <p class="lightbox__caption" data-caption />
+  </dialog>
 </div>
 
 <style>
@@ -38,6 +83,11 @@ const { items } = Astro.props;
 
   .photo-grid__cell {
     overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    display: block;
   }
 
   .photo-grid__cell--big {
@@ -50,6 +100,11 @@ const { items } = Astro.props;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.25s ease;
+  }
+
+  .photo-grid__cell:hover :global(.photo-grid__img) {
+    transform: scale(1.04);
   }
 
   @media (max-width: 900px) {
@@ -70,4 +125,190 @@ const { items } = Astro.props;
       grid-row: span 1;
     }
   }
+
+  /* Lightbox */
+  .lightbox {
+    padding: 0;
+    border: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 24, 22, 0.96);
+    color: var(--color-cream);
+  }
+
+  .lightbox::backdrop {
+    background: rgba(20, 24, 22, 0.96);
+  }
+
+  .lightbox[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lightbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .lightbox__counter {
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+
+  .lightbox__close {
+    background: none;
+    border: 0;
+    color: var(--color-cream);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.4rem;
+    opacity: 0.85;
+  }
+
+  .lightbox__close:hover {
+    opacity: 1;
+  }
+
+  .lightbox__stage {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 0 3.5rem;
+  }
+
+  .lightbox :global(.lightbox__slide) {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .lightbox :global(.lightbox__slide.is-active) {
+    display: block;
+  }
+
+  .lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    border: 0;
+    color: var(--color-cream);
+    font-size: 2rem;
+    line-height: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox__nav:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .lightbox__nav--prev {
+    left: 0.5rem;
+  }
+
+  .lightbox__nav--next {
+    right: 0.5rem;
+  }
+
+  .lightbox__caption {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    padding: 0.75rem 1.25rem 1.25rem;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 560px) {
+    .lightbox__stage {
+      padding: 0 3rem;
+    }
+
+    .lightbox__nav {
+      width: 2.25rem;
+      height: 2.25rem;
+      font-size: 1.5rem;
+    }
+  }
 </style>
+
+<script>
+  function initPhotoGrid(root: HTMLElement) {
+    const dialog = root.querySelector<HTMLDialogElement>('.lightbox');
+    if (!dialog) return;
+
+    const cells = Array.from(root.querySelectorAll<HTMLButtonElement>('.photo-grid__cell'));
+    const slides = Array.from(dialog.querySelectorAll<HTMLElement>('.lightbox__slide'));
+    const counter = dialog.querySelector<HTMLElement>('[data-counter]');
+    const caption = dialog.querySelector<HTMLElement>('[data-caption]');
+    const total = slides.length;
+    let current = 0;
+
+    function show(index: number) {
+      current = (index + total) % total;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+      if (counter) counter.textContent = `${current + 1} / ${total}`;
+      if (caption) caption.textContent = slides[current]?.getAttribute('alt') ?? '';
+    }
+
+    function open(index: number) {
+      show(index);
+      if (!dialog.open) dialog.showModal();
+    }
+
+    cells.forEach((cell) => {
+      cell.addEventListener('click', () => {
+        const index = Number(cell.dataset.index ?? 0);
+        open(index);
+      });
+    });
+
+    dialog.querySelector('[data-close]')?.addEventListener('click', () => dialog.close());
+    dialog.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+    dialog.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+
+    // Clicking the backdrop (outside the stage/bar/caption) closes the dialog.
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    // Basic touch swipe support.
+    let touchStartX: number | null = null;
+    dialog.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0]?.clientX ?? null;
+    });
+    dialog.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const touchEndX = e.changedTouches[0]?.clientX ?? touchStartX;
+      const delta = touchEndX - touchStartX;
+      if (Math.abs(delta) > 40) show(current + (delta < 0 ? 1 : -1));
+      touchStartX = null;
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('.photo-grid-wrap').forEach(initPhotoGrid);
+</script>

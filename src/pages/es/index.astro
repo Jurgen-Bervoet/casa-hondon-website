@@ -47,7 +47,7 @@ import { ROUTES } from '../../i18n/routes';
           tranquilo interior de la Costa Blanca.
         </p>
         <p class="intro__specs">
-          3 dormitorios, 2 baños · parcela de 10.000 m² · piscina privada de 3 x 11 m
+          3 dormitorios, 2 baños · parcela de 10.000 m² · piscina privada de 3 x 12 m
         </p>
         <p class="intro__text">
           Aquí te alojas lejos del turismo de masas y, al mismo tiempo, tienes sorprendentemente
@@ -78,7 +78,7 @@ import { ROUTES } from '../../i18n/routes';
         features={[
           {
             title: 'Piscina y terraza',
-            text: 'Piscina privada de 3 x 11 metros, mantenida cada semana, en una parcela de 10.000 m².',
+            text: 'Piscina privada de 3 x 12 metros, mantenida cada semana, en una parcela de 10.000 m².',
             image: photo('zwembad en terras.jpg'),
             imageLabel: 'Foto: piscina y terraza',
           },
@@ -102,6 +102,9 @@ import { ROUTES } from '../../i18n/routes';
           },
         ]}
       />
+    </div>
+    <div class="wrap gallery-teaser">
+      <a href={`${ROUTES.house.es}#galeria`} class="btn btn--outline-dark">Ver todas las fotos de la casa</a>
     </div>
   </section>
 
@@ -148,6 +151,11 @@ import { ROUTES } from '../../i18n/routes';
 
 <style>
   .feature-cards-spacing {
+    margin-top: 2.5rem;
+  }
+
+  .gallery-teaser {
+    text-align: center;
     margin-top: 2.5rem;
   }
 

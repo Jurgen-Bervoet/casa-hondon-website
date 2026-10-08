@@ -46,7 +46,7 @@ import { ROUTES } from '../../i18n/routes';
           holiday home in Hondón de las Nieves, in the quiet inland of the Costa Blanca.
         </p>
         <p class="intro__specs">
-          3 bedrooms, 2 bathrooms · 10,000 m² plot · 3 x 11 m private pool
+          3 bedrooms, 2 bathrooms · 10,000 m² plot · 3 x 12 m private pool
         </p>
         <p class="intro__text">
           Here you stay away from mass tourism while surprisingly much is still within reach.
@@ -76,7 +76,7 @@ import { ROUTES } from '../../i18n/routes';
         features={[
           {
             title: 'Pool & terrace',
-            text: 'A 3 x 11 metre private pool, maintained weekly, on a 10,000 m² plot.',
+            text: 'A 3 x 12 metre private pool, maintained weekly, on a 10,000 m² plot.',
             image: photo('zwembad en terras.jpg'),
             imageLabel: 'Photo: pool and terrace',
           },
@@ -100,6 +100,9 @@ import { ROUTES } from '../../i18n/routes';
           },
         ]}
       />
+    </div>
+    <div class="wrap gallery-teaser">
+      <a href={`${ROUTES.house.en}#gallery`} class="btn btn--outline-dark">See all photos of the house</a>
     </div>
   </section>
 
@@ -146,6 +149,11 @@ import { ROUTES } from '../../i18n/routes';
 
 <style>
   .feature-cards-spacing {
+    margin-top: 2.5rem;
+  }
+
+  .gallery-teaser {
+    text-align: center;
     margin-top: 2.5rem;
   }
 

@@ -47,7 +47,7 @@ import { photo } from '../lib/images';
           Blanca.
         </p>
         <p class="intro__specs">
-          3 slaapkamers, 2 badkamers · 10.000 m² terrein · privézwembad 3 x 11 m
+          3 slaapkamers, 2 badkamers · 10.000 m² terrein · privézwembad 3 x 12 m
         </p>
         <p class="intro__text">
           Hier verblijf je weg van het massatoerisme en ligt er tegelijk verrassend veel binnen
@@ -77,7 +77,7 @@ import { photo } from '../lib/images';
         features={[
           {
             title: 'Zwembad & terras',
-            text: 'Privézwembad van 3 x 11 meter, wekelijks onderhouden, op een terrein van 10.000 m².',
+            text: 'Privézwembad van 3 x 12 meter, wekelijks onderhouden, op een terrein van 10.000 m².',
             image: photo('zwembad en terras.jpg'),
             imageLabel: 'Foto: zwembad en terras',
           },
@@ -101,6 +101,9 @@ import { photo } from '../lib/images';
           },
         ]}
       />
+    </div>
+    <div class="wrap gallery-teaser">
+      <a href={`${ROUTES.house.nl}#fotogalerij`} class="btn btn--outline-dark">Bekijk alle foto's van het huis</a>
     </div>
   </section>
 
@@ -147,6 +150,11 @@ import { photo } from '../lib/images';
 
 <style>
   .feature-cards-spacing {
+    margin-top: 2.5rem;
+  }
+
+  .gallery-teaser {
+    text-align: center;
     margin-top: 2.5rem;
   }
 

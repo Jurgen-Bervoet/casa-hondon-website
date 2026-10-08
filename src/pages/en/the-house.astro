@@ -32,7 +32,7 @@ import { ROUTES } from '../../i18n/routes';
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Photo: pool with mountain views" image={photo('zwembad en terras.jpg')} />
+    <PhotoBand label="Photo: living room" image={photo('woonkamer1-4.jpg')} />
   </section>
 
   <section class="section section--tight">
@@ -58,7 +58,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             icon: 'pool',
             title: 'Private pool',
-            text: 'A 3 x 11 metre pool, exclusively for your group.',
+            text: 'A 3 x 12 metre pool, exclusively for your group.',
           },
           {
             icon: 'fence',
@@ -118,7 +118,7 @@ import { ROUTES } from '../../i18n/routes';
           {
             name: 'Bedroom 1 — master',
             photoLabel: 'Photo: bedroom 1 (master)',
-            image: photo('master-bedroom.jpg'),
+            image: photo('master-bedroom2.jpg'),
             bed: '160 cm-wide double bed',
             badges: ['Own en-suite bathroom', 'Pool views and direct access'],
           },
@@ -179,19 +179,19 @@ import { ROUTES } from '../../i18n/routes';
           },
           {
             heading: 'Outdoor living',
-            imageLabel: 'Photo: pool at night',
-            image: photo('IMG_6058.jpg'),
+            imageLabel: 'Photo: terrace',
+            image: photo('terras1-6b.jpg'),
             paragraphs: [
               "When you come to Spain, you mostly want to live outdoors. That's why the outdoor space matters to us just as much as the house itself.",
-              'Casa Lana sits on a 10,000 m² plot and has a large private pool of 3 by 11 metres. The pool is exclusively for your group and is maintained weekly, on Thursdays.',
+              'Casa Lana sits on a 10,000 m² plot and has a large private pool of 3 by 12 metres. The pool is exclusively for your group and is maintained weekly, on Thursdays.',
               'There are six sun loungers around the pool. There is no natural shade at the pool or terrace — we provide parasols so you can create your own shady spot.',
               "There's a seating area for a relaxed drink and a large outdoor table with eight chairs for breakfast, lunch or a long dinner together. The BBQ is ready for evenings when you fancy eating in. Outdoor lighting is also available, so the terrace stays part of your evening after sunset.",
             ],
           },
           {
             heading: 'All the space to yourselves',
-            imageLabel: 'Photo: Casa Lana at sunset',
-            image: photo('hero.jpg'),
+            imageLabel: 'Photo: grounds around Casa Lana',
+            image: photo('terrein1-1.jpg'),
             paragraphs: [
               "The entire plot is fenced. You park your car on the property itself, and there's also a spacious garage.",
               'Casa Lana stands freely and offers plenty of space around the house. At the same time, people live in the wider area with whom we have a good relationship. Peace and privacy, without feeling completely cut off from the world.',
@@ -204,20 +204,30 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight" id="gallery">
     <div class="wrap">
       <h2>Gallery</h2>
       <PhotoGrid
+        closeLabel="Close"
+        prevLabel="Previous"
+        nextLabel="Next"
         items={[
-          { label: 'Pool', image: photo('IMG_6053.jpg') },
-          { label: 'Terrace', image: photo('IMG_6065.jpg') },
+          { label: 'Pool and terrace', image: photo('zwembad en terras.jpg') },
+          { label: 'Terrace', image: photo('terras1-13.jpg') },
+          { label: 'Outdoor table', image: photo('buitentafel1-5.jpg') },
           { label: 'Living room', image: photo('woonkamer1-1.jpg') },
           { label: 'Kitchen', image: photo('keuken1-1.jpg') },
           { label: 'Bedroom 1', image: photo('master-bedroom.jpg') },
-          { label: 'Bedroom 2', image: photo('slaapkamer2-1.jpg') },
-          { label: 'Bedroom 3', image: photo('slaapkamer3-1.jpg') },
-          { label: 'Bathroom', image: photo('badkamer2-1.jpg') },
-          { label: 'Garden', image: photo('IMG_6059.jpg') },
+          { label: 'Bedroom 2', image: photo('slaapkamer2-2.jpg') },
+          { label: 'Bedroom 3', image: photo('slaapkamer3-2.jpg') },
+          { label: 'Bathroom 1', image: photo('badkamer1-2.jpg') },
+          { label: 'Bathroom 2', image: photo('badkamer2-1.jpg') },
+          { label: 'Lounge', image: photo('lounge1-1.jpg') },
+          { label: 'Casa Lana outside', image: photo('hero.jpg') },
+          { label: 'Evening atmosphere', image: photo('IMG_6065.jpg') },
+          { label: 'Surroundings', image: photo('IMG_6059.jpg') },
+          { label: 'Pool at night', image: photo('IMG_6058.jpg') },
+          { label: 'Terrace at sunset', image: photo('terras1-6b.jpg') },
         ]}
       />
     </div>

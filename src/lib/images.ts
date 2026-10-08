@@ -16,6 +16,9 @@ import badkamer11Jpg from '../images/badkamer1-1.jpg';
 import badkamer21Jpg from '../images/badkamer2-1.jpg';
 import badkamer22Jpg from '../images/badkamer2-2.jpg';
 import masterBedroomJpg from '../images/master-bedroom.jpg';
+import masterBedroom2Jpg from '../images/master-bedroom2.jpg';
+import terras16bJpg from '../images/terras1-6b.jpg';
+import terrein11Jpg from '../images/terrein1-1.jpg';
 import slaapkamer21Jpg from '../images/slaapkamer2-1.jpg';
 import slaapkamer31Jpg from '../images/slaapkamer3-1.jpg';
 import woonkamer11Jpg from '../images/woonkamer1-1.jpg';
@@ -29,6 +32,10 @@ import woonkamer14Jpg from '../images/woonkamer1-4.jpg';
 import buitentafel15Jpg from '../images/buitentafel1-5.jpg';
 import terras11PortraitJpg from '../images/terras1-1 portrait.jpg';
 import palmbladerenWatercolorPng from '../images/palmbladeren-watercolor.png';
+import slaapkamer22Jpg from '../images/slaapkamer2-2.jpg';
+import slaapkamer32Jpg from '../images/slaapkamer3-2.jpg';
+import badkamer12Jpg from '../images/badkamer1-2.jpg';
+import lounge11Jpg from '../images/lounge1-1.jpg';
 
 const byFilename: Record<string, ImageMetadata> = {
   'hero.jpg': heroJpg,
@@ -39,6 +46,9 @@ const byFilename: Record<string, ImageMetadata> = {
   'badkamer2-1.jpg': badkamer21Jpg,
   'badkamer2-2.jpg': badkamer22Jpg,
   'master-bedroom.jpg': masterBedroomJpg,
+  'master-bedroom2.jpg': masterBedroom2Jpg,
+  'terras1-6b.jpg': terras16bJpg,
+  'terrein1-1.jpg': terrein11Jpg,
   'slaapkamer2-1.jpg': slaapkamer21Jpg,
   'slaapkamer3-1.jpg': slaapkamer31Jpg,
   'woonkamer1-1.jpg': woonkamer11Jpg,
@@ -52,6 +62,10 @@ const byFilename: Record<string, ImageMetadata> = {
   'buitentafel1-5.jpg': buitentafel15Jpg,
   'terras1-1 portrait.jpg': terras11PortraitJpg,
   'palmbladeren-watercolor.png': palmbladerenWatercolorPng,
+  'slaapkamer2-2.jpg': slaapkamer22Jpg,
+  'slaapkamer3-2.jpg': slaapkamer32Jpg,
+  'badkamer1-2.jpg': badkamer12Jpg,
+  'lounge1-1.jpg': lounge11Jpg,
 };
 
 export function photo(filename: string): ImageMetadata {

@@ -50,6 +50,7 @@ const navItems: { group: PageGroup; label: string }[] = [
             href={ROUTES[active][l]}
             class:list={['site-header__lang', { 'is-active': l === lang }]}
             aria-current={l === lang ? 'true' : undefined}
+            onclick="document.cookie='lang-chosen=1;path=/;max-age=31536000'"
           >
             {LANG_LABELS[l]}
           </a>
@@ -71,7 +72,7 @@ const navItems: { group: PageGroup; label: string }[] = [
 
   .site-header__inner {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     gap: 1.5rem;
     padding-top: 1.1rem;
@@ -95,17 +96,21 @@ const navItems: { group: PageGroup; label: string }[] = [
 
   .site-header__link {
     text-decoration: none;
-    font-size: 0.92rem;
+    font-size: 0.82rem;
     font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--color-ink);
     padding-bottom: 0.2rem;
     border-bottom: 2px solid transparent;
   }
 
-  .site-header__link:hover,
-  .site-header__link.is-active {
+  .site-header__link:hover {
     color: var(--color-green-deep);
-    border-bottom-color: var(--color-green-deep);
+  }
+
+  .site-header__link.is-active {
+    color: var(--color-clay-deep);
   }
 
   .site-header__langs {

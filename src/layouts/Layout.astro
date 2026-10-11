@@ -16,6 +16,9 @@ interface Props {
 
 const { lang, active, title, description } = Astro.props;
 
+const altUrls = Object.fromEntries(LANGS.map((l) => [l, ROUTES[active][l]])) as Record<Lang, string>;
+const otherLangs = LANGS.filter((l) => l !== 'nl');
+
 const site = Astro.site ?? new URL('https://casa-hondon.netlify.app');
 const canonicalURL = new URL(ROUTES[active][lang], site);
 const ogImage = await getImage({ src: photo('hero.jpg'), width: 1200 });
@@ -90,6 +93,31 @@ const structuredData = {
     <meta name="twitter:image" content={imageURL} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+
+    {
+      lang === 'nl' && (
+        <script is:inline define:vars={{ altUrls, otherLangs }}>
+          (function () {
+            try {
+              if (document.cookie.indexOf('lang-chosen=1') !== -1) return;
+              var prefs = navigator.languages || [navigator.language || ''];
+              var match = null;
+              for (var i = 0; i < prefs.length; i++) {
+                var code = (prefs[i] || '').slice(0, 2).toLowerCase();
+                if (otherLangs.indexOf(code) !== -1) {
+                  match = code;
+                  break;
+                }
+              }
+              document.cookie = 'lang-chosen=1;path=/;max-age=31536000';
+              if (match && altUrls[match]) {
+                window.location.replace(altUrls[match]);
+              }
+            } catch (e) {}
+          })();
+        </script>
+      )
+    }
   </head>
   <body>
     <Header lang={lang} active={active} />

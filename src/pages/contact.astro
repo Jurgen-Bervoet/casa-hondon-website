@@ -36,7 +36,7 @@ import { photo } from '../lib/images';
       <div>
         <h2>Gegevens</h2>
         <ul class="contact-details">
-          <li><strong>E-mail</strong><span>info@casalana.example</span></li>
+          <li><strong>E-mail</strong><span><a href="mailto:info@villa-solmira.eu">info@villa-solmira.eu</a></span></li>
           <li><strong>Telefoon</strong><span>+34 XXX XXX XXX</span></li>
           <li><strong>Locatie</strong><span>Hondón de las Nieves, Alicante, Spanje</span></li>
         </ul>
@@ -100,5 +100,15 @@ import { photo } from '../lib/images';
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--color-clay-deep);
+  }
+
+  .contact-details a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .contact-details a:hover {
+    color: var(--color-green-deep);
+    text-decoration: underline;
   }
 </style>

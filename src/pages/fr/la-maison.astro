@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import PhotoBand from '../../components/PhotoBand.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
@@ -14,15 +15,16 @@ import { ROUTES } from '../../i18n/routes';
 <Layout
   lang="fr"
   active="house"
-  title="La Maison — Casa Lana"
-  description="Découvrez Casa Lana : agencement, chambres, salles de bain, cuisine et la piscine privée de cette maison de vacances à Hondón de las Nieves."
+  title="La Maison — Villa Solmira"
+  description="Découvrez Villa Solmira : agencement, chambres, salles de bain, cuisine et la piscine privée de cette maison de vacances à Hondón de las Nieves."
 >
-  <section class="section">
+  <section class="section decor-host">
+    <Image src={photo('palmbladeren-watercolor.png')} alt="" class="decor-img" width={400} />
     <div class="wrap page-intro">
       <span class="eyebrow">La Maison</span>
       <h1>Espace, confort et calme</h1>
       <p>
-        Casa Lana est une habitation spacieuse, entièrement de plain-pied, pour six personnes
+        Villa Solmira est une habitation spacieuse, entièrement de plain-pied, pour six personnes
         maximum. La maison se trouve sur un terrain entièrement clôturé de 10 000 m² et offre
         beaucoup d'intimité et d'espace. À l'intérieur, vous trouverez trois chambres
         spacieuses, deux salles de bain, un séjour, une cuisine entièrement équipée et un
@@ -36,7 +38,7 @@ import { ROUTES } from '../../i18n/routes';
     <PhotoBand label="Photo : séjour" image={photo('woonkamer1-4.jpg')} />
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight section--white">
     <div class="wrap">
       <h2>Tout pour un séjour reposant</h2>
       <FacilityIcons
@@ -110,7 +112,7 @@ import { ROUTES } from '../../i18n/routes';
     <div class="wrap">
       <h2>Dormir</h2>
       <p class="section-intro">
-        Casa Lana dispose de trois chambres spacieuses pour deux personnes chacune. Chaque
+        Villa Solmira dispose de trois chambres spacieuses pour deux personnes chacune. Chaque
         chambre est équipée d'un lit double de 160 cm de large. À votre arrivée, les lits sont
         déjà faits : vos vacances peuvent commencer tout de suite.
       </p>
@@ -174,7 +176,7 @@ import { ROUTES } from '../../i18n/routes';
             imageLabel: 'Photo : séjour',
             image: photo('woonkamer1-3.jpg'),
             paragraphs: [
-              "Casa Lana dispose d'une climatisation et d'un chauffage centralisés, complétés par un poêle à granulés. Le wifi est disponible dans toute la maison, et il y a une télévision.",
+              "Villa Solmira dispose d'une climatisation et d'un chauffage centralisés, complétés par un poêle à granulés. Le wifi est disponible dans toute la maison, et il y a une télévision.",
               "Un lave-linge, un aspirateur et un fer à repasser sont également à disposition. Pour les familles avec un bébé, nous fournissons sur demande un lit bébé et une chaise haute. Toute la maison est de plain-pied, sans escalier à l'intérieur.",
             ],
           },
@@ -184,18 +186,18 @@ import { ROUTES } from '../../i18n/routes';
             image: photo('terras1-6b.jpg'),
             paragraphs: [
               "Quand on vient en Espagne, on a surtout envie de vivre dehors. C'est pourquoi l'espace extérieur compte tout autant pour nous que la maison elle-même.",
-              "Casa Lana se trouve sur un terrain de 10 000 m² et dispose d'une grande piscine privée de 3 sur 12 mètres. La piscine est réservée exclusivement à votre groupe et est entretenue chaque semaine, le jeudi.",
+              "Villa Solmira se trouve sur un terrain de 10 000 m² et dispose d'une grande piscine privée de 3 sur 12 mètres. La piscine est réservée exclusivement à votre groupe et est entretenue chaque semaine, le jeudi.",
               "Autour de la piscine se trouvent six transats. Il n'y a pas d'ombre naturelle autour de la piscine ou de la terrasse ; nous fournissons des parasols afin que vous puissiez créer votre propre coin d'ombre.",
               "Il y a un coin salon pour prendre tranquillement un verre, et une grande table extérieure avec huit chaises pour petit-déjeuner, déjeuner ou dîner ensemble longuement. Le barbecue est prêt pour les soirées où vous avez envie de manger à la maison. Un éclairage extérieur est également présent, afin que la terrasse continue de faire partie de votre soirée après le coucher du soleil.",
             ],
           },
           {
             heading: "Tout l'espace pour vous",
-            imageLabel: 'Photo : terrain autour de Casa Lana',
+            imageLabel: 'Photo : terrain autour de Villa Solmira',
             image: photo('terrein1-1.jpg'),
             paragraphs: [
               "L'ensemble du terrain est clôturé. Vous garez votre voiture sur la propriété même, et il y a également un grand garage.",
-              "Casa Lana est isolée et offre beaucoup d'espace autour de la maison. En même temps, des personnes vivent dans les environs, avec qui nous entretenons de bonnes relations. Calme et intimité, sans pour autant se sentir totalement coupé du monde.",
+              "Villa Solmira est isolée et offre beaucoup d'espace autour de la maison. En même temps, des personnes vivent dans les environs, avec qui nous entretenons de bonnes relations. Calme et intimité, sans pour autant se sentir totalement coupé du monde.",
             ],
             listHeading: 'À apporter vous-même',
             list: ['Serviettes de plage', 'Éventuellement des jouets de piscine'],
@@ -224,7 +226,7 @@ import { ROUTES } from '../../i18n/routes';
           { label: 'Salle de bain 1', image: photo('badkamer1-2.jpg') },
           { label: 'Salle de bain 2', image: photo('badkamer2-1.jpg') },
           { label: 'Coin salon', image: photo('lounge1-1.jpg') },
-          { label: 'Casa Lana vue extérieure', image: photo('hero.jpg') },
+          { label: 'Villa Solmira vue extérieure', image: photo('hero.jpg') },
           { label: 'Ambiance du soir', image: photo('IMG_6065.jpg') },
           { label: 'Environs', image: photo('IMG_6059.jpg') },
           { label: 'Piscine de nuit', image: photo('IMG_6058.jpg') },
@@ -236,7 +238,7 @@ import { ROUTES } from '../../i18n/routes';
 
   <CTABlock
     title="Envie de séjourner ici ?"
-    text="Consultez la disponibilité de Casa Lana et envoyez votre demande."
+    text="Consultez la disponibilité de Villa Solmira et envoyez votre demande."
     ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
   />

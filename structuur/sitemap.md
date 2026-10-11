@@ -1,10 +1,10 @@
-# Sitemap — Casa Lana
+# Sitemap — Villa Solmira
 
 Vakantiehuis in Hondón de las Nieves (Alicante). 3 slaapkamers, 2 badkamers, plaats voor
 6 personen, privézwembad (3 x 11 m), 10.000 m² volledig omheind terrein. Site in
 NL (hoofdtaal) / ES / EN / FR.
 
-> "Casa Lana" is een werknaam (zie brainstorm-document), momenteel overal doorgevoerd op
+> "Villa Solmira" is een werknaam (zie brainstorm-document), momenteel overal doorgevoerd op
 > verzoek van de eigenaars. Kan later nog wijzigen — zie memory-bestand van dit project.
 
 ## Paginastructuur
@@ -29,7 +29,7 @@ Elke pagina bestaat in 4 taalversies. NL is de standaardtaal zonder prefix.
 3. **Omgeving** — 13 bestemmingen als kaarten (naam, afstand, beschrijving, "zeker doen"),
    samenvattingstabel "in één oogopslag", teaser voor de exclusieve gastengids na boeking
 4. **Ons Verhaal** — het volledige verhaal van het gezin (Evelien, Jurgen, Lukas, Helena),
-   waarom en hoe ze Casa Lana kochten
+   waarom en hoe ze Villa Solmira kochten
 5. **Prijzen & Beschikbaarheid** — kalender + aanvraagformulier, aankomst/vertrek
    (16:00–21:00 incheck, +€25 na 21u, keyholder), betaling (50% aanbetaling, restant 1 maand
    voor aankomst, borg €800, schoonmaak €150), energie (nog te bevestigen hoe afgerekend),
@@ -46,12 +46,12 @@ Elke pagina bestaat in 4 taalversies. NL is de standaardtaal zonder prefix.
 
 ## Vaste elementen (alle pagina's)
 
-- **Header**: logo/naam "Casa Lana", navigatie (7 items), taalwissel (NL/ES/EN/FR)
+- **Header**: logo/naam "Villa Solmira", navigatie (7 items), taalwissel (NL/ES/EN/FR)
 - **Footer**: huisnaam + tagline, navigatie herhaald, copyright
 
 ## Nog te beslissen / later aan te vullen
 
-- Definitieve huisnaam (Casa Lana is een werknaam)
+- Definitieve huisnaam (Villa Solmira is een werknaam)
 - E-mailadres en telefoonnummer
 - Minimumverblijfsduur
 - Hoe energieverbruik precies gemeten/afgerekend wordt

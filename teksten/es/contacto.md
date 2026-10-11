@@ -5,7 +5,7 @@ taal: es
 
 ## Intro
 
-¿Tienes alguna pregunta sobre Casa Lana que no esté relacionada con una solicitud de
+¿Tienes alguna pregunta sobre Villa Solmira que no esté relacionada con una solicitud de
 reserva? No dudes en escribirnos.
 
 ## Datos

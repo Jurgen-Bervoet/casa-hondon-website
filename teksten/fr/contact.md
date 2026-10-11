@@ -5,7 +5,7 @@ taal: fr
 
 ## Intro
 
-Vous avez une question sur Casa Lana qui n'est pas liée à une demande de réservation ?
+Vous avez une question sur Villa Solmira qui n'est pas liée à une demande de réservation ?
 N'hésitez pas à nous contacter.
 
 ## Coordonnées

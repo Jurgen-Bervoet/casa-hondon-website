@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import PhotoGrid from '../components/PhotoGrid.astro';
@@ -14,15 +15,16 @@ import { ROUTES } from '../i18n/routes';
 <Layout
   lang="nl"
   active="house"
-  title="Het Huis — Casa Lana"
-  description="Ontdek Casa Lana: indeling, voorzieningen, slaapkamers, keuken en het privézwembad van dit vakantiehuis in Hondón de las Nieves."
+  title="Het Huis — Villa Solmira"
+  description="Ontdek Villa Solmira: indeling, voorzieningen, slaapkamers, keuken en het privézwembad van dit vakantiehuis in Hondón de las Nieves."
 >
-  <section class="section">
+  <section class="section decor-host">
+    <Image src={photo('palmbladeren-watercolor.png')} alt="" class="decor-img" width={400} />
     <div class="wrap page-intro">
       <span class="eyebrow">Het Huis</span>
       <h1>Ruimte, comfort en rust</h1>
       <p>
-        Casa Lana is een ruime, volledig gelijkvloerse woning voor maximaal zes personen. Het
+        Villa Solmira is een ruime, volledig gelijkvloerse woning voor maximaal zes personen. Het
         huis staat op een volledig omheind terrein van 10.000 m² en biedt veel privacy en
         ruimte. Binnen vind je drie ruime slaapkamers, twee badkamers, een woonkamer, een
         volledig uitgeruste keuken en een berging. Centrale airconditioning en verwarming
@@ -35,7 +37,7 @@ import { ROUTES } from '../i18n/routes';
     <PhotoBand label="Foto: woonkamer" image={photo('woonkamer1-4.jpg')} />
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight section--white">
     <div class="wrap">
       <h2>Alles voor een ontspannen verblijf</h2>
       <FacilityIcons
@@ -109,7 +111,7 @@ import { ROUTES } from '../i18n/routes';
     <div class="wrap">
       <h2>Slapen</h2>
       <p class="section-intro">
-        Casa Lana beschikt over drie ruime slaapkamers voor telkens twee personen. Iedere
+        Villa Solmira beschikt over drie ruime slaapkamers voor telkens twee personen. Iedere
         slaapkamer heeft een tweepersoonsbed van 160 cm breed. Bij aankomst zijn de bedden
         voor jullie opgemaakt, je vakantie kan dus meteen beginnen.
       </p>
@@ -173,7 +175,7 @@ import { ROUTES } from '../i18n/routes';
             imageLabel: 'Foto: woonkamer',
             image: photo('woonkamer1-3.jpg'),
             paragraphs: [
-              `Casa Lana beschikt over centrale airconditioning en verwarming, aangevuld met een pelletkachel. Wifi is aanwezig in het huis en er is een televisie.`,
+              `Villa Solmira beschikt over centrale airconditioning en verwarming, aangevuld met een pelletkachel. Wifi is aanwezig in het huis en er is een televisie.`,
               `Ook een wasmachine, stofzuiger en strijkijzer staan ter beschikking. Voor gezinnen met een baby voorzien we op aanvraag een kinderbedje en kinderstoel. Het volledige huis is gelijkvloers en er zijn binnen geen trappen.`,
             ],
           },
@@ -183,18 +185,18 @@ import { ROUTES } from '../i18n/routes';
             image: photo('terras1-6b.jpg'),
             paragraphs: [
               `Als je naar Spanje komt, wil je vooral buiten leven. Daarom is de buitenruimte voor ons minstens even belangrijk als het huis zelf.`,
-              `Casa Lana ligt op een terrein van 10.000 m² en beschikt over een groot privézwembad van 3 bij 12 meter. Het zwembad is uitsluitend voor jullie gezelschap en wordt wekelijks op donderdag onderhouden.`,
+              `Villa Solmira ligt op een terrein van 10.000 m² en beschikt over een groot privézwembad van 3 bij 12 meter. Het zwembad is uitsluitend voor jullie gezelschap en wordt wekelijks op donderdag onderhouden.`,
               `Rond het zwembad staan zes ligstoelen. Er zijn parasols voorzien zodat je zelf een schaduwrijke plek kunt creëren.`,
               `Er is een zithoek om rustig iets te drinken en een grote buitentafel met acht stoelen om samen te ontbijten, lunchen of 's avonds lang te tafelen. De BBQ staat klaar voor avonden waarop je gezellig thuis wilt eten.`,
             ],
           },
           {
             heading: 'Alle ruimte voor jezelf',
-            imageLabel: 'Foto: terrein rond Casa Lana',
+            imageLabel: 'Foto: terrein rond Villa Solmira',
             image: photo('terrein1-1.jpg'),
             paragraphs: [
               `Het volledige terrein is omheind. Je wagen parkeer je op het eigen terrein en er is ook een ruime garage.`,
-              `Casa Lana staat vrij en biedt veel ruimte rondom het huis. Tegelijk wonen er mensen in de ruimere omgeving met wie we zelf een goed contact hebben. Rust en privacy, zonder het gevoel volledig van de wereld afgesloten te zijn.`,
+              `Villa Solmira staat vrij en biedt veel ruimte rondom het huis. Tegelijk wonen er mensen in de ruimere omgeving met wie we zelf een goed contact hebben. Rust en privacy, zonder het gevoel volledig van de wereld afgesloten te zijn.`,
             ],
             listHeading: 'Zelf meenemen',
             list: ['Strandlakens', 'Eventueel zwembadspeelgoed'],
@@ -223,7 +225,7 @@ import { ROUTES } from '../i18n/routes';
           { label: 'Badkamer 1', image: photo('badkamer1-2.jpg') },
           { label: 'Badkamer 2', image: photo('badkamer2-1.jpg') },
           { label: 'Lounge', image: photo('lounge1-1.jpg') },
-          { label: 'Casa Lana buiten', image: photo('hero.jpg') },
+          { label: 'Villa Solmira buiten', image: photo('hero.jpg') },
           { label: 'Avondsfeer', image: photo('IMG_6065.jpg') },
           { label: 'Omgeving', image: photo('IMG_6059.jpg') },
           { label: 'Zwembad bij avond', image: photo('IMG_6058.jpg') },
@@ -235,7 +237,7 @@ import { ROUTES } from '../i18n/routes';
 
   <CTABlock
     title="Zin om hier te logeren?"
-    text="Bekijk de beschikbaarheid van Casa Lana en stuur je aanvraag door."
+    text="Bekijk de beschikbaarheid van Villa Solmira en stuur je aanvraag door."
     ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
   />

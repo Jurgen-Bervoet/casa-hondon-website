@@ -1,47 +1,102 @@
 ---
+import { Image } from 'astro:assets';
+import PlaceholderImage from './PlaceholderImage.astro';
+
 interface Destination {
   name: string;
   distance: string;
   description: string;
   tipsLabel: string;
   tips: string;
+  /** Optional per-destination photo — falls back to a placeholder when absent. */
+  image?: ImageMetadata;
 }
 
-interface Props {
+interface DestinationGroup {
+  heading: string;
   items: Destination[];
 }
 
-const { items } = Astro.props;
+interface Props {
+  groups: DestinationGroup[];
+}
+
+const { groups } = Astro.props;
 ---
 
-<div class="destinations">
+<div class="destination-groups">
   {
-    items.map((d) => (
-      <article class="destination">
-        <div class="destination__head">
-          <h3>{d.name}</h3>
-          <span class="destination__distance">{d.distance}</span>
+    groups.map((group) => (
+      <div class="destination-group">
+        <h2 class="destination-group__heading">{group.heading}</h2>
+        <div class="destinations">
+          {group.items.map((d, i) => (
+            <article class:list={['destination', { 'destination--reverse': i % 2 === 1 }]}>
+              <div class="destination__photo">
+                {d.image ? (
+                  <Image src={d.image} alt={d.name} class="destination__img" width={900} />
+                ) : (
+                  <PlaceholderImage label={d.name} fill class="destination__img" />
+                )}
+              </div>
+              <div class="destination__text">
+                <div class="destination__head">
+                  <h3>{d.name}</h3>
+                  <span class="destination__distance">{d.distance}</span>
+                </div>
+                <p>{d.description}</p>
+                <p class="destination__tips">
+                  <strong>{d.tipsLabel}</strong> {d.tips}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
-        <p>{d.description}</p>
-        <p class="destination__tips">
-          <strong>{d.tipsLabel}</strong> {d.tips}
-        </p>
-      </article>
+      </div>
     ))
   }
 </div>
 
 <style>
+  .destination-groups {
+    display: grid;
+    gap: 4.5rem;
+  }
+
+  .destination-group__heading {
+    margin-bottom: 2rem;
+  }
+
   .destinations {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 3.5rem;
   }
 
   .destination {
-    background: #fff;
-    border: 1px solid var(--color-line);
-    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .destination--reverse .destination__photo {
+    order: 2;
+  }
+
+  .destination--reverse .destination__text {
+    order: 1;
+  }
+
+  .destination__photo {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .destination :global(.destination__img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .destination__head {
@@ -49,7 +104,8 @@ const { items } = Astro.props;
     align-items: baseline;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
   }
 
   .destination__head h3 {
@@ -65,22 +121,28 @@ const { items } = Astro.props;
     white-space: nowrap;
   }
 
-  .destination p {
-    font-size: 0.94rem;
-    color: #4a4638;
+  .destination__text p {
+    color: #3a362c;
+    margin-bottom: 1rem;
   }
 
   .destination__tips {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 
   .destination__tips strong {
     color: var(--color-green-deep);
   }
 
-  @media (max-width: 700px) {
-    .destinations {
+  @media (max-width: 780px) {
+    .destination {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .destination--reverse .destination__photo,
+    .destination--reverse .destination__text {
+      order: initial;
     }
   }
 </style>

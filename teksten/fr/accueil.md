@@ -5,14 +5,14 @@ taal: fr
 
 ## Hero
 
-**Casa Lana**
+**Villa Solmira**
 Soleil, calme et votre propre piscine au cœur de Hondón de las Nieves
 
 CTA: Voir les disponibilités
 
 ## Notre histoire
 
-Casa Lana est un rêve devenu réalité. Après des années à parcourir l'Espagne, nous savions
+Villa Solmira est un rêve devenu réalité. Après des années à parcourir l'Espagne, nous savions
 une chose : nous voulions un jour notre propre endroit ici, quelque part entre Valence et
 Alicante. Après une longue recherche, exigeante, nous avons trouvé cette maison — spacieuse,
 avec une magnifique piscine, dans une région tranquille qui reste pourtant proche de tout.
@@ -45,7 +45,7 @@ petit-déjeuner sympathique.
 
 ## Bloc CTA
 
-**Planifiez votre séjour à Casa Lana**
+**Planifiez votre séjour à Villa Solmira**
 Consultez les disponibilités et envoyez votre demande — nous confirmons rapidement par e-mail.
 
 CTA: Voir les disponibilités et réserver

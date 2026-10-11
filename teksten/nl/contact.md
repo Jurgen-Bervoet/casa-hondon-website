@@ -5,7 +5,7 @@ taal: nl
 
 ## Intro
 
-Heb je een vraag over Casa Lana die niet met een boekingsaanvraag te maken heeft?
+Heb je een vraag over Villa Solmira die niet met een boekingsaanvraag te maken heeft?
 Neem gerust contact op.
 
 ## Gegevens

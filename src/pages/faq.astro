@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import FAQList from '../components/FAQList.astro';
 import CTABlock from '../components/CTABlock.astro';
+import PhotoBand from '../components/PhotoBand.astro';
 import { ROUTES } from '../i18n/routes';
+import { photo } from '../lib/images';
 
 const items = [
   {
@@ -26,16 +28,17 @@ const items = [
   },
   {
     question: 'Is het zwembad privé?',
-    answer: 'Ja. Het zwembad van 3 bij 12 meter is volledig privé en uitsluitend voor jullie gezelschap.',
+    answer:
+      'Ja. Het zwembad van 3 bij 12 meter is volledig privé en uitsluitend voor jullie gezelschap. Let wel: het zwembad is niet omheind.',
   },
   {
     question: 'Is het zwembad verwarmd?',
     answer: 'Nee. Het zwembad wordt niet verwarmd.',
   },
   {
-    question: 'Is er schaduw aan het zwembad?',
+    question: 'Zijn er parasols?',
     answer:
-      'Er is geen natuurlijke schaduw rond het zwembad. We voorzien parasols zodat je zelf een schaduwrijke plek kunt creëren.',
+      'Ja, er zijn parasols zodat je zelf een schaduwrijke plek kunt creëren.',
   },
   {
     question: 'Is de tuin volledig omheind?',
@@ -44,7 +47,7 @@ const items = [
   {
     question: 'Zijn huisdieren toegelaten?',
     answer:
-      'We ontvangen liever geen huisdieren. Heb je hierover een specifieke vraag, neem gerust contact met ons op. Dan bekijken we wat mogelijk is.',
+      'Huisdieren zijn bespreekbaar. Neem vooraf contact met ons op, dan bekijken we samen de mogelijkheden.',
   },
   {
     question: 'Zijn kinderen welkom?',
@@ -52,7 +55,7 @@ const items = [
   },
   {
     question: 'Is er een kinderbedje en kinderstoel?',
-    answer: 'Ja. Zowel een kinderbedje als een kinderstoel zijn beschikbaar.',
+    answer: 'Ja. Zowel een kinderbedje als een kinderstoel zijn beschikbaar op aanvraag.',
   },
   {
     question: 'Heeft het huis trappen?',
@@ -109,8 +112,8 @@ const items = [
 <Layout
   lang="nl"
   active="faq"
-  title="Veelgestelde Vragen — Casa Lana"
-  description="Antwoorden op de meest gestelde vragen over Casa Lana: capaciteit, zwembad, check-in, huisdieren, wifi en meer."
+  title="Veelgestelde Vragen — Villa Solmira"
+  description="Antwoorden op de meest gestelde vragen over Villa Solmira: capaciteit, zwembad, check-in, huisdieren, wifi en meer."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -118,6 +121,10 @@ const items = [
       <h1>Veelgestelde vragen</h1>
       <p>Staat je vraag er niet bij? Neem gerust contact met ons op.</p>
     </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Foto: luchtfoto van Villa Solmira" image={photo('drone5.jpg')} />
   </section>
 
   <section class="section section--tight">

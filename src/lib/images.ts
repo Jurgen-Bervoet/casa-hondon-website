@@ -36,6 +36,26 @@ import slaapkamer22Jpg from '../images/slaapkamer2-2.jpg';
 import slaapkamer32Jpg from '../images/slaapkamer3-2.jpg';
 import badkamer12Jpg from '../images/badkamer1-2.jpg';
 import lounge11Jpg from '../images/lounge1-1.jpg';
+import lagunasDeLaMata4Jpg from '../images/lagunas-de-la-Mata4.jpg';
+import alicante3Jpg from '../images/alicante3.jpg';
+import elche2Jpg from '../images/elche2.jpg';
+import murcia1Jpg from '../images/murcia1.jpg';
+import parqueNaturalElHondo1Jpg from '../images/parque-natural-el-hondo1.jpg';
+import altea2Jpg from '../images/altea2.jpg';
+import villajoyosa1Jpg from '../images/Villajoyosa1.jpg';
+import noveldaJpg from '../images/novelda.jpg';
+import hondonDeLaNievesWebp from '../images/hondon-de-la-nieves.webp';
+import aspePng from '../images/aspe.png';
+import santaPola1Jpg from '../images/santa-pola1.jpg';
+import tabarcoJpg from '../images/tabarco.jpg';
+import santapola2Jpg from '../images/santapola2.jpg';
+import playasDeGuardamar1Jpg from '../images/playas-de-guardamar1.jpg';
+import drone2Jpg from '../images/drone2.jpg';
+import buitentafel14Jpg from '../images/buitentafel1-4.jpg';
+import terras114bPng from '../images/terras1-14b.png';
+import terras115Png from '../images/terras1-15.png';
+import drone5Jpg from '../images/drone5.jpg';
+import drone7Png from '../images/drone7.png';
 
 const byFilename: Record<string, ImageMetadata> = {
   'hero.jpg': heroJpg,
@@ -66,6 +86,26 @@ const byFilename: Record<string, ImageMetadata> = {
   'slaapkamer3-2.jpg': slaapkamer32Jpg,
   'badkamer1-2.jpg': badkamer12Jpg,
   'lounge1-1.jpg': lounge11Jpg,
+  'lagunas-de-la-Mata4.jpg': lagunasDeLaMata4Jpg,
+  'alicante3.jpg': alicante3Jpg,
+  'elche2.jpg': elche2Jpg,
+  'murcia1.jpg': murcia1Jpg,
+  'parque-natural-el-hondo1.jpg': parqueNaturalElHondo1Jpg,
+  'altea2.jpg': altea2Jpg,
+  'Villajoyosa1.jpg': villajoyosa1Jpg,
+  'novelda.jpg': noveldaJpg,
+  'hondon-de-la-nieves.webp': hondonDeLaNievesWebp,
+  'aspe.png': aspePng,
+  'santa-pola1.jpg': santaPola1Jpg,
+  'tabarco.jpg': tabarcoJpg,
+  'santapola2.jpg': santapola2Jpg,
+  'playas-de-guardamar1.jpg': playasDeGuardamar1Jpg,
+  'drone2.jpg': drone2Jpg,
+  'buitentafel1-4.jpg': buitentafel14Jpg,
+  'terras1-14b.png': terras114bPng,
+  'terras1-15.png': terras115Png,
+  'drone5.jpg': drone5Jpg,
+  'drone7.png': drone7Png,
 };
 
 export function photo(filename: string): ImageMetadata {

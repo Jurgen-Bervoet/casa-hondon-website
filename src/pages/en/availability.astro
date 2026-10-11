@@ -2,7 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import AvailabilityCalendar from '../../components/AvailabilityCalendar.astro';
 import BookingForm from '../../components/BookingForm.astro';
+import PricingTable from '../../components/PricingTable.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
 import { fetchBusyRanges } from '../../lib/calendar';
+import { photo } from '../../lib/images';
+import { ROUTES } from '../../i18n/routes';
 
 const bookedRanges = await fetchBusyRanges();
 ---
@@ -10,8 +14,8 @@ const bookedRanges = await fetchBusyRanges();
 <Layout
   lang="en"
   active="availability"
-  title="Pricing & Availability — Casa Lana"
-  description="Check the availability of Casa Lana, pricing, payment terms and cancellation policy."
+  title="Pricing & Availability — Villa Solmira"
+  description="Check the availability of Villa Solmira, pricing, payment terms and cancellation policy."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -20,6 +24,44 @@ const bookedRanges = await fetchBusyRanges();
       <p>
         Check our calendar to see when the house is available and choose the period that
         suits you. There is no fixed arrival day.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Photo: pool and terrace" image={photo('terras1-15.png')} />
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Pricing</h2>
+      <p class="section-intro">
+        Our prices depend on the season. Below is a first indicative price per season — the
+        final rates will be added here soon.
+      </p>
+      <PricingTable
+        headers={{ season: 'Season', period: 'Period', perWeek: 'Per week' }}
+        rows={[
+          {
+            season: 'Low season',
+            period: '15 September to 14 March (excluding Christmas & New Year)',
+            perWeek: '€750',
+          },
+          {
+            season: 'Mid season',
+            period: '15 March to 14 June, and Christmas & New Year',
+            perWeek: '€950',
+          },
+          {
+            season: 'High season',
+            period: '15 June to 14 September',
+            perWeek: '€1,450',
+          },
+        ]}
+      />
+      <p class="fine-print">
+        Note: these are provisional indicative prices based on comparable properties in the
+        area. Final rates will be added here once confirmed.
       </p>
     </div>
   </section>
@@ -59,48 +101,16 @@ const bookedRanges = await fetchBusyRanges();
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Arrival and departure</h2>
+      <h2>Good to know</h2>
       <ul class="practical">
-        <li>Check-in is between 16:00 and 21:00. A €25 fee applies for arrivals after 21:00.</li>
-        <li>On the day of departure, we ask you to vacate the house by 11:00 at the latest.</li>
-        <li>A keyholder will greet you in person on arrival and give you the necessary information about the house.</li>
-        <li><strong>Minimum stay</strong> — to be confirmed</li>
-        <li><strong>Pets</strong> — we'd rather not host pets, feel free to contact us with specific questions</li>
-        <li><strong>Smoking</strong> — not allowed indoors</li>
+        <li>Check-in is between 16:00 and 21:00; check-out is by 11:00 at the latest.</li>
+        <li>Your booking is confirmed after payment of 50% of the rental sum; the remaining amount and the security deposit (€800) are due one month before arrival.</li>
+        <li>You can cancel for free up to 8 weeks in advance. After that, cancellation fees apply on a sliding scale.</li>
       </ul>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap two-col">
-      <div>
-        <h2>Payment</h2>
-        <ul class="practical">
-          <li>Your booking is confirmed after payment of 50% of the total rental sum.</li>
-          <li>The remaining amount is due no later than one month before arrival.</li>
-          <li>The security deposit is €800, also due one month before arrival. After departure the house is checked; if everything is in order, the deposit is refunded within one week.</li>
-          <li>The mandatory final cleaning fee is €150 per stay.</li>
-        </ul>
-        <h2 class="mt">Energy</h2>
-        <ul class="practical">
-          <li>Energy costs are included based on a standard usage of €8 electricity per day and €5 water per day. Usage above this standard is deducted from the security deposit.</li>
-        </ul>
-        <p class="fine-print">
-          Note: this arrangement will be confirmed once it's settled how usage is measured and billed.
-        </p>
-      </div>
-      <div>
-        <h2>Cancellation policy</h2>
-        <ul class="practical">
-          <li>Cancelling 8 weeks before the start of the rental period: 0% of the rental price.</li>
-          <li>Cancelling 6 weeks before the start of the rental period: 25% of the rental price.</li>
-          <li>Cancelling 2 weeks before the start of the rental period: 100% of the rental price.</li>
-        </ul>
-        <p class="fine-print">
-          Note: the policy for cancellations between 6 and 2 weeks before the start still needs to be defined.
-        </p>
-        <p class="fine-print">The owner is not responsible for accidents or theft.</p>
-      </div>
+      <p class="fine-print">
+        These are the key points in brief. For all details — including house rules, energy
+        costs and liability — see our <a href={ROUTES.terms.en}>terms and conditions</a>.
+      </p>
     </div>
   </section>
 </Layout>
@@ -108,6 +118,11 @@ const bookedRanges = await fetchBusyRanges();
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .two-col {
@@ -140,13 +155,14 @@ const bookedRanges = await fetchBusyRanges();
     border-radius: 0;
   }
 
-  .mt {
-    margin-top: 2rem;
-  }
-
   .fine-print {
     margin-top: 1rem;
     font-size: 0.85rem;
     color: #57534a;
+  }
+
+  .fine-print a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
   }
 </style>

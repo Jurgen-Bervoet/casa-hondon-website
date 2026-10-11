@@ -5,7 +5,7 @@ taal: en
 
 ## Intro
 
-Check Casa Lana's availability below and send a request for your preferred dates. We'll
+Check Villa Solmira's availability below and send a request for your preferred dates. We'll
 confirm your request by email as soon as possible.
 
 ## Calendar

@@ -1,117 +1,147 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import PhotoBand from '../../components/PhotoBand.astro';
 import DestinationList from '../../components/DestinationList.astro';
 import SummaryTable from '../../components/SummaryTable.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import { ROUTES } from '../../i18n/routes';
+import { photo } from '../../lib/images';
 
 const tipsLabel = "Don't miss:";
 
-const destinations = [
+const destinationGroups = [
   {
-    name: 'Hondón de las Nieves',
-    distance: '± 8-minute drive',
-    description:
-      "This is our own village, and the place for everyday shopping. Hondón de las Nieves is small and authentic, with a lovely village square and everything you need on holiday. You'll find supermarkets, a bakery, a butcher, local shops, a pharmacy, cafés and several restaurants. The area around Hondón is also known for its grapes and wine.",
-    tipsLabel,
-    tips: 'A stroll through the village, a drink on the square, local food, and a visit to Bodegas Cerdá.',
+    heading: 'Villages & towns',
+    items: [
+      {
+        name: 'Hondón de las Nieves',
+        distance: '± 8-minute drive',
+        description:
+          "This is our own village, and the place for everyday shopping. Hondón de las Nieves is small and authentic, with a lovely village square and everything you need on holiday. You'll find supermarkets, a bakery, a butcher, local shops, a pharmacy, cafés and several restaurants. The area around Hondón is also known for its grapes and wine.",
+        image: photo('hondon-de-la-nieves.webp'),
+        tipsLabel,
+        tips: 'A stroll through the village, a drink on the square, local food, and a visit to Bodegas Cerdá.',
+      },
+      {
+        name: 'Aspe',
+        distance: '± 15-minute drive | about 13 km',
+        description:
+          "Aspe is bigger than Hondón and handy for shopping. It's also nice for a stroll or a bite to eat. The town sits on the Tarafa river and still bears clear traces of its Arab and medieval past. Along the Tarafa you'll find old aqueducts, waterworks, mills and historic bridges.",
+        image: photo('aspe.png'),
+        tipsLabel,
+        tips: 'The centre and Plaza Mayor, a terrace café, the local market, and a walk along the Tarafa.',
+      },
+      {
+        name: 'Novelda',
+        distance: '± 20-minute drive | about 20 km',
+        description:
+          'Novelda is worth a trip for its modernist architecture and the striking Santuario de Santa María Magdalena. Next to the sanctuary is the medieval Castillo de La Mola. The centre of Novelda also has several modernist buildings.',
+        image: photo('novelda.jpg'),
+        tipsLabel,
+        tips: "Santuario de Santa María Magdalena, Castillo de La Mola, and then a drink or a meal in Novelda. Check the sanctuary's current opening times in advance.",
+      },
+      {
+        name: 'Elche',
+        distance: '± 30-minute drive | about 30 km',
+        description:
+          'Elche is world-famous for its enormous palm grove. The Palmeral de Elche has UNESCO status and gives parts of the city an almost North African feel. Elche combines palm trees and historic sites with shops, restaurants and lovely squares.',
+        image: photo('elche2.jpg'),
+        tipsLabel,
+        tips: 'Walking through the Palmeral, visiting Huerto del Cura, discovering the historic centre, and lunch or tapas somewhere.',
+      },
+      {
+        name: 'Alicante',
+        distance: '± 40-minute drive | about 40 km',
+        description:
+          "Fancy a bit more life, shops, restaurants and the sea? Alicante is ideal for a full day out, and compact enough to explore largely on foot. Above the city stands Castillo de Santa Bárbara, with beautiful views over Alicante and the Mediterranean. Below, you stroll through the old town towards the harbour and the Explanada de España. Playa del Postiguet sits right in Alicante, at the foot of the castle.",
+        image: photo('alicante3.jpg'),
+        tipsLabel,
+        tips: 'Castillo de Santa Bárbara, Barrio de Santa Cruz, Explanada de España, the marina, the old town and Playa del Postiguet.',
+      },
+      {
+        name: 'Murcia',
+        distance: '± 50–60-minute drive',
+        description:
+          'Murcia lies in a different autonomous region and has its own distinct feel as a result. A great choice for combining culture, shops, squares and gastronomy. The historic centre lies around the cathedral and Plaza del Cardenal Belluga.',
+        image: photo('murcia1.jpg'),
+        tipsLabel,
+        tips: "The cathedral, the old town, Plaza de las Flores, and a leisurely lunch. Check the cathedral's current opening hours in advance.",
+      },
+      {
+        name: 'Altea',
+        distance: '± 60–75-minute drive',
+        description:
+          'Altea is perfect for a day trip. The old town, set against a hillside, consists of white houses, narrow streets, small shops, restaurants and viewpoints over the Mediterranean. This is mostly a place to wander around at a slow pace and soak up the atmosphere along the way.',
+        image: photo('altea2.jpg'),
+        tipsLabel,
+        tips: 'The old town, the church square, Mirador de los Cronistas de España, eating with a view, and optionally combining it with a beach day.',
+      },
+    ],
   },
   {
-    name: 'Aspe',
-    distance: '± 15-minute drive | about 13 km',
-    description:
-      "Aspe is bigger than Hondón and handy for shopping. It's also nice for a stroll or a bite to eat. The town sits on the Tarafa river and still bears clear traces of its Arab and medieval past. Along the Tarafa you'll find old aqueducts, waterworks, mills and historic bridges.",
-    tipsLabel,
-    tips: 'The centre and Plaza Mayor, a terrace café, the local market, and a walk along the Tarafa.',
+    heading: 'Nature',
+    items: [
+      {
+        name: 'Crevillent & Parque Natural El Hondo',
+        distance: '± 30-minute drive',
+        description:
+          "For those who like to combine nature with a quiet walk, this is a lovely change of pace. The Sierra de Crevillent is interesting for hikers. The nearby El Hondo nature park consists of wetlands and reservoirs and is an important spot for many bird species — with some luck, you'll spot flamingos and other waterbirds.",
+        image: photo('parque-natural-el-hondo1.jpg'),
+        tipsLabel,
+        tips: 'Head to El Hondo early in the morning for a nature walk and birdwatching.',
+      },
+      {
+        name: 'Torrevieja & the pink salt lakes',
+        distance: '± 50–60-minute drive',
+        description:
+          "Torrevieja is a lively coastal town. The area is especially notable for the Lagunas de La Mata y Torrevieja nature park. One of the salt lakes is known for its striking pink colour. Near Laguna de La Mata there are walking routes and observation points where flamingos, among other birds, can be seen. The pink lagoon itself is protected and not freely accessible.",
+        image: photo('lagunas-de-la-Mata4.jpg'),
+        tipsLabel,
+        tips: 'Combine the nature park and salt lakes with a visit to Torrevieja or the beach.',
+      },
+    ],
   },
   {
-    name: 'Novelda',
-    distance: '± 20-minute drive | about 20 km',
-    description:
-      'Novelda is worth a trip for its modernist architecture and the striking Santuario de Santa María Magdalena. Next to the sanctuary is the medieval Castillo de La Mola. The centre of Novelda also has several modernist buildings.',
-    tipsLabel,
-    tips: "Santuario de Santa María Magdalena, Castillo de La Mola, and then a drink or a meal in Novelda. Check the sanctuary's current opening times in advance.",
-  },
-  {
-    name: 'Elche',
-    distance: '± 30-minute drive | about 30 km',
-    description:
-      'Elche is world-famous for its enormous palm grove. The Palmeral de Elche has UNESCO status and gives parts of the city an almost North African feel. Elche combines palm trees and historic sites with shops, restaurants and lovely squares.',
-    tipsLabel,
-    tips: 'Walking through the Palmeral, visiting Huerto del Cura, discovering the historic centre, and lunch or tapas somewhere.',
-  },
-  {
-    name: 'Crevillent & Parque Natural El Hondo',
-    distance: '± 30-minute drive',
-    description:
-      "For those who like to combine nature with a quiet walk, this is a lovely change of pace. The Sierra de Crevillent is interesting for hikers. The nearby El Hondo nature park consists of wetlands and reservoirs and is an important spot for many bird species — with some luck, you'll spot flamingos and other waterbirds.",
-    tipsLabel,
-    tips: 'Head to El Hondo early in the morning for a nature walk and birdwatching.',
-  },
-  {
-    name: 'Alicante',
-    distance: '± 40-minute drive | about 40 km',
-    description:
-      "Fancy a bit more life, shops, restaurants and the sea? Alicante is ideal for a full day out, and compact enough to explore largely on foot. Above the city stands Castillo de Santa Bárbara, with beautiful views over Alicante and the Mediterranean. Below, you stroll through the old town towards the harbour and the Explanada de España. Playa del Postiguet sits right in Alicante, at the foot of the castle.",
-    tipsLabel,
-    tips: 'Castillo de Santa Bárbara, Barrio de Santa Cruz, Explanada de España, the marina, the old town and Playa del Postiguet.',
-  },
-  {
-    name: 'Santa Pola',
-    distance: '± 40-minute drive',
-    description:
-      "Santa Pola is a great destination if you fancy the coast and a fishing-village feel. You'll find beaches, a harbour, a promenade and plenty of restaurants serving fish and rice dishes. Nearby are the salt lakes and wetlands of Santa Pola, where flamingos are often spotted.",
-    tipsLabel,
-    tips: 'Eating fish at the harbour, the beach, visiting the salt lakes, and taking the boat to Tabarca from here.',
-  },
-  {
-    name: 'Tabarca',
-    distance: '± 40-minute drive to Santa Pola + boat',
-    description:
-      "Tabarca is a small island off the coast of Alicante. Boats to the island leave from Santa Pola. It's ideal for a day when you leave the car behind, take the boat, wander through the small village, eat by the sea, and go for a swim or snorkel.",
-    tipsLabel,
-    tips: 'Leave Santa Pola in the morning, explore the island, have lunch, and bring your swimming gear.',
-  },
-  {
-    name: 'Guardamar del Segura',
-    distance: '± 45–50-minute drive',
-    description:
-      'For a proper beach day, Guardamar is an interesting destination. It is known for its long sandy beaches, dunes and pine forests. Bring towels, a parasol and swimming gear and make a full day of it.',
-    tipsLabel,
-    tips: 'The beach, the dunes, and Parque Reina Sofía.',
-  },
-  {
-    name: 'Torrevieja & the pink salt lakes',
-    distance: '± 50–60-minute drive',
-    description:
-      "Torrevieja is a lively coastal town. The area is especially notable for the Lagunas de La Mata y Torrevieja nature park. One of the salt lakes is known for its striking pink colour. Near Laguna de La Mata there are walking routes and observation points where flamingos, among other birds, can be seen. The pink lagoon itself is protected and not freely accessible.",
-    tipsLabel,
-    tips: 'Combine the nature park and salt lakes with a visit to Torrevieja or the beach.',
-  },
-  {
-    name: 'Murcia',
-    distance: '± 50–60-minute drive',
-    description:
-      'Murcia lies in a different autonomous region and has its own distinct feel as a result. A great choice for combining culture, shops, squares and gastronomy. The historic centre lies around the cathedral and Plaza del Cardenal Belluga.',
-    tipsLabel,
-    tips: "The cathedral, the old town, Plaza de las Flores, and a leisurely lunch. Check the cathedral's current opening hours in advance.",
-  },
-  {
-    name: 'Villajoyosa',
-    distance: '± 55–65-minute drive',
-    description:
-      'The old fishing town of Villajoyosa is known for its brightly coloured houses along the coast and its long chocolate-making tradition. Here you can easily combine the beach, a walk through the old town, and chocolate.',
-    tipsLabel,
-    tips: 'The colourful houses, the promenade, the beach, the old town, and a chocolate museum.',
-  },
-  {
-    name: 'Altea',
-    distance: '± 60–75-minute drive',
-    description:
-      'Altea is perfect for a day trip. The old town, set against a hillside, consists of white houses, narrow streets, small shops, restaurants and viewpoints over the Mediterranean. This is mostly a place to wander around at a slow pace and soak up the atmosphere along the way.',
-    tipsLabel,
-    tips: 'The old town, the church square, Mirador de los Cronistas de España, eating with a view, and optionally combining it with a beach day.',
+    heading: 'Beach & coast',
+    items: [
+      {
+        name: 'Santa Pola',
+        distance: '± 40-minute drive',
+        description:
+          "Santa Pola is a great destination if you fancy the coast and a fishing-village feel. You'll find beaches, a harbour, a promenade and plenty of restaurants serving fish and rice dishes. Nearby are the salt lakes and wetlands of Santa Pola, where flamingos are often spotted.",
+        image: photo('santapola2.jpg'),
+        tipsLabel,
+        tips: 'Eating fish at the harbour, the beach, visiting the salt lakes, and taking the boat to Tabarca from here.',
+      },
+      {
+        name: 'Tabarca',
+        distance: '± 40-minute drive to Santa Pola + boat',
+        description:
+          "Tabarca is a small island off the coast of Alicante. Boats to the island leave from Santa Pola. It's ideal for a day when you leave the car behind, take the boat, wander through the small village, eat by the sea, and go for a swim or snorkel.",
+        image: photo('tabarco.jpg'),
+        tipsLabel,
+        tips: 'Leave Santa Pola in the morning, explore the island, have lunch, and bring your swimming gear.',
+      },
+      {
+        name: 'Guardamar del Segura',
+        distance: '± 45–50-minute drive',
+        description:
+          'For a proper beach day, Guardamar is an interesting destination. It is known for its long sandy beaches, dunes and pine forests. Bring towels, a parasol and swimming gear and make a full day of it.',
+        image: photo('playas-de-guardamar1.jpg'),
+        tipsLabel,
+        tips: 'The beach, the dunes, and Parque Reina Sofía.',
+      },
+      {
+        name: 'Villajoyosa',
+        distance: '± 55–65-minute drive',
+        description:
+          'The old fishing town of Villajoyosa is known for its brightly coloured houses along the coast and its long chocolate-making tradition. Here you can easily combine the beach, a walk through the old town, and chocolate.',
+        image: photo('Villajoyosa1.jpg'),
+        tipsLabel,
+        tips: 'The colourful houses, the promenade, the beach, the old town, and a chocolate museum.',
+      },
+    ],
   },
 ];
 
@@ -135,16 +165,17 @@ const summaryRows = [
 <Layout
   lang="en"
   active="area"
-  title="The Area — Casa Lana"
-  description="Discover the area around Hondón de las Nieves: villages, nature, cities and the beaches of the Costa Blanca, all within easy reach of Casa Lana."
+  title="The Area — Villa Solmira"
+  description="Discover the area around Hondón de las Nieves: villages, nature, cities and the beaches of the Costa Blanca, all within easy reach of Villa Solmira."
 >
-  <section class="section">
+  <section class="section decor-host">
+    <Image src={photo('palmbladeren-watercolor.png')} alt="" class="decor-img decor-img--left" width={400} />
     <div class="wrap page-intro">
       <span class="eyebrow">The Area</span>
       <h1>Discover the area around Hondón de las Nieves</h1>
       <p>
         Peace and quiet here certainly doesn't mean spending the whole holiday by the pool.
-        From Casa Lana you can reach authentic Spanish villages, vineyards, historic cities,
+        From Villa Solmira you can reach authentic Spanish villages, vineyards, historic cities,
         nature reserves and the beaches of the Costa Blanca. Alicante, Elche, Santa Pola,
         Murcia, Tabarca and various other destinations are all easily reachable by car.
       </p>
@@ -157,12 +188,12 @@ const summaryRows = [
   </section>
 
   <section class="section--tight">
-    <PhotoBand label="Photo: salt lakes and surrounding mountains" />
+    <PhotoBand label="Photo: landscape around Hondón de las Nieves" image={photo('IMG_6059.jpg')} />
   </section>
 
   <section class="section section--tight">
     <div class="wrap">
-      <DestinationList items={destinations} />
+      <DestinationList groups={destinationGroups} />
     </div>
   </section>
 
@@ -199,7 +230,7 @@ const summaryRows = [
   </section>
 
   <CTABlock
-    title="Casa Lana as your base"
+    title="Villa Solmira as your base"
     text="Check availability and book your stay in the heart of this peaceful region."
     ctaLabel="Check availability"
     ctaHref={ROUTES.availability.en}
@@ -207,6 +238,12 @@ const summaryRows = [
 </Layout>
 
 <style>
+  .decor-img--left {
+    left: 0;
+    right: auto;
+    transform: scaleX(-1);
+  }
+
   .page-intro {
     max-width: 68ch;
   }

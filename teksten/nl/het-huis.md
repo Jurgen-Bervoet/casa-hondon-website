@@ -5,7 +5,7 @@ taal: nl
 
 ## Intro
 
-Casa Lana is knus en compleet: groot genoeg voor een gezellig gezelschap, klein genoeg om
+Villa Solmira is knus en compleet: groot genoeg voor een gezellig gezelschap, klein genoeg om
 overal de rust van thuis te voelen. Binnen vind je alle comfort, buiten een terras en zwembad
 waar je de meeste tijd zal doorbrengen.
 

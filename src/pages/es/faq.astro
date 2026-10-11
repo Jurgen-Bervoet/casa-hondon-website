@@ -2,7 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import FAQList from '../../components/FAQList.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
 import { ROUTES } from '../../i18n/routes';
+import { photo } from '../../lib/images';
 
 const items = [
   {
@@ -44,7 +46,7 @@ const items = [
   {
     question: '¿Se admiten mascotas?',
     answer:
-      'Preferimos no recibir mascotas. Si tienes una pregunta concreta al respecto, no dudes en contactarnos; entonces veremos qué es posible.',
+      'Las mascotas son negociables. Contáctanos previamente y lo valoramos juntos caso por caso.',
   },
   {
     question: '¿Son bienvenidos los niños?',
@@ -109,8 +111,8 @@ const items = [
 <Layout
   lang="es"
   active="faq"
-  title="Preguntas Frecuentes — Casa Lana"
-  description="Respuestas a las preguntas más frecuentes sobre Casa Lana: capacidad, piscina, check-in, mascotas, wifi y más."
+  title="Preguntas Frecuentes — Villa Solmira"
+  description="Respuestas a las preguntas más frecuentes sobre Villa Solmira: capacidad, piscina, check-in, mascotas, wifi y más."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -118,6 +120,10 @@ const items = [
       <h1>Preguntas frecuentes</h1>
       <p>¿No encuentras tu pregunta? No dudes en contactarnos.</p>
     </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Foto: vista aérea de Villa Solmira" image={photo('drone5.jpg')} />
   </section>
 
   <section class="section section--tight">

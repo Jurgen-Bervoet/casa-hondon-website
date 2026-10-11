@@ -6,15 +6,17 @@
 @import '@fontsource/inter/600.css';
 
 :root {
-  --color-cream: #f6f1e2;
-  --color-cream-deep: #ecdec0;
-  --color-ink: #262b2e;
-  --color-green-deep: #2c5866;
-  --color-green: #3d7690;
-  --color-sage: #8ecddf;
-  --color-clay: #ed871c;
-  --color-clay-deep: #c96b12;
-  --color-line: #ddd2b3;
+  /* "Olive Grove" palette — olijfbomen, amandelbomen en wijngaarden van het
+     binnenland, in plaats van de vorige strand/zee-blauwtinten. */
+  --color-cream: #f3efe4;
+  --color-cream-deep: #e3d5b8;
+  --color-ink: #3a3328;
+  --color-green-deep: #5e654a;
+  --color-green: #7d8566;
+  --color-sage: #c9d0b4;
+  --color-clay: #c17a3a;
+  --color-clay-deep: #a2632c;
+  --color-line: #ddd0ac;
 
   --font-serif: 'Playfair Display', 'Georgia', serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -65,6 +67,7 @@ h1 {
 
 h2 {
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  margin-bottom: 0.9em;
 }
 
 h3 {
@@ -142,7 +145,7 @@ p {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 1.7rem;
-  border-radius: 999px;
+  border-radius: 0;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.95rem;

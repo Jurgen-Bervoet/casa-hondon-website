@@ -5,7 +5,7 @@ taal: en
 
 ## Intro
 
-Have a question about Casa Lana that isn't related to a booking request? Feel free
+Have a question about Villa Solmira that isn't related to a booking request? Feel free
 to get in touch.
 
 ## Details

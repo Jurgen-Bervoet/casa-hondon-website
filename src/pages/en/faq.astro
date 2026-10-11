@@ -2,7 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import FAQList from '../../components/FAQList.astro';
 import CTABlock from '../../components/CTABlock.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
 import { ROUTES } from '../../i18n/routes';
+import { photo } from '../../lib/images';
 
 const items = [
   {
@@ -44,7 +46,7 @@ const items = [
   {
     question: 'Are pets allowed?',
     answer:
-      "We'd rather not host pets. If you have a specific question about this, feel free to contact us — we'll look at what's possible.",
+      "Pets are negotiable. Get in touch beforehand and we'll look at it together on a case-by-case basis.",
   },
   {
     question: 'Are children welcome?',
@@ -109,8 +111,8 @@ const items = [
 <Layout
   lang="en"
   active="faq"
-  title="Frequently Asked Questions — Casa Lana"
-  description="Answers to the most common questions about Casa Lana: capacity, pool, check-in, pets, wifi and more."
+  title="Frequently Asked Questions — Villa Solmira"
+  description="Answers to the most common questions about Villa Solmira: capacity, pool, check-in, pets, wifi and more."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -118,6 +120,10 @@ const items = [
       <h1>Frequently asked questions</h1>
       <p>Can't find your question? Feel free to get in touch.</p>
     </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Photo: aerial view of Villa Solmira" image={photo('drone5.jpg')} />
   </section>
 
   <section class="section section--tight">

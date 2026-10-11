@@ -1,13 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactForm from '../../components/ContactForm.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
+import { photo } from '../../lib/images';
 ---
 
 <Layout
   lang="fr"
   active="contact"
-  title="Contact — Casa Lana"
-  description="Contactez-nous à propos de Casa Lana, la maison de vacances à Hondón de las Nieves."
+  title="Contact — Villa Solmira"
+  description="Contactez-nous à propos de Villa Solmira, la maison de vacances à Hondón de las Nieves."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -23,6 +25,10 @@ import ContactForm from '../../components/ContactForm.astro';
         souhaitées, du nombre d'adultes et d'enfants, et de vos coordonnées.
       </p>
     </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Photo : vue aérienne de Villa Solmira" image={photo('drone7.png')} />
   </section>
 
   <section class="section section--tight">

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import AlternatingStory from '../../components/AlternatingStory.astro';
 import CTABlock from '../../components/CTABlock.astro';
@@ -26,7 +27,7 @@ const chapters = [
   },
   {
     heading: 'Jusqu\'à ce que nous trouvions cet endroit',
-    imageLabel: 'Photo : Casa Lana au coucher du soleil',
+    imageLabel: 'Photo : Villa Solmira au coucher du soleil',
     image: photo('IMG_6065.jpg'),
     paragraphs: [
       `Une maison spacieuse, une piscine magnifique, 10 000 m² de terrain, des montagnes tout autour de nous et, surtout, énormément de calme. Pas de files d'hôtels, pas de plages bondées, pas de tourisme de masse. Juste refermer le portail derrière soi et sentir le rythme ralentir naturellement.`,
@@ -35,7 +36,7 @@ const chapters = [
   },
   {
     heading: 'Chez nous en Espagne',
-    imageLabel: 'Photo : cuisine de Casa Lana',
+    imageLabel: 'Photo : cuisine de Villa Solmira',
     image: photo('keuken1-1.jpg'),
     paragraphs: [
       `Envie de cuisiner le soir et de dîner tranquillement ensemble ? Tout est disponible. Envie de sortir, de chercher un restaurant, d'aller sur un marché, de visiter une ville ou de rejoindre la côte ? Vous montez en voiture, et vous avez étonnamment beaucoup à portée de main.`,
@@ -46,9 +47,9 @@ const chapters = [
     imageLabel: 'Photo : chambre pour les invités',
     image: photo('slaapkamer2-1.jpg'),
     paragraphs: [
-      `Nous avons acheté Casa Lana avant tout pour nous-mêmes et notre famille. Nous partageons avec plaisir cet endroit avec des personnes qui recherchent la même chose que nous : le calme, l'espace, du temps l'un pour l'autre, et une pause loin de l'agitation. Cela peut être en famille, entre amis, ou avec deux couples ensemble. Ceux qui souhaitent passer quelques semaines dans un endroit tranquille tout en travaillant de temps en temps y trouvent aussi tout l'espace nécessaire.`,
-      `Un week-end de fête effréné ne correspond pas à Casa Lana — il existe bien d'autres endroits en Espagne pour cela. Nous entretenons de bonnes relations avec les personnes qui vivent dans les environs et respectons le calme qui règne ici.`,
-      `Nous avons choisi et aménagé cet endroit avec beaucoup d'amour. Et c'est avec le même plaisir que nous l'ouvrons à celles et ceux qui souhaitent en profiter et en prendre soin. Ainsi, Casa Lana ne reste pas seulement notre histoire : elle devient aussi un lieu où d'autres familles et amis peuvent créer de beaux souvenirs.`,
+      `Nous avons acheté Villa Solmira avant tout pour nous-mêmes et notre famille. Nous partageons avec plaisir cet endroit avec des personnes qui recherchent la même chose que nous : le calme, l'espace, du temps l'un pour l'autre, et une pause loin de l'agitation. Cela peut être en famille, entre amis, ou avec deux couples ensemble. Ceux qui souhaitent passer quelques semaines dans un endroit tranquille tout en travaillant de temps en temps y trouvent aussi tout l'espace nécessaire.`,
+      `Un week-end de fête effréné ne correspond pas à Villa Solmira — il existe bien d'autres endroits en Espagne pour cela. Nous entretenons de bonnes relations avec les personnes qui vivent dans les environs et respectons le calme qui règne ici.`,
+      `Nous avons choisi et aménagé cet endroit avec beaucoup d'amour. Et c'est avec le même plaisir que nous l'ouvrons à celles et ceux qui souhaitent en profiter et en prendre soin. Ainsi, Villa Solmira ne reste pas seulement notre histoire : elle devient aussi un lieu où d'autres familles et amis peuvent créer de beaux souvenirs.`,
     ],
   },
 ];
@@ -57,17 +58,18 @@ const chapters = [
 <Layout
   lang="fr"
   active="story"
-  title="Notre Histoire — Casa Lana"
-  description="Des vacances annuelles à un lieu bien à nous en Espagne : l'histoire derrière Casa Lana à Hondón de las Nieves."
+  title="Notre Histoire — Villa Solmira"
+  description="Des vacances annuelles à un lieu bien à nous en Espagne : l'histoire derrière Villa Solmira à Hondón de las Nieves."
 >
-  <section class="section">
+  <section class="section decor-host">
+    <Image src={photo('palmbladeren-watercolor.png')} alt="" class="decor-img" width={400} />
     <div class="wrap page-intro">
       <span class="eyebrow">Notre Histoire</span>
       <h1>Des vacances annuelles à un lieu bien à nous en Espagne</h1>
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--tight section--white">
     <div class="wrap">
       <AlternatingStory items={chapters} />
     </div>

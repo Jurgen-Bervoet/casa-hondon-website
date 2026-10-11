@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import AvailabilityCalendar from '../components/AvailabilityCalendar.astro';
 import BookingForm from '../components/BookingForm.astro';
+import PricingTable from '../components/PricingTable.astro';
+import PhotoBand from '../components/PhotoBand.astro';
 import { fetchBusyRanges } from '../lib/calendar';
+import { photo } from '../lib/images';
+import { ROUTES } from '../i18n/routes';
 
 const bookedRanges = await fetchBusyRanges();
 ---
@@ -10,8 +14,8 @@ const bookedRanges = await fetchBusyRanges();
 <Layout
   lang="nl"
   active="availability"
-  title="Prijzen & Beschikbaarheid — Casa Lana"
-  description="Bekijk de beschikbaarheid van Casa Lana, de prijzen, betalingsvoorwaarden en annuleringsvoorwaarden."
+  title="Prijzen & Beschikbaarheid — Villa Solmira"
+  description="Bekijk de beschikbaarheid van Villa Solmira, de prijzen, betalingsvoorwaarden en annuleringsvoorwaarden."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -20,6 +24,44 @@ const bookedRanges = await fetchBusyRanges();
       <p>
         Bekijk in onze kalender wanneer het huis beschikbaar is en kies de periode die voor
         jullie past. Er is geen vaste aankomstdag.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Foto: zwembad en terras" image={photo('terras1-15.png')} />
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Prijzen</h2>
+      <p class="section-intro">
+        Onze prijzen zijn afhankelijk van het seizoen. Hieronder vind je een eerste richtprijs
+        per seizoen — de definitieve tarieven volgen hier binnenkort.
+      </p>
+      <PricingTable
+        headers={{ season: 'Seizoen', period: 'Periode', perWeek: 'Per week' }}
+        rows={[
+          {
+            season: 'Laagseizoen',
+            period: '15 september t/m 14 maart (buiten Kerst & Nieuwjaar)',
+            perWeek: '€ 750',
+          },
+          {
+            season: 'Middenseizoen',
+            period: '15 maart t/m 14 juni, en Kerst & Nieuwjaar',
+            perWeek: '€ 950',
+          },
+          {
+            season: 'Hoogseizoen',
+            period: '15 juni t/m 14 september',
+            perWeek: '€ 1.450',
+          },
+        ]}
+      />
+      <p class="fine-print">
+        Opmerking: dit zijn voorlopige richtprijzen op basis van vergelijkbare woningen in de
+        omgeving. De definitieve tarieven worden hier aangevuld zodra ze vastliggen.
       </p>
     </div>
   </section>
@@ -59,49 +101,17 @@ const bookedRanges = await fetchBusyRanges();
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Aankomst en vertrek</h2>
+      <h2>Goed om te weten</h2>
       <ul class="practical">
-        <li>Inchecken kan tussen 16:00 en 21:00 uur. Voor aankomst na 21:00 uur wordt € 25 aangerekend.</li>
-        <li>Op de dag van vertrek vragen we om het huis uiterlijk om 11:00 uur vrij te maken.</li>
-        <li>Een keyholder ontvangt jullie persoonlijk bij aankomst en geeft de nodige uitleg over het huis.</li>
-        <li><strong>Minimum verblijfsduur</strong> — nog te bevestigen</li>
-        <li><strong>Huisdieren</strong> — we ontvangen liever geen huisdieren, neem gerust contact op met specifieke vragen</li>
-        <li><strong>Roken</strong> — niet toegestaan binnenshuis</li>
+        <li>Inchecken kan tussen 16:00 en 21:00 uur, uitchecken uiterlijk om 11:00 uur.</li>
+        <li>Je reservatie is definitief na betaling van 50% van de huursom; het restbedrag en de waarborg (€ 800) betaal je één maand voor aankomst.</li>
+        <li>Annuleren kan gratis tot 8 weken vooraf. Daarna gelden oplopende annuleringskosten.</li>
       </ul>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap two-col">
-      <div>
-        <h2>Betaling</h2>
-        <ul class="practical">
-          <li>Je reservatie is definitief na betaling van 50% van de totale huursom.</li>
-          <li>Het resterende bedrag betaal je uiterlijk één maand voor aankomst.</li>
-          <li>De waarborg bedraagt € 800 en wordt eveneens één maand voor aankomst betaald. Na vertrek wordt het huis gecontroleerd; wanneer alles in orde is, wordt de waarborg binnen één week teruggestort.</li>
-          <li>De verplichte eindschoonmaak bedraagt € 150 per verblijf.</li>
-        </ul>
-        <h2 class="mt">Energie</h2>
-        <ul class="practical">
-          <li>Energiekosten zijn inbegrepen op basis van een standaardverbruik van € 8 elektriciteit per dag en € 5 water per dag. Verbruik boven dit standaardverbruik wordt verrekend met de waarborg.</li>
-        </ul>
-        <p class="fine-print">
-          Opmerking: deze regeling wordt nog bevestigd zodra vastligt hoe het verbruik gemeten en afgerekend wordt.
-        </p>
-      </div>
-      <div>
-        <h2>Annuleringsvoorwaarden</h2>
-        <ul class="practical">
-          <li>Annulering 8 weken voor de aanvang van de huurperiode: 0% van de huurprijs.</li>
-          <li>Annulering 6 weken voor de aanvang van de huurperiode: 25% van de huurprijs.</li>
-          <li>Annulering 2 weken voor de aanvang van de huurperiode: 100% van de huurprijs.</li>
-        </ul>
-        <p class="fine-print">
-          Opmerking: de regeling voor annuleringen tussen 6 en 2 weken voor aanvang moet nog
-          worden vastgelegd.
-        </p>
-        <p class="fine-print">De verhuurder is niet verantwoordelijk voor ongevallen of diefstal.</p>
-      </div>
+      <p class="fine-print">
+        Dit zijn de belangrijkste punten in het kort. Alle details — waaronder huisregels,
+        energiekosten en aansprakelijkheid — vind je in onze{' '}
+        <a href={ROUTES.terms.nl}>algemene voorwaarden</a>.
+      </p>
     </div>
   </section>
 </Layout>
@@ -109,6 +119,11 @@ const bookedRanges = await fetchBusyRanges();
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .two-col {
@@ -141,13 +156,14 @@ const bookedRanges = await fetchBusyRanges();
     border-radius: 0;
   }
 
-  .mt {
-    margin-top: 2rem;
-  }
-
   .fine-print {
     margin-top: 1rem;
     font-size: 0.85rem;
     color: #57534a;
+  }
+
+  .fine-print a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
   }
 </style>

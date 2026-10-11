@@ -1,6 +1,6 @@
 # Te verifiëren / aan te vullen feiten
 
-Bijgewerkt na verwerking van `brainstorm/Casa_Lana_webteksten_concept.docx` (2026-09-21) —
+Bijgewerkt na verwerking van `brainstorm/Villa_Solmira_webteksten_concept.docx` (2026-09-21) —
 dit document is nu de bron van waarheid voor de site-content en is vrijwel volledig verwerkt
 in de live pagina's (alle 4 talen). De losse `.md`-bestanden in `nl/`, `es/`, `en/`, `fr/` in
 deze map dateren van vóór dat document en zijn **verouderd/achterhaald** — voor de actuele
@@ -8,7 +8,7 @@ tekst, kijk in de `.astro`-pagina's zelf (`src/pages/`) of in het brainstorm-doc
 
 ## Nog open
 
-- Definitieve huisnaam (nu overal "Casa Lana" — expliciet een werknaam volgens het
+- Definitieve huisnaam (nu overal "Villa Solmira" — expliciet een werknaam volgens het
   brainstorm-document)
 - E-mailadres en telefoonnummer (nu placeholders: info@casalana.example / +34 XXX XXX XXX)
 - Minimum verblijfsduur
@@ -22,7 +22,7 @@ tekst, kijk in de `.astro`-pagina's zelf (`src/pages/`) of in het brainstorm-doc
 - Franse, Spaanse en Engelse vertaling zijn door mij gemaakt op basis van de NL-brontekst —
   laat dit nalezen door een native speaker voor publicatie
 
-## Opgelost (uit `Casa_Lana_webteksten_concept.docx`, 2026-09-21)
+## Opgelost (uit `Villa_Solmira_webteksten_concept.docx`, 2026-09-21)
 
 - Capaciteit: 6 personen, 3 slaapkamers (bed 160 cm breed), 2 badkamers
 - Zwembad: privé, 3 x 11 meter, niet verwarmd, wekelijks onderhoud op donderdag, geen

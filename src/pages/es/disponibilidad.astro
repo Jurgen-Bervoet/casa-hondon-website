@@ -2,7 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import AvailabilityCalendar from '../../components/AvailabilityCalendar.astro';
 import BookingForm from '../../components/BookingForm.astro';
+import PricingTable from '../../components/PricingTable.astro';
+import PhotoBand from '../../components/PhotoBand.astro';
 import { fetchBusyRanges } from '../../lib/calendar';
+import { photo } from '../../lib/images';
+import { ROUTES } from '../../i18n/routes';
 
 const bookedRanges = await fetchBusyRanges();
 ---
@@ -10,8 +14,8 @@ const bookedRanges = await fetchBusyRanges();
 <Layout
   lang="es"
   active="availability"
-  title="Precios y Disponibilidad — Casa Lana"
-  description="Consulta la disponibilidad de Casa Lana, los precios, las condiciones de pago y las condiciones de cancelación."
+  title="Precios y Disponibilidad — Villa Solmira"
+  description="Consulta la disponibilidad de Villa Solmira, los precios, las condiciones de pago y las condiciones de cancelación."
 >
   <section class="section">
     <div class="wrap page-intro">
@@ -20,6 +24,44 @@ const bookedRanges = await fetchBusyRanges();
       <p>
         Consulta en nuestro calendario cuándo está disponible la casa y elige el periodo que
         mejor os convenga. No hay un día de llegada fijo.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <PhotoBand label="Foto: piscina y terraza" image={photo('terras1-15.png')} />
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <h2>Precios</h2>
+      <p class="section-intro">
+        Nuestros precios dependen de la temporada. A continuación encontrarás un primer precio
+        orientativo por temporada — las tarifas definitivas se añadirán aquí próximamente.
+      </p>
+      <PricingTable
+        headers={{ season: 'Temporada', period: 'Periodo', perWeek: 'Por semana' }}
+        rows={[
+          {
+            season: 'Temporada baja',
+            period: 'Del 15 de septiembre al 14 de marzo (excepto Navidad y Año Nuevo)',
+            perWeek: '750 €',
+          },
+          {
+            season: 'Temporada media',
+            period: 'Del 15 de marzo al 14 de junio, y Navidad y Año Nuevo',
+            perWeek: '950 €',
+          },
+          {
+            season: 'Temporada alta',
+            period: 'Del 15 de junio al 14 de septiembre',
+            perWeek: '1.450 €',
+          },
+        ]}
+      />
+      <p class="fine-print">
+        Nota: estos son precios orientativos provisionales basados en viviendas similares en la
+        zona. Las tarifas definitivas se añadirán aquí en cuanto estén fijadas.
       </p>
     </div>
   </section>
@@ -59,48 +101,17 @@ const bookedRanges = await fetchBusyRanges();
 
   <section class="section section--tight">
     <div class="wrap">
-      <h2>Llegada y salida</h2>
+      <h2>Lo más importante</h2>
       <ul class="practical">
-        <li>El check-in es entre las 16:00 y las 21:00. Para llegadas después de las 21:00 se cobran 25 €.</li>
-        <li>El día de salida pedimos dejar la casa libre como máximo a las 11:00.</li>
-        <li>Un keyholder os recibirá en persona a la llegada y os dará las explicaciones necesarias sobre la casa.</li>
-        <li><strong>Estancia mínima</strong> — por confirmar</li>
-        <li><strong>Mascotas</strong> — preferimos no recibir mascotas, contacta con nosotros para consultas concretas</li>
-        <li><strong>Fumar</strong> — no permitido en el interior</li>
+        <li>El check-in es entre las 16:00 y las 21:00; el check-out, como máximo a las 11:00.</li>
+        <li>Tu reserva es definitiva tras el pago del 50% del alquiler; el resto y la fianza (800 €) se pagan un mes antes de la llegada.</li>
+        <li>Puedes cancelar gratis hasta 8 semanas antes. A partir de ahí se aplican costes de cancelación crecientes.</li>
       </ul>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap two-col">
-      <div>
-        <h2>Pago</h2>
-        <ul class="practical">
-          <li>Tu reserva es definitiva tras el pago del 50% del importe total del alquiler.</li>
-          <li>El importe restante se paga como máximo un mes antes de la llegada.</li>
-          <li>La fianza es de 800 € y también se paga un mes antes de la llegada. Tras la salida se revisa la casa; si todo está en orden, la fianza se devuelve en un plazo de una semana.</li>
-          <li>La limpieza final obligatoria cuesta 150 € por estancia.</li>
-        </ul>
-        <h2 class="mt">Energía</h2>
-        <ul class="practical">
-          <li>Los costes de energía están incluidos sobre la base de un consumo estándar de 8 € de electricidad al día y 5 € de agua al día. El consumo por encima de este estándar se descuenta de la fianza.</li>
-        </ul>
-        <p class="fine-print">
-          Nota: esta regulación se confirmará en cuanto se determine cómo se mide y se liquida el consumo.
-        </p>
-      </div>
-      <div>
-        <h2>Condiciones de cancelación</h2>
-        <ul class="practical">
-          <li>Cancelación 8 semanas antes del inicio del alquiler: 0% del precio del alquiler.</li>
-          <li>Cancelación 6 semanas antes del inicio del alquiler: 25% del precio del alquiler.</li>
-          <li>Cancelación 2 semanas antes del inicio del alquiler: 100% del precio del alquiler.</li>
-        </ul>
-        <p class="fine-print">
-          Nota: aún debe definirse la regulación para las cancelaciones entre 6 y 2 semanas antes del inicio.
-        </p>
-        <p class="fine-print">El arrendador no se hace responsable de accidentes o robos.</p>
-      </div>
+      <p class="fine-print">
+        Estos son los puntos más importantes en resumen. Todos los detalles — incluidas las
+        normas de la casa, los costes de energía y la responsabilidad — los encontrarás en
+        nuestras <a href={ROUTES.terms.es}>condiciones generales</a>.
+      </p>
     </div>
   </section>
 </Layout>
@@ -108,6 +119,11 @@ const bookedRanges = await fetchBusyRanges();
 <style>
   .page-intro {
     max-width: 68ch;
+  }
+
+  .section-intro {
+    max-width: 68ch;
+    margin-bottom: 2rem;
   }
 
   .two-col {
@@ -140,13 +156,14 @@ const bookedRanges = await fetchBusyRanges();
     border-radius: 0;
   }
 
-  .mt {
-    margin-top: 2rem;
-  }
-
   .fine-print {
     margin-top: 1rem;
     font-size: 0.85rem;
     color: #57534a;
+  }
+
+  .fine-print a {
+    color: var(--color-clay-deep);
+    font-weight: 600;
   }
 </style>

@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://casa-hondon.netlify.app',
+  site: 'https://villa-solmira.eu',
   integrations: [sitemap()],
 });

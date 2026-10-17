@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import FeatureCards from '../components/FeatureCards.astro';
 import PhotoCollage from '../components/PhotoCollage.astro';
 import PhotoMosaic from '../components/PhotoMosaic.astro';
-import CTABlock from '../components/CTABlock.astro';
+import PhotoCTABlock from '../components/PhotoCTABlock.astro';
 import { ROUTES } from '../i18n/routes';
 import { photo } from '../lib/images';
 ---
@@ -23,6 +23,7 @@ import { photo } from '../lib/images';
     ctaHref={ROUTES.availability.nl}
     imageLabel="Foto: zwembad en terras van Villa Solmira"
     image={photo('hero.jpg')}
+    showWeather
   />
 
   <section class="section section--white">
@@ -84,8 +85,8 @@ import { photo } from '../lib/images';
           {
             title: 'Rust & natuur',
             text: "Het huis staat helemaal alleen, in een oase van rust — enkel de krekels maken je 's nachts wakker.",
-            image: photo('IMG_6059.jpg'),
-            imageLabel: 'Foto: landschap rond Hondón de las Nieves',
+            image: photo('terras1-9.png'),
+            imageLabel: 'Foto: terras van Villa Solmira',
           },
           {
             title: 'Hondón de las Nieves',
@@ -140,11 +141,13 @@ import { photo } from '../lib/images';
     </div>
   </section>
 
-  <CTABlock
+  <PhotoCTABlock
     title="Plan je verblijf in Villa Solmira"
     text="Bekijk de beschikbaarheid en stuur een aanvraag — we bevestigen snel per e-mail."
     ctaLabel="Bekijk beschikbaarheid"
     ctaHref={ROUTES.availability.nl}
+    image={photo('drone7.png')}
+    imageLabel="Foto: luchtfoto van Villa Solmira"
   />
 </Layout>
 

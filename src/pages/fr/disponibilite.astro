@@ -36,8 +36,8 @@ const bookedRanges = await fetchBusyRanges();
     <div class="wrap">
       <h2>Tarifs</h2>
       <p class="section-intro">
-        Nos tarifs dépendent de la saison. Vous trouverez ci-dessous un premier prix indicatif
-        par saison — les tarifs définitifs seront ajoutés ici prochainement.
+        Nos tarifs dépendent de la saison. Vous trouverez ci-dessous le prix par semaine pour
+        chaque saison.
       </p>
       <PricingTable
         headers={{ season: 'Saison', period: 'Période', perWeek: 'Par semaine' }}
@@ -59,10 +59,6 @@ const bookedRanges = await fetchBusyRanges();
           },
         ]}
       />
-      <p class="fine-print">
-        Remarque : il s'agit de tarifs indicatifs provisoires, basés sur des biens comparables
-        dans la région. Les tarifs définitifs seront ajoutés ici dès qu'ils seront fixés.
-      </p>
     </div>
   </section>
 
@@ -76,6 +72,8 @@ const bookedRanges = await fetchBusyRanges();
           weekdayLabels={['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di']}
           legendAvailable="Disponible"
           legendBooked="Réservé"
+          prevLabel="Précédent"
+          nextLabel="Suivant"
           note="Vous ne voyez pas vos dates souhaitées marquées comme réservées ? Envoyez votre demande via le formulaire."
         />
       </div>
@@ -105,7 +103,9 @@ const bookedRanges = await fetchBusyRanges();
       <ul class="practical">
         <li>L'arrivée se fait entre 16h00 et 21h00, le départ au plus tard à 11h00.</li>
         <li>Votre réservation est définitive après le paiement de 50% du montant de la location ; le solde et la caution (800 €) sont réglés un mois avant l'arrivée.</li>
+        <li>Le forfait ménage de fin de séjour (150 €) est obligatoire et facturé séparément.</li>
         <li>L'annulation est gratuite jusqu'à 8 semaines avant le séjour. Passé ce délai, des frais d'annulation progressifs s'appliquent.</li>
+        <li>Le linge de lit et les serviettes sont inclus ; apportez vos propres serviettes de plage.</li>
       </ul>
       <p class="fine-print">
         Voici les points essentiels en bref. Pour tous les détails — dont le règlement
@@ -130,7 +130,12 @@ const bookedRanges = await fetchBusyRanges();
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .two-col > div {
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 780px) {
@@ -144,16 +149,21 @@ const bookedRanges = await fetchBusyRanges();
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.75rem;
     max-width: 60ch;
   }
 
   .practical li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .practical li:first-child {
+    padding-top: 0;
+  }
+
+  .practical li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .fine-print {

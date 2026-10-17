@@ -1,0 +1,100 @@
+---
+interface Props {
+  lat: number;
+  lon: number;
+  label: string;
+  consentText: string;
+  consentButtonLabel: string;
+}
+
+const { lat, lon, label, consentText, consentButtonLabel } = Astro.props;
+const mapSrc = `https://www.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
+---
+
+<div class="map-embed" data-map-embed data-src={mapSrc} data-label={label}>
+  <div class="map-embed__placeholder" data-map-placeholder>
+    <p class="map-embed__note">{consentText}</p>
+    <button type="button" class="btn btn--outline-dark" data-open-cookie-settings>
+      {consentButtonLabel}
+    </button>
+  </div>
+</div>
+
+<style>
+  .map-embed {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--color-cream-deep);
+    border: 1px solid var(--color-line);
+  }
+
+  .map-embed__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .map-embed__note {
+    max-width: 40ch;
+    font-size: 0.9rem;
+    color: #57534a;
+    margin: 0;
+  }
+
+  .map-embed :global(iframe) {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    /* Google's free embed has no style API — grayscale is the simplest way
+       to strip its default blue/green palette so the map sits quietly next
+       to our own colors instead of clashing with them. */
+    filter: grayscale(1) brightness(1.05);
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'casalana-cookie-consent';
+
+  type Consent = { necessary: true; analytics: boolean; marketing: boolean };
+
+  function readConsent(): Consent | null {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function loadMap(root: HTMLElement) {
+    const src = root.dataset.src;
+    const label = root.dataset.label ?? '';
+    if (!src) return;
+    // Already loaded? Don't replace it (e.g. consent flips true twice).
+    if (root.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = label;
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    root.replaceChildren(iframe);
+  }
+
+  const roots = document.querySelectorAll<HTMLElement>('[data-map-embed]');
+
+  function syncAll() {
+    const consent = readConsent();
+    if (!consent?.marketing) return;
+    roots.forEach(loadMap);
+  }
+
+  syncAll();
+  window.addEventListener('cookie-consent-updated', syncAll);
+</script>

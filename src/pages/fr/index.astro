@@ -5,7 +5,7 @@ import Hero from '../../components/Hero.astro';
 import FeatureCards from '../../components/FeatureCards.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
-import CTABlock from '../../components/CTABlock.astro';
+import PhotoCTABlock from '../../components/PhotoCTABlock.astro';
 import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -23,6 +23,7 @@ import { ROUTES } from '../../i18n/routes';
     ctaHref={ROUTES.availability.fr}
     imageLabel="Photo : piscine et terrasse de Villa Solmira"
     image={photo('hero.jpg')}
+    showWeather
   />
 
   <section class="section section--white">
@@ -85,8 +86,8 @@ import { ROUTES } from '../../i18n/routes';
           {
             title: 'Calme & nature',
             text: 'La maison est totalement isolée, dans une oasis de calme — seuls les grillons peuvent vous réveiller la nuit.',
-            image: photo('IMG_6059.jpg'),
-            imageLabel: 'Photo : paysage autour de Hondón de las Nieves',
+            image: photo('terras1-9.png'),
+            imageLabel: 'Photo : terrasse de Villa Solmira',
           },
           {
             title: 'Hondón de las Nieves',
@@ -142,11 +143,13 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <CTABlock
+  <PhotoCTABlock
     title="Planifiez votre séjour à Villa Solmira"
     text="Consultez les disponibilités et envoyez votre demande — nous confirmons rapidement par e-mail."
     ctaLabel="Voir les disponibilités"
     ctaHref={ROUTES.availability.fr}
+    image={photo('drone7.png')}
+    imageLabel="Photo : vue aérienne de Villa Solmira"
   />
 </Layout>
 

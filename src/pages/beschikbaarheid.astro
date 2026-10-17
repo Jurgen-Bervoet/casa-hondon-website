@@ -36,8 +36,8 @@ const bookedRanges = await fetchBusyRanges();
     <div class="wrap">
       <h2>Prijzen</h2>
       <p class="section-intro">
-        Onze prijzen zijn afhankelijk van het seizoen. Hieronder vind je een eerste richtprijs
-        per seizoen — de definitieve tarieven volgen hier binnenkort.
+        Onze prijzen zijn afhankelijk van het seizoen. Hieronder vind je de prijs per week voor
+        elk seizoen.
       </p>
       <PricingTable
         headers={{ season: 'Seizoen', period: 'Periode', perWeek: 'Per week' }}
@@ -59,10 +59,6 @@ const bookedRanges = await fetchBusyRanges();
           },
         ]}
       />
-      <p class="fine-print">
-        Opmerking: dit zijn voorlopige richtprijzen op basis van vergelijkbare woningen in de
-        omgeving. De definitieve tarieven worden hier aangevuld zodra ze vastliggen.
-      </p>
     </div>
   </section>
 
@@ -76,6 +72,8 @@ const bookedRanges = await fetchBusyRanges();
           weekdayLabels={['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo']}
           legendAvailable="Beschikbaar"
           legendBooked="Bezet"
+          prevLabel="Vorige"
+          nextLabel="Volgende"
           note="Zie je een datum die je wenst niet bezet staan? Stuur gerust je aanvraag door via het formulier."
         />
       </div>
@@ -105,7 +103,9 @@ const bookedRanges = await fetchBusyRanges();
       <ul class="practical">
         <li>Inchecken kan tussen 16:00 en 21:00 uur, uitchecken uiterlijk om 11:00 uur.</li>
         <li>Je reservatie is definitief na betaling van 50% van de huursom; het restbedrag en de waarborg (€ 800) betaal je één maand voor aankomst.</li>
+        <li>De eindschoonmaak (€ 150) is verplicht en wordt apart aangerekend.</li>
         <li>Annuleren kan gratis tot 8 weken vooraf. Daarna gelden oplopende annuleringskosten.</li>
+        <li>Bedlinnen en handdoeken zijn inbegrepen; strandlakens neem je zelf mee.</li>
       </ul>
       <p class="fine-print">
         Dit zijn de belangrijkste punten in het kort. Alle details — waaronder huisregels,
@@ -130,7 +130,12 @@ const bookedRanges = await fetchBusyRanges();
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .two-col > div {
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 780px) {
@@ -144,16 +149,21 @@ const bookedRanges = await fetchBusyRanges();
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.75rem;
     max-width: 60ch;
   }
 
   .practical li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .practical li:first-child {
+    padding-top: 0;
+  }
+
+  .practical li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .fine-print {

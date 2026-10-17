@@ -1,0 +1,94 @@
+---
+interface Props {
+  lat: number;
+  lon: number;
+}
+
+const { lat, lon } = Astro.props;
+---
+
+<div class="weather-badge" data-weather-badge data-lat={lat} data-lon={lon} hidden>
+  <span class="weather-badge__icon" data-weather-icon aria-hidden="true">☀️</span>
+  <span class="weather-badge__temp" data-weather-temp>--°</span>
+</div>
+
+<style>
+  .weather-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  .weather-badge[hidden] {
+    display: none;
+  }
+
+  .weather-badge__icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .weather-badge__temp {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  // WMO weather codes (Open-Meteo) -> a simple emoji. Covers the common cases;
+  // anything unmapped falls back to a neutral cloud rather than guessing.
+  const ICONS: Record<number, string> = {
+    0: '☀️',
+    1: '🌤️',
+    2: '⛅',
+    3: '☁️',
+    45: '🌫️',
+    48: '🌫️',
+    51: '🌦️',
+    53: '🌦️',
+    55: '🌦️',
+    61: '🌧️',
+    63: '🌧️',
+    65: '🌧️',
+    71: '🌨️',
+    73: '🌨️',
+    75: '🌨️',
+    80: '🌦️',
+    81: '🌧️',
+    82: '🌧️',
+    95: '⛈️',
+    96: '⛈️',
+    99: '⛈️',
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-weather-badge]').forEach((root) => {
+    const lat = root.dataset.lat;
+    const lon = root.dataset.lon;
+    if (!lat || !lon) return;
+
+    const tempEl = root.querySelector<HTMLElement>('[data-weather-temp]');
+    const iconEl = root.querySelector<HTMLElement>('[data-weather-icon]');
+
+    fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+    )
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => {
+        const temp = data?.current_weather?.temperature;
+        const code = data?.current_weather?.weathercode;
+        if (typeof temp !== 'number') return;
+        if (tempEl) tempEl.textContent = `${Math.round(temp)}°`;
+        if (iconEl && typeof code === 'number') iconEl.textContent = ICONS[code] ?? '☁️';
+        root.hidden = false;
+      })
+      .catch(() => {
+        // Weather API unreachable/blocked — just stay hidden rather than show stale/wrong data.
+      });
+  });
+</script>

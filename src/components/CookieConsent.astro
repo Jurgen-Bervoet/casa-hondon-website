@@ -250,6 +250,10 @@ const t = UI[lang].cookies;
     } catch {
       // localStorage unavailable (private browsing etc.) — consent just won't persist.
     }
+    // Let other components on the page (e.g. a consent-gated map embed) react
+    // immediately, without needing a reload or relying on the cross-tab-only
+    // 'storage' event.
+    window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: consent }));
   }
 
   const root = document.querySelector<HTMLElement>('[data-cookie-consent]');

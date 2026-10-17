@@ -36,8 +36,7 @@ const bookedRanges = await fetchBusyRanges();
     <div class="wrap">
       <h2>Pricing</h2>
       <p class="section-intro">
-        Our prices depend on the season. Below is a first indicative price per season — the
-        final rates will be added here soon.
+        Our prices depend on the season. Below is the price per week for each season.
       </p>
       <PricingTable
         headers={{ season: 'Season', period: 'Period', perWeek: 'Per week' }}
@@ -59,10 +58,6 @@ const bookedRanges = await fetchBusyRanges();
           },
         ]}
       />
-      <p class="fine-print">
-        Note: these are provisional indicative prices based on comparable properties in the
-        area. Final rates will be added here once confirmed.
-      </p>
     </div>
   </section>
 
@@ -76,6 +71,8 @@ const bookedRanges = await fetchBusyRanges();
           weekdayLabels={['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']}
           legendAvailable="Available"
           legendBooked="Booked"
+          prevLabel="Previous"
+          nextLabel="Next"
           note="Don't see your preferred dates marked as booked? Send your request via the form anyway."
         />
       </div>
@@ -105,7 +102,9 @@ const bookedRanges = await fetchBusyRanges();
       <ul class="practical">
         <li>Check-in is between 16:00 and 21:00; check-out is by 11:00 at the latest.</li>
         <li>Your booking is confirmed after payment of 50% of the rental sum; the remaining amount and the security deposit (€800) are due one month before arrival.</li>
+        <li>The final cleaning fee (€150) is mandatory and charged separately.</li>
         <li>You can cancel for free up to 8 weeks in advance. After that, cancellation fees apply on a sliding scale.</li>
+        <li>Bed linen and towels are included; bring your own beach towels.</li>
       </ul>
       <p class="fine-print">
         These are the key points in brief. For all details — including house rules, energy
@@ -129,7 +128,12 @@ const bookedRanges = await fetchBusyRanges();
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .two-col > div {
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 780px) {
@@ -143,16 +147,21 @@ const bookedRanges = await fetchBusyRanges();
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.75rem;
     max-width: 60ch;
   }
 
   .practical li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .practical li:first-child {
+    padding-top: 0;
+  }
+
+  .practical li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .fine-print {

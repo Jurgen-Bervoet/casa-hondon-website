@@ -29,13 +29,7 @@ const { items } = Astro.props;
         <div class="bedroom__body">
           <h3>{b.name}</h3>
           <p>{b.bed}</p>
-          {b.badges && b.badges.length > 0 && (
-            <div class="bedroom__badges">
-              {b.badges.map((badge) => (
-                <span class="bedroom__badge">{badge}</span>
-              ))}
-            </div>
-          )}
+          {b.badges && b.badges.map((badge) => <p>{badge}</p>)}
         </div>
       </article>
     ))
@@ -74,21 +68,8 @@ const { items } = Astro.props;
     color: #57534a;
   }
 
-  .bedroom__badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.6rem;
-  }
-
-  .bedroom__badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--color-clay-deep);
-    background: var(--color-cream-deep);
-    padding: 0.25rem 0.6rem;
+  .bedroom__body p + p {
+    margin-top: 0.3rem;
   }
 
   @media (max-width: 780px) {

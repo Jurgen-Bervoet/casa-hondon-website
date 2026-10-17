@@ -4,25 +4,32 @@ import { nextMonths, type DateRange } from '../lib/calendar';
 interface Props {
   bookedRanges: DateRange[];
   monthsToShow?: number;
+  monthsPerPage?: number;
   locale: string;
   weekdayLabels: string[];
   legendAvailable: string;
   legendBooked: string;
   note: string;
+  prevLabel: string;
+  nextLabel: string;
 }
 
 const {
   bookedRanges,
-  monthsToShow = 3,
+  monthsToShow = 24,
+  monthsPerPage = 2,
   locale,
   weekdayLabels,
   legendAvailable,
   legendBooked,
   note,
+  prevLabel,
+  nextLabel,
 } = Astro.props;
 
 const grids = nextMonths(monthsToShow, bookedRanges);
 const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const pageCount = Math.ceil(grids.length / monthsPerPage);
 ---
 
 <div class="calendar">
@@ -31,10 +38,10 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'n
     <span class="calendar__legend-item"><i class="dot dot--booked"></i>{legendBooked}</span>
   </div>
 
-  <div class="calendar__months">
+  <div class="calendar__months" data-calendar-months data-months-per-page={monthsPerPage}>
     {
-      grids.map((grid) => (
-        <div class="calendar__month-block">
+      grids.map((grid, i) => (
+        <div class="calendar__month-block" data-page={Math.floor(i / monthsPerPage)}>
           <p class="calendar__month">
             {monthFormatter.format(new Date(Date.UTC(grid.year, grid.month, 1)))}
           </p>
@@ -58,6 +65,15 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'n
     }
   </div>
 
+  <div class="calendar__pager">
+    <button type="button" class="btn btn--outline-dark" data-calendar-prev disabled>
+      {prevLabel}
+    </button>
+    <button type="button" class="btn btn--outline-dark" data-calendar-next disabled={pageCount <= 1}>
+      {nextLabel}
+    </button>
+  </div>
+
   <p class="calendar__note">{note}</p>
 </div>
 
@@ -67,6 +83,10 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'n
     border: 1px solid var(--color-line);
     border-radius: 0;
     padding: 1.75rem;
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
 
   .calendar__legend {
@@ -100,8 +120,38 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'n
 
   .calendar__months {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
+
+  .calendar__month-block[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 560px) {
+    .calendar__months {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .calendar__pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .calendar__pager .btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  .calendar__pager .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
 
   .calendar__month {
     font-family: var(--font-serif);
@@ -149,5 +199,45 @@ const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'long', year: 'n
     margin: 1.5rem 0 0;
     font-size: 0.8rem;
     color: #8a8577;
+    margin-top: auto;
+    padding-top: 1.5rem;
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-calendar-months]').forEach((monthsEl) => {
+    const calendar = monthsEl.closest('.calendar');
+    if (!calendar) return;
+
+    const blocks = Array.from(monthsEl.querySelectorAll<HTMLElement>('.calendar__month-block'));
+    const prevBtn = calendar.querySelector<HTMLButtonElement>('[data-calendar-prev]');
+    const nextBtn = calendar.querySelector<HTMLButtonElement>('[data-calendar-next]');
+    const pageCount = Math.max(...blocks.map((b) => Number(b.dataset.page ?? '0'))) + 1;
+
+    let page = 0;
+
+    function render() {
+      blocks.forEach((b) => {
+        b.hidden = Number(b.dataset.page ?? '0') !== page;
+      });
+      if (prevBtn) prevBtn.disabled = page === 0;
+      if (nextBtn) nextBtn.disabled = page >= pageCount - 1;
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      if (page > 0) {
+        page -= 1;
+        render();
+      }
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      if (page < pageCount - 1) {
+        page += 1;
+        render();
+      }
+    });
+
+    render();
+  });
+</script>

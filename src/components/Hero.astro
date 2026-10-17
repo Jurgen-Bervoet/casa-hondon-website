@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import PlaceholderImage from './PlaceholderImage.astro';
+import WeatherBadge from './WeatherBadge.astro';
 
 interface Props {
   title: string;
@@ -9,9 +10,10 @@ interface Props {
   ctaHref: string;
   imageLabel: string;
   image?: ImageMetadata;
+  showWeather?: boolean;
 }
 
-const { title, subtitle, ctaLabel, ctaHref, imageLabel, image } = Astro.props;
+const { title, subtitle, ctaLabel, ctaHref, imageLabel, image, showWeather } = Astro.props;
 ---
 
 <section class="hero">
@@ -30,6 +32,7 @@ const { title, subtitle, ctaLabel, ctaHref, imageLabel, image } = Astro.props;
     }
   </div>
   <div class="hero__overlay"></div>
+  {showWeather && <WeatherBadge lat={38.312833} lon={-0.899722} />}
   <div class="wrap hero__content">
     <h1>{title}</h1>
     <p class="hero__subtitle">{subtitle}</p>

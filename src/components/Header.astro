@@ -43,20 +43,27 @@ const navItems: { group: PageGroup; label: string }[] = [
       }
     </nav>
 
-    <div class="site-header__langs">
-      {
-        LANGS.map((l) => (
-          <a
-            href={ROUTES[active][l]}
-            class:list={['site-header__lang', { 'is-active': l === lang }]}
-            aria-current={l === lang ? 'true' : undefined}
-            onclick="document.cookie='lang-chosen=1;path=/;max-age=31536000'"
-          >
-            {LANG_LABELS[l]}
-          </a>
-        ))
-      }
-    </div>
+    <details class="lang-switcher">
+      <summary class="lang-switcher__current">
+        {LANG_LABELS[lang]}
+        <svg class="lang-switcher__chevron" width="9" height="6" viewBox="0 0 9 6" aria-hidden="true">
+          <path d="M1 1l3.5 3.5L8 1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <div class="lang-switcher__menu">
+        {
+          LANGS.filter((l) => l !== lang).map((l) => (
+            <a
+              href={ROUTES[active][l]}
+              class="lang-switcher__option"
+              onclick="document.cookie='lang-chosen=1;path=/;max-age=31536000'"
+            >
+              {LANG_LABELS[l]}
+            </a>
+          ))
+        }
+      </div>
+    </details>
   </div>
 </header>
 
@@ -84,7 +91,7 @@ const navItems: { group: PageGroup; label: string }[] = [
     font-family: var(--font-serif);
     font-size: 1.35rem;
     text-decoration: none;
-    color: var(--color-green-deep);
+    color: var(--color-clay-deep);
     letter-spacing: 0.01em;
   }
 
@@ -113,24 +120,64 @@ const navItems: { group: PageGroup; label: string }[] = [
     color: var(--color-clay-deep);
   }
 
-  .site-header__langs {
-    display: flex;
-    gap: 0.4rem;
+  .lang-switcher {
+    position: relative;
   }
 
-  .site-header__lang {
+  .lang-switcher__current {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-green-deep);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--color-line);
+    user-select: none;
+  }
+
+  .lang-switcher__current::-webkit-details-marker {
+    display: none;
+  }
+
+  .lang-switcher__chevron {
+    color: var(--color-green);
+    transition: transform 0.15s ease;
+  }
+
+  .lang-switcher[open] .lang-switcher__chevron {
+    transform: rotate(180deg);
+  }
+
+  .lang-switcher__menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    box-shadow: 0 8px 20px rgba(20, 30, 20, 0.08);
+  }
+
+  .lang-switcher__option {
     text-decoration: none;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--color-green);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0;
+    color: var(--color-ink);
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
   }
 
-  .site-header__lang.is-active {
-    background: var(--color-green-deep);
-    color: var(--color-cream);
+  .lang-switcher__option:hover {
+    background: var(--color-cream-deep);
+    color: var(--color-green-deep);
   }
 
   .nav-toggle-input {
@@ -176,3 +223,13 @@ const navItems: { group: PageGroup; label: string }[] = [
     }
   }
 </style>
+
+<script>
+  // Close the language dropdown on outside click (native <details> only
+  // closes on a second click of its own summary).
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll<HTMLDetailsElement>('.lang-switcher[open]').forEach((el) => {
+      if (!el.contains(e.target as Node)) el.open = false;
+    });
+  });
+</script>

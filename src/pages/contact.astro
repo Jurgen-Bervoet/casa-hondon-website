@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import PhotoBand from '../components/PhotoBand.astro';
+import MapEmbed from '../components/MapEmbed.astro';
 import { photo } from '../lib/images';
 ---
 
@@ -53,6 +54,15 @@ import { photo } from '../lib/images';
           }}
         />
       </div>
+    </div>
+    <div class="wrap map-wrap">
+      <MapEmbed
+        lat={38.312833}
+        lon={-0.899722}
+        label="Kaart: locatie van Villa Solmira"
+        consentText="Je hebt marketingcookies niet geaccepteerd, dus tonen we hier geen Google Maps. Pas je voorkeuren aan om de kaart te zien."
+        consentButtonLabel="Cookie-instellingen aanpassen"
+      />
     </div>
   </section>
 </Layout>
@@ -109,5 +119,9 @@ import { photo } from '../lib/images';
   .contact-details a:hover {
     color: var(--color-green-deep);
     text-decoration: underline;
+  }
+
+  .map-wrap {
+    margin-top: 2.5rem;
   }
 </style>

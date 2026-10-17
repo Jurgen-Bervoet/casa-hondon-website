@@ -36,8 +36,8 @@ const bookedRanges = await fetchBusyRanges();
     <div class="wrap">
       <h2>Precios</h2>
       <p class="section-intro">
-        Nuestros precios dependen de la temporada. A continuación encontrarás un primer precio
-        orientativo por temporada — las tarifas definitivas se añadirán aquí próximamente.
+        Nuestros precios dependen de la temporada. A continuación encontrarás el precio por
+        semana para cada temporada.
       </p>
       <PricingTable
         headers={{ season: 'Temporada', period: 'Periodo', perWeek: 'Por semana' }}
@@ -59,10 +59,6 @@ const bookedRanges = await fetchBusyRanges();
           },
         ]}
       />
-      <p class="fine-print">
-        Nota: estos son precios orientativos provisionales basados en viviendas similares en la
-        zona. Las tarifas definitivas se añadirán aquí en cuanto estén fijadas.
-      </p>
     </div>
   </section>
 
@@ -76,6 +72,8 @@ const bookedRanges = await fetchBusyRanges();
           weekdayLabels={['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do']}
           legendAvailable="Disponible"
           legendBooked="Ocupado"
+          prevLabel="Anterior"
+          nextLabel="Siguiente"
           note="¿No ves disponible la fecha que buscas? Envíanos tu solicitud igualmente a través del formulario."
         />
       </div>
@@ -105,7 +103,9 @@ const bookedRanges = await fetchBusyRanges();
       <ul class="practical">
         <li>El check-in es entre las 16:00 y las 21:00; el check-out, como máximo a las 11:00.</li>
         <li>Tu reserva es definitiva tras el pago del 50% del alquiler; el resto y la fianza (800 €) se pagan un mes antes de la llegada.</li>
+        <li>La limpieza final (150 €) es obligatoria y se cobra aparte.</li>
         <li>Puedes cancelar gratis hasta 8 semanas antes. A partir de ahí se aplican costes de cancelación crecientes.</li>
+        <li>La ropa de cama y las toallas están incluidas; trae tus propias toallas de playa.</li>
       </ul>
       <p class="fine-print">
         Estos son los puntos más importantes en resumen. Todos los detalles — incluidas las
@@ -130,7 +130,12 @@ const bookedRanges = await fetchBusyRanges();
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .two-col > div {
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 780px) {
@@ -144,16 +149,21 @@ const bookedRanges = await fetchBusyRanges();
     list-style: none;
     margin: 0;
     padding: 0;
-    display: grid;
-    gap: 0.75rem;
     max-width: 60ch;
   }
 
   .practical li {
-    padding: 0.9rem 1.1rem;
-    background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 0;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .practical li:first-child {
+    padding-top: 0;
+  }
+
+  .practical li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .fine-print {

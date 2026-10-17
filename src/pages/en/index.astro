@@ -5,7 +5,7 @@ import Hero from '../../components/Hero.astro';
 import FeatureCards from '../../components/FeatureCards.astro';
 import PhotoCollage from '../../components/PhotoCollage.astro';
 import PhotoMosaic from '../../components/PhotoMosaic.astro';
-import CTABlock from '../../components/CTABlock.astro';
+import PhotoCTABlock from '../../components/PhotoCTABlock.astro';
 import { photo } from '../../lib/images';
 import { ROUTES } from '../../i18n/routes';
 ---
@@ -23,6 +23,7 @@ import { ROUTES } from '../../i18n/routes';
     ctaHref={ROUTES.availability.en}
     imageLabel="Photo: pool and terrace at Villa Solmira"
     image={photo('hero.jpg')}
+    showWeather
   />
 
   <section class="section section--white">
@@ -83,8 +84,8 @@ import { ROUTES } from '../../i18n/routes';
           {
             title: 'Peace & nature',
             text: 'The house stands completely on its own, in an oasis of calm — only the crickets might wake you at night.',
-            image: photo('IMG_6059.jpg'),
-            imageLabel: 'Photo: landscape around Hondón de las Nieves',
+            image: photo('terras1-9.png'),
+            imageLabel: 'Photo: terrace of Villa Solmira',
           },
           {
             title: 'Hondón de las Nieves',
@@ -139,11 +140,13 @@ import { ROUTES } from '../../i18n/routes';
     </div>
   </section>
 
-  <CTABlock
+  <PhotoCTABlock
     title="Plan your stay at Villa Solmira"
     text="Check availability and send a request — we confirm quickly by email."
     ctaLabel="Check availability"
     ctaHref={ROUTES.availability.en}
+    image={photo('drone7.png')}
+    imageLabel="Photo: aerial view of Villa Solmira"
   />
 </Layout>
 

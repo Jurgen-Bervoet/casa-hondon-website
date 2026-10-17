@@ -53,6 +53,15 @@ import playasDeGuardamar1Jpg from '../images/playas-de-guardamar1.jpg';
 import drone2Jpg from '../images/drone2.jpg';
 import buitentafel14Jpg from '../images/buitentafel1-4.jpg';
 import terras114bPng from '../images/terras1-14b.png';
+import evelienSanSebastianJpeg from '../images/evelien-san-sebastian.jpeg';
+import evelienSpanjeJpg from '../images/evelien-spanje.jpg';
+import familieBervoetZwJpg from '../images/familie-bervoet-zw.jpg';
+import slaapkamer13Jpg from '../images/slaapkamer1-3.jpg';
+import handdoekenJpg from '../images/handdoeken.jpg';
+import drone6Jpg from '../images/drone6.jpg';
+import woonkamer1Jpg from '../images/woonkamer1.jpg';
+import woonkamer17Jpg from '../images/woonkamer1-7.jpg';
+import terras19Png from '../images/terras1-9.png';
 import terras115Png from '../images/terras1-15.png';
 import drone5Jpg from '../images/drone5.jpg';
 import drone7Png from '../images/drone7.png';
@@ -103,6 +112,15 @@ const byFilename: Record<string, ImageMetadata> = {
   'drone2.jpg': drone2Jpg,
   'buitentafel1-4.jpg': buitentafel14Jpg,
   'terras1-14b.png': terras114bPng,
+  'evelien-san-sebastian.jpeg': evelienSanSebastianJpeg,
+  'evelien-spanje.jpg': evelienSpanjeJpg,
+  'familie-bervoet-zw.jpg': familieBervoetZwJpg,
+  'slaapkamer1-3.jpg': slaapkamer13Jpg,
+  'handdoeken.jpg': handdoekenJpg,
+  'drone6.jpg': drone6Jpg,
+  'woonkamer1.jpg': woonkamer1Jpg,
+  'woonkamer1-7.jpg': woonkamer17Jpg,
+  'terras1-9.png': terras19Png,
   'terras1-15.png': terras115Png,
   'drone5.jpg': drone5Jpg,
   'drone7.png': drone7Png,

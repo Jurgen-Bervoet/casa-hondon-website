@@ -106,6 +106,10 @@ import { ROUTES } from '../../i18n/routes';
         ]}
       />
     </div>
+    <div class="wrap facility-cta">
+      <a href={ROUTES.availability.fr} class="btn btn--clay">Voir les disponibilités</a>
+      <a href="#galerie-photo" class="btn btn--outline-dark">Voir la galerie photo</a>
+    </div>
   </section>
 
   <section class="section section--tight">
@@ -267,4 +271,11 @@ import { ROUTES } from '../../i18n/routes';
     margin-bottom: 2rem;
   }
 
+  .facility-cta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
 </style>

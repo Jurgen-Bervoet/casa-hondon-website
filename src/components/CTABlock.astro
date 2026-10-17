@@ -4,9 +4,10 @@ interface Props {
   text: string;
   ctaLabel: string;
   ctaHref: string;
+  ctaVariant?: 'outline' | 'clay';
 }
 
-const { title, text, ctaLabel, ctaHref } = Astro.props;
+const { title, text, ctaLabel, ctaHref, ctaVariant = 'outline' } = Astro.props;
 ---
 
 <section class="section section--sage cta-block">
@@ -15,7 +16,9 @@ const { title, text, ctaLabel, ctaHref } = Astro.props;
       <h2>{title}</h2>
       <p>{text}</p>
     </div>
-    <a href={ctaHref} class="btn btn--outline">{ctaLabel}</a>
+    <a href={ctaHref} class:list={['btn', ctaVariant === 'clay' ? 'btn--clay' : 'btn--outline']}>
+      {ctaLabel}
+    </a>
   </div>
 </section>
 

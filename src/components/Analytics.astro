@@ -1,0 +1,56 @@
+---
+import { GA_MEASUREMENT_ID } from '../lib/analytics';
+
+const gaId = GA_MEASUREMENT_ID;
+---
+
+{
+  gaId && (
+    <script is:inline define:vars={{ gaId }}>
+      (function () {
+        var STORAGE_KEY = 'casalana-cookie-consent';
+        var loaded = false;
+
+        function readConsent() {
+          try {
+            var raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        // Google's script is only requested after explicit consent — nothing
+        // reaches googletagmanager.com before the visitor opts in.
+        function loadGA() {
+          window['ga-disable-' + gaId] = false;
+          if (loaded) return;
+          loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () {
+            window.dataLayer.push(arguments);
+          };
+          window.gtag('js', new Date());
+          window.gtag('config', gaId);
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          document.head.appendChild(s);
+        }
+
+        function sync() {
+          var consent = readConsent();
+          if (consent && consent.analytics) {
+            loadGA();
+          } else if (loaded) {
+            // Consent withdrawn mid-visit: stop sending further hits.
+            window['ga-disable-' + gaId] = true;
+          }
+        }
+
+        sync();
+        window.addEventListener('cookie-consent-updated', sync);
+      })();
+    </script>
+  )
+}

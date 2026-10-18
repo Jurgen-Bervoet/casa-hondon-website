@@ -132,10 +132,13 @@ const { labels } = Astro.props;
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(data),
       })
-        .then(() => {
+        .then((res) => {
+          if (!res.ok) throw new Error(`Form submit failed: ${res.status}`);
           form.reset();
           successEl?.removeAttribute('hidden');
           if (submitBtn) submitBtn.style.display = 'none';
+          // No-op unless GA is loaded (i.e. configured and analytics consent given).
+          (window as any).gtag?.('event', 'generate_lead', { form_type: 'booking' });
         })
         .catch(() => {
           errorEl?.removeAttribute('hidden');

@@ -52,7 +52,7 @@ export const UI: Record<
     common: { checkAvailability: 'Bekijk beschikbaarheid' },
     cookies: {
       message:
-        'We gebruiken enkel strikt noodzakelijke cookies. Met jouw toestemming kunnen we in de toekomst ook analytische cookies gebruiken om de site te verbeteren.',
+        'We gebruiken strikt noodzakelijke cookies. Met jouw toestemming gebruiken we ook analytische cookies om de site te verbeteren, en tonen we de Google Maps-kaart op de contactpagina.',
       acceptAll: 'Alles accepteren',
       rejectAll: 'Weigeren',
       customize: 'Instellingen',
@@ -61,9 +61,9 @@ export const UI: Record<
       necessaryTitle: 'Strikt noodzakelijk',
       necessaryText: 'Nodig om de site goed te laten werken. Kan niet uitgeschakeld worden.',
       analyticsTitle: 'Analytisch',
-      analyticsText: 'Helpt ons begrijpen hoe bezoekers de site gebruiken. Momenteel niet actief.',
+      analyticsText: 'Google Analytics helpt ons begrijpen hoe bezoekers de site gebruiken.',
       marketingTitle: 'Marketing',
-      marketingText: 'Voor gepersonaliseerde advertenties. Momenteel niet actief.',
+      marketingText: 'Voor externe diensten zoals de Google Maps-kaart op de contactpagina.',
       save: 'Voorkeuren opslaan',
       alwaysOn: 'Altijd aan',
       privacyLink: 'Privacyverklaring',
@@ -88,7 +88,7 @@ export const UI: Record<
     common: { checkAvailability: 'Consultar disponibilidad' },
     cookies: {
       message:
-        'Solo utilizamos cookies estrictamente necesarias. Con tu consentimiento, en el futuro podremos usar también cookies analíticas para mejorar la web.',
+        'Utilizamos cookies estrictamente necesarias. Con tu consentimiento, usamos también cookies analíticas para mejorar la web y mostramos el mapa de Google Maps en la página de contacto.',
       acceptAll: 'Aceptar todo',
       rejectAll: 'Rechazar',
       customize: 'Configurar',
@@ -97,9 +97,9 @@ export const UI: Record<
       necessaryTitle: 'Estrictamente necesarias',
       necessaryText: 'Necesarias para que la web funcione correctamente. No se pueden desactivar.',
       analyticsTitle: 'Analíticas',
-      analyticsText: 'Nos ayudan a entender cómo se usa la web. Actualmente inactivas.',
+      analyticsText: 'Google Analytics nos ayuda a entender cómo se usa la web.',
       marketingTitle: 'Marketing',
-      marketingText: 'Para anuncios personalizados. Actualmente inactivas.',
+      marketingText: 'Para servicios externos como el mapa de Google Maps en la página de contacto.',
       save: 'Guardar preferencias',
       alwaysOn: 'Siempre activas',
       privacyLink: 'Política de privacidad',
@@ -124,7 +124,7 @@ export const UI: Record<
     common: { checkAvailability: 'Check availability' },
     cookies: {
       message:
-        "We only use strictly necessary cookies. With your consent, we may use analytics cookies in the future to improve the site.",
+        'We use strictly necessary cookies. With your consent, we also use analytics cookies to improve the site and show the Google Maps map on the contact page.',
       acceptAll: 'Accept all',
       rejectAll: 'Reject',
       customize: 'Settings',
@@ -133,9 +133,9 @@ export const UI: Record<
       necessaryTitle: 'Strictly necessary',
       necessaryText: "Required for the site to work properly. Can't be switched off.",
       analyticsTitle: 'Analytics',
-      analyticsText: 'Helps us understand how visitors use the site. Currently not active.',
+      analyticsText: 'Google Analytics helps us understand how visitors use the site.',
       marketingTitle: 'Marketing',
-      marketingText: 'For personalised ads. Currently not active.',
+      marketingText: 'For external services such as the Google Maps map on the contact page.',
       save: 'Save preferences',
       alwaysOn: 'Always on',
       privacyLink: 'Privacy Policy',
@@ -160,7 +160,7 @@ export const UI: Record<
     common: { checkAvailability: 'Voir les disponibilités' },
     cookies: {
       message:
-        "Nous utilisons uniquement des cookies strictement nécessaires. Avec votre consentement, nous pourrions utiliser à l'avenir des cookies analytiques pour améliorer le site.",
+        "Nous utilisons des cookies strictement nécessaires. Avec votre consentement, nous utilisons aussi des cookies analytiques pour améliorer le site et affichons la carte Google Maps sur la page de contact.",
       acceptAll: 'Tout accepter',
       rejectAll: 'Refuser',
       customize: 'Paramètres',
@@ -169,9 +169,9 @@ export const UI: Record<
       necessaryTitle: 'Strictement nécessaires',
       necessaryText: 'Indispensables au bon fonctionnement du site. Ne peuvent pas être désactivés.',
       analyticsTitle: 'Analytiques',
-      analyticsText: "Nous aident à comprendre comment le site est utilisé. Actuellement inactifs.",
+      analyticsText: 'Google Analytics nous aide à comprendre comment le site est utilisé.',
       marketingTitle: 'Marketing',
-      marketingText: 'Pour des publicités personnalisées. Actuellement inactifs.',
+      marketingText: 'Pour des services externes comme la carte Google Maps sur la page de contact.',
       save: 'Enregistrer les préférences',
       alwaysOn: 'Toujours actifs',
       privacyLink: 'Politique de confidentialité',

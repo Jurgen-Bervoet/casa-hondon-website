@@ -1,0 +1,2 @@
+# Old Netlify subdomain → custom domain (avoid duplicate content)
+https://casa-hondon.netlify.app/* https://villa-solmira.eu/:splat 301!

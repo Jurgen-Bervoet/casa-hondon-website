@@ -32,30 +32,72 @@ const OG_LOCALES: Record<Lang, string> = {
   fr: 'fr_FR',
 };
 
+const LAT = 38.312833;
+const LON = -0.899722;
+
+const droneImage = await getImage({ src: photo('drone7.png'), width: 1200 });
+const poolImage = await getImage({ src: photo('zwembad en terras.jpg'), width: 1200 });
+
+const SD_TEXT: Record<Lang, { description: string; amenities: string[] }> = {
+  nl: {
+    description:
+      'Vakantiehuis met privézwembad (3 x 12 m) in Hondón de las Nieves, Alicante — 6 personen, 3 slaapkamers, 2 badkamers, 10.000 m² volledig omheind terrein.',
+    amenities: ['Privézwembad', 'Wifi', 'Airconditioning', 'Pelletkachel', 'Garage', 'Volledig uitgeruste keuken', 'Terras'],
+  },
+  es: {
+    description:
+      'Casa de vacaciones con piscina privada (3 x 12 m) en Hondón de las Nieves, Alicante — 6 personas, 3 dormitorios, 2 baños, parcela de 10.000 m² completamente vallada.',
+    amenities: ['Piscina privada', 'Wifi', 'Aire acondicionado', 'Estufa de pellets', 'Garaje', 'Cocina totalmente equipada', 'Terraza'],
+  },
+  en: {
+    description:
+      'Holiday home with a private pool (3 x 12 m) in Hondón de las Nieves, Alicante — 6 guests, 3 bedrooms, 2 bathrooms, fully fenced 10,000 m² plot.',
+    amenities: ['Private pool', 'Wifi', 'Air conditioning', 'Pellet stove', 'Garage', 'Fully equipped kitchen', 'Terrace'],
+  },
+  fr: {
+    description:
+      'Maison de vacances avec piscine privée (3 x 12 m) à Hondón de las Nieves, Alicante — 6 personnes, 3 chambres, 2 salles de bain, terrain entièrement clôturé de 10 000 m².',
+    amenities: ['Piscine privée', 'Wifi', 'Climatisation', 'Poêle à pellets', 'Garage', 'Cuisine entièrement équipée', 'Terrasse'],
+  },
+};
+
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
   '@id': `${site}#business`,
   name: 'Villa Solmira',
-  description:
-    'Vakantiehuis met privézwembad (3 x 12 m) in Hondón de las Nieves, Alicante — 6 personen, 3 slaapkamers, 2 badkamers, 10.000 m² volledig omheind terrein.',
-  url: site.toString(),
-  image: imageURL.toString(),
+  description: SD_TEXT[lang].description,
+  url: new URL(ROUTES.home[lang], site).toString(),
+  image: [imageURL, new URL(droneImage.src, site), new URL(poolImage.src, site)].map(String),
+  email: 'info@villa-solmira.eu',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Solana 15',
+    postalCode: '03688',
     addressLocality: 'Hondón de las Nieves',
     addressRegion: 'Alicante',
     addressCountry: 'ES',
   },
-  amenityFeature: [
-    'Privézwembad',
-    'Wifi',
-    'Airconditioning',
-    'Pelletkachel',
-    'Garage',
-    '3 slaapkamers',
-    '2 badkamers',
-  ].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
+  geo: { '@type': 'GeoCoordinates', latitude: LAT, longitude: LON },
+  hasMap: `https://www.google.com/maps?q=${LAT},${LON}`,
+  sameAs: ['https://www.google.com/search?kgmid=/g/11p22hcldz'],
+  checkinTime: '16:00',
+  checkoutTime: '11:00',
+  numberOfRooms: 3,
+  priceRange: '€750 – €1.450 / week',
+  availableLanguage: ['nl', 'es', 'en', 'fr'],
+  amenityFeature: SD_TEXT[lang].amenities.map((name) => ({
+    '@type': 'LocationFeatureSpecification',
+    name,
+    value: true,
+  })),
+  containsPlace: {
+    '@type': 'House',
+    name: 'Villa Solmira',
+    numberOfBedrooms: 3,
+    numberOfBathroomsTotal: 2,
+    occupancy: { '@type': 'QuantitativeValue', maxValue: 6, unitText: 'persons' },
+  },
 };
 ---
 

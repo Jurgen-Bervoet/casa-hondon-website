@@ -143,6 +143,8 @@ const structuredData = {
           (function () {
             try {
               if (document.cookie.indexOf('lang-chosen=1') !== -1) return;
+              // Never redirect crawlers: they must be able to index the Dutch pages.
+              if (/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|lighthouse|headless/i.test(navigator.userAgent)) return;
               var prefs = navigator.languages || [navigator.language || ''];
               var match = null;
               for (var i = 0; i < prefs.length; i++) {
